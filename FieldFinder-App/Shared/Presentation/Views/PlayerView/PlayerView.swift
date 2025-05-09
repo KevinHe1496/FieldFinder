@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct PlayerView: View {
+    @State private var searchText = ""
+    
     var body: some View {
         NavigationStack{
-            Text("Player View")
+            VStack {
+                
+            }
+            .searchable(text: $searchText)
+            .navigationTitle("Canchas")
         }
     }
 }
