@@ -47,6 +47,7 @@
 		C9C7BAB82DCE8A60007CB3FA /* MapEstablishmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BAB72DCE8A60007CB3FA /* MapEstablishmentsView.swift */; };
 		C9C7BABB2DCE8A9D007CB3FA /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BABA2DCE8A9D007CB3FA /* FavoritesView.swift */; };
 		C9C7BABE2DCE8D71007CB3FA /* ProfileUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BABD2DCE8D71007CB3FA /* ProfileUserView.swift */; };
+		C9EB21642DCEA1D400DD8164 /* Helperasd.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB21632DCEA1CF00DD8164 /* Helperasd.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		C9C7BAB72DCE8A60007CB3FA /* MapEstablishmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEstablishmentsView.swift; sourceTree = "<group>"; };
 		C9C7BABA2DCE8A9D007CB3FA /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		C9C7BABD2DCE8D71007CB3FA /* ProfileUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserView.swift; sourceTree = "<group>"; };
+		C9EB21632DCEA1CF00DD8164 /* Helperasd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helperasd.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -215,6 +217,7 @@
 		BF5614B02DCE712F003C1F66 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C9EB21632DCEA1CF00DD8164 /* Helperasd.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				BF5614A82DCE6E8B003C1F66 /* RegisterField.swift in Sources */,
 				C939BC832DCCF94D00B98C16 /* LoadingView.swift in Sources */,
 				C939BC5C2DCCF4BE00B98C16 /* FieldFinder_AppApp.swift in Sources */,
+				C9EB21642DCEA1D400DD8164 /* Helperasd.swift in Sources */,
 				BFFB27F22DCD45F100DD8819 /* LoginRepositoryProtocol.swift in Sources */,
 				C939BC7D2DCCF8F900B98C16 /* CustomButtonLoginRegister.swift in Sources */,
 				BFFB28F42DCD61A200DD8819 /* RootView.swift in Sources */,
