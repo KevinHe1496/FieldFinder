@@ -110,9 +110,6 @@ struct RegisterOwnerView: View {
                         Divider()
                         Toggle("Bar", isOn: $bar)
                         
-                        Divider()
-                        Toggle("Cubierta", isOn: $cubierto)
-                        
                     }
                     .padding()
                     .background(.grayColorTF)
