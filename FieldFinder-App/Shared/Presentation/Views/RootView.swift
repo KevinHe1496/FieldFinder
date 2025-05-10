@@ -18,9 +18,20 @@ struct RootView: View {
         case .loading:
             LoadingView()
         case .loaded:
-            Text("Loaded")
+            if let role = appState.userRole {
+                switch role {
+                    
+                case .dueno:
+                   OwnerView()
+                case .jugador:
+                   PlayerView()
+                }
+            } else {
+                Text("Loading... no sirve nose por que")
+            }
+            
         case .register:
-            Text("Registro")
+            RegisterOwnerView()
         case .error(error: let errorString):
             Text("Error \(errorString)")
         }

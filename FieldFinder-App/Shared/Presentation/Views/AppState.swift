@@ -6,6 +6,7 @@ final class AppState {
     // Published
     var status = StatusModel.none
     var tokenJWT: String = ""
+    var userRole: UserRole?
     // No Published
     @ObservationIgnored
     var isLogged: Bool = false
@@ -28,8 +29,14 @@ final class AppState {
         self.status = .loading
         
         Task {
-            if (try await loginUseCase.loginApp(user: user, password: password) == true) {
+            
+            let loginApp = try await loginUseCase.loginApp(user: user, password: password)
+            
+            if loginApp == true {
                 // Login Success
+                let user = try await GetMeUseCase().getUser()
+                self.userRole = user.userRole
+                
                 self.status = .loaded
             } else {
                 // Login Error
