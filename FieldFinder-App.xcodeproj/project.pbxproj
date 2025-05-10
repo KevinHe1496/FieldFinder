@@ -11,6 +11,12 @@
 		BF1125862DCEC22000A9DBE5 /* RegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125852DCEC21C00A9DBE5 /* RegisterRepository.swift */; };
 		BF1125882DCEC2B700A9DBE5 /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125872DCEC2B200A9DBE5 /* RegisterUseCase.swift */; };
 		BF11258B2DCEC64B00A9DBE5 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11258A2DCEC64800A9DBE5 /* RegisterViewModel.swift */; };
+		BF1125932DCF9F6500A9DBE5 /* UserRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125922DCF9F6500A9DBE5 /* UserRole.swift */; };
+		BF1125952DCFA01800A9DBE5 /* GetMeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125942DCFA01100A9DBE5 /* GetMeModel.swift */; };
+		BF1125972DCFA07B00A9DBE5 /* NetworkGetMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125962DCFA07000A9DBE5 /* NetworkGetMe.swift */; };
+		BF11259D2DCFA8C100A9DBE5 /* GetMeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11259C2DCFA8BB00A9DBE5 /* GetMeRepository.swift */; };
+		BF11259F2DCFA8E800A9DBE5 /* GetMeRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11259E2DCFA8E300A9DBE5 /* GetMeRepositoryProtocol.swift */; };
+		BF1125A12DCFA92900A9DBE5 /* GetMeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125A02DCFA92200A9DBE5 /* GetMeUseCase.swift */; };
 		BF5614A82DCE6E8B003C1F66 /* RegisterField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5614A72DCE6E8B003C1F66 /* RegisterField.swift */; };
 		BF9719082DCD16D700CD0AF8 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9719072DCD16D700CD0AF8 /* StatusModel.swift */; };
 		BF97190A2DCD199800CD0AF8 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9719092DCD198F00CD0AF8 /* AppState.swift */; };
@@ -75,6 +81,12 @@
 		BF1125852DCEC21C00A9DBE5 /* RegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepository.swift; sourceTree = "<group>"; };
 		BF1125872DCEC2B200A9DBE5 /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
 		BF11258A2DCEC64800A9DBE5 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		BF1125922DCF9F6500A9DBE5 /* UserRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRole.swift; sourceTree = "<group>"; };
+		BF1125942DCFA01100A9DBE5 /* GetMeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMeModel.swift; sourceTree = "<group>"; };
+		BF1125962DCFA07000A9DBE5 /* NetworkGetMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGetMe.swift; sourceTree = "<group>"; };
+		BF11259C2DCFA8BB00A9DBE5 /* GetMeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMeRepository.swift; sourceTree = "<group>"; };
+		BF11259E2DCFA8E300A9DBE5 /* GetMeRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMeRepositoryProtocol.swift; sourceTree = "<group>"; };
+		BF1125A02DCFA92200A9DBE5 /* GetMeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMeUseCase.swift; sourceTree = "<group>"; };
 		BF5614A72DCE6E8B003C1F66 /* RegisterField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterField.swift; sourceTree = "<group>"; };
 		BF9719072DCD16D700CD0AF8 /* StatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatusModel.swift; path = "FieldFinder-App/Shared/Domain/Entities/StatusModel.swift"; sourceTree = SOURCE_ROOT; };
 		BF9719092DCD198F00CD0AF8 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -176,6 +188,7 @@
 		BF5614AA2DCE705C003C1F66 /* Usecases */ = {
 			isa = PBXGroup;
 			children = (
+				BF1125A02DCFA92200A9DBE5 /* GetMeUseCase.swift */,
 				BF1125872DCEC2B200A9DBE5 /* RegisterUseCase.swift */,
 				BFFB27F52DCD471600DD8819 /* LoginUseCase.swift */,
 			);
@@ -194,6 +207,7 @@
 		BF5614AC2DCE708B003C1F66 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				BF11259E2DCFA8E300A9DBE5 /* GetMeRepositoryProtocol.swift */,
 				BF1125832DCEC1E500A9DBE5 /* RegisterRepositoryProtocol.swift */,
 				BFFB27F12DCD45F100DD8819 /* LoginRepositoryProtocol.swift */,
 				BFFB27F72DCD472400DD8819 /* LoginUseCaseProtocol.swift */,
@@ -204,6 +218,8 @@
 		BF5614AD2DCE7095003C1F66 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				BF1125942DCFA01100A9DBE5 /* GetMeModel.swift */,
+				BF1125922DCF9F6500A9DBE5 /* UserRole.swift */,
 				BFFB27F92DCD585300DD8819 /* LoginResponse.swift */,
 				BF9719072DCD16D700CD0AF8 /* StatusModel.swift */,
 				C95989122DCE9AEC00AC4B5D /* RegisterModel.swift */,
@@ -225,6 +241,7 @@
 		BF5614AF2DCE70E0003C1F66 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				BF11259C2DCFA8BB00A9DBE5 /* GetMeRepository.swift */,
 				BF1125852DCEC21C00A9DBE5 /* RegisterRepository.swift */,
 				BFFB27F32DCD462300DD8819 /* LoginRepository.swift */,
 			);
@@ -314,6 +331,7 @@
 				C939BC652DCCF62E00B98C16 /* Local */,
 				BF5614AE2DCE70C3003C1F66 /* BaseNetwork */,
 				BFFB27E72DCD3D6800DD8819 /* NetworkLogin.swift */,
+				BF1125962DCFA07000A9DBE5 /* NetworkGetMe.swift */,
 				C959890E2DCE99B200AC4B5D /* NetworkRegister.swift */,
 			);
 			path = Network;
@@ -606,6 +624,7 @@
 				BF1125882DCEC2B700A9DBE5 /* RegisterUseCase.swift in Sources */,
 				BF97190E2DCD1BE600CD0AF8 /* HttpMethods.swift in Sources */,
 				BF97190C2DCD1BD100CD0AF8 /* Endpoints.swift in Sources */,
+				BF1125A12DCFA92900A9DBE5 /* GetMeUseCase.swift in Sources */,
 				C939BC852DCCF95800B98C16 /* LoginView.swift in Sources */,
 				BFFB27F82DCD472400DD8819 /* LoginUseCaseProtocol.swift in Sources */,
 				C9C7BAA92DCE88B8007CB3FA /* CustomTabBarView.swift in Sources */,
@@ -616,9 +635,11 @@
 				C95989132DCE9AEC00AC4B5D /* RegisterModel.swift in Sources */,
 				C9B0AD6B2DCD00950043A9A2 /* RegisterView.swift in Sources */,
 				C9C7BABE2DCE8D71007CB3FA /* ProfileUserView.swift in Sources */,
+				BF1125952DCFA01800A9DBE5 /* GetMeModel.swift in Sources */,
 				C939BC7B2DCCF8F000B98C16 /* CustomSecureFieldView.swift in Sources */,
 				BF1125842DCEC1F100A9DBE5 /* RegisterRepositoryProtocol.swift in Sources */,
 				BFFB28F02DCD5F7C00DD8819 /* FFPersistenceKeyChain.swift in Sources */,
+				BF1125972DCFA07B00A9DBE5 /* NetworkGetMe.swift in Sources */,
 				BF9719102DCD1BFD00CD0AF8 /* HttpResponseCodes.swift in Sources */,
 				C9C7BAB52DCE8A29007CB3FA /* OwnerView.swift in Sources */,
 				C9B0AD6D2DCD07EB0043A9A2 /* RegisterOwnerView.swift in Sources */,
@@ -634,11 +655,14 @@
 				BF1125862DCEC22000A9DBE5 /* RegisterRepository.swift in Sources */,
 				BFFB27E82DCD3D6E00DD8819 /* NetworkLogin.swift in Sources */,
 				BF5614A82DCE6E8B003C1F66 /* RegisterField.swift in Sources */,
+				BF11259D2DCFA8C100A9DBE5 /* GetMeRepository.swift in Sources */,
+				BF11259F2DCFA8E800A9DBE5 /* GetMeRepositoryProtocol.swift in Sources */,
 				C939BC832DCCF94D00B98C16 /* LoadingView.swift in Sources */,
 				BF11258B2DCEC64B00A9DBE5 /* RegisterViewModel.swift in Sources */,
 				C939BC5C2DCCF4BE00B98C16 /* FieldFinder_AppApp.swift in Sources */,
 				BFFB27F22DCD45F100DD8819 /* LoginRepositoryProtocol.swift in Sources */,
 				C939BC7D2DCCF8F900B98C16 /* CustomButtonLoginRegister.swift in Sources */,
+				BF1125932DCF9F6500A9DBE5 /* UserRole.swift in Sources */,
 				BFFB28F42DCD61A200DD8819 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

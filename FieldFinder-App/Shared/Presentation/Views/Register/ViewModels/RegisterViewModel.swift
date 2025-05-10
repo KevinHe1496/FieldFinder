@@ -33,9 +33,16 @@ final class RegisterViewModel {
             let result = try await useCase.registerUsers(name: name, email: email, password: password, rol: rol)
             
             if result {
-                appState.status = .none
-                isLoading = false
-                return nil
+                if rol == "dueno" {
+                    appState.status = .register
+                    isLoading = false
+                    return nil
+                } else {
+                    appState.status = .none
+                    isLoading = false
+                    return nil
+                }
+                
             } else {
                 appState.status = .error(error: "Incorrect username or password")
                 isLoading = false
