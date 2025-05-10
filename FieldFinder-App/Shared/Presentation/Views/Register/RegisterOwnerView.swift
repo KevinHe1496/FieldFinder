@@ -13,9 +13,7 @@ struct RegisterOwnerView: View {
     @State private var zipcode = ""
     @State private var parqueadero = false
     @State private var vestidores = false
-
     @State private var bar = false
-    @State private var cubierto = false
 
     var body: some View {
         NavigationStack {
@@ -95,6 +93,8 @@ struct RegisterOwnerView: View {
                     
                     CustomTextFieldLogin(titleKey: "Info", textField: $info, keyboardType: .default, prompt: Text("info"), Bgcolor: .grayColorTF)
                     
+
+
                     CustomTextFieldLogin(titleKey: "País", textField: $selectedCountry, keyboardType: .default, prompt: Text("País"), Bgcolor: .grayColorTF)
                     
                     CustomTextFieldLogin(titleKey: "Dirección", textField: $address, keyboardType: .default, prompt: Text("Dirección"), Bgcolor: .grayColorTF)
@@ -121,6 +121,7 @@ struct RegisterOwnerView: View {
                     CustomButtonLoginRegister(title: "Registrar", color: .primaryColorGreen, textColor: .white) {
                         
                     }
+
                 }
                 .padding()
                 
