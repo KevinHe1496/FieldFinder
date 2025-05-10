@@ -118,8 +118,9 @@ struct LoginView: View {
                         
                     }
                     Spacer()
-                    Button {
+                    NavigationLink {
                         // To do
+                        RegisterView(appState: appState)
                     } label: {
                         Text("Don't have an account? **Sign Up**")
                             .font(.appDescription)
