@@ -13,9 +13,7 @@ struct RegisterOwnerView: View {
     @State private var zipcode = ""
     @State private var parqueadero = false
     @State private var vestidores = false
-
     @State private var bar = false
-    @State private var cubierto = false
 
     var body: some View {
         ScrollView {
@@ -110,9 +108,6 @@ struct RegisterOwnerView: View {
                     
                     Divider()
                     Toggle("Bar", isOn: $bar)
-                    
-                    Divider()
-                    Toggle("Cubierta", isOn: $cubierto)
   
                 }
                 .padding()

@@ -13,8 +13,6 @@ enum UserRole: String, CaseIterable, Identifiable {
     case jugador = "Jugador"
     case dueno = "Dueno"
     
-    
-    
     var id: String { self.rawValue }
     
     var displayName: String {
