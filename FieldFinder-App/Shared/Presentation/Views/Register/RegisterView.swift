@@ -11,18 +11,38 @@ import SwiftUI
 // 1. Enum con los roles
 enum UserRole: String, CaseIterable, Identifiable {
     case jugador = "Jugador"
-    case dueno = "Dueño"
+    case dueno = "Dueno"
+    
+    
     
     var id: String { self.rawValue }
+    
+    var displayName: String {
+        switch self {
+        case .jugador:
+            return "Jugador"
+        case .dueno:
+            return "Dueño"
+        }
+    }
 }
 
 
 struct RegisterView: View {
     
     // MARK: - State Properties
+    
+    @Environment(AppState.self) var appState
+    @State private var viewModel: RegisterViewModel
+    
+    @State private var name = ""
     @State private var email = ""
     @State private var password = ""
     @State private var selectedRole: UserRole = .jugador
+    
+    init(appState: AppState) {
+        _viewModel = State(initialValue: RegisterViewModel(appState: appState))
+    }
     
     var body: some View {
         NavigationStack {
@@ -39,6 +59,17 @@ struct RegisterView: View {
                     // MARK: - Login Form Section
                     Section {
                         VStack(spacing: 15) {
+                            
+                            // Name input field
+                            
+                            CustomTextFieldLogin(
+                                titleKey: "Name",
+                                textField: $name,
+                                keyboardType: .default,
+                                prompt: Text("Enter your name"),
+                                Bgcolor: .thirdColorWhite
+                            )
+                            
                             // Email input field
                             CustomTextFieldLogin(
                                 titleKey: "Email",
@@ -47,8 +78,8 @@ struct RegisterView: View {
                                 prompt: Text(
                                     "Enter your email"
                                 ), Bgcolor: .thirdColorWhite
-                                
                             )
+                            
                             
                             // Password input field
                             CustomSecureFieldView(titleKey: "Password", textField: $password, keyboardType: .default, prompt: Text("Enter your password"))
@@ -61,7 +92,7 @@ struct RegisterView: View {
                                 Spacer()
                                 Picker("Selecciona tu rol", selection: $selectedRole) {
                                     ForEach(UserRole.allCases) { role in
-                                        Text(role.rawValue)
+                                        Text(role.displayName)
                                             .tag(role)
                                     }
                                 }
@@ -75,7 +106,20 @@ struct RegisterView: View {
                             
                             // Sign in button
                             CustomButtonLoginRegister(title: "Registrar", color: .thirdColorWhite, textColor: .secondaryColorBlack) {
-                                // To do
+                                Task {
+                                    let error = await viewModel.userRegister(
+                                        name: name,
+                                        email: email,
+                                        password: password,
+                                        rol: selectedRole.rawValue.lowercased()
+                                    )
+                                    
+                                    if let error = error {
+                                        print("Error al registrar: \(error)")
+                                    } else {
+                                        print("Registro existoso")
+                                    }
+                                }
                             }
                         }
                     } header: {
@@ -97,5 +141,6 @@ struct RegisterView: View {
 }
 
 #Preview {
-    RegisterView()
+    RegisterView(appState: AppState())
+        .environment(AppState())
 }

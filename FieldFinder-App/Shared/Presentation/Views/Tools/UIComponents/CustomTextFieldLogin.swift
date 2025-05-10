@@ -15,10 +15,12 @@ struct CustomTextFieldLogin: View {
             .background(Bgcolor)
             .clipShape(.buttonBorder)
             .keyboardType(keyboardType)
+            .textInputAutocapitalization(.never)
+            .autocorrectionDisabled(true)
         
     }
 }
 
 #Preview {
-    CustomTextFieldLogin(titleKey: "Email", textField: .constant("example@example.com"), keyboardType: .emailAddress, prompt: Text("Email"), Bgcolor: .gray)
+    CustomTextFieldLogin(titleKey: "Email", textField: .constant(""), keyboardType: .emailAddress, prompt: Text("Email"), Bgcolor: .gray)
 }
