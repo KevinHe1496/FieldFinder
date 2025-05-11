@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct ProfileUserView: View {
+    @Environment(AppState.self) var appState
+    
     var body: some View {
-        Text("Profile User View")
+        
+        Button("Cerrar sesion") {
+            appState.closeSessionUser()
+        }
     }
 }
 
