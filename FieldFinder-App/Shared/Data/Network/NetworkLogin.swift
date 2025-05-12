@@ -28,7 +28,7 @@ final class NetworkLogin: NetworkLoginProtocol {
         request.httpMethod = HttpMethods.post
         
         // Headers
-        request.addValue(HttpMethods.content, forHTTPHeaderField: HttpMethods.contentTypeID)
+        request.addValue(HttpHeader.content, forHTTPHeaderField: HttpHeader.contentTypeID)
         request.addValue(segCredentials, forHTTPHeaderField: "Authorization")
         
         // Call to server

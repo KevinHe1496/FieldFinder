@@ -22,7 +22,7 @@ struct NetworkRegister: NetworkRegisterProtocol {
         // Create the URL Request
         var request: URLRequest = URLRequest(url: url)
         request.httpMethod = HttpMethods.post
-        request.setValue(HttpMethods.content, forHTTPHeaderField: HttpMethods.contentTypeID)
+        request.setValue(HttpHeader.content, forHTTPHeaderField: HttpHeader.contentTypeID)
         request.httpBody = jsonData
         
         do {
