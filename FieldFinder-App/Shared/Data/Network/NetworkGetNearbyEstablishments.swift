@@ -22,7 +22,7 @@ final class NetworkGetNearbyEstablishments: NetworkGetNearbyEstablishmentsProtoc
             throw FFError.badUrl
         }
         
-        let requestBody = GetNearbyRestaurantRequest(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        let requestBody = GetNearbyEstablishmentsRequest(latitude: coordinate.latitude, longitude: coordinate.longitude)
         let jsonData = try JSONEncoder().encode(requestBody)
         
         var request: URLRequest = URLRequest(url: url)

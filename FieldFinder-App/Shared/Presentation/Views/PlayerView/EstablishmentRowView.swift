@@ -10,65 +10,24 @@ import SwiftUI
 struct EstablishmentRowView: View {
     let establishment: Establecimiento
     @State private var isFavorite = false
-
+    @State private var animateFavorite = false
+    
     var body: some View {
         VStack(alignment: .leading) {
             ZStack(alignment: .topTrailing) {
-                if let firstPhotoURL = establishment.photoEstablishment.first {
-                    AsyncImage(url: firstPhotoURL) { phase in
-                        switch phase {
-                        case .empty:
-                            ProgressView()
-                                .frame(maxWidth: .infinity, minHeight: 250, maxHeight: 250)
-                                .background(.gray)
-                                .clipShape(RoundedRectangle(cornerRadius: 12))
-
-                        case .success(let image):
-                            image
-                                .resizable()
-                                .scaledToFill()
-                                .frame(maxWidth: .infinity, minHeight: 250, maxHeight: 250)
-                                .clipped()
-                                .clipShape(RoundedRectangle(cornerRadius: 12))
-                        case .failure:
-                            Image(systemName: "photo")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(maxWidth: .infinity, minHeight: 250, maxHeight: 250)
-                                .foregroundColor(.gray)
-                                .clipShape(RoundedRectangle(cornerRadius: 12))
-                        @unknown default:
-                            EmptyView()
-                        }
-                    }
-                } else {
-                    Image(systemName: "photo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: .infinity, minHeight: 250, maxHeight: 250)
-                        .foregroundColor(.gray)
-                }
-
+                RemoteImageCardView(url: establishment.photoEstablishment.first, height: 250)
+                
                 // Botón de favorito
-                Button(action: {
-                    isFavorite.toggle()
-                }) {
-                    Image(systemName: isFavorite ? "heart.fill" : "heart")
-                        .font(.system(size: 24))
-                        .foregroundColor(.red)
-                        .padding(8)
-                        .background(Color.white)
-                        .clipShape(Circle())
-                        .padding(15)
-                }
+                FavoriteButton(isFavorite: $isFavorite)
+                    .padding(15)
             }
-
+            
             VStack(alignment: .leading, spacing: 5) {
                 Text(establishment.name)
                     .font(.appSubtitle)
                     .foregroundStyle(.primaryColorGreen)
-                    
-
+                
+                
                 HStack {
                     Image(systemName: "pin.fill")
                         .foregroundStyle(.primaryColorGreen)
@@ -92,3 +51,6 @@ struct EstablishmentRowView: View {
 #Preview {
     EstablishmentRowView(establishment: .sample)
 }
+
+
+

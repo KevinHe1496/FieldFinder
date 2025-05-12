@@ -70,17 +70,7 @@ struct Establecimiento: Codable, Identifiable {
     
 }
 
-struct Cancha: Codable, Identifiable {
-    let id: String
-    let tipo: String
-    let modalidad: String
-    let precio: Int
-    let cubierta: Bool
-    let iluminada: Bool
-    let fotos: [String]
-}
-
-struct GetNearbyRestaurantRequest: Codable {
+struct GetNearbyEstablishmentsRequest: Codable {
     let latitude: Double
     let longitude: Double
 }

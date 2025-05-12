@@ -21,85 +21,57 @@ struct EstablishmentDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                if !viewModel.establishmentData.photoEstablishment.isEmpty {
-                    ZStack {
-                        TabView {
-                            ForEach(viewModel.establishmentData.photoEstablishment, id: \.self) { photoURL in
-                                AsyncImage(url: photoURL) { phase in
-                                    switch phase {
-                                    case .empty:
-                                        ProgressView()
-                                            .frame(height: 450)
-                                    case .success(let image):
-                                        image
-                                            .scaledToFit()
-                                            .frame(maxWidth: .infinity, maxHeight: 450)
-                                            .clipped()
-                                            .ignoresSafeArea(edges: .top)
-                                    case .failure:
-                                        Image(systemName: "photo")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(maxWidth: .infinity, maxHeight: 450)
-                                            .foregroundColor(.gray)
-                                    @unknown default:
-                                        EmptyView()
-                                    }
-                                }
-                            }
-                        }
-                        .tabViewStyle(PageTabViewStyle())
-                        .frame(height: 450)
-                    }
-                } else {
-                    Text("No hay fotos disponibles")
-                        .foregroundColor(.gray)
-                    
-                }
-                VStack(alignment: .leading, spacing: 5) {
+                //MARK: Photo Gallery
+                
+                PhotoGalleryView(photoURLs: viewModel.establishmentData.photoEstablishment, height: 300)
+                
+                //MARK: Informacion
+                VStack(alignment: .leading, spacing: 12) {
                     // Detalles del establecimiento
                     Text(viewModel.establishmentData.name)
                         .font(.appTitle)
                         .foregroundStyle(.primaryColorGreen)
-                        
+                    Divider()
                     HStack {
                         Image(systemName: "pin.fill")
                             .foregroundStyle(.primaryColorGreen)
                         Text(viewModel.establishmentData.address)
                     }
                     
+                    HStack {
+                        Image(systemName: "phone.fill")
+                            .foregroundStyle(.primaryColorGreen)
+                        Text(viewModel.establishmentData.phone)
+                    }
+                    
+                    
                     Divider()
                     Text(viewModel.establishmentData.info)
                         .font(.body)
+                    
+                    Divider()
+                    Text("QUE OFRECE")
+                        .font(.appSubtitle)
+                        .foregroundStyle(.primaryColorGreen)
+                    
+                    FacilitiesIconsView(
+                        parquedero: viewModel.establishmentData.parquedero,
+                        vestidores: viewModel.establishmentData.vestidores,
+                        banos: viewModel.establishmentData.banos,
+                        duchas: viewModel.establishmentData.duchas,
+                        bar: viewModel.establishmentData.bar
+                    )
+                    
+                    
                 }
                 .padding(.horizontal)
             }
-            .onAppear {
-                Task {
-                    try await viewModel.getEstablishmentDetail(establishmentId: establishmentID)
-                }
-            }
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .font(.system(size: 16))
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(
-                                Circle()
-                                    .fill(Color.primaryColorGreen)
-                                    .frame(width: 32, height: 32)
-                            )
-                    }
-                    
-                }
+            .task {
+                try? await viewModel.getEstablishmentDetail(establishmentId: establishmentID)
             }
         }
-        .navigationBarBackButtonHidden(true)
-        .ignoresSafeArea(.container, edges: .top)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle(viewModel.establishmentData.name)
     }
 }
 
