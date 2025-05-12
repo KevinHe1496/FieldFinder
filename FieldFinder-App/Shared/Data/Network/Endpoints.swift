@@ -6,4 +6,6 @@ enum Endpoints: String {
     case registerEstablishmment = "/establecimiento/getEstablecimientos"
     case registerUsers = "/auth/register"
     case getMe = "/users/me"
+    case getNearbyEstablishments = "/establecimiento/nearby"
+    case getEstablishmentById = "/establecimiento"
 }
