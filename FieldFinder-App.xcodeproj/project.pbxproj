@@ -291,6 +291,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		C92FD1052DD2A02D0008E2F9 /* EstablishmentDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C92FD0F72DD291920008E2F9 /* EstablishmentDetailView.swift */,
+				C92FD1032DD297EC0008E2F9 /* EstablishmentDetailViewModel.swift */,
+			);
+			path = EstablishmentDetail;
+			sourceTree = "<group>";
+		};
 		C939BC232DCCF38400B98C16 = {
 			isa = PBXGroup;
 			children = (
@@ -402,6 +411,7 @@
 		C939BC6D2DCCF69500B98C16 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C92FD1052DD2A02D0008E2F9 /* EstablishmentDetail */,
 				C9C7BABC2DCE8D62007CB3FA /* ProfileUserView */,
 				C9C7BAB92DCE8A92007CB3FA /* FavoritesView */,
 				C9C7BAB62DCE8A46007CB3FA /* MapEstablishmentsView */,
@@ -474,8 +484,6 @@
 				C92FD0F12DD279DC0008E2F9 /* PlayerViewModel.swift */,
 				C9C7BAB22DCE8A17007CB3FA /* PlayerView.swift */,
 				C92FD0F52DD288C50008E2F9 /* EstablishmentRowView.swift */,
-				C92FD0F72DD291920008E2F9 /* EstablishmentDetailView.swift */,
-				C92FD1032DD297EC0008E2F9 /* EstablishmentDetailViewModel.swift */,
 			);
 			path = PlayerView;
 			sourceTree = "<group>";

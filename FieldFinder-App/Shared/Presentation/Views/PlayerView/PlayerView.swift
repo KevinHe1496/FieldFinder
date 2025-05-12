@@ -37,7 +37,7 @@ struct PlayerView: View {
                 }
             }
             .searchable(text: $searchText)
-            .navigationTitle("Canchas")
+            .navigationTitle("Establecimientos")
             .onAppear {
                 Task {
                     try await viewModel.loadData()
