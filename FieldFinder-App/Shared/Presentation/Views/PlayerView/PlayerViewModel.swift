@@ -8,11 +8,11 @@
 import Foundation
 import CoreLocation
 
-@Observable
-final class PlayerViewModel {
+
+final class PlayerViewModel: ObservableObject {
     
     var locationService = LocationService()
-    var nearbyEstablishments = [Establecimiento]()
+    @Published var nearbyEstablishments = [Establecimiento]()
     
     @ObservationIgnored
     private var useCase: GetNearbyEstablishmentsUseCaseProtocol
@@ -29,12 +29,7 @@ final class PlayerViewModel {
     
     @MainActor
     func loadData() async throws {
-        do {
-            let coordinates = try await locationService.requestLocation()
-            try await fetchEstablishments(near: coordinates)
-        } catch {
-            print("Error loading Data: \(error.localizedDescription)")
-            throw FFError.noLocationFound
-        }
+        let coordinates = try await locationService.requestLocation()
+        try await fetchEstablishments(near: coordinates)
     }
 }

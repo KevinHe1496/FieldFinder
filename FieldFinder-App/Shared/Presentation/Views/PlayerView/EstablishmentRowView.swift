@@ -15,7 +15,7 @@ struct EstablishmentRowView: View {
     var body: some View {
         VStack(alignment: .leading) {
             ZStack(alignment: .topTrailing) {
-                RemoteImageCardView(url: establishment.photoEstablishment.first, height: 250)
+                RemoteImageCardView(url: establishment.photoEstablishment.first, height: 200)
                 
                 // Botón de favorito
                 FavoriteButton(isFavorite: $isFavorite)

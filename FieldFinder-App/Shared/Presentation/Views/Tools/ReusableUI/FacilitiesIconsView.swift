@@ -15,28 +15,42 @@ struct FacilitiesIconsView: View {
     let bar: Bool
 
     var body: some View {
-        HStack(spacing: 16) {
-            if parquedero {
-                facilityIcon(name: "car.fill", label: "Parqueadero")
-            }
-            if vestidores {
-                facilityIcon(name: "tshirt.fill", label: "Vestidores")
-            }
-            if banos {
-                facilityIcon(name: "toilet.fill", label: "Baños")
-            }
-            if duchas {
-                facilityIcon(name: "drop.fill", label: "Duchas")
-            }
-            if bar {
-                facilityIcon(name: "cup.and.saucer.fill", label: "Bar")
+        let items = facilityItems()
+
+        HStack(spacing: 0) {
+            ForEach(items.indices, id: \.self) { index in
+                facilityBox(name: items[index].icon, label: items[index].label)
+
+                // Separador entre cajas, excepto después del último
+                if index < items.count - 1 {
+                    Rectangle()
+                        .fill(Color.gray.opacity(0.3))
+                        .frame(width: 1, height: 60)
+                }
             }
         }
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(Color.gray.opacity(0.4), lineWidth: 1)
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 12))
         .padding(.horizontal)
     }
 
-    private func facilityIcon(name: String, label: String) -> some View {
-        VStack {
+    private func facilityItems() -> [(icon: String, label: String)] {
+        var result: [(String, String)] = []
+
+        if parquedero { result.append(("car.fill", "Parqueo")) }
+        if vestidores { result.append(("tshirt.fill", "Vestidores")) }
+        if banos      { result.append(("toilet.fill", "Baños")) }
+        if duchas     { result.append(("drop.fill", "Duchas")) }
+        if bar        { result.append(("cup.and.saucer.fill", "Bar")) }
+
+        return result
+    }
+
+    private func facilityBox(name: String, label: String) -> some View {
+        VStack(spacing: 4) {
             Image(systemName: name)
                 .font(.title2)
                 .foregroundColor(.primaryColorGreen)
@@ -44,5 +58,7 @@ struct FacilitiesIconsView: View {
                 .font(.caption)
                 .foregroundColor(.secondaryColorBlack)
         }
+        .frame(width: 70, height: 60)
+        .background(Color.white) // O cualquier fondo que prefieras
     }
 }
