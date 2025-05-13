@@ -8,4 +8,5 @@ enum Endpoints: String {
     case getMe = "/users/me"
     case getNearbyEstablishments = "/establecimiento/nearby"
     case getEstablishmentById = "/establecimiento"
+    case getFieldById = "/cancha"
 }

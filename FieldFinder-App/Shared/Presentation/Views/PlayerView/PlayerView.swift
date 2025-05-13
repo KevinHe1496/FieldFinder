@@ -37,6 +37,7 @@ struct PlayerView: View {
                     }
                 }
             }
+            .scrollIndicators(.hidden)
             .searchable(text: $searchText)
             .navigationTitle("Establecimientos")
             .task {

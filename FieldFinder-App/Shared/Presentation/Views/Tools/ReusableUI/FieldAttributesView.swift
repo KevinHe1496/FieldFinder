@@ -1,33 +1,28 @@
 //
-//  FacilitiesIconsView.swift
+//  FieldAttributesView.swift
 //  FieldFinder-App
 //
-//  Created by Kevin Heredia on 12/5/25.
+//  Created by Kevin Heredia on 13/5/25.
 //
+
 
 import SwiftUI
 
-struct FacilitiesIconsView: View {
-    let parquedero: Bool
-    let vestidores: Bool
-    let banos: Bool
-    let duchas: Bool
-    let bar: Bool
+struct FieldAttributesView: View {
+    let iluminada: Bool
+    let cubierta: Bool
 
     var body: some View {
         let items = [
-            ("car.fill", "Parqueo", parquedero),
-            ("tshirt.fill", "Vestidores", vestidores),
-            ("toilet.fill", "Baños", banos),
-            ("drop.fill", "Duchas", duchas),
-            ("cup.and.saucer.fill", "Bar", bar)
+            ("lightbulb.fill", "Iluminada", iluminada),
+            ("house.fill", "Cubierta", cubierta)
         ]
 
         HStack(spacing: 0) {
             ForEach(items.indices, id: \.self) { index in
-                facilityBox(name: items[index].0,
-                            label: items[index].1,
-                            isAvailable: items[index].2)
+                attributeBox(name: items[index].0,
+                             label: items[index].1,
+                             isAvailable: items[index].2)
 
                 if index < items.count - 1 {
                     Rectangle()
@@ -44,7 +39,7 @@ struct FacilitiesIconsView: View {
         .padding(.horizontal)
     }
 
-    private func facilityBox(name: String, label: String, isAvailable: Bool) -> some View {
+    private func attributeBox(name: String, label: String, isAvailable: Bool) -> some View {
         VStack(spacing: 4) {
             if isAvailable {
                 Image(systemName: name)

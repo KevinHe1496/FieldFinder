@@ -11,6 +11,10 @@ struct EstablishmentDetailView: View {
     @Environment(\.dismiss) var dismiss
     var establishmentID: String
     
+    let rows = [
+        GridItem(.fixed(200)), // Altura de la primera fila
+    ]
+    
     @State private var viewModel = EstablishmentDetailViewModel()
     
     init(establishmentId: String) {
@@ -61,7 +65,25 @@ struct EstablishmentDetailView: View {
                         duchas: viewModel.establishmentData.duchas,
                         bar: viewModel.establishmentData.bar
                     )
+                    Divider()
+                    Text("Canchas")
+                        .font(.appSubtitle)
+                        .foregroundStyle(.primaryColorGreen)
                     
+                    ScrollView(.horizontal) {
+                        LazyHGrid(rows: rows) {
+                            ForEach(viewModel.establishmentData.canchas) { cancha in
+                                NavigationLink {
+                                    CanchaDetailView(fieldId: cancha.id)
+                                } label: {
+                                    CanchaRowView(cancha: cancha)
+                                        .frame(width: UIScreen.main.bounds.width * 0.8)
+                                }
+                            }
+                        }
+                        .frame(height: 300)
+                    }
+                    .scrollIndicators(.hidden)
                     
                 }
                 .padding(.horizontal)
