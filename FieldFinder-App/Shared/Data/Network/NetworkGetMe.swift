@@ -6,7 +6,7 @@ protocol NetworkGetMeProtocol {
 
 final class NetworkGetMe: NetworkGetMeProtocol {
     func getUser() async throws -> GetMeModel {
-        var userModel = GetMeModel(email: "", id: "", rol: "", name: "")
+        var userModel = GetMeModel(email: "", id: "", rol: "", name: "", establecimiento: [])
         
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getMe.rawValue)"
         

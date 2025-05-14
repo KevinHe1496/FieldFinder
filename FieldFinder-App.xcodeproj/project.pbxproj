@@ -21,6 +21,8 @@
 		BF1125B12DCFF10600A9DBE5 /* Data-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125B02DCFF10600A9DBE5 /* Data-extension.swift */; };
 		BF1125B32DCFF1D400A9DBE5 /* NetworkRegisterEstablishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125B22DCFF1CE00A9DBE5 /* NetworkRegisterEstablishment.swift */; };
 		BF1125B52DCFF31500A9DBE5 /* EstablishmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125B42DCFF31500A9DBE5 /* EstablishmentModel.swift */; };
+		BF46A97A2DD4DF76006A5FF3 /* OwnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46A9792DD4DF71006A5FF3 /* OwnerViewModel.swift */; };
+		BF46A97D2DD4E9A2006A5FF3 /* GridListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46A97C2DD4E9A2006A5FF3 /* GridListCellView.swift */; };
 		BF5614A82DCE6E8B003C1F66 /* RegisterField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5614A72DCE6E8B003C1F66 /* RegisterField.swift */; };
 		BF93CBB22DD39E3F002A8627 /* RegisterEstablismentRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB12DD39E31002A8627 /* RegisterEstablismentRepositoryProtocol.swift */; };
 		BF93CBB42DD39E5A002A8627 /* RegisterEstablishmentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB32DD39E4F002A8627 /* RegisterEstablishmentRepository.swift */; };
@@ -138,6 +140,8 @@
 		BF1125B02DCFF10600A9DBE5 /* Data-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data-extension.swift"; sourceTree = "<group>"; };
 		BF1125B22DCFF1CE00A9DBE5 /* NetworkRegisterEstablishment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRegisterEstablishment.swift; sourceTree = "<group>"; };
 		BF1125B42DCFF31500A9DBE5 /* EstablishmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentModel.swift; sourceTree = "<group>"; };
+		BF46A9792DD4DF71006A5FF3 /* OwnerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerViewModel.swift; sourceTree = "<group>"; };
+		BF46A97C2DD4E9A2006A5FF3 /* GridListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridListCellView.swift; sourceTree = "<group>"; };
 		BF5614A72DCE6E8B003C1F66 /* RegisterField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterField.swift; sourceTree = "<group>"; };
 		BF93CBB12DD39E31002A8627 /* RegisterEstablismentRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablismentRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BF93CBB32DD39E4F002A8627 /* RegisterEstablishmentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablishmentRepository.swift; sourceTree = "<group>"; };
@@ -271,6 +275,14 @@
 				BF11258A2DCEC64800A9DBE5 /* RegisterViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BF46A97B2DD4E957006A5FF3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BF46A97C2DD4E9A2006A5FF3 /* GridListCellView.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		BF5614A92DCE6FAD003C1F66 /* Splash */ = {
@@ -603,6 +615,8 @@
 		C9C7BAB12DCE8A03007CB3FA /* OwnerView */ = {
 			isa = PBXGroup;
 			children = (
+				BF46A97B2DD4E957006A5FF3 /* Cell */,
+				BF46A9792DD4DF71006A5FF3 /* OwnerViewModel.swift */,
 				C9C7BAB42DCE8A29007CB3FA /* OwnerView.swift */,
 			);
 			path = OwnerView;
@@ -845,6 +859,7 @@
 				C92221BA2DD3DB2000D6BE8B /* NetworkFavoriteUser.swift in Sources */,
 				C92FD1042DD297EC0008E2F9 /* EstablishmentDetailViewModel.swift in Sources */,
 				C92FD0E82DD267D20008E2F9 /* NetworkGetNearbyEstablishments.swift in Sources */,
+				BF46A97A2DD4DF76006A5FF3 /* OwnerViewModel.swift in Sources */,
 				C959890F2DCE99B200AC4B5D /* NetworkRegister.swift in Sources */,
 				BFFB27E62DCD3C7600DD8819 /* ConstantsApp.swift in Sources */,
 				BF1125B32DCFF1D400A9DBE5 /* NetworkRegisterEstablishment.swift in Sources */,
@@ -856,6 +871,7 @@
 				C92221B62DD3C62F00D6BE8B /* FieldDetailViewModel.swift in Sources */,
 				C939BC792DCCF8D800B98C16 /* CustomTextFieldLogin.swift in Sources */,
 				BF1125862DCEC22000A9DBE5 /* RegisterRepository.swift in Sources */,
+				BF46A97D2DD4E9A2006A5FF3 /* GridListCellView.swift in Sources */,
 				BFFB27E82DCD3D6E00DD8819 /* NetworkLogin.swift in Sources */,
 				C92FD0F62DD288C50008E2F9 /* EstablishmentRowView.swift in Sources */,
 				BF5614A82DCE6E8B003C1F66 /* RegisterField.swift in Sources */,
