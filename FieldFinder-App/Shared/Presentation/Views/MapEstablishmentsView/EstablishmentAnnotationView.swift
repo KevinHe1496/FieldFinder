@@ -12,14 +12,13 @@ struct EstablishmentAnnotationView: View {
     
     var body: some View {
         VStack {
-            Image(systemName: "mappin.and.ellipse")
-                .foregroundColor(.red)
-                .font(.title)
+            Image(.logoFieldfinderTransparent)
             Text(establishment.name)
+                .foregroundStyle(.thirdColorWhite)
                 .font(.caption)
                 .fixedSize()
                 .padding(4)
-                .background(Color.white.opacity(0.8))
+                .background(Color.secondaryColorBlack.opacity(0.8))
                 .cornerRadius(5)
         }
     }

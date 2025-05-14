@@ -16,7 +16,7 @@ struct MapEstablishmentsView: View {
                 UserAnnotation()
                 
                 ForEach(viewModel.nearbyEstablishments) { establishment in
-                    Annotation(establishment.name, coordinate: establishment.coordinate) {
+                    Annotation("", coordinate: establishment.coordinate) {
                         Button {
                             viewModel.selectEstablishment(establishment)
                         } label: {

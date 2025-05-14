@@ -592,8 +592,8 @@
 		C9C7BAB02DCE89FA007CB3FA /* PlayerView */ = {
 			isa = PBXGroup;
 			children = (
-				C9C7BAB22DCE8A17007CB3FA /* PlayerView.swift */,
 				C92FD0F12DD279DC0008E2F9 /* GetNearbyEstablishmentsViewModel.swift */,
+				C9C7BAB22DCE8A17007CB3FA /* PlayerView.swift */,
 				C92FD0F52DD288C50008E2F9 /* EstablishmentRowView.swift */,
 				C92FD1052DD2A02D0008E2F9 /* EstablishmentDetail */,
 			);

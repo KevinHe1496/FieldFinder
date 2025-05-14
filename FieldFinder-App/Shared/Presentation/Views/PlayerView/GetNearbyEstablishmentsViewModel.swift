@@ -13,6 +13,7 @@ import SwiftUI
 final class GetNearbyEstablishmentsViewModel: ObservableObject {
     
     var locationService = LocationService()
+    @Published var lastLatitudeDelta: Double = 0.05
     @Published var nearbyEstablishments = [Establecimiento]()
     @Published var favoritesData = [FavoriteEstablishment]()
     @Published var selectedEstablishment: Establecimiento? // Restaurante seleccionado por el usuario.

@@ -34,7 +34,8 @@ struct EstablishmentSelectedMapDestailView: View {
                 .padding(.horizontal)
             
             HStack {
-                Image(systemName: "mappin.and.ellipse")
+                Image(systemName: "pin.fill")
+                    .foregroundStyle(.primaryColorGreen)
                 Text(establishment.address)
             }
             .font(.appDescription)
@@ -42,6 +43,7 @@ struct EstablishmentSelectedMapDestailView: View {
             
             HStack {
                 Image(systemName: "phone.fill")
+                    .foregroundStyle(.primaryColorGreen)
                 Text(establishment.phone)
             }
             .font(.appDescription)
@@ -56,5 +58,5 @@ struct EstablishmentSelectedMapDestailView: View {
 }
 
 #Preview {
-    EstablishmentSelectedMapDestailView( establishment: .sample)
+    EstablishmentSelectedMapDestailView(establishment: .sample)
 }
