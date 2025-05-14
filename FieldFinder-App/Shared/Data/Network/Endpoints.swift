@@ -3,7 +3,9 @@ import Foundation
 /// Endpoints of Server Side
 enum Endpoints: String {
     case login = "/auth/login"
-    case registerEstablishmment = "/establecimiento/getEstablecimientos"
+    case getEstablishments = "/establecimiento/getEstablecimientos"
     case registerUsers = "/auth/register"
     case getMe = "/users/me"
+    case registerEstablishment = "/establecimiento/register"
+    case uploadImagesEstablishment = "/establecimiento/fotos"
 }

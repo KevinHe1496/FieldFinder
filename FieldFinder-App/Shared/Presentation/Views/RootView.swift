@@ -22,7 +22,7 @@ struct RootView: View {
                 switch role {
                     
                 case .dueno:
-                   OwnerView()
+                  RegisterOwnerView(appState: appState)
                 case .jugador:
                    PlayerView()
                 }
@@ -31,9 +31,11 @@ struct RootView: View {
             }
             
         case .register:
-            RegisterOwnerView()
+            RegisterOwnerView(appState: appState)
         case .error(error: let errorString):
             Text("Error \(errorString)")
+        case .ownerView:
+            Text("OwnerView ma friend")
         }
     }
 }

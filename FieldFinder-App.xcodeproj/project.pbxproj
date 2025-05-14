@@ -17,12 +17,23 @@
 		BF11259D2DCFA8C100A9DBE5 /* GetMeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11259C2DCFA8BB00A9DBE5 /* GetMeRepository.swift */; };
 		BF11259F2DCFA8E800A9DBE5 /* GetMeRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11259E2DCFA8E300A9DBE5 /* GetMeRepositoryProtocol.swift */; };
 		BF1125A12DCFA92900A9DBE5 /* GetMeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125A02DCFA92200A9DBE5 /* GetMeUseCase.swift */; };
+		BF1125AF2DCFF0B800A9DBE5 /* GeocodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125AE2DCFF0B800A9DBE5 /* GeocodingHelper.swift */; };
+		BF1125B12DCFF10600A9DBE5 /* Data-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125B02DCFF10600A9DBE5 /* Data-extension.swift */; };
+		BF1125B32DCFF1D400A9DBE5 /* NetworkRegisterEstablishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125B22DCFF1CE00A9DBE5 /* NetworkRegisterEstablishment.swift */; };
+		BF1125B52DCFF31500A9DBE5 /* EstablishmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125B42DCFF31500A9DBE5 /* EstablishmentModel.swift */; };
 		BF5614A82DCE6E8B003C1F66 /* RegisterField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5614A72DCE6E8B003C1F66 /* RegisterField.swift */; };
+		BF93CBB22DD39E3F002A8627 /* RegisterEstablismentRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB12DD39E31002A8627 /* RegisterEstablismentRepositoryProtocol.swift */; };
+		BF93CBB42DD39E5A002A8627 /* RegisterEstablishmentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB32DD39E4F002A8627 /* RegisterEstablishmentRepository.swift */; };
+		BF93CBB62DD39FD8002A8627 /* RegisterEstablishmentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB52DD39FD1002A8627 /* RegisterEstablishmentUseCase.swift */; };
+		BF93CBB82DD3A02C002A8627 /* RegisterEstablismentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB72DD3A025002A8627 /* RegisterEstablismentViewModel.swift */; };
 		BF9719082DCD16D700CD0AF8 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9719072DCD16D700CD0AF8 /* StatusModel.swift */; };
 		BF97190A2DCD199800CD0AF8 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9719092DCD198F00CD0AF8 /* AppState.swift */; };
 		BF97190C2DCD1BD100CD0AF8 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97190B2DCD1BD100CD0AF8 /* Endpoints.swift */; };
 		BF97190E2DCD1BE600CD0AF8 /* HttpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97190D2DCD1BE600CD0AF8 /* HttpMethods.swift */; };
 		BF9719102DCD1BFD00CD0AF8 /* HttpResponseCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97190F2DCD1BFD00CD0AF8 /* HttpResponseCodes.swift */; };
+		BFE2E09A2DD3E68700B0E0BE /* ResizeImagesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2E0992DD3E68000B0E0BE /* ResizeImagesData.swift */; };
+		BFE2E09C2DD401AA00B0E0BE /* CustomUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2E09B2DD401AA00B0E0BE /* CustomUIImage.swift */; };
+		BFE2E09E2DD40DF800B0E0BE /* NetworkUploadPhotosEstablishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2E09D2DD40DE900B0E0BE /* NetworkUploadPhotosEstablishment.swift */; };
 		BFFB27E62DCD3C7600DD8819 /* ConstantsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB27E52DCD3C7600DD8819 /* ConstantsApp.swift */; };
 		BFFB27E82DCD3D6E00DD8819 /* NetworkLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB27E72DCD3D6800DD8819 /* NetworkLogin.swift */; };
 		BFFB27EA2DCD3DBC00DD8819 /* FFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB27E92DCD3DBC00DD8819 /* FFError.swift */; };
@@ -87,12 +98,23 @@
 		BF11259C2DCFA8BB00A9DBE5 /* GetMeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMeRepository.swift; sourceTree = "<group>"; };
 		BF11259E2DCFA8E300A9DBE5 /* GetMeRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMeRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BF1125A02DCFA92200A9DBE5 /* GetMeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMeUseCase.swift; sourceTree = "<group>"; };
+		BF1125AE2DCFF0B800A9DBE5 /* GeocodingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingHelper.swift; sourceTree = "<group>"; };
+		BF1125B02DCFF10600A9DBE5 /* Data-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data-extension.swift"; sourceTree = "<group>"; };
+		BF1125B22DCFF1CE00A9DBE5 /* NetworkRegisterEstablishment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRegisterEstablishment.swift; sourceTree = "<group>"; };
+		BF1125B42DCFF31500A9DBE5 /* EstablishmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentModel.swift; sourceTree = "<group>"; };
 		BF5614A72DCE6E8B003C1F66 /* RegisterField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterField.swift; sourceTree = "<group>"; };
+		BF93CBB12DD39E31002A8627 /* RegisterEstablismentRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablismentRepositoryProtocol.swift; sourceTree = "<group>"; };
+		BF93CBB32DD39E4F002A8627 /* RegisterEstablishmentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablishmentRepository.swift; sourceTree = "<group>"; };
+		BF93CBB52DD39FD1002A8627 /* RegisterEstablishmentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablishmentUseCase.swift; sourceTree = "<group>"; };
+		BF93CBB72DD3A025002A8627 /* RegisterEstablismentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablismentViewModel.swift; sourceTree = "<group>"; };
 		BF9719072DCD16D700CD0AF8 /* StatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatusModel.swift; path = "FieldFinder-App/Shared/Domain/Entities/StatusModel.swift"; sourceTree = SOURCE_ROOT; };
 		BF9719092DCD198F00CD0AF8 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		BF97190B2DCD1BD100CD0AF8 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Endpoints.swift; path = "FieldFinder-App/Shared/Data/Network/Endpoints.swift"; sourceTree = SOURCE_ROOT; };
 		BF97190D2DCD1BE600CD0AF8 /* HttpMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpMethods.swift; path = "FieldFinder-App/Shared/Data/Network/HttpMethods.swift"; sourceTree = SOURCE_ROOT; };
 		BF97190F2DCD1BFD00CD0AF8 /* HttpResponseCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpResponseCodes.swift; path = "FieldFinder-App/Shared/Data/Network/HttpResponseCodes.swift"; sourceTree = SOURCE_ROOT; };
+		BFE2E0992DD3E68000B0E0BE /* ResizeImagesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeImagesData.swift; sourceTree = "<group>"; };
+		BFE2E09B2DD401AA00B0E0BE /* CustomUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIImage.swift; sourceTree = "<group>"; };
+		BFE2E09D2DD40DE900B0E0BE /* NetworkUploadPhotosEstablishment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUploadPhotosEstablishment.swift; sourceTree = "<group>"; };
 		BFFB27E52DCD3C7600DD8819 /* ConstantsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConstantsApp.swift; path = "FieldFinder-App/Shared/Domain/Tools/ConstantsApp.swift"; sourceTree = SOURCE_ROOT; };
 		BFFB27E72DCD3D6800DD8819 /* NetworkLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogin.swift; sourceTree = "<group>"; };
 		BFFB27E92DCD3DBC00DD8819 /* FFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FFError.swift; path = "FieldFinder-App/Shared/Data/Network/FFError.swift"; sourceTree = SOURCE_ROOT; };
@@ -173,6 +195,7 @@
 		BF1125892DCEC64100A9DBE5 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				BF93CBB72DD3A025002A8627 /* RegisterEstablismentViewModel.swift */,
 				BF11258A2DCEC64800A9DBE5 /* RegisterViewModel.swift */,
 			);
 			path = ViewModels;
@@ -188,6 +211,7 @@
 		BF5614AA2DCE705C003C1F66 /* Usecases */ = {
 			isa = PBXGroup;
 			children = (
+				BF93CBB52DD39FD1002A8627 /* RegisterEstablishmentUseCase.swift */,
 				BF1125A02DCFA92200A9DBE5 /* GetMeUseCase.swift */,
 				BF1125872DCEC2B200A9DBE5 /* RegisterUseCase.swift */,
 				BFFB27F52DCD471600DD8819 /* LoginUseCase.swift */,
@@ -207,6 +231,7 @@
 		BF5614AC2DCE708B003C1F66 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				BF93CBB12DD39E31002A8627 /* RegisterEstablismentRepositoryProtocol.swift */,
 				BF11259E2DCFA8E300A9DBE5 /* GetMeRepositoryProtocol.swift */,
 				BF1125832DCEC1E500A9DBE5 /* RegisterRepositoryProtocol.swift */,
 				BFFB27F12DCD45F100DD8819 /* LoginRepositoryProtocol.swift */,
@@ -218,6 +243,7 @@
 		BF5614AD2DCE7095003C1F66 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				BF1125B42DCFF31500A9DBE5 /* EstablishmentModel.swift */,
 				BF1125942DCFA01100A9DBE5 /* GetMeModel.swift */,
 				BF1125922DCF9F6500A9DBE5 /* UserRole.swift */,
 				BFFB27F92DCD585300DD8819 /* LoginResponse.swift */,
@@ -241,6 +267,7 @@
 		BF5614AF2DCE70E0003C1F66 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				BF93CBB32DD39E4F002A8627 /* RegisterEstablishmentRepository.swift */,
 				BF11259C2DCFA8BB00A9DBE5 /* GetMeRepository.swift */,
 				BF1125852DCEC21C00A9DBE5 /* RegisterRepository.swift */,
 				BFFB27F32DCD462300DD8819 /* LoginRepository.swift */,
@@ -251,6 +278,8 @@
 		BF5614B02DCE712F003C1F66 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				BFE2E0992DD3E68000B0E0BE /* ResizeImagesData.swift */,
+				BF1125AE2DCFF0B800A9DBE5 /* GeocodingHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -328,10 +357,12 @@
 		C939BC632DCCF61E00B98C16 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				BFE2E09D2DD40DE900B0E0BE /* NetworkUploadPhotosEstablishment.swift */,
 				C939BC652DCCF62E00B98C16 /* Local */,
 				BF5614AE2DCE70C3003C1F66 /* BaseNetwork */,
 				BFFB27E72DCD3D6800DD8819 /* NetworkLogin.swift */,
 				BF1125962DCFA07000A9DBE5 /* NetworkGetMe.swift */,
+				BF1125B22DCFF1CE00A9DBE5 /* NetworkRegisterEstablishment.swift */,
 				C959890E2DCE99B200AC4B5D /* NetworkRegister.swift */,
 			);
 			path = Network;
@@ -356,6 +387,7 @@
 		C939BC6B2DCCF67600B98C16 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				BF1125B02DCFF10600A9DBE5 /* Data-extension.swift */,
 				C939BC802DCCF91600B98C16 /* Font-Theme.swift */,
 			);
 			path = Extensions;
@@ -414,6 +446,7 @@
 				C939BC782DCCF8D800B98C16 /* CustomTextFieldLogin.swift */,
 				C939BC7A2DCCF8F000B98C16 /* CustomSecureFieldView.swift */,
 				C939BC7C2DCCF8F900B98C16 /* CustomButtonLoginRegister.swift */,
+				BFE2E09B2DD401AA00B0E0BE /* CustomUIImage.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -616,8 +649,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF93CBB42DD39E5A002A8627 /* RegisterEstablishmentRepository.swift in Sources */,
+				BF1125B52DCFF31500A9DBE5 /* EstablishmentModel.swift in Sources */,
 				C939BC752DCCF89300B98C16 /* KeyChainFF.swift in Sources */,
 				C9C7BAAF2DCE88CE007CB3FA /* TabBarItem.swift in Sources */,
+				BF93CBB22DD39E3F002A8627 /* RegisterEstablismentRepositoryProtocol.swift in Sources */,
 				C939BC812DCCF91600B98C16 /* Font-Theme.swift in Sources */,
 				C9C7BAAB2DCE88C1007CB3FA /* CustomTabBarContainerView.swift in Sources */,
 				BFFB27FA2DCD585300DD8819 /* LoginResponse.swift in Sources */,
@@ -625,6 +661,7 @@
 				BF97190E2DCD1BE600CD0AF8 /* HttpMethods.swift in Sources */,
 				BF97190C2DCD1BD100CD0AF8 /* Endpoints.swift in Sources */,
 				BF1125A12DCFA92900A9DBE5 /* GetMeUseCase.swift in Sources */,
+				BFE2E09A2DD3E68700B0E0BE /* ResizeImagesData.swift in Sources */,
 				C939BC852DCCF95800B98C16 /* LoginView.swift in Sources */,
 				BFFB27F82DCD472400DD8819 /* LoginUseCaseProtocol.swift in Sources */,
 				C9C7BAA92DCE88B8007CB3FA /* CustomTabBarView.swift in Sources */,
@@ -638,17 +675,24 @@
 				BF1125952DCFA01800A9DBE5 /* GetMeModel.swift in Sources */,
 				C939BC7B2DCCF8F000B98C16 /* CustomSecureFieldView.swift in Sources */,
 				BF1125842DCEC1F100A9DBE5 /* RegisterRepositoryProtocol.swift in Sources */,
+				BF1125AF2DCFF0B800A9DBE5 /* GeocodingHelper.swift in Sources */,
 				BFFB28F02DCD5F7C00DD8819 /* FFPersistenceKeyChain.swift in Sources */,
 				BF1125972DCFA07B00A9DBE5 /* NetworkGetMe.swift in Sources */,
+				BF93CBB62DD39FD8002A8627 /* RegisterEstablishmentUseCase.swift in Sources */,
+				BF1125B12DCFF10600A9DBE5 /* Data-extension.swift in Sources */,
 				BF9719102DCD1BFD00CD0AF8 /* HttpResponseCodes.swift in Sources */,
+				BFE2E09C2DD401AA00B0E0BE /* CustomUIImage.swift in Sources */,
 				C9C7BAB52DCE8A29007CB3FA /* OwnerView.swift in Sources */,
 				C9B0AD6D2DCD07EB0043A9A2 /* RegisterOwnerView.swift in Sources */,
 				C9C7BAA72DCE88AD007CB3FA /* AppTabBarView.swift in Sources */,
+				BF93CBB82DD3A02C002A8627 /* RegisterEstablismentViewModel.swift in Sources */,
 				C9C7BAB32DCE8A17007CB3FA /* PlayerView.swift in Sources */,
 				BFFB27F62DCD471600DD8819 /* LoginUseCase.swift in Sources */,
 				BF9719082DCD16D700CD0AF8 /* StatusModel.swift in Sources */,
 				C959890F2DCE99B200AC4B5D /* NetworkRegister.swift in Sources */,
 				BFFB27E62DCD3C7600DD8819 /* ConstantsApp.swift in Sources */,
+				BF1125B32DCFF1D400A9DBE5 /* NetworkRegisterEstablishment.swift in Sources */,
+				BFE2E09E2DD40DF800B0E0BE /* NetworkUploadPhotosEstablishment.swift in Sources */,
 				C9C7BABB2DCE8A9D007CB3FA /* FavoritesView.swift in Sources */,
 				BFFB27EA2DCD3DBC00DD8819 /* FFError.swift in Sources */,
 				C939BC792DCCF8D800B98C16 /* CustomTextFieldLogin.swift in Sources */,
