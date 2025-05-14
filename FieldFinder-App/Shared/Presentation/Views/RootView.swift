@@ -24,7 +24,7 @@ struct RootView: View {
                 case .dueno:
                   RegisterOwnerView(appState: appState)
                 case .jugador:
-                   PlayerView()
+                   AppTabBarView()
                 }
             } else {
                 Text("Loading... no sirve nose por que")

@@ -22,6 +22,7 @@ struct RegisterOwnerView: View {
     @State private var phone = ""
     @State private var parqueadero = false
     @State private var vestidores = false
+
     
     @State private var bar = false
     @State private var banos = false
@@ -54,6 +55,7 @@ struct RegisterOwnerView: View {
                     
                     CustomTextFieldLogin(titleKey: "Info", textField: $info, keyboardType: .default, prompt: Text("info"), Bgcolor: .grayColorTF)
                     
+
                     CustomTextFieldLogin(titleKey: "País", textField: $country, keyboardType: .default, prompt: Text("País"), Bgcolor: .grayColorTF)
                     
                     CustomTextFieldLogin(titleKey: "Ciudad", textField: $city, keyboardType: .default, prompt: Text("Ciudad"), Bgcolor: .grayColorTF)
@@ -73,6 +75,7 @@ struct RegisterOwnerView: View {
                         Divider()
                         Toggle("Bar", isOn: $bar)
                         
+
                         Divider()
                         Toggle("Cubierta", isOn: $cubierto)
                         
@@ -82,6 +85,7 @@ struct RegisterOwnerView: View {
                         Divider()
                         Toggle("Duchas", isOn: $duchas)
                         
+
                     }
                     .padding()
                     .background(.grayColorTF)
@@ -107,8 +111,10 @@ struct RegisterOwnerView: View {
                             )
                         }
                     }
+
                     .disabled(!isFormValid)
                     .opacity(isFormValid ? 1 : 0.5)
+
                 }
                 .padding()
                 

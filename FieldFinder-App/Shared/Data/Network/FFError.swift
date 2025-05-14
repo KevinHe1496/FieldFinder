@@ -9,6 +9,9 @@ enum FFError: Error, CustomStringConvertible {
     case sessionTokenMissing
     case badUrl
     case authenticationFailed
+    case locationDisabled
+    case noLocationFound
+    case decodingError
     
     var description: String {
         switch self {
@@ -29,6 +32,12 @@ enum FFError: Error, CustomStringConvertible {
             return "Bad url"
         case .authenticationFailed:
             return "Authentication Failed"
+        case .locationDisabled:
+            return "Location disabled"
+        case .noLocationFound:
+            return "No location found"
+        case .decodingError:
+            return "Decoding error"
         }
     }
 }
