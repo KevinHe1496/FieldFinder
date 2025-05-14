@@ -56,7 +56,7 @@ struct LoginView: View {
                             CustomButtonLoginRegister(title: "Sign In", color: .thirdColorWhite, textColor: .secondaryColorBlack) {
                                 // To do
                                 Task {
-                                     await appState
+                                      appState
                                         .loginApp(
                                             user: email,
                                             password: password

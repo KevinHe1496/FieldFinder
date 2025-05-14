@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct EstablishmentRowView: View {
+    
     let establishment: Establecimiento
-    @State private var isFavorite = false
+    
     @State private var animateFavorite = false
+    @State var viewModel: PlayerViewModel
+    @State private var isFavorite: Bool
+
+    init(establishment: Establecimiento, viewModel: PlayerViewModel) {
+        self.establishment = establishment
+        self.viewModel = viewModel
+        _isFavorite = State(initialValue: establishment.isFavorite)
+    }
+
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -18,7 +28,14 @@ struct EstablishmentRowView: View {
                 RemoteImageCardView(url: establishment.photoEstablishment.first, height: 200)
                 
                 // Botón de favorito
-                FavoriteButton(isFavorite: $isFavorite)
+                FavoriteButton(isFavorite: $isFavorite) { newValue in
+                    Task {
+                            try await viewModel.toggleFavorite(
+                                establishmentId: establishment.id,
+                                isFavorite: newValue
+                            )
+                        }
+                }
                     .padding(15)
             }
             
@@ -49,7 +66,7 @@ struct EstablishmentRowView: View {
 
 
 #Preview {
-    EstablishmentRowView(establishment: .sample)
+    EstablishmentRowView(establishment: .sample, viewModel: PlayerViewModel())
 }
 
 

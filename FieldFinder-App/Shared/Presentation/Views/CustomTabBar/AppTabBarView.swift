@@ -11,14 +11,14 @@ struct AppTabBarView: View {
     @State private var selection: String = "home"
     
     @State private var tabSelection: TabBarItem = .home
-    
+    @StateObject private var viewModel = PlayerViewModel()
     
     var body: some View {
         CustomTabBarContainerView(selection: $tabSelection) {
-            PlayerView()
+            PlayerView(viewModel: viewModel)
                 .tabBarItem(tab: .home, selection: $tabSelection)
             
-            FavoritesView()
+            FavoritesView(viewModel: viewModel)
                 .tabBarItem(tab: .favorites, selection: $tabSelection)
             
             MapEstablishmentsView()

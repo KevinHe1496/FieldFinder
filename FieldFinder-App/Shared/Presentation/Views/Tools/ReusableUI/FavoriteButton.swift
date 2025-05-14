@@ -8,13 +8,15 @@ import SwiftUI
 
 struct FavoriteButton: View {
     @Binding var isFavorite: Bool
+    var onToggle: ((Bool) -> Void)? = nil
     @State private var animate = false
-
+    
     var body: some View {
         Button(action: {
             withAnimation(.spring(response: 0.3, dampingFraction: 0.5)) {
                 isFavorite.toggle()
                 animate = true
+                onToggle?(isFavorite)
             }
             // Reinicia la animación después de un breve retraso
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {

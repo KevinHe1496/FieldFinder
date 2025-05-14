@@ -16,6 +16,7 @@ final class EstablishmentDetailViewModel {
         info: "",
         address: "",
         city: "",
+        isFavorite: false,
         zipCode: "",
         country: "",
         phone: "",
@@ -41,13 +42,27 @@ final class EstablishmentDetailViewModel {
     @ObservationIgnored
     private var useCase: GetEstablishmentDetailUseCaseProtocol
     
-    init(useCase: GetEstablishmentDetailUseCaseProtocol = GetEstablishmentDetailUseCase()) {
+    @ObservationIgnored
+    private var favoriteUseCase: FavoriteUserUseCaseProtocol
+    
+    init(useCase: GetEstablishmentDetailUseCaseProtocol = GetEstablishmentDetailUseCase(), favoriteUseCase: FavoriteUserUseCaseProtocol = FavoriteUserUseCase()) {
         self.useCase = useCase
+        self.favoriteUseCase = favoriteUseCase
     }
     
     @MainActor
     func getEstablishmentDetail(establishmentId: String) async throws {
         let data = try await useCase.getEstablishmentDetail(with: establishmentId)
         establishmentData = data
+    }
+    
+    @MainActor
+    func addToFavorites(establishmentId: String) async throws {
+        try await favoriteUseCase.favoriteUser(establishmentId: establishmentId)
+    }
+    
+    @MainActor
+    func removeFromFavorites(establishmentId: String) async throws {
+        try await favoriteUseCase.deleteFavoriteUser(establishmentId: establishmentId)
     }
 }

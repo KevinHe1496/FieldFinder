@@ -9,4 +9,5 @@ enum Endpoints: String {
     case getNearbyEstablishments = "/establecimiento/nearby"
     case getEstablishmentById = "/establecimiento"
     case getFieldById = "/cancha"
+    case favoriteUser = "/users/favoritos"
 }

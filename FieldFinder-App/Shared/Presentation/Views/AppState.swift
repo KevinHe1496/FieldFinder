@@ -16,11 +16,11 @@ final class AppState {
     init(loginUseCase: LoginUseCaseProtocol = LoginUseCase()) {
         self.loginUseCase = loginUseCase
         // Temporal
-        KeyChainFF().deletePK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
-        
         Task {
             await validateToken()
         }
+        
+        
     }
     
     @MainActor
@@ -59,6 +59,8 @@ final class AppState {
     func validateToken() {
         Task {
             if (await loginUseCase.validateToken() == true) {
+                let user = try await GetMeUseCase().getUser()
+                self.userRole = user.userRole
                 self.status = .loaded
                 NSLog("Login OK")
             } else {

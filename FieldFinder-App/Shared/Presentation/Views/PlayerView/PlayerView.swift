@@ -10,8 +10,9 @@ import CoreLocation
 
 struct PlayerView: View {
     @State private var searchText = ""
-    @StateObject private var viewModel = PlayerViewModel()
     @State private var didLoad = false
+    
+    @ObservedObject var viewModel: PlayerViewModel
     
     let columns = [
         GridItem(.flexible())
@@ -32,7 +33,7 @@ struct PlayerView: View {
                         NavigationLink {
                             EstablishmentDetailView(establishmentId: establishment.id)
                         } label: {
-                            EstablishmentRowView(establishment: establishment)
+                            EstablishmentRowView(establishment: establishment, viewModel: viewModel)
                         }
                     }
                 }
@@ -55,5 +56,5 @@ struct PlayerView: View {
 }
 
 #Preview {
-    PlayerView()
+    PlayerView(viewModel: PlayerViewModel())
 }
