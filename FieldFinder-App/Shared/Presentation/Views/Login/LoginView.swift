@@ -12,7 +12,7 @@ struct LoginView: View {
     
     #if DEBUG
     // MARK: - State Properties
-    @State private var email = "andy@example.com"
+    @State private var email = "kevin@example.com"
     @State private var password = "123456"
     #else
     @State private var email = ""
@@ -32,7 +32,7 @@ struct LoginView: View {
                         .scaledToFit()
                         .frame(width: 220, height: 220)
                     
-                    
+               
                     // MARK: - Login Form Section
                     Section {
                         VStack(spacing: 15) {
@@ -56,11 +56,15 @@ struct LoginView: View {
                             CustomButtonLoginRegister(title: "Sign In", color: .thirdColorWhite, textColor: .secondaryColorBlack) {
                                 // To do
                                 Task {
+
                                       appState
                                         .loginApp(
                                             user: email,
                                             password: password
                                         )
+
+                                      appState.loginApp(user:email, password: password)
+
                                 }
                                
                             }
@@ -71,47 +75,6 @@ struct LoginView: View {
                                 Text("Forgot your password?")
                                     .font(.appDescription)
                                     .foregroundStyle(.thirdColorWhite)
-                            }
-                            
-                            // MARK: - Social Media Sign up
-                            
-                            Text("- OR SIGN IN WITH -")
-                                .font(.appTitle)
-                                .foregroundStyle(.primaryColorGreen)
-                            
-                            HStack(spacing: 15) {
-                                Button {
-                                    //TO DO
-                                } label: {
-                                    Text("G")
-                                        .font(.appButton)
-                                        .frame(width: 70, height: 70)
-                                        .foregroundStyle(.secondaryColorBlack)
-                                        .background(Color.thirdColorWhite)
-                                        .clipShape(.buttonBorder)
-                                }
-                                
-                                Button {
-                                    //TO DO
-                                } label: {
-                                    Text("F")
-                                        .font(.appButton)
-                                        .frame(width: 70, height: 70)
-                                        .foregroundStyle(.secondaryColorBlack)
-                                        .background(Color.thirdColorWhite)
-                                        .clipShape(.buttonBorder)
-                                }
-                                
-                                Button {
-                                    //TO DO
-                                } label: {
-                                    Text("T")
-                                        .font(.appButton)
-                                        .frame(width: 70, height: 70)
-                                        .foregroundStyle(.secondaryColorBlack)
-                                        .background(Color.thirdColorWhite)
-                                        .clipShape(.buttonBorder)
-                                }
                             }
                         }
                         
