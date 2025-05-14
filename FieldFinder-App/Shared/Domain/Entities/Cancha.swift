@@ -14,4 +14,23 @@ struct Cancha: Codable, Identifiable {
     let cubierta: Bool
     let iluminada: Bool
     let fotos: [String]
+    
+    var photoCanchas: [URL] {
+        fotos.compactMap { url in
+            URL(string: "\(url)")
+        }
+    }
+    
+    static let sample = Cancha(
+        id: "cancha001",
+        tipo: "Fútbol 7",
+        modalidad: "Partido completo",
+        precio: 30,
+        cubierta: true,
+        iluminada: true,
+        fotos: [
+            "https://ejemplo.com/fotos/cancha001-1.jpg",
+            "https://ejemplo.com/fotos/cancha001-2.jpg"
+        ]
+    )
 }

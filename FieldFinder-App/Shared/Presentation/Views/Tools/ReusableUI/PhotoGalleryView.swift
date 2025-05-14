@@ -4,8 +4,6 @@
 //
 //  Created by Kevin Heredia on 12/5/25.
 //
-
-
 import SwiftUI
 
 struct PhotoGalleryView: View {
@@ -20,20 +18,23 @@ struct PhotoGalleryView: View {
                         switch phase {
                         case .empty:
                             ProgressView()
-                                .frame(maxWidth: .infinity, maxHeight: height)
-                                .background(.gray)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: height)
+                                .background(Color.gray.opacity(0.3))
                         case .success(let image):
                             image
                                 .resizable()
                                 .scaledToFill()
-                                .frame(maxWidth: .infinity, maxHeight: height)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: height)
                                 .clipped()
                         case .failure:
                             Image(systemName: "photo")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(maxWidth: .infinity, maxHeight: height)
-                                .foregroundColor(.gray.opacity(0.5))
+                                .frame(maxWidth: .infinity)
+                                .frame(height: height)
+                                .background(Color.gray.opacity(0.3))
                         @unknown default:
                             EmptyView()
                         }
@@ -43,8 +44,13 @@ struct PhotoGalleryView: View {
             .tabViewStyle(PageTabViewStyle())
             .frame(height: height)
         } else {
-            Text("No hay fotos disponibles")
-                .foregroundColor(.gray)
+            VStack {
+                Text("No hay fotos disponibles")
+                    .foregroundStyle(.black)
+            }
+            .frame(maxWidth: .infinity)
+            .frame(height: height)
+            .background(Color.gray.opacity(0.3))
         }
     }
 }

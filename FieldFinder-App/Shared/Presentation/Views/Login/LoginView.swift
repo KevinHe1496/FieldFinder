@@ -56,7 +56,15 @@ struct LoginView: View {
                             CustomButtonLoginRegister(title: "Sign In", color: .thirdColorWhite, textColor: .secondaryColorBlack) {
                                 // To do
                                 Task {
+
+                                      appState
+                                        .loginApp(
+                                            user: email,
+                                            password: password
+                                        )
+
                                       appState.loginApp(user:email, password: password)
+
                                 }
                                
                             }

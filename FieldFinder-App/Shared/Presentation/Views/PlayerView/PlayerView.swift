@@ -10,7 +10,9 @@ import CoreLocation
 
 struct PlayerView: View {
     @State private var searchText = ""
-    @State private var viewModel = PlayerViewModel()
+    @State private var didLoad = false
+    
+    @ObservedObject var viewModel: PlayerViewModel
     
     let columns = [
         GridItem(.flexible())
@@ -31,16 +33,22 @@ struct PlayerView: View {
                         NavigationLink {
                             EstablishmentDetailView(establishmentId: establishment.id)
                         } label: {
-                            EstablishmentRowView(establishment: establishment)
+                            EstablishmentRowView(establishment: establishment, viewModel: viewModel)
                         }
                     }
                 }
             }
+            .scrollIndicators(.hidden)
             .searchable(text: $searchText)
             .navigationTitle("Establecimientos")
-            .onAppear {
-                Task {
-                    try await viewModel.loadData()
+            .task {
+                if !didLoad {
+                    do {
+                        try await viewModel.loadData()
+                        didLoad = true
+                    } catch {
+                        print("No se pudo obtener ubicación o cargar datos: \(error.localizedDescription)")
+                    }
                 }
             }
         }
@@ -48,5 +56,5 @@ struct PlayerView: View {
 }
 
 #Preview {
-    PlayerView()
+    PlayerView(viewModel: PlayerViewModel())
 }
