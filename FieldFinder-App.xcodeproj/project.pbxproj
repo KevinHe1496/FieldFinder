@@ -21,6 +21,8 @@
 		BF1125B12DCFF10600A9DBE5 /* Data-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125B02DCFF10600A9DBE5 /* Data-extension.swift */; };
 		BF1125B32DCFF1D400A9DBE5 /* NetworkRegisterEstablishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125B22DCFF1CE00A9DBE5 /* NetworkRegisterEstablishment.swift */; };
 		BF1125B52DCFF31500A9DBE5 /* EstablishmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125B42DCFF31500A9DBE5 /* EstablishmentModel.swift */; };
+		BF46A97A2DD4DF76006A5FF3 /* OwnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46A9792DD4DF71006A5FF3 /* OwnerViewModel.swift */; };
+		BF46A97D2DD4E9A2006A5FF3 /* GridListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46A97C2DD4E9A2006A5FF3 /* GridListCellView.swift */; };
 		BF5614A82DCE6E8B003C1F66 /* RegisterField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5614A72DCE6E8B003C1F66 /* RegisterField.swift */; };
 		BF93CBB22DD39E3F002A8627 /* RegisterEstablismentRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB12DD39E31002A8627 /* RegisterEstablismentRepositoryProtocol.swift */; };
 		BF93CBB42DD39E5A002A8627 /* RegisterEstablishmentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB32DD39E4F002A8627 /* RegisterEstablishmentRepository.swift */; };
@@ -121,6 +123,8 @@
 		BF1125B02DCFF10600A9DBE5 /* Data-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data-extension.swift"; sourceTree = "<group>"; };
 		BF1125B22DCFF1CE00A9DBE5 /* NetworkRegisterEstablishment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRegisterEstablishment.swift; sourceTree = "<group>"; };
 		BF1125B42DCFF31500A9DBE5 /* EstablishmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentModel.swift; sourceTree = "<group>"; };
+		BF46A9792DD4DF71006A5FF3 /* OwnerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerViewModel.swift; sourceTree = "<group>"; };
+		BF46A97C2DD4E9A2006A5FF3 /* GridListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridListCellView.swift; sourceTree = "<group>"; };
 		BF5614A72DCE6E8B003C1F66 /* RegisterField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterField.swift; sourceTree = "<group>"; };
 		BF93CBB12DD39E31002A8627 /* RegisterEstablismentRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablismentRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BF93CBB32DD39E4F002A8627 /* RegisterEstablishmentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablishmentRepository.swift; sourceTree = "<group>"; };
@@ -239,6 +243,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		BF46A97B2DD4E957006A5FF3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BF46A97C2DD4E9A2006A5FF3 /* GridListCellView.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		BF5614A92DCE6FAD003C1F66 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,11 +297,9 @@
 		BF5614AD2DCE7095003C1F66 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-
 				BF1125B42DCFF31500A9DBE5 /* EstablishmentModel.swift */,
 				C92FD10F2DD2BC390008E2F9 /* Cancha.swift */,
 				C92FD0E92DD2699B0008E2F9 /* Establecimiento.swift */,
-
 				BF1125942DCFA01100A9DBE5 /* GetMeModel.swift */,
 				BF1125922DCF9F6500A9DBE5 /* UserRole.swift */,
 				BFFB27F92DCD585300DD8819 /* LoginResponse.swift */,
@@ -326,11 +336,9 @@
 		BF5614B02DCE712F003C1F66 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-
 				BFE2E0992DD3E68000B0E0BE /* ResizeImagesData.swift */,
 				BF1125AE2DCFF0B800A9DBE5 /* GeocodingHelper.swift */,
 				C92FD0F32DD27A460008E2F9 /* LocationManagerHelper.swift */,
-
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -551,6 +559,8 @@
 		C9C7BAB12DCE8A03007CB3FA /* OwnerView */ = {
 			isa = PBXGroup;
 			children = (
+				BF46A97B2DD4E957006A5FF3 /* Cell */,
+				BF46A9792DD4DF71006A5FF3 /* OwnerViewModel.swift */,
 				C9C7BAB42DCE8A29007CB3FA /* OwnerView.swift */,
 			);
 			path = OwnerView;
@@ -726,11 +736,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				BF93CBB42DD39E5A002A8627 /* RegisterEstablishmentRepository.swift in Sources */,
 				BF1125B52DCFF31500A9DBE5 /* EstablishmentModel.swift in Sources */,
 				C92FD1022DD297850008E2F9 /* GetEstablishmentDetailUseCase.swift in Sources */,
-
 				C939BC752DCCF89300B98C16 /* KeyChainFF.swift in Sources */,
 				C92FD0EE2DD278050008E2F9 /* GetNearbyEstablishmentsProtocol.swift in Sources */,
 				C9C7BAAF2DCE88CE007CB3FA /* TabBarItem.swift in Sources */,
@@ -766,11 +774,9 @@
 				BF1125AF2DCFF0B800A9DBE5 /* GeocodingHelper.swift in Sources */,
 				BFFB28F02DCD5F7C00DD8819 /* FFPersistenceKeyChain.swift in Sources */,
 				BF1125972DCFA07B00A9DBE5 /* NetworkGetMe.swift in Sources */,
-
 				BF93CBB62DD39FD8002A8627 /* RegisterEstablishmentUseCase.swift in Sources */,
 				BF1125B12DCFF10600A9DBE5 /* Data-extension.swift in Sources */,
 				C92FD0F02DD278ED0008E2F9 /* GetNearbyEstablishmentsUseCase.swift in Sources */,
-
 				BF9719102DCD1BFD00CD0AF8 /* HttpResponseCodes.swift in Sources */,
 				BFE2E09C2DD401AA00B0E0BE /* CustomUIImage.swift in Sources */,
 				C9C7BAB52DCE8A29007CB3FA /* OwnerView.swift in Sources */,
@@ -782,6 +788,7 @@
 				BF9719082DCD16D700CD0AF8 /* StatusModel.swift in Sources */,
 				C92FD1042DD297EC0008E2F9 /* EstablishmentDetailViewModel.swift in Sources */,
 				C92FD0E82DD267D20008E2F9 /* NetworkGetNearbyEstablishments.swift in Sources */,
+				BF46A97A2DD4DF76006A5FF3 /* OwnerViewModel.swift in Sources */,
 				C959890F2DCE99B200AC4B5D /* NetworkRegister.swift in Sources */,
 				BFFB27E62DCD3C7600DD8819 /* ConstantsApp.swift in Sources */,
 				BF1125B32DCFF1D400A9DBE5 /* NetworkRegisterEstablishment.swift in Sources */,
@@ -791,6 +798,7 @@
 				BFFB27EA2DCD3DBC00DD8819 /* FFError.swift in Sources */,
 				C939BC792DCCF8D800B98C16 /* CustomTextFieldLogin.swift in Sources */,
 				BF1125862DCEC22000A9DBE5 /* RegisterRepository.swift in Sources */,
+				BF46A97D2DD4E9A2006A5FF3 /* GridListCellView.swift in Sources */,
 				BFFB27E82DCD3D6E00DD8819 /* NetworkLogin.swift in Sources */,
 				C92FD0F62DD288C50008E2F9 /* EstablishmentRowView.swift in Sources */,
 				BF5614A82DCE6E8B003C1F66 /* RegisterField.swift in Sources */,

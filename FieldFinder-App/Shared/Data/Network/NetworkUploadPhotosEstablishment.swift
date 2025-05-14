@@ -17,7 +17,7 @@ final class NetworkUploadPhotosEstablishment: NetworkUploadPhotosEstablishmentPr
         
         var request: URLRequest = URLRequest(url: url)
         request.httpMethod = HttpMethods.post
-        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: HttpMethods.contentTypeID)
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: HttpHeader.contentTypeID)
         
         let jwtToken = KeyChainFF().loadPK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
         request.setValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")

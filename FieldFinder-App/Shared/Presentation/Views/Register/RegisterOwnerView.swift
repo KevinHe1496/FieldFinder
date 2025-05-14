@@ -91,7 +91,7 @@ struct RegisterOwnerView: View {
                     .background(.grayColorTF)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
                     
-                    CustomButtonLoginRegister(title: "Registrar", color: .primaryColorGreen, textColor: .white) {
+                    CustomButtonLoginRegister(title: "Continuar", color: .primaryColorGreen, textColor: .white) {
                         Task {
                             
                             

@@ -22,7 +22,7 @@ struct RootView: View {
                 switch role {
                     
                 case .dueno:
-                  RegisterOwnerView(appState: appState)
+                    OwnerView()
                 case .jugador:
                    AppTabBarView()
                 }
