@@ -10,6 +10,9 @@ import Foundation
 @Observable
 final class EstablishmentDetailViewModel {
     
+    var showOpenInMapsAlert = false
+    var mapsURL: URL?
+    
     var establishmentData = Establecimiento(
         id: "",
         name: "",
@@ -66,5 +69,16 @@ final class EstablishmentDetailViewModel {
     @MainActor
     func removeFromFavorites(establishmentId: String) async throws {
         try await favoriteUseCase.deleteFavoriteUser(establishmentId: establishmentId)
+    }
+    
+    @MainActor
+    func prepareMapsURL() {
+        let coordinate = establishmentData.coordinate
+        let placemarkName = establishmentData.name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Ubicación"
+        
+        if let url = URL(string: "maps://?q=\(placemarkName)&ll=\(coordinate.latitude),\(coordinate.longitude)") {
+            mapsURL = url
+            showOpenInMapsAlert = true
+        }
     }
 }

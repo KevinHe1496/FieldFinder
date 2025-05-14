@@ -19,6 +19,10 @@ struct CanchaDetailView: View {
         ScrollView {
             PhotoGalleryView(photoURLs: viewModel.fieldData.photoCanchas, height: 300)
             VStack(alignment: .leading) {
+                Text("Información:")
+                    .font(.appTitle)
+                    .foregroundStyle(.primaryColorGreen)
+                Divider()
                 Text("Cancha de: \(viewModel.fieldData.tipo)")
                 Text("Juego de: \(viewModel.fieldData.modalidad)")
                 Text("Precio: $\(viewModel.fieldData.precio) por hora.")
@@ -27,7 +31,7 @@ struct CanchaDetailView: View {
                 
                 FieldAttributesView(iluminada: viewModel.fieldData.iluminada, cubierta: viewModel.fieldData.cubierta)
             }
-            .padding()
+            .padding(.horizontal)
         }
         .task {
             try? await viewModel.getFieldDetail(with: fieldId)
