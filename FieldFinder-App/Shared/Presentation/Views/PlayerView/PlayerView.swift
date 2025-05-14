@@ -29,7 +29,7 @@ struct PlayerView: View {
                 .padding(.horizontal)
                 
                 LazyVGrid(columns: columns) {
-                    ForEach(viewModel.nearbyEstablishments) { establishment in
+                    ForEach(viewModel.filterEstablishments) { establishment in
                         NavigationLink {
                             EstablishmentDetailView(establishmentId: establishment.id)
                         } label: {
@@ -39,7 +39,7 @@ struct PlayerView: View {
                 }
             }
             .scrollIndicators(.hidden)
-            .searchable(text: $searchText)
+            .searchable(text: $viewModel.establishmentSearch)
             .navigationTitle("Establecimientos")
             .task {
                 if !didLoad {

@@ -18,6 +18,17 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     @Published var favoritesData = [FavoriteEstablishment]()
     @Published var selectedEstablishment: Establecimiento? // Restaurante seleccionado por el usuario.
     @Published var cameraPosition: MapCameraPosition = .automatic // Posición de la cámara en el mapa.
+    @Published var establishmentSearch = ""
+    
+    var filterEstablishments: [Establecimiento] {
+        if establishmentSearch.isEmpty {
+            nearbyEstablishments
+        } else {
+            nearbyEstablishments.filter { establishment in
+                establishment.name.localizedStandardContains(establishmentSearch)
+            }
+        }
+    }
     
     @ObservationIgnored
     private var useCase: GetNearbyEstablishmentsUseCaseProtocol
