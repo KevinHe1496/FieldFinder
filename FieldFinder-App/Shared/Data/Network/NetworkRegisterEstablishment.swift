@@ -16,7 +16,7 @@ final class NetworkRegisterEstablishment: NetworkRegisterEstablishmentProtocol {
         
         var request: URLRequest = URLRequest(url: url)
         request.httpMethod = HttpMethods.post
-        request.setValue(HttpMethods.content, forHTTPHeaderField: HttpMethods.contentTypeID)
+        request.setValue(HttpHeader.content, forHTTPHeaderField: HttpHeader.contentTypeID)
         
         let jwtToken = KeyChainFF().loadPK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
         request.setValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")

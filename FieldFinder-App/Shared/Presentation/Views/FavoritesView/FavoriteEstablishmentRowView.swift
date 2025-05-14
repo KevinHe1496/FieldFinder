@@ -9,9 +9,9 @@ import SwiftUI
 struct FavoriteEstablishmentRowView: View {
     let establishment: FavoriteEstablishment
     @State private var isFavorite: Bool
-    var viewModel: PlayerViewModel
+    var viewModel: GetNearbyEstablishmentsViewModel
 
-    init(establishment: FavoriteEstablishment, viewModel: PlayerViewModel) {
+    init(establishment: FavoriteEstablishment, viewModel: GetNearbyEstablishmentsViewModel) {
         self.establishment = establishment
         self.viewModel = viewModel
         _isFavorite = State(initialValue: true) // como viene de favoritos, es true

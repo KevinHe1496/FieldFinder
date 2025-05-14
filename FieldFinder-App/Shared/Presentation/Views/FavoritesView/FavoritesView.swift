@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FavoritesView: View {
-    @ObservedObject var viewModel: PlayerViewModel
+    @ObservedObject var viewModel: GetNearbyEstablishmentsViewModel
     
     var body: some View {
         ScrollView {
@@ -29,5 +29,5 @@ struct FavoritesView: View {
 }
 
 #Preview {
-    FavoritesView(viewModel: PlayerViewModel())
+    FavoritesView(viewModel: GetNearbyEstablishmentsViewModel())
 }

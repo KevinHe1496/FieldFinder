@@ -8,15 +8,27 @@
 import Foundation
 import CoreLocation
 import _MapKit_SwiftUI
-
+import SwiftUI
 
 final class GetNearbyEstablishmentsViewModel: ObservableObject {
     
     var locationService = LocationService()
+    @Published var lastLatitudeDelta: Double = 0.05
     @Published var nearbyEstablishments = [Establecimiento]()
     @Published var favoritesData = [FavoriteEstablishment]()
-    @Published var selectedRestaurant: Establecimiento? // Restaurante seleccionado por el usuario.
+    @Published var selectedEstablishment: Establecimiento? // Restaurante seleccionado por el usuario.
     @Published var cameraPosition: MapCameraPosition = .automatic // Posición de la cámara en el mapa.
+    @Published var establishmentSearch = ""
+    
+    var filterEstablishments: [Establecimiento] {
+        if establishmentSearch.isEmpty {
+            nearbyEstablishments
+        } else {
+            nearbyEstablishments.filter { establishment in
+                establishment.name.localizedStandardContains(establishmentSearch)
+            }
+        }
+    }
     
     @ObservationIgnored
     private var useCase: GetNearbyEstablishmentsUseCaseProtocol
@@ -48,7 +60,7 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
         } else {
             try await favoriteUseCase.deleteFavoriteUser(establishmentId: establishmentId)
         }
-        try await getFavoritesUser()
+        try await self.getFavoritesUser()
     }
     
     @MainActor
@@ -60,18 +72,20 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     /// Actualiza la posición de la cámara en el mapa.
     @MainActor
     private func updateCamera(to coordinate: CLLocationCoordinate2D) {
-        cameraPosition = .region(
-            MKCoordinateRegion(
-                center: coordinate,
-                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        withAnimation {
+            cameraPosition = .region(
+                MKCoordinateRegion(
+                    center: coordinate,
+                    span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+                )
             )
-        )
+        }
     }
-    
+
     /// Guarda el restaurante seleccionado para mostrar más detalles.
     @MainActor
-    func selectRestaurant(_ establishment: Establecimiento) {
-        selectedRestaurant = establishment
+    func selectEstablishment(_ establishment: Establecimiento) {
+        selectedEstablishment = establishment
     }
     
     @MainActor
