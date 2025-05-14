@@ -28,6 +28,8 @@ final class EstablishmentDetailViewModel {
         duchas: false,
         bar: false,
         fotos: [""],
+        latitude: 0.0,
+        longitude: 0.0,
         canchas: [Cancha(
             id: "",
             tipo: "",

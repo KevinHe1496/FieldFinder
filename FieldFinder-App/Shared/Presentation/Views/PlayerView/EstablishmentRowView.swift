@@ -12,10 +12,10 @@ struct EstablishmentRowView: View {
     let establishment: Establecimiento
     
     @State private var animateFavorite = false
-    @State var viewModel: PlayerViewModel
+    @State var viewModel: GetNearbyEstablishmentsViewModel
     @State private var isFavorite: Bool
 
-    init(establishment: Establecimiento, viewModel: PlayerViewModel) {
+    init(establishment: Establecimiento, viewModel: GetNearbyEstablishmentsViewModel) {
         self.establishment = establishment
         self.viewModel = viewModel
         _isFavorite = State(initialValue: establishment.isFavorite)
@@ -66,7 +66,7 @@ struct EstablishmentRowView: View {
 
 
 #Preview {
-    EstablishmentRowView(establishment: .sample, viewModel: PlayerViewModel())
+    EstablishmentRowView(establishment: .sample, viewModel: GetNearbyEstablishmentsViewModel())
 }
 
 

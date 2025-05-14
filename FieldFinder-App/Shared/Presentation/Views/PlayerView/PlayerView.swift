@@ -12,7 +12,7 @@ struct PlayerView: View {
     @State private var searchText = ""
     @State private var didLoad = false
     
-    @ObservedObject var viewModel: PlayerViewModel
+    @ObservedObject var viewModel: GetNearbyEstablishmentsViewModel
     
     let columns = [
         GridItem(.flexible())
@@ -56,5 +56,5 @@ struct PlayerView: View {
 }
 
 #Preview {
-    PlayerView(viewModel: PlayerViewModel())
+    PlayerView(viewModel: GetNearbyEstablishmentsViewModel())
 }

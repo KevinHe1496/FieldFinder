@@ -11,7 +11,7 @@ struct AppTabBarView: View {
     @State private var selection: String = "home"
     
     @State private var tabSelection: TabBarItem = .home
-    @StateObject private var viewModel = PlayerViewModel()
+    @StateObject private var viewModel = GetNearbyEstablishmentsViewModel()
     
     var body: some View {
         CustomTabBarContainerView(selection: $tabSelection) {

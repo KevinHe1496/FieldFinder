@@ -25,6 +25,8 @@ struct Establecimiento: Codable, Identifiable {
     let duchas: Bool
     let bar: Bool
     let fotos: [String]
+    let latitude: Double
+    let longitude: Double
     let canchas: [Cancha]
     
     var photoEstablishment: [URL] {
@@ -54,6 +56,8 @@ struct Establecimiento: Codable, Identifiable {
             "https://fieldfinder-uploads.s3.us-east-2.amazonaws.com/establecimiento/AB5C5912-B724-45D9-9652-82CC28F060F8-italia.png",
             "https://fieldfinder-uploads.s3.us-east-2.amazonaws.com/establecimiento/0C86D230-290A-4183-BBDD-D9E6133B02A3-calzone.png"
         ],
+        latitude: 0.0,
+        longitude: 0.0,
         canchas: [
             Cancha(
                 id: "cancha001",
