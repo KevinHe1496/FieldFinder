@@ -73,7 +73,6 @@ final class ProfileUserViewModel {
     
     @MainActor
     func updateUser(name: String) async throws {
-        _ = try validateFields(name: name)
         _ = try await useCase.updateUser(name: name)
     }
     
@@ -81,12 +80,4 @@ final class ProfileUserViewModel {
     func delete() async throws {
         _ = try await useCase.deleteUser()
     }
-    
-    @MainActor
-    func validateFields(name: String) throws {
-        if name.trimmingCharacters(in: .whitespaces).count <= 5 {
-            throw ValidationError.invalidName
-        }
-    }
-
 }
