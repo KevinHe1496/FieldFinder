@@ -10,7 +10,6 @@ enum Endpoints: String {
     case uploadImagesEstablishment = "/establecimiento/fotos"
     case getNearbyEstablishments = "/establecimiento/nearby"
     case getEstablishmentById = "/establecimiento"
-
     case getFieldById = "/cancha"
     case favoriteUser = "/users/favoritos"
 

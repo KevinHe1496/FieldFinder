@@ -9,7 +9,41 @@ import Foundation
 
 @Observable
 final class ProfileUserViewModel {
-    var getMeData = GetMeModel(email: "", id: "", rol: "", name: "")
+    var getMeData = GetMeModel(
+        email: "",
+        id: "",
+        rol: "",
+        name: "",
+        establecimiento: [EstablecimientoReponse.init(
+            longitude: 0.0,
+            info: "",
+            address: "",
+            fotos: [""],
+            parquedero: false,
+            userName: "",
+            id: "",
+            name: "",
+            zipCode: "",
+            city: "",
+            canchas: [CanchaResponse.init(
+                tipo: "",
+                modalidad: "",
+                id: "",
+                cubierta: false,
+                iluminada: false,
+                precio: 0,
+                fotos: [""]
+            )],
+            phone: "",
+            vestidores: false,
+            duchas: false,
+            userRol: "",
+            banos: false,
+            bar: false,
+            country: "",
+            latitude: 0.0
+        )]
+    )
     
     @ObservationIgnored
     private var useCase: GetMeUseCaseProtocol
