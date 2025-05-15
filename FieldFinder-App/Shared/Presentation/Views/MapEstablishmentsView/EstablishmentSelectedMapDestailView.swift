@@ -6,56 +6,118 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct EstablishmentSelectedMapDestailView: View {
     @Environment(\.dismiss) var dismiss
     let establishment: Establecimiento
+    @State private var viewModel = EstablishmentDetailViewModel()
+    @State private var cameraPosition: MapCameraPosition = .automatic
+    
     var body: some View {
-        VStack(spacing: 16) {
-            AsyncImage(url: establishment.photoEstablishment.first) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 200)
+        ScrollView {
+            VStack(spacing: 24) {
+                // Imagen destacada
+                AsyncImage(url: establishment.photoEstablishment.first) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(height: 220)
+                        .frame(maxWidth: .infinity)
+                        .clipped()
+                        .cornerRadius(16)
+                        .shadow(radius: 4)
+                } placeholder: {
+                    ProgressView()
+                        .frame(height: 220)
+                }
+
+                // Nombre
+                Text(establishment.name)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(.primaryColorGreen)
+                    .padding(.horizontal)
+
+                // Información
+                if !establishment.info.isEmpty {
+                    Text(establishment.info)
+                        .font(.body)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
+                }
+
+                // Teléfono
+                if !establishment.phone.isEmpty {
+                    HStack(spacing: 12) {
+                        Image(systemName: "phone.fill")
+                            .foregroundColor(.primaryColorGreen)
+                        Text(establishment.phone)
+                            .font(.subheadline)
+                            .foregroundColor(.secondaryColorBlack)
+                        Spacer()
+                    }
+                    .padding()
+                    .background(.gray.opacity(0.1))
                     .cornerRadius(12)
-            } placeholder: {
-                ProgressView()
-            }
-            
-            Text(establishment.name)
-                .font(.appTitle)
-                .foregroundStyle(.primaryColorGreen)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.center)
-            
-            Text(establishment.info)
-                .font(.appDescription)
-                .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+                }
+
+                // Botón de ubicación
+                HStack(spacing: 12) {
+                    Image(systemName: "mappin.and.ellipse")
+                        .font(.title2)
+                        .foregroundColor(.white)
+                        .padding(12)
+                        .background(Circle().fill(Color.primaryColorGreen))
+                        .shadow(radius: 4)
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Ir a la dirección")
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                        Text(establishment.address)
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            .lineLimit(2)
+                    }
+
+                    Spacer()
+                }
+                .padding()
+                .background(.ultraThinMaterial)
+                .cornerRadius(16)
+                .shadow(radius: 1)
                 .padding(.horizontal)
-            
-            HStack {
-                Image(systemName: "pin.fill")
-                    .foregroundStyle(.primaryColorGreen)
-                Text(establishment.address)
+                .onTapGesture {
+                    Task {
+                        viewModel.prepareMapsURL(for: establishment)
+                    }
+                }
+
+                // Botón Cancelar
+                CustomButtonLoginRegister(title: "Cancelar", color: .primaryColorGreen, textColor: .thirdColorWhite) {
+                    dismiss()
+                }
+                .padding(.horizontal)
             }
-            .font(.appDescription)
-            .foregroundStyle(.secondaryColorBlack)
-            
-            HStack {
-                Image(systemName: "phone.fill")
-                    .foregroundStyle(.primaryColorGreen)
-                Text(establishment.phone)
-            }
-            .font(.appDescription)
-            .foregroundStyle(.secondaryColorBlack)
-            
-            CustomButtonLoginRegister(title: "Cancel", color: .primaryColorGreen, textColor: .thirdColorWhite) {
-                dismiss()
-            }
+            .padding()
         }
-        .padding()
+        .alert("¿Abrir en Apple Maps?", isPresented: $viewModel.showOpenInMapsAlert) {
+            Button("Abrir", role: .none) {
+                Task {
+                    viewModel.openMapsURL()
+                }
+            }
+            Button("Cancelar", role: .cancel) { }
+        } message: {
+            Text("Esto abrirá la app Mapas con la ubicación del establecimiento.")
+        }
     }
 }
+
 
 #Preview {
     EstablishmentSelectedMapDestailView(establishment: .sample)

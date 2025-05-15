@@ -11,6 +11,7 @@ struct ProfileUserView: View {
     @Environment(AppState.self) var appState
     
     @State var viewModel = ProfileUserViewModel()
+    @State private var favoritesViewModel = GetNearbyEstablishmentsViewModel()
     let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0"
     
     var body: some View {
@@ -49,6 +50,16 @@ struct ProfileUserView: View {
                             .foregroundStyle(.gray)
                     }
                 }
+                
+                Section {
+                    NavigationLink {
+                        FavoritesView(viewModel: favoritesViewModel)
+                    } label: {
+                        Text("Mis favoritos")
+                            .foregroundStyle(.primaryColorGreen)
+                    }
+                }
+
                 
                 Section {
                     Button(role: .destructive) {

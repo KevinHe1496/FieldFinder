@@ -21,6 +21,7 @@ struct FavoritesView: View {
                 }
                 .animation(.easeInOut, value: viewModel.favoritesData)
                 .navigationTitle("Favoritos")
+                .navigationBarTitleDisplayMode(.inline)
                 .onAppear {
                     Task {
                         try? await viewModel.getFavoritesUser()

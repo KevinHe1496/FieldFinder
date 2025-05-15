@@ -117,7 +117,7 @@ struct EstablishmentDetailView: View {
                         
                     }
                     .onTapGesture {
-                        viewModel.prepareMapsURL()
+                        viewModel.prepareMapsURL(for: viewModel.establishmentData)
                     }
 
                     .padding(.bottom)
