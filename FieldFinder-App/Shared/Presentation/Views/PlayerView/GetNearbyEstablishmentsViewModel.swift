@@ -51,6 +51,7 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     func loadData() async throws {
         let coordinates = try await locationService.requestLocation()
         try await fetchEstablishments(near: coordinates)
+        updateCamera(to: coordinates) // 👈 esto centra la cámara automáticamente
     }
     
     @MainActor
@@ -76,7 +77,7 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
             cameraPosition = .region(
                 MKCoordinateRegion(
                     center: coordinate,
-                    span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+                    span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
                 )
             )
         }
