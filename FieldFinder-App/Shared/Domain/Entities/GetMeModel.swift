@@ -17,9 +17,10 @@ struct GetMeModel: Codable {
             return nil
         }
     }
-    
-    
-    
+}
+
+struct updateUserModel: Codable {
+    let name: String
 }
 
 
