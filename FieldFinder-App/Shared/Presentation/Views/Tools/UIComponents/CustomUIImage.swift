@@ -10,8 +10,10 @@ import _PhotosUI_SwiftUI
 
 struct CustomUIImage: View {
     
+ 
+    
     @State private var selectedItems: [PhotosPickerItem] = []
-    @State private var selectedImagesData: [Data] = []
+    @Binding var selectedImagesData: [Data]
     @State private var selectedImageToPreview: Data? = nil
     
     var body: some View {
@@ -117,5 +119,5 @@ struct CustomUIImage: View {
 }
 
 #Preview {
-    CustomUIImage()
+    CustomUIImage(selectedImagesData: .constant([]))
 }

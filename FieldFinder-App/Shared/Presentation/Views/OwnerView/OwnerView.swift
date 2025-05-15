@@ -35,7 +35,7 @@ struct OwnerView: View {
                     LazyVGrid(columns: columns) {
                         ForEach(viewModel.establishments.establecimiento[0].canchas) { cancha in
                             NavigationLink {
-                                EstablishmentDetailView(establishmentId: cancha.id)
+                                CanchaDetailView(fieldId: cancha.id)
                             } label: {
                                 GridListCellView(canchaResponse: cancha)
                             }

@@ -1,12 +1,12 @@
 import Foundation
 
 protocol NetworkUploadPhotosEstablishmentProtocol {
-    func uploadImages(establishmentID: UUID, images: [Data]) async throws
+    func uploadImages(establishmentID: String, images: [Data]) async throws
 }
 
 
 final class NetworkUploadPhotosEstablishment: NetworkUploadPhotosEstablishmentProtocol {
-    func uploadImages(establishmentID: UUID, images: [Data]) async throws {
+    func uploadImages(establishmentID: String, images: [Data]) async throws {
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.uploadImagesEstablishment.rawValue)/\(establishmentID)"
         
         guard let url = URL(string: urlString) else {
@@ -26,7 +26,7 @@ final class NetworkUploadPhotosEstablishment: NetworkUploadPhotosEstablishmentPr
         
         for (index, imageData) in images.enumerated() {
             body.append("--\(boundary)\r\n".data(using: .utf8)!)
-            body.append("Content-Disposition: form-data; name=\"file\"; filename=\"image\(index).jpg\"\r\n".data(using: .utf8)!)
+            body.append("Content-Disposition: form-data; name=\"files[]\"; filename=\"image\(index).jpg\"\r\n".data(using: .utf8)!)
             body.append("Content-Type: image/jpeg\r\n\r\n".data(using: .utf8)!)
             body.append(imageData)
             body.append("\r\n".data(using: .utf8)!)
