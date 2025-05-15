@@ -12,7 +12,7 @@ struct LoginView: View {
     
     #if DEBUG
     // MARK: - State Properties
-    @State private var email = "kevin@example.com"
+    @State private var email = "divi@example.com"
     @State private var password = "123456"
     #else
     @State private var email = ""

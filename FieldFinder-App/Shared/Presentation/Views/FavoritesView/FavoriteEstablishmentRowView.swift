@@ -18,19 +18,36 @@ struct FavoriteEstablishmentRowView: View {
     }
 
     var body: some View {
-        ScrollView {
-            HStack {
-                AsyncImage(url: viewModel.favoritesData.first?.photoEstablishment.first) { image in
-                    image
-                        .resizable()
-                        .frame(width: 200, height: 200)
-                } placeholder: {
+        VStack(alignment: .leading, spacing: 12) {
+            // Imagen del establecimiento
+            AsyncImage(url: establishment.photoEstablishment.first) { image in
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height: 180)
+                    .clipped()
+                    .cornerRadius(16)
+            } placeholder: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(Color.gray.opacity(0.2))
+                        .frame(height: 180)
                     ProgressView()
                 }
+            }
+
+            // Nombre y favorito
+            HStack {
                 Text(establishment.name)
+                    .font(.headline)
+                    .foregroundColor(.primary)
                 Spacer()
             }
-            .padding()
         }
+        .padding()
+        .background(Color(.systemBackground))
+        .cornerRadius(20)
+        .shadow(color: .gray.opacity(0.3), radius: 6, x: 0, y: 4)
+        .padding(.horizontal)
     }
 }

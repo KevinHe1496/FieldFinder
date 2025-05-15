@@ -7,6 +7,17 @@
 
 import Foundation
 
+enum ValidationError: Error, LocalizedError {
+    case invalidName
+
+    var errorDescription: String? {
+        switch self {
+        case .invalidName:
+            return "El nombre debe tener más de 5 caracteres."
+        }
+    }
+}
+
 @Observable
 final class ProfileUserViewModel {
     var getMeData = GetMeModel(
@@ -45,6 +56,8 @@ final class ProfileUserViewModel {
         )]
     )
     
+    var messageError = ""
+    
     @ObservationIgnored
     private var useCase: GetMeUseCaseProtocol
     
@@ -56,5 +69,15 @@ final class ProfileUserViewModel {
     func getMe() async throws {
         let result = try await useCase.getUser()
         self.getMeData = result
+    }
+    
+    @MainActor
+    func updateUser(name: String) async throws {
+        _ = try await useCase.updateUser(name: name)
+    }
+    
+    @MainActor
+    func delete() async throws {
+        _ = try await useCase.deleteUser()
     }
 }
