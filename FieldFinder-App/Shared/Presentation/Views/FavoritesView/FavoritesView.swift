@@ -15,10 +15,15 @@ struct FavoritesView: View {
             ScrollView {
                 VStack {
                     ForEach(viewModel.favoritesData) { establishment in
-                        FavoriteEstablishmentRowView(establishment: establishment, viewModel: viewModel)
-                            .transition(.slide)
+                        NavigationLink {
+                            EstablishmentDetailView(establishmentId: establishment.id)
+                        } label: {
+                            FavoriteEstablishmentRowView(establishment: establishment, viewModel: viewModel)
+                                .transition(.slide)
+                        }
                     }
                 }
+                .padding(.bottom)
                 .animation(.easeInOut, value: viewModel.favoritesData)
                 .navigationTitle("Favoritos")
                 .navigationBarTitleDisplayMode(.inline)
