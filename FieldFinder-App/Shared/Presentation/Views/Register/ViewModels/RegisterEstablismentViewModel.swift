@@ -67,7 +67,7 @@ final class RegisterEstablismentViewModel {
             
             
             alertMessage = "Establecimiento registrado con éxito."
-            appState.status = .ownerView
+            appState.status = .uploadPhotoEstablishment
         } catch {
             alertMessage = "Error al registrar: \(error.localizedDescription)"
             isLoading = false

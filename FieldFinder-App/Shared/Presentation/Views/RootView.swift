@@ -36,6 +36,8 @@ struct RootView: View {
             Text("Error \(errorString)")
         case .ownerView:
             Text("OwnerView ma friend")
+        case .uploadPhotoEstablishment:
+            RegisterEstablismentPhotosView(appState: appState)
         }
     }
 }
