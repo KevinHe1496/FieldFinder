@@ -32,7 +32,7 @@ struct MapEstablishmentsView: View {
             }
             .sheet(item: $viewModel.selectedEstablishment) { establishment in
                 EstablishmentSelectedMapDestailView(establishment: establishment)
-                    .presentationDetents([.medium])
+                    .presentationDetents([.large])
             }
             .mapControls {
                 MapCompass()

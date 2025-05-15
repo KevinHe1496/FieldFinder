@@ -37,7 +37,9 @@ struct PlayerView: View {
                         }
                     }
                 }
+                .padding(.bottom)
             }
+            
             .scrollIndicators(.hidden)
             .searchable(text: $viewModel.establishmentSearch)
             .navigationTitle("Establecimientos")
@@ -51,6 +53,7 @@ struct PlayerView: View {
                     }
                 }
             }
+            
         }
     }
 }

@@ -94,6 +94,9 @@
 		C98B8BED2DD4FEE8004F05A3 /* Establishment-coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98B8BEC2DD4FEE8004F05A3 /* Establishment-coordinate.swift */; };
 		C98B8BEF2DD4FFB3004F05A3 /* EstablishmentAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98B8BEE2DD4FFB3004F05A3 /* EstablishmentAnnotationView.swift */; };
 		C98B8BF12DD5015B004F05A3 /* EstablishmentSelectedMapDestailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98B8BF02DD5015B004F05A3 /* EstablishmentSelectedMapDestailView.swift */; };
+		C98B8BF52DD52F6F004F05A3 /* ProfileUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98B8BF42DD52F69004F05A3 /* ProfileUserViewModel.swift */; };
+		C98B8BF72DD530ED004F05A3 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98B8BF62DD530ED004F05A3 /* EditProfileView.swift */; };
+		C98B8BF92DD530F7004F05A3 /* TermsAndConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98B8BF82DD530F7004F05A3 /* TermsAndConditionsView.swift */; };
 		C9B0AD6B2DCD00950043A9A2 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0AD6A2DCD00950043A9A2 /* RegisterView.swift */; };
 		C9B0AD6D2DCD07EB0043A9A2 /* RegisterOwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0AD6C2DCD07EB0043A9A2 /* RegisterOwnerView.swift */; };
 		C9C7BAA72DCE88AD007CB3FA /* AppTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BAA62DCE88AD007CB3FA /* AppTabBarView.swift */; };
@@ -215,6 +218,9 @@
 		C98B8BEC2DD4FEE8004F05A3 /* Establishment-coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Establishment-coordinate.swift"; sourceTree = "<group>"; };
 		C98B8BEE2DD4FFB3004F05A3 /* EstablishmentAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentAnnotationView.swift; sourceTree = "<group>"; };
 		C98B8BF02DD5015B004F05A3 /* EstablishmentSelectedMapDestailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentSelectedMapDestailView.swift; sourceTree = "<group>"; };
+		C98B8BF42DD52F69004F05A3 /* ProfileUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserViewModel.swift; sourceTree = "<group>"; };
+		C98B8BF62DD530ED004F05A3 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		C98B8BF82DD530F7004F05A3 /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
 		C9B0AD6A2DCD00950043A9A2 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		C9B0AD6C2DCD07EB0043A9A2 /* RegisterOwnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterOwnerView.swift; sourceTree = "<group>"; };
 		C9C7BAA62DCE88AD007CB3FA /* AppTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarView.swift; sourceTree = "<group>"; };
@@ -644,6 +650,9 @@
 		C9C7BABC2DCE8D62007CB3FA /* ProfileUserView */ = {
 			isa = PBXGroup;
 			children = (
+				C98B8BF82DD530F7004F05A3 /* TermsAndConditionsView.swift */,
+				C98B8BF62DD530ED004F05A3 /* EditProfileView.swift */,
+				C98B8BF42DD52F69004F05A3 /* ProfileUserViewModel.swift */,
 				C9C7BABD2DCE8D71007CB3FA /* ProfileUserView.swift */,
 			);
 			path = ProfileUserView;
@@ -796,6 +805,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF93CBB42DD39E5A002A8627 /* RegisterEstablishmentRepository.swift in Sources */,
+				C98B8BF72DD530ED004F05A3 /* EditProfileView.swift in Sources */,
 				BF1125B52DCFF31500A9DBE5 /* EstablishmentModel.swift in Sources */,
 				C92FD1022DD297850008E2F9 /* GetEstablishmentDetailUseCase.swift in Sources */,
 				C939BC752DCCF89300B98C16 /* KeyChainFF.swift in Sources */,
@@ -818,6 +828,7 @@
 				C92FD0F22DD279DC0008E2F9 /* GetNearbyEstablishmentsViewModel.swift in Sources */,
 				BF97190C2DCD1BD100CD0AF8 /* Endpoints.swift in Sources */,
 				BF1125A12DCFA92900A9DBE5 /* GetMeUseCase.swift in Sources */,
+				C98B8BF92DD530F7004F05A3 /* TermsAndConditionsView.swift in Sources */,
 				BFE2E09A2DD3E68700B0E0BE /* ResizeImagesData.swift in Sources */,
 				C939BC852DCCF95800B98C16 /* LoginView.swift in Sources */,
 				BFFB27F82DCD472400DD8819 /* LoginUseCaseProtocol.swift in Sources */,
@@ -878,6 +889,7 @@
 				BF11259D2DCFA8C100A9DBE5 /* GetMeRepository.swift in Sources */,
 				BF11259F2DCFA8E800A9DBE5 /* GetMeRepositoryProtocol.swift in Sources */,
 				C92221B22DD3C53B00D6BE8B /* GetFieldDetailRepositoryProtocol.swift in Sources */,
+				C98B8BF52DD52F6F004F05A3 /* ProfileUserViewModel.swift in Sources */,
 				C92FD0EA2DD269A30008E2F9 /* Establecimiento.swift in Sources */,
 				C92221B82DD3D84600D6BE8B /* FieldAttributesView.swift in Sources */,
 				C939BC832DCCF94D00B98C16 /* LoadingView.swift in Sources */,

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 @Observable
 final class EstablishmentDetailViewModel {
@@ -72,13 +73,27 @@ final class EstablishmentDetailViewModel {
     }
     
     @MainActor
-    func prepareMapsURL() {
-        let coordinate = establishmentData.coordinate
-        let placemarkName = establishmentData.name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Ubicación"
-        
-        if let url = URL(string: "maps://?q=\(placemarkName)&ll=\(coordinate.latitude),\(coordinate.longitude)") {
+    func prepareMapsURL(for establishment: Establecimiento) {
+        let coordinate = establishment.coordinate
+
+        guard coordinate.latitude != 0.0, coordinate.longitude != 0.0 else {
+            return // Coordenadas vacías, no hacemos nada
+        }
+
+        let placeName = establishment.name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Ubicación"
+
+        if let url = URL(string: "maps://?q=\(placeName)&ll=\(coordinate.latitude),\(coordinate.longitude)") {
             mapsURL = url
             showOpenInMapsAlert = true
         }
     }
+
+    
+    @MainActor
+    func openMapsURL() {
+        if let url = mapsURL {
+            UIApplication.shared.open(url)
+        }
+    }
+
 }

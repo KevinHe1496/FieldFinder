@@ -11,17 +11,21 @@ struct FavoritesView: View {
     @ObservedObject var viewModel: GetNearbyEstablishmentsViewModel
     
     var body: some View {
-        ScrollView {
-            VStack {
-                ForEach(viewModel.favoritesData) { establishment in
-                    FavoriteEstablishmentRowView(establishment: establishment, viewModel: viewModel)
-                        .transition(.slide)
+        NavigationStack {
+            ScrollView {
+                VStack {
+                    ForEach(viewModel.favoritesData) { establishment in
+                        FavoriteEstablishmentRowView(establishment: establishment, viewModel: viewModel)
+                            .transition(.slide)
+                    }
                 }
-            }
-            .animation(.easeInOut, value: viewModel.favoritesData)
-            .onAppear {
-                Task {
-                    try? await viewModel.getFavoritesUser()
+                .animation(.easeInOut, value: viewModel.favoritesData)
+                .navigationTitle("Favoritos")
+                .navigationBarTitleDisplayMode(.inline)
+                .onAppear {
+                    Task {
+                        try? await viewModel.getFavoritesUser()
+                    }
                 }
             }
         }

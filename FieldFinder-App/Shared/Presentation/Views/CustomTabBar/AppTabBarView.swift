@@ -18,9 +18,6 @@ struct AppTabBarView: View {
             PlayerView(viewModel: viewModel)
                 .tabBarItem(tab: .home, selection: $tabSelection)
             
-            FavoritesView(viewModel: viewModel)
-                .tabBarItem(tab: .favorites, selection: $tabSelection)
-            
             MapEstablishmentsView()
                 .tabBarItem(tab: .map, selection: $tabSelection)
             

@@ -18,15 +18,19 @@ struct FavoriteEstablishmentRowView: View {
     }
 
     var body: some View {
-        HStack {
-            Text(establishment.name)
-            Spacer()
-            FavoriteButton(isFavorite: $isFavorite) { newValue in
-                Task {
-                    try? await viewModel.toggleFavorite(establishmentId: establishment.id, isFavorite: newValue)
+        ScrollView {
+            HStack {
+                AsyncImage(url: viewModel.favoritesData.first?.photoEstablishment.first) { image in
+                    image
+                        .resizable()
+                        .frame(width: 200, height: 200)
+                } placeholder: {
+                    ProgressView()
                 }
+                Text(establishment.name)
+                Spacer()
             }
+            .padding()
         }
-        .padding()
     }
 }
