@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF03C62D2DD78E35005DB158 /* EditFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF03C62C2DD78E35005DB158 /* EditFieldView.swift */; };
 		BF1125842DCEC1F100A9DBE5 /* RegisterRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125832DCEC1E500A9DBE5 /* RegisterRepositoryProtocol.swift */; };
 		BF1125862DCEC22000A9DBE5 /* RegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125852DCEC21C00A9DBE5 /* RegisterRepository.swift */; };
 		BF1125882DCEC2B700A9DBE5 /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125872DCEC2B200A9DBE5 /* RegisterUseCase.swift */; };
@@ -134,6 +135,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF03C62C2DD78E35005DB158 /* EditFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFieldView.swift; sourceTree = "<group>"; };
 		BF1125832DCEC1E500A9DBE5 /* RegisterRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BF1125852DCEC21C00A9DBE5 /* RegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepository.swift; sourceTree = "<group>"; };
 		BF1125872DCEC2B200A9DBE5 /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
@@ -585,6 +587,7 @@
 				BF5614A72DCE6E8B003C1F66 /* RegisterField.swift */,
 				C9B0AD6A2DCD00950043A9A2 /* RegisterView.swift */,
 				C9B0AD6C2DCD07EB0043A9A2 /* RegisterOwnerView.swift */,
+				BF03C62C2DD78E35005DB158 /* EditFieldView.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -820,6 +823,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF93CBB42DD39E5A002A8627 /* RegisterEstablishmentRepository.swift in Sources */,
+				BF03C62D2DD78E35005DB158 /* EditFieldView.swift in Sources */,
 				C98B8BF72DD530ED004F05A3 /* EditProfileView.swift in Sources */,
 				BF1125B52DCFF31500A9DBE5 /* EstablishmentModel.swift in Sources */,
 				C92FD1022DD297850008E2F9 /* GetEstablishmentDetailUseCase.swift in Sources */,

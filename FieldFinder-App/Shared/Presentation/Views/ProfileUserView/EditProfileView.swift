@@ -58,3 +58,7 @@ struct EditProfileView: View {
         }
     }
 }
+
+#Preview {
+    EditProfileView(currentName: "Olga")
+}

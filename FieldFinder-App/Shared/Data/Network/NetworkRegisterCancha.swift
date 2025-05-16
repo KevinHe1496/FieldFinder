@@ -3,11 +3,13 @@ import Foundation
 protocol NetworkRegisterCanchaProtocol {
     func registerCancha(_ canchaModel: RegisterCanchaModel) async throws -> String
     func uploadImagesCancha(canchaID: String, images: [Data]) async throws
+    func editCancha(canchaID: String, canchaModel: RegisterCanchaModel) async throws -> RegisterCanchaModel
+    func deleteCancha(canchaID: String) async throws
 }
 
 
 final class NetworkRegisterCancha: NetworkRegisterCanchaProtocol {
-   
+    
     
     func registerCancha(_ canchaModel: RegisterCanchaModel) async throws -> String {
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.registerCancha.rawValue)"
@@ -25,21 +27,21 @@ final class NetworkRegisterCancha: NetworkRegisterCanchaProtocol {
         
         request.httpBody = try JSONEncoder().encode(canchaModel)
         
-       
-            let (data, response) = try await URLSession.shared.data(for: request)
-            
-            // 6. Verificar que la respuesta es válida y fue exitosa
-            guard let httpResponse = response as? HTTPURLResponse else {
-                throw FFError.errorFromApi(statusCode: -1)
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        // 6. Verificar que la respuesta es válida y fue exitosa
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw FFError.errorFromApi(statusCode: -1)
+        }
+        
+        guard (200...299).contains(httpResponse.statusCode) else {
+            // Aquí puedes decodificar un posible mensaje de error si el backend lo envía
+            if let errorMessage = String(data: data, encoding: .utf8) {
+                print("Error del servidor: \(errorMessage)")
             }
-            
-            guard (200...299).contains(httpResponse.statusCode) else {
-                // Aquí puedes decodificar un posible mensaje de error si el backend lo envía
-                if let errorMessage = String(data: data, encoding: .utf8) {
-                    print("Error del servidor: \(errorMessage)")
-                }
-                throw FFError.errorFromApi(statusCode: httpResponse.statusCode)
-            }
+            throw FFError.errorFromApi(statusCode: httpResponse.statusCode)
+        }
         do {
             print("✅ Cancha registrada con éxito.")
             let decoded = try JSONDecoder().decode(IDResponse.self, from: data)
@@ -99,5 +101,64 @@ final class NetworkRegisterCancha: NetworkRegisterCanchaProtocol {
             throw FFError.requestWasNil
         }
     }
+    
+    func editCancha(canchaID: String, canchaModel: RegisterCanchaModel) async throws -> RegisterCanchaModel {
+        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getFieldById.rawValue)/\(canchaID)"
+        
+        guard let url = URL(string: urlString) else {
+            throw FFError.badUrl
+        }
+        
+        var request: URLRequest = URLRequest(url: url)
+        request.httpMethod = HttpMethods.put
+        request.setValue(HttpHeader.content, forHTTPHeaderField: HttpHeader.contentTypeID)
+        
+        let tokenJWT = KeyChainFF().loadPK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
+        request.setValue("\(HttpHeader.bearer) \(tokenJWT)", forHTTPHeaderField: HttpHeader.authorization)
+        
+        request.httpBody = try JSONEncoder().encode(canchaModel)
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+              200..<300 ~= httpResponse.statusCode else {
+            throw FFError.errorFromApi(statusCode: -1)
+        }
+        
+        do {
+            let result = try JSONDecoder().decode(RegisterCanchaModel.self, from: data)
+            return result
+        } catch {
+            throw FFError.errorParsingData
+        }
+        
+    }
+    
+    func deleteCancha(canchaID: String) async throws {
+        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getFieldById.rawValue)/\(canchaID)"
+        
+        guard let url = URL(string: urlString) else {
+            throw FFError.badUrl
+        }
+        
+        var request: URLRequest = URLRequest(url: url)
+        request.httpMethod = HttpMethods.delete
+        
+        let tokenJWT = KeyChainFF().loadPK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
+        request.setValue("\(HttpHeader.bearer) \(tokenJWT)", forHTTPHeaderField: HttpHeader.authorization)
+        
+        do {
+            let (_, response) = try await URLSession.shared.data(for: request)
+            
+            guard let httpResponse = response as? HTTPURLResponse,
+                  200..<300 ~= httpResponse.statusCode else {
+                throw FFError.errorFromApi(statusCode: -1)
+            }
+        } 
+        
+        
+    }
+    
+    
     
 }

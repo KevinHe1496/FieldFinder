@@ -36,7 +36,7 @@ struct OwnerView: View {
                         ForEach(viewModel.establishments.establecimiento) { establecimiento in
                             ForEach(establecimiento.canchas) { cancha in
                                 NavigationLink {
-                                    CanchaDetailView(fieldId: cancha.id)
+                                    CanchaDetailView(fieldId: cancha.id, userRole: viewModel.establishments.userRole)
                                 } label: {
                                    GridListCellView(canchaResponse: cancha)
                                 }
@@ -68,6 +68,7 @@ struct OwnerView: View {
                      await viewModel.getEstablishments()
                 }
             }
+        
         }
     }
 }
