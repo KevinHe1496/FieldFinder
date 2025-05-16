@@ -10,6 +10,7 @@ import SwiftUI
 struct OwnerView: View {
     
     @Environment(AppState.self) var appState
+    @State private var shownItems: Set<String> = []
     
     @State private var viewModel = OwnerViewModel()
     let columns = [
@@ -19,55 +20,61 @@ struct OwnerView: View {
     var body: some View {
         NavigationStack {
             
-            ScrollView {
-                if viewModel.establishments.establecimiento.first?.canchas.isEmpty ?? true {
-                    VStack {
+            ZStack {
+                Color(.systemGroupedBackground).ignoresSafeArea()
+                ScrollView {
+                    if viewModel.establishments.establecimiento.first?.canchas.isEmpty ?? true {
+                        VStack {
+                            
+                            ContentUnavailableView("No hay canchas registradas", systemImage: "soccerball.inverse", description: Text("Agrega algunas canchas."))
+                            
+                        }
+                        .padding(.top, 250)
                         
-                        ContentUnavailableView("No hay canchas registradas", systemImage: "soccerball.inverse", description: Text("Agrega algunas canchas."))
+                    } else {
                         
-                    }
-                    .padding(.top, 250)
-                    
-                } else {
-                    
-                    
-                    
-                    LazyVGrid(columns: columns) {
-                        ForEach(viewModel.establishments.establecimiento) { establecimiento in
-                            ForEach(establecimiento.canchas) { cancha in
-                                NavigationLink {
-                                    CanchaDetailView(fieldId: cancha.id, userRole: viewModel.establishments.userRole)
-                                } label: {
-                                    GridListCellView(canchaResponse: cancha)
+                        
+                        
+                        LazyVGrid(columns: columns, spacing: 20) {
+                            ForEach(viewModel.establishments.establecimiento) { establecimiento in
+                                ForEach(establecimiento.canchas) { cancha in
+                                    NavigationLink {
+                                        CanchaDetailView(fieldId: cancha.id, userRole: viewModel.establishments.userRole)
+                                    } label: {
+                                        AnimatedAppearRow(item: cancha, shownItems: $shownItems) {
+                                            GridListCellView(canchaResponse: cancha)
+                                        }
+                                        
+                                    }
                                 }
                             }
                         }
+                        .padding(.bottom)
                     }
-                    .padding(.bottom)
-                }
-                  
-            }
-            .navigationTitle("Canchas")
-            .toolbar {
-                
-                ToolbarItem(placement: .topBarTrailing) {
                     
-                    NavigationLink {
-                        RegisterField()
-                        
-                    } label: {
-                        Image(systemName: "plus.circle.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 30)
-                    }
-                    .tint(.primaryColorGreen)
                 }
-                
-            }
-            .onAppear {
-                Task {
-                    await viewModel.getEstablishments()
+                .navigationTitle("Canchas")
+                .toolbar {
+                    
+                    ToolbarItem(placement: .topBarTrailing) {
+                        
+                        NavigationLink {
+                            RegisterField()
+                            
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 30)
+                        }
+                        .tint(.primaryColorGreen)
+                    }
+                    
+                }
+                .onAppear {
+                    Task {
+                        await viewModel.getEstablishments()
+                    }
                 }
             }
             

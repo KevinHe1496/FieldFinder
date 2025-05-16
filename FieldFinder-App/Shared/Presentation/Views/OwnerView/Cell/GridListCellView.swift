@@ -11,31 +11,36 @@ struct GridListCellView: View {
     
     let canchaResponse: CanchaResponse
     var body: some View {
-        VStack(alignment: .leading, spacing: 15) {
-            
-                RemoteImageCardView(url: canchaResponse.photoCancha.first, height: 200)
-            
-            
-            VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 10) {
+            ZStack(alignment: .topTrailing) {
+                RemoteImageCardView(url: canchaResponse.photoCancha.first, height: 180)
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                    .shadow(radius: 4)
+
+            }
+
+            VStack(alignment: .leading, spacing: 6) {
                 Text(canchaResponse.modalidad)
-                    .font(.appSubtitle)
+                    .font(.headline)
                     .foregroundStyle(.primaryColorGreen)
-                
-                
-                HStack {
-                    Image(systemName: "pin.fill")
-                        .foregroundStyle(.primaryColorGreen)
-                    Text("$\(canchaResponse.precio) por hora")
-                        .font(.appDescription)
-                        .foregroundStyle(.secondaryColorBlack)
+                    .lineLimit(1)
+
+                HStack(spacing: 6) {
+                    Image(systemName: "mappin.and.ellipse")
+                        .foregroundColor(.gray)
+                    Text("\(canchaResponse.precio) por hora.")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        .lineLimit(2)
                 }
             }
+            .padding(.horizontal, 4)
         }
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 16)
                 .fill(Color.white)
-                .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
+                .shadow(color: .black.opacity(0.08), radius: 5, x: 0, y: 3)
         )
         .padding(.horizontal)
     }
