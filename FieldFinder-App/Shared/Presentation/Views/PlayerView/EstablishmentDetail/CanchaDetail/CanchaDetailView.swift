@@ -24,6 +24,7 @@ struct CanchaDetailView: View {
     }
     
     var body: some View {
+
         NavigationStack {
             ScrollView {
                 PhotoGalleryView(photoURLs: viewModel.fieldData.photoCanchas, height: 300)
@@ -41,6 +42,7 @@ struct CanchaDetailView: View {
                     FieldAttributesView(iluminada: viewModel.fieldData.iluminada, cubierta: viewModel.fieldData.cubierta)
                 }
                 .padding(.horizontal)
+
             }
             .toolbar {
                 if userRole == .dueno {
