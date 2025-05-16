@@ -21,49 +21,50 @@ struct EstablishmentRowView: View {
         _isFavorite = State(initialValue: establishment.isFavorite)
     }
 
-    
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 10) {
             ZStack(alignment: .topTrailing) {
-                RemoteImageCardView(url: establishment.photoEstablishment.first, height: 200)
+                RemoteImageCardView(url: establishment.photoEstablishment.first, height: 180)
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                    .shadow(radius: 4)
                 
-                // Botón de favorito
                 FavoriteButton(isFavorite: $isFavorite) { newValue in
                     Task {
-                            try await viewModel.toggleFavorite(
-                                establishmentId: establishment.id,
-                                isFavorite: newValue
-                            )
-                        }
+                        try await viewModel.toggleFavorite(
+                            establishmentId: establishment.id,
+                            isFavorite: newValue
+                        )
+                    }
                 }
-                    .padding(15)
+                .padding(12)
             }
-            
-            VStack(alignment: .leading, spacing: 5) {
+
+            VStack(alignment: .leading, spacing: 6) {
                 Text(establishment.name)
-                    .font(.appSubtitle)
+                    .font(.headline)
                     .foregroundStyle(.primaryColorGreen)
-                
-                
-                HStack {
-                    Image(systemName: "pin.fill")
-                        .foregroundStyle(.primaryColorGreen)
+                    .lineLimit(1)
+
+                HStack(spacing: 6) {
+                    Image(systemName: "mappin.and.ellipse")
+                        .foregroundColor(.gray)
                     Text(establishment.address)
-                        .font(.appDescription)
-                        .foregroundStyle(.secondaryColorBlack)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        .lineLimit(2)
                 }
             }
+            .padding(.horizontal, 4)
         }
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 16)
                 .fill(Color.white)
-                .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
+                .shadow(color: .black.opacity(0.08), radius: 5, x: 0, y: 3)
         )
         .padding(.horizontal)
     }
 }
-
 
 #Preview {
     EstablishmentRowView(establishment: .sample, viewModel: GetNearbyEstablishmentsViewModel())

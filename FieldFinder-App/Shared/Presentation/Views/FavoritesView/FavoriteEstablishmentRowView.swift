@@ -14,40 +14,53 @@ struct FavoriteEstablishmentRowView: View {
     init(establishment: FavoriteEstablishment, viewModel: GetNearbyEstablishmentsViewModel) {
         self.establishment = establishment
         self.viewModel = viewModel
-        _isFavorite = State(initialValue: true) // como viene de favoritos, es true
+        _isFavorite = State(initialValue: true) // ya está en favoritos
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            // Imagen del establecimiento
-            AsyncImage(url: establishment.photoEstablishment.first) { image in
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: 180)
-                    .clipped()
-                    .cornerRadius(16)
-            } placeholder: {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Color.gray.opacity(0.2))
+        VStack(alignment: .leading, spacing: 10) {
+            ZStack(alignment: .topTrailing) {
+                AsyncImage(url: establishment.photoEstablishment.first) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
                         .frame(height: 180)
-                    ProgressView()
+                        .clipped()
+                        .cornerRadius(16)
+                } placeholder: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 16)
+                            .fill(Color.gray.opacity(0.15))
+                            .frame(height: 180)
+                        ProgressView()
+                    }
                 }
             }
 
-            // Nombre y favorito
-            HStack {
+            VStack(alignment: .leading, spacing: 6) {
                 Text(establishment.name)
                     .font(.headline)
-                    .foregroundColor(.primary)
-                Spacer()
+                    .foregroundColor(.primaryColorGreen)
+                    .lineLimit(1)
+
+                HStack(spacing: 6) {
+                    Image(systemName: "mappin.and.ellipse")
+                        .foregroundColor(.gray)
+                    Text(establishment.address)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        .lineLimit(2)
+                }
+
             }
+            .padding(.horizontal, 4)
         }
         .padding()
-        .background(Color(.systemBackground))
-        .cornerRadius(20)
-        .shadow(color: .gray.opacity(0.3), radius: 6, x: 0, y: 4)
+        .background(
+            RoundedRectangle(cornerRadius: 16)
+                .fill(Color.white)
+                .shadow(color: .black.opacity(0.08), radius: 5, x: 0, y: 3)
+        )
         .padding(.horizontal)
     }
 }
