@@ -114,6 +114,7 @@
 		C9C7BAB82DCE8A60007CB3FA /* MapEstablishmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BAB72DCE8A60007CB3FA /* MapEstablishmentsView.swift */; };
 		C9C7BABB2DCE8A9D007CB3FA /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BABA2DCE8A9D007CB3FA /* FavoritesView.swift */; };
 		C9C7BABE2DCE8D71007CB3FA /* ProfileUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BABD2DCE8D71007CB3FA /* ProfileUserView.swift */; };
+		C9D4CA3D2DD79E2D00296604 /* AppTabBarOwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CA3C2DD79E2D00296604 /* AppTabBarOwnerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -243,6 +244,7 @@
 		C9C7BAB72DCE8A60007CB3FA /* MapEstablishmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEstablishmentsView.swift; sourceTree = "<group>"; };
 		C9C7BABA2DCE8A9D007CB3FA /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		C9C7BABD2DCE8D71007CB3FA /* ProfileUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserView.swift; sourceTree = "<group>"; };
+		C9D4CA3C2DD79E2D00296604 /* AppTabBarOwnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarOwnerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -614,6 +616,7 @@
 			isa = PBXGroup;
 			children = (
 				C9C7BAA62DCE88AD007CB3FA /* AppTabBarView.swift */,
+				C9D4CA3C2DD79E2D00296604 /* AppTabBarOwnerView.swift */,
 				C9C7BAA82DCE88B8007CB3FA /* CustomTabBarView.swift */,
 				C9C7BAAA2DCE88C1007CB3FA /* CustomTabBarContainerView.swift */,
 				C9C7BAAC2DCE88C7007CB3FA /* TabBarItemsPreferenceKey.swift */,
@@ -923,6 +926,7 @@
 				BF1125932DCF9F6500A9DBE5 /* UserRole.swift in Sources */,
 				C92FD0F82DD291920008E2F9 /* EstablishmentDetailView.swift in Sources */,
 				BFFB28F42DCD61A200DD8819 /* RootView.swift in Sources */,
+				C9D4CA3D2DD79E2D00296604 /* AppTabBarOwnerView.swift in Sources */,
 				C92FD0F42DD27A460008E2F9 /* LocationManagerHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
