@@ -4,7 +4,6 @@
 //
 //  Created by Kevin Heredia on 12/5/25.
 //
-
 import Foundation
 
 struct Establecimiento: Codable, Identifiable {

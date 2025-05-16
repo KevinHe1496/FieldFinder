@@ -9,7 +9,7 @@ import Foundation
 
 @Observable
 final class ProfileUserViewModel {
-    var getMeData = GetMeModel(email: "", id: "", rol: "", name: "")
+    var getMeData = GetMeModel(email: "", id: "", rol: "", name: "", establecimiento: [])
     
     @ObservationIgnored
     private var useCase: GetMeUseCaseProtocol

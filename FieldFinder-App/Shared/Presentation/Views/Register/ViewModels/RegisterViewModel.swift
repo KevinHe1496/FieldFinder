@@ -6,7 +6,8 @@ final class RegisterViewModel {
     private var appState: AppState
     var isLoading: Bool = false
     var isRegistered: Bool = false
-    var errorMessage: String?
+    var showAlert: Bool = false
+    var message: String?
     var tokenJWT: String = ""
     
     @ObservationIgnored
@@ -22,11 +23,12 @@ final class RegisterViewModel {
     func userRegister(name: String, email: String, password: String, rol: String) async -> String? {
         if let validationError = validateFields(name: name, email: email, password: password) {
             isLoading = false
+            showAlert = true
             return validationError
         }
         
         isLoading = true
-        errorMessage = nil
+        message = nil
         appState.status = .loading
         
         do {

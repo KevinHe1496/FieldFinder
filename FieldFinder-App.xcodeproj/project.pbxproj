@@ -21,13 +21,14 @@
 		BF1125B12DCFF10600A9DBE5 /* Data-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125B02DCFF10600A9DBE5 /* Data-extension.swift */; };
 		BF1125B32DCFF1D400A9DBE5 /* NetworkRegisterEstablishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125B22DCFF1CE00A9DBE5 /* NetworkRegisterEstablishment.swift */; };
 		BF1125B52DCFF31500A9DBE5 /* EstablishmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125B42DCFF31500A9DBE5 /* EstablishmentModel.swift */; };
+		BF1471CF2DD646ED008C1E09 /* NetworkRegisterCancha.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1471CE2DD646E4008C1E09 /* NetworkRegisterCancha.swift */; };
+		BF1471D12DD64A8B008C1E09 /* RegisterCanchaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1471D02DD64A7B008C1E09 /* RegisterCanchaRepository.swift */; };
+		BF1471D32DD64B0F008C1E09 /* RegisterCanchaRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1471D22DD64B07008C1E09 /* RegisterCanchaRepositoryProtocol.swift */; };
+		BF1471D52DD64B81008C1E09 /* RegisterCanchaUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1471D42DD64B75008C1E09 /* RegisterCanchaUseCase.swift */; };
+		BF1471D72DD64DB2008C1E09 /* ResgiterCanchaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1471D62DD64DAC008C1E09 /* ResgiterCanchaViewModel.swift */; };
+		BF1471D92DD65102008C1E09 /* RegisterCanchaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1471D82DD650EF008C1E09 /* RegisterCanchaModel.swift */; };
 		BF46A97A2DD4DF76006A5FF3 /* OwnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46A9792DD4DF71006A5FF3 /* OwnerViewModel.swift */; };
 		BF46A97D2DD4E9A2006A5FF3 /* GridListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46A97C2DD4E9A2006A5FF3 /* GridListCellView.swift */; };
-		BF46A9852DD546E7006A5FF3 /* UploadPhotosEstablishmentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46A9842DD546BA006A5FF3 /* UploadPhotosEstablishmentRepository.swift */; };
-		BF46A9872DD54737006A5FF3 /* UploadPhotosEstablishmentRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46A9862DD54721006A5FF3 /* UploadPhotosEstablishmentRepositoryProtocol.swift */; };
-		BF46A9892DD547E4006A5FF3 /* UploadPhotosEstablishmentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46A9882DD547A6006A5FF3 /* UploadPhotosEstablishmentUseCase.swift */; };
-		BF46A98B2DD54B01006A5FF3 /* UploadEstablishmentPhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46A98A2DD54AE9006A5FF3 /* UploadEstablishmentPhotosViewModel.swift */; };
-		BF46A98D2DD55444006A5FF3 /* RegisterEstablismentPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46A98C2DD55444006A5FF3 /* RegisterEstablismentPhotosView.swift */; };
 		BF5614A82DCE6E8B003C1F66 /* RegisterField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5614A72DCE6E8B003C1F66 /* RegisterField.swift */; };
 		BF93CBB22DD39E3F002A8627 /* RegisterEstablismentRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB12DD39E31002A8627 /* RegisterEstablismentRepositoryProtocol.swift */; };
 		BF93CBB42DD39E5A002A8627 /* RegisterEstablishmentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB32DD39E4F002A8627 /* RegisterEstablishmentRepository.swift */; };
@@ -40,7 +41,6 @@
 		BF9719102DCD1BFD00CD0AF8 /* HttpResponseCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97190F2DCD1BFD00CD0AF8 /* HttpResponseCodes.swift */; };
 		BFE2E09A2DD3E68700B0E0BE /* ResizeImagesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2E0992DD3E68000B0E0BE /* ResizeImagesData.swift */; };
 		BFE2E09C2DD401AA00B0E0BE /* CustomUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2E09B2DD401AA00B0E0BE /* CustomUIImage.swift */; };
-		BFE2E09E2DD40DF800B0E0BE /* NetworkUploadPhotosEstablishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2E09D2DD40DE900B0E0BE /* NetworkUploadPhotosEstablishment.swift */; };
 		BFFB27E62DCD3C7600DD8819 /* ConstantsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB27E52DCD3C7600DD8819 /* ConstantsApp.swift */; };
 		BFFB27E82DCD3D6E00DD8819 /* NetworkLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB27E72DCD3D6800DD8819 /* NetworkLogin.swift */; };
 		BFFB27EA2DCD3DBC00DD8819 /* FFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB27E92DCD3DBC00DD8819 /* FFError.swift */; };
@@ -148,13 +148,14 @@
 		BF1125B02DCFF10600A9DBE5 /* Data-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data-extension.swift"; sourceTree = "<group>"; };
 		BF1125B22DCFF1CE00A9DBE5 /* NetworkRegisterEstablishment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRegisterEstablishment.swift; sourceTree = "<group>"; };
 		BF1125B42DCFF31500A9DBE5 /* EstablishmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentModel.swift; sourceTree = "<group>"; };
+		BF1471CE2DD646E4008C1E09 /* NetworkRegisterCancha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRegisterCancha.swift; sourceTree = "<group>"; };
+		BF1471D02DD64A7B008C1E09 /* RegisterCanchaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCanchaRepository.swift; sourceTree = "<group>"; };
+		BF1471D22DD64B07008C1E09 /* RegisterCanchaRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCanchaRepositoryProtocol.swift; sourceTree = "<group>"; };
+		BF1471D42DD64B75008C1E09 /* RegisterCanchaUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCanchaUseCase.swift; sourceTree = "<group>"; };
+		BF1471D62DD64DAC008C1E09 /* ResgiterCanchaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResgiterCanchaViewModel.swift; sourceTree = "<group>"; };
+		BF1471D82DD650EF008C1E09 /* RegisterCanchaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCanchaModel.swift; sourceTree = "<group>"; };
 		BF46A9792DD4DF71006A5FF3 /* OwnerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerViewModel.swift; sourceTree = "<group>"; };
 		BF46A97C2DD4E9A2006A5FF3 /* GridListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridListCellView.swift; sourceTree = "<group>"; };
-		BF46A9842DD546BA006A5FF3 /* UploadPhotosEstablishmentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotosEstablishmentRepository.swift; sourceTree = "<group>"; };
-		BF46A9862DD54721006A5FF3 /* UploadPhotosEstablishmentRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotosEstablishmentRepositoryProtocol.swift; sourceTree = "<group>"; };
-		BF46A9882DD547A6006A5FF3 /* UploadPhotosEstablishmentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotosEstablishmentUseCase.swift; sourceTree = "<group>"; };
-		BF46A98A2DD54AE9006A5FF3 /* UploadEstablishmentPhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadEstablishmentPhotosViewModel.swift; sourceTree = "<group>"; };
-		BF46A98C2DD55444006A5FF3 /* RegisterEstablismentPhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablismentPhotosView.swift; sourceTree = "<group>"; };
 		BF5614A72DCE6E8B003C1F66 /* RegisterField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterField.swift; sourceTree = "<group>"; };
 		BF93CBB12DD39E31002A8627 /* RegisterEstablismentRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablismentRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BF93CBB32DD39E4F002A8627 /* RegisterEstablishmentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablishmentRepository.swift; sourceTree = "<group>"; };
@@ -167,7 +168,6 @@
 		BF97190F2DCD1BFD00CD0AF8 /* HttpResponseCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpResponseCodes.swift; path = "FieldFinder-App/Shared/Data/Network/HttpResponseCodes.swift"; sourceTree = SOURCE_ROOT; };
 		BFE2E0992DD3E68000B0E0BE /* ResizeImagesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeImagesData.swift; sourceTree = "<group>"; };
 		BFE2E09B2DD401AA00B0E0BE /* CustomUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIImage.swift; sourceTree = "<group>"; };
-		BFE2E09D2DD40DE900B0E0BE /* NetworkUploadPhotosEstablishment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUploadPhotosEstablishment.swift; sourceTree = "<group>"; };
 		BFFB27E52DCD3C7600DD8819 /* ConstantsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConstantsApp.swift; path = "FieldFinder-App/Shared/Domain/Tools/ConstantsApp.swift"; sourceTree = SOURCE_ROOT; };
 		BFFB27E72DCD3D6800DD8819 /* NetworkLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogin.swift; sourceTree = "<group>"; };
 		BFFB27E92DCD3DBC00DD8819 /* FFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FFError.swift; path = "FieldFinder-App/Shared/Data/Network/FFError.swift"; sourceTree = SOURCE_ROOT; };
@@ -287,7 +287,7 @@
 		BF1125892DCEC64100A9DBE5 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				BF46A98A2DD54AE9006A5FF3 /* UploadEstablishmentPhotosViewModel.swift */,
+				BF1471D62DD64DAC008C1E09 /* ResgiterCanchaViewModel.swift */,
 				BF93CBB72DD3A025002A8627 /* RegisterEstablismentViewModel.swift */,
 				BF11258A2DCEC64800A9DBE5 /* RegisterViewModel.swift */,
 			);
@@ -312,7 +312,7 @@
 		BF5614AA2DCE705C003C1F66 /* Usecases */ = {
 			isa = PBXGroup;
 			children = (
-				BF46A9882DD547A6006A5FF3 /* UploadPhotosEstablishmentUseCase.swift */,
+				BF1471D42DD64B75008C1E09 /* RegisterCanchaUseCase.swift */,
 				C92221BF2DD3EAF700D6BE8B /* FavoriteUserUseCase.swift */,
 				BF93CBB52DD39FD1002A8627 /* RegisterEstablishmentUseCase.swift */,
 				BF1125A02DCFA92200A9DBE5 /* GetMeUseCase.swift */,
@@ -337,7 +337,7 @@
 		BF5614AC2DCE708B003C1F66 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				BF46A9862DD54721006A5FF3 /* UploadPhotosEstablishmentRepositoryProtocol.swift */,
+				BF1471D22DD64B07008C1E09 /* RegisterCanchaRepositoryProtocol.swift */,
 				BF93CBB12DD39E31002A8627 /* RegisterEstablismentRepositoryProtocol.swift */,
 				BF11259E2DCFA8E300A9DBE5 /* GetMeRepositoryProtocol.swift */,
 				BF1125832DCEC1E500A9DBE5 /* RegisterRepositoryProtocol.swift */,
@@ -354,6 +354,7 @@
 		BF5614AD2DCE7095003C1F66 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				BF1471D82DD650EF008C1E09 /* RegisterCanchaModel.swift */,
 				BF1125B42DCFF31500A9DBE5 /* EstablishmentModel.swift */,
 				C92FD10F2DD2BC390008E2F9 /* Cancha.swift */,
 				C92FD0E92DD2699B0008E2F9 /* Establecimiento.swift */,
@@ -381,7 +382,7 @@
 		BF5614AF2DCE70E0003C1F66 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				BF46A9842DD546BA006A5FF3 /* UploadPhotosEstablishmentRepository.swift */,
+				BF1471D02DD64A7B008C1E09 /* RegisterCanchaRepository.swift */,
 				C92221BD2DD3EABD00D6BE8B /* FavoriteUserRepository.swift */,
 				BF93CBB32DD39E4F002A8627 /* RegisterEstablishmentRepository.swift */,
 				BF11259C2DCFA8BB00A9DBE5 /* GetMeRepository.swift */,
@@ -511,10 +512,10 @@
 			children = (
 				C939BC652DCCF62E00B98C16 /* Local */,
 				BF5614AE2DCE70C3003C1F66 /* BaseNetwork */,
-				BFE2E09D2DD40DE900B0E0BE /* NetworkUploadPhotosEstablishment.swift */,
+				BF1471CE2DD646E4008C1E09 /* NetworkRegisterCancha.swift */,
+				BF1125B22DCFF1CE00A9DBE5 /* NetworkRegisterEstablishment.swift */,
 				BFFB27E72DCD3D6800DD8819 /* NetworkLogin.swift */,
 				BF1125962DCFA07000A9DBE5 /* NetworkGetMe.swift */,
-				BF1125B22DCFF1CE00A9DBE5 /* NetworkRegisterEstablishment.swift */,
 				C959890E2DCE99B200AC4B5D /* NetworkRegister.swift */,
 				C92FD0E72DD267D20008E2F9 /* NetworkGetNearbyEstablishments.swift */,
 				C92FD0F92DD292410008E2F9 /* NetworkEstablishmentDetail.swift */,
@@ -584,7 +585,6 @@
 				BF5614A72DCE6E8B003C1F66 /* RegisterField.swift */,
 				C9B0AD6A2DCD00950043A9A2 /* RegisterView.swift */,
 				C9B0AD6C2DCD07EB0043A9A2 /* RegisterOwnerView.swift */,
-				BF46A98C2DD55444006A5FF3 /* RegisterEstablismentPhotosView.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -835,8 +835,8 @@
 				C92221C42DD3F1BB00D6BE8B /* FavoriteEstablishment.swift in Sources */,
 				BFFB27FA2DCD585300DD8819 /* LoginResponse.swift in Sources */,
 				C92FD10E2DD2BB570008E2F9 /* FavoriteButton.swift in Sources */,
-				BF46A9892DD547E4006A5FF3 /* UploadPhotosEstablishmentUseCase.swift in Sources */,
 				C92221AB2DD3C21D00D6BE8B /* CanchaDetailView.swift in Sources */,
+				BF1471D32DD64B0F008C1E09 /* RegisterCanchaRepositoryProtocol.swift in Sources */,
 				C92FD1092DD2B8820008E2F9 /* FacilitiesIconsView.swift in Sources */,
 				BF1125882DCEC2B700A9DBE5 /* RegisterUseCase.swift in Sources */,
 				BF97190E2DCD1BE600CD0AF8 /* HttpMethods.swift in Sources */,
@@ -866,7 +866,6 @@
 				C939BC7B2DCCF8F000B98C16 /* CustomSecureFieldView.swift in Sources */,
 				BF1125842DCEC1F100A9DBE5 /* RegisterRepositoryProtocol.swift in Sources */,
 				BF1125AF2DCFF0B800A9DBE5 /* GeocodingHelper.swift in Sources */,
-				BF46A98D2DD55444006A5FF3 /* RegisterEstablismentPhotosView.swift in Sources */,
 				BFFB28F02DCD5F7C00DD8819 /* FFPersistenceKeyChain.swift in Sources */,
 				BF1125972DCFA07B00A9DBE5 /* NetworkGetMe.swift in Sources */,
 				BF93CBB62DD39FD8002A8627 /* RegisterEstablishmentUseCase.swift in Sources */,
@@ -891,28 +890,29 @@
 				C959890F2DCE99B200AC4B5D /* NetworkRegister.swift in Sources */,
 				BFFB27E62DCD3C7600DD8819 /* ConstantsApp.swift in Sources */,
 				BF1125B32DCFF1D400A9DBE5 /* NetworkRegisterEstablishment.swift in Sources */,
-				BFE2E09E2DD40DF800B0E0BE /* NetworkUploadPhotosEstablishment.swift in Sources */,
+				BF1471D52DD64B81008C1E09 /* RegisterCanchaUseCase.swift in Sources */,
 				C9C7BABB2DCE8A9D007CB3FA /* FavoritesView.swift in Sources */,
 				C92FD0FE2DD296E40008E2F9 /* GetEstablishmentDetailRepository.swift in Sources */,
-				BF46A98B2DD54B01006A5FF3 /* UploadEstablishmentPhotosViewModel.swift in Sources */,
 				BFFB27EA2DCD3DBC00DD8819 /* FFError.swift in Sources */,
 				C92221C62DD416F600D6BE8B /* FavoriteEstablishmentRowView.swift in Sources */,
 				C92221B62DD3C62F00D6BE8B /* FieldDetailViewModel.swift in Sources */,
 				C939BC792DCCF8D800B98C16 /* CustomTextFieldLogin.swift in Sources */,
-				BF46A9852DD546E7006A5FF3 /* UploadPhotosEstablishmentRepository.swift in Sources */,
 				BF1125862DCEC22000A9DBE5 /* RegisterRepository.swift in Sources */,
 				BF46A97D2DD4E9A2006A5FF3 /* GridListCellView.swift in Sources */,
 				BFFB27E82DCD3D6E00DD8819 /* NetworkLogin.swift in Sources */,
 				C92FD0F62DD288C50008E2F9 /* EstablishmentRowView.swift in Sources */,
 				BF5614A82DCE6E8B003C1F66 /* RegisterField.swift in Sources */,
 				BF11259D2DCFA8C100A9DBE5 /* GetMeRepository.swift in Sources */,
-				BF46A9872DD54737006A5FF3 /* UploadPhotosEstablishmentRepositoryProtocol.swift in Sources */,
+				BF1471D92DD65102008C1E09 /* RegisterCanchaModel.swift in Sources */,
 				BF11259F2DCFA8E800A9DBE5 /* GetMeRepositoryProtocol.swift in Sources */,
 				C92221B22DD3C53B00D6BE8B /* GetFieldDetailRepositoryProtocol.swift in Sources */,
 				C98B8BF52DD52F6F004F05A3 /* ProfileUserViewModel.swift in Sources */,
+				BF1471CF2DD646ED008C1E09 /* NetworkRegisterCancha.swift in Sources */,
 				C92FD0EA2DD269A30008E2F9 /* Establecimiento.swift in Sources */,
+				BF1471D72DD64DB2008C1E09 /* ResgiterCanchaViewModel.swift in Sources */,
 				C92221B82DD3D84600D6BE8B /* FieldAttributesView.swift in Sources */,
 				C939BC832DCCF94D00B98C16 /* LoadingView.swift in Sources */,
+				BF1471D12DD64A8B008C1E09 /* RegisterCanchaRepository.swift in Sources */,
 				BF11258B2DCEC64B00A9DBE5 /* RegisterViewModel.swift in Sources */,
 				C939BC5C2DCCF4BE00B98C16 /* FieldFinder_AppApp.swift in Sources */,
 				C92221A92DD3BB4000D6BE8B /* CanchaRowView.swift in Sources */,
