@@ -12,6 +12,8 @@ struct ProfileUserView: View {
     
     @State var viewModel = ProfileUserViewModel()
     @State private var favoritesViewModel = GetNearbyEstablishmentsViewModel()
+    @State private var showDeleteUserAlert = false
+    
     let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0"
     
     var body: some View {
@@ -59,7 +61,7 @@ struct ProfileUserView: View {
                             .foregroundStyle(.primaryColorGreen)
                     }
                 }
-
+                
                 
                 Section {
                     Button(role: .destructive) {
@@ -68,10 +70,32 @@ struct ProfileUserView: View {
                         Text("Cerrar sesión")
                     }
                 }
+                
+                Section {
+                    Button {
+                        showDeleteUserAlert = true
+                    } label: {
+                        Text("Borrar cuenta")
+                    }
+                }
                 .navigationTitle("Perfil")
             }
-            .task {
-                try? await viewModel.getMe()
+            .onAppear {
+                Task {
+                    try await viewModel.getMe()
+                }
+            }
+            .alert("Borrar mi cuenta", isPresented: $showDeleteUserAlert) {
+                Button("Eliminar", role: .destructive) {
+                    Task {
+                        try await viewModel.delete()
+                    }
+                    appState.status = .none
+                }
+                
+                Button("Cancelar", role: .cancel) { }
+            } message: {
+                Text("Estas seguro que quieres eliminar tu cuenta?")
             }
         }
     }
