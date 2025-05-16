@@ -18,7 +18,7 @@ struct AppTabBarOwnerView: View {
             OwnerView()
                 .tabBarItem(tab: .home, selection: $tabSelection)
             
-            ProfileUserView()
+            ProfileEstablishmentView()
                 .tabBarItem(tab: .profile, selection: $tabSelection)
         }
         .ignoresSafeArea(.keyboard)

@@ -77,6 +77,53 @@ final class RegisterEstablismentViewModel {
         
     }
     
+    func editEstablishment(establishmentID: String, name: String, info: String, address: String, country: String, city: String, zipCode: String, parqueadero: Bool, vestidores: Bool, bar: Bool, banos: Bool, duchas: Bool, phone: String)  async throws {
+        
+        do {
+            
+            let coordinates = try await GeocodingHelper.getCoordinates(
+                street: address,
+                zipCode: zipCode,
+                city: city,
+                country: country
+            )
+            
+            print("Coordenadas obtenidas: Latitud: \(coordinates.latitude), Longitud: \(coordinates.longitude)")
+            
+            self.latitude = coordinates.latitude
+            self.longitude = coordinates.longitude
+            
+            let newModel = EstablishmentModel(
+                name: name,
+                info: info,
+                address: address,
+                country: country,
+                city: city,
+                zipCode: zipCode,
+                parqueadero: parqueadero,
+                vestidores: vestidores,
+                bar: bar,
+                banos: banos,
+                duchas: duchas,
+                latitude: coordinates.latitude,
+                longitude: coordinates.longitude,
+                phone: phone
+            )
+            
+          
+            
+            try await useCase.editEstablishment(establishmentID: establishmentID, establishmentModel: newModel)
+            
+            
+            alertMessage = "Establecimiento registrado con éxito."
+        } catch {
+            alertMessage = "Error al registrar: \(error.localizedDescription)"
+            isLoading = false
+        }
+        
+        
+    }
+    
     
     
 }
