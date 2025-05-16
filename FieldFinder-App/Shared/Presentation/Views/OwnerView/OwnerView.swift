@@ -24,13 +24,13 @@ struct OwnerView: View {
                     VStack {
                         
                         ContentUnavailableView("No hay canchas registradas", systemImage: "soccerball.inverse", description: Text("Agrega algunas canchas."))
-                       
+                        
                     }
                     .padding(.top, 250)
                     
                 } else {
-                   
-                   
+                    
+                    
                     
                     LazyVGrid(columns: columns) {
                         ForEach(viewModel.establishments.establecimiento) { establecimiento in
@@ -38,12 +38,14 @@ struct OwnerView: View {
                                 NavigationLink {
                                     CanchaDetailView(fieldId: cancha.id, userRole: viewModel.establishments.userRole)
                                 } label: {
-                                   GridListCellView(canchaResponse: cancha)
+                                    GridListCellView(canchaResponse: cancha)
                                 }
                             }
                         }
                     }
+                    .padding(.bottom)
                 }
+                  
             }
             .navigationTitle("Canchas")
             .toolbar {
@@ -54,7 +56,7 @@ struct OwnerView: View {
                         RegisterField()
                         
                     } label: {
-                      Image(systemName: "plus.circle.fill")
+                        Image(systemName: "plus.circle.fill")
                             .resizable()
                             .scaledToFit()
                             .frame(height: 30)
@@ -65,10 +67,10 @@ struct OwnerView: View {
             }
             .onAppear {
                 Task {
-                     await viewModel.getEstablishments()
+                    await viewModel.getEstablishments()
                 }
             }
-        
+            
         }
     }
 }

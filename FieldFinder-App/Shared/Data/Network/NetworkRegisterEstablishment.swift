@@ -3,6 +3,7 @@ import Foundation
 protocol NetworkRegisterEstablishmentProtocol {
     func registerEstablishment(_ establishmentModel: EstablishmentModel) async throws -> String
     func uploadImages(establishmentID: String, images: [Data]) async throws
+    func editEstablishment(establishmentID: String, establishmentModel: EstablishmentModel) async throws
 }
 
 final class NetworkRegisterEstablishment: NetworkRegisterEstablishmentProtocol {
@@ -97,6 +98,36 @@ final class NetworkRegisterEstablishment: NetworkRegisterEstablishmentProtocol {
         } catch {
             print("❌ Error al subir las imágenes: \(error.localizedDescription)")
             throw FFError.requestWasNil
+        }
+    }
+    
+    // Edit establishment
+    
+    func editEstablishment(establishmentID: String, establishmentModel: EstablishmentModel) async throws {
+        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getEstablishmentById.rawValue)/\(establishmentID)"
+        
+        guard let url = URL(string: urlString) else {
+            throw FFError.badUrl
+        }
+        
+        var request: URLRequest = URLRequest(url: url)
+        request.httpMethod = HttpMethods.put
+        request.setValue(HttpHeader.content, forHTTPHeaderField: HttpHeader.contentTypeID)
+        
+        let tokenJWT = KeyChainFF().loadPK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
+        request.setValue("\(HttpHeader.bearer) \(tokenJWT)", forHTTPHeaderField: HttpHeader.authorization)
+        
+        request.httpBody = try JSONEncoder().encode(establishmentModel)
+        
+        let (_, response) = try await URLSession.shared.data(for: request)
+        
+        
+        if let httpResponse = response as? HTTPURLResponse {
+            let statusCode = httpResponse.statusCode
+            let responseData = try? await URLSession.shared.data(for: request).0
+            let errorBody = responseData.flatMap { String(data: $0, encoding: .utf8) } ?? "No body"
+            print("❌ Error HTTP \(statusCode): \(errorBody)")
+            throw FFError.errorFromApi(statusCode: statusCode)
         }
     }
     

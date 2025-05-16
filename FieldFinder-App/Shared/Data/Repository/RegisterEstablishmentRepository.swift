@@ -21,4 +21,8 @@ final class RegisterEstablishmentRepository: RegisterEstablismentRepositoryProto
         try await network.uploadImages(establishmentID: establishmentID, images: images)
     }
     
+    func editEstablishment(establishmentID: String, establishmentModel: EstablishmentModel) async throws {
+        try await network.editEstablishment(establishmentID: establishmentID, establishmentModel: establishmentModel)
+    }
+    
 }
