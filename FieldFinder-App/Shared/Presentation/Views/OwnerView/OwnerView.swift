@@ -22,53 +22,52 @@ struct OwnerView: View {
             ScrollView {
                 if viewModel.establishments.establecimiento.first?.canchas.isEmpty ?? true {
                     VStack {
-                        Spacer()
+                        
                         ContentUnavailableView("No hay canchas registradas", systemImage: "soccerball.inverse", description: Text("Agrega algunas canchas."))
-                        Spacer()
+                       
                     }
-                    .frame(minHeight: UIScreen.main.bounds.height)
+                    .padding(.top, 250)
                     
                 } else {
                    
                    
                     
                     LazyVGrid(columns: columns) {
-                        ForEach(viewModel.establishments.establecimiento[0].canchas) { cancha in
-                            NavigationLink {
-                                CanchaDetailView(fieldId: cancha.id)
-                            } label: {
-                                GridListCellView(canchaResponse: cancha)
+                        ForEach(viewModel.establishments.establecimiento) { establecimiento in
+                            ForEach(establecimiento.canchas) { cancha in
+                                NavigationLink {
+                                    CanchaDetailView(fieldId: cancha.id)
+                                } label: {
+                                   GridListCellView(canchaResponse: cancha)
+                                }
                             }
                         }
                     }
                 }
             }
-            
+            .navigationTitle("Canchas")
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Text("Canchas")
-                        .font(.appTitle)
-                        .foregroundStyle(.primaryColorGreen)
-                }
                 
                 ToolbarItem(placement: .topBarTrailing) {
-
-                    NavigationLink {
-                        RegisterOwnerView(appState: appState)
-                    } label: {
-                      Label("Add", systemImage: "plus.circle.fill")
-                            .font(.title)
-                            .foregroundStyle(.primaryColorGreen)
-                            .background(Color.primaryColorGreen)
-                    }
-                
-
-                   
                     
+                    NavigationLink {
+                        RegisterField()
+                        
+                    } label: {
+                      Image(systemName: "plus.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 30)
+                    }
+                    .tint(.primaryColorGreen)
+                }
+                
+            }
+            .onAppear {
+                Task {
+                     await viewModel.getEstablishments()
                 }
             }
-            
-            
         }
     }
 }

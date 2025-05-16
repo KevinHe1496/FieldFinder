@@ -7,6 +7,7 @@ final class OwnerViewModel {
     var establishments = GetMeModel(email: "", id: "", rol: "", name: "", establecimiento: [])
     @ObservationIgnored
     private var useCase: GetMeUseCaseProtocol
+
     
     init(useCase: GetMeUseCaseProtocol = GetMeUseCase()) {
         self.useCase = useCase

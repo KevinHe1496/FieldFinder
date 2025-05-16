@@ -14,36 +14,7 @@ final class EstablishmentDetailViewModel {
     var showOpenInMapsAlert = false
     var mapsURL: URL?
     
-    var establishmentData = Establecimiento(
-        id: "",
-        name: "",
-        info: "",
-        address: "",
-        city: "",
-        isFavorite: false,
-        zipCode: "",
-        country: "",
-        phone: "",
-        userName: "",
-        userRol: "",
-        parquedero: false,
-        vestidores: false,
-        banos: false,
-        duchas: false,
-        bar: false,
-        fotos: [""],
-        latitude: 0.0,
-        longitude: 0.0,
-        canchas: [Cancha(
-            id: "",
-            tipo: "",
-            modalidad: "",
-            precio: 0,
-            cubierta: false,
-            iluminada: false,
-            fotos: [""]
-        )]
-    )
+    var establishmentData = Establecimiento(id: "", name: "", info: "", address: "", city: "", isFavorite: false, zipCode: "", country: "", phone: "", userName: "", userRol: "", parquedero: false, vestidores: false, banos: false, duchas: false, bar: false, fotos: [], latitude: 0, longitude: 0, canchas: [])
     
     @ObservationIgnored
     private var useCase: GetEstablishmentDetailUseCaseProtocol

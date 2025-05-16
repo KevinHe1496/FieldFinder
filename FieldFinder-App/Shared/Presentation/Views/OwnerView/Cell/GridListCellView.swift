@@ -13,7 +13,7 @@ struct GridListCellView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             
-                RemoteImageCardView(url: canchaResponse.photoCancha.first, height: 250)
+                RemoteImageCardView(url: canchaResponse.photoCancha.first, height: 200)
             
             
             VStack(alignment: .leading, spacing: 10) {

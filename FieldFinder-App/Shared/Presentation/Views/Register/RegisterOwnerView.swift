@@ -29,6 +29,9 @@ struct RegisterOwnerView: View {
     @State private var duchas = false
     @State private var cubierto = false
     
+    @State private var selectedImages: [Data] = []
+    @State var showAlert: Bool = false
+    
     
     var isFormValid: Bool {
         return !name.isEmpty &&
@@ -47,7 +50,7 @@ struct RegisterOwnerView: View {
                 
                 VStack(alignment: .leading, spacing: 16) {
                 
-                    
+                    CustomUIImage(selectedImagesData: $selectedImages)
                     
                     //MARK: - Register Form
                     
@@ -91,6 +94,16 @@ struct RegisterOwnerView: View {
                     .background(.grayColorTF)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
                     
+                    
+                    HStack {
+                        Spacer()
+                        if viewModel.isLoading {
+                            ProgressView("Registrando Cancha")
+                                .padding()
+                        }
+                        Spacer()
+                    }
+                    
                     CustomButtonLoginRegister(title: "Continuar", color: .primaryColorGreen, textColor: .white) {
                         Task {
                             
@@ -107,13 +120,14 @@ struct RegisterOwnerView: View {
                                 bar: bar,
                                 banos: banos,
                                 duchas: duchas,
-                                phone: phone
+                                phone: phone,
+                                images: selectedImages
                             )
                         }
                     }
 
-                    .disabled(!isFormValid)
-                    .opacity(isFormValid ? 1 : 0.5)
+                   // .disabled(!isFormValid)
+                   // .opacity(isFormValid ? 1 : 0.5)
 
                 }
                 .padding()
@@ -132,7 +146,11 @@ struct RegisterOwnerView: View {
                         .foregroundStyle(.primaryColorGreen)
                 }
             }
-            
+            .alert("Mensaje", isPresented: $showAlert) {
+                Button("OK") { }
+            } message: {
+                Text(viewModel.alertMessage ?? "")
+            }
         }
     }
     

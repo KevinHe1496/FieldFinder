@@ -20,6 +20,7 @@ enum ValidationError: Error, LocalizedError {
 
 @Observable
 final class ProfileUserViewModel {
+
     var getMeData = GetMeModel(
         email: "",
         id: "",
@@ -57,6 +58,7 @@ final class ProfileUserViewModel {
     )
     
     var messageError = ""
+
     
     @ObservationIgnored
     private var useCase: GetMeUseCaseProtocol

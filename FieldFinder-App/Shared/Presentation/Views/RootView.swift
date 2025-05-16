@@ -35,9 +35,9 @@ struct RootView: View {
         case .error(error: let errorString):
             Text("Error \(errorString)")
         case .ownerView:
-            Text("OwnerView ma friend")
-        case .uploadPhotoEstablishment:
-            RegisterEstablismentPhotosView(appState: appState)
+            OwnerView()
+        case .registerCancha:
+            RegisterField(viewModel: RegisterCanchaViewModel())
         }
     }
 }
