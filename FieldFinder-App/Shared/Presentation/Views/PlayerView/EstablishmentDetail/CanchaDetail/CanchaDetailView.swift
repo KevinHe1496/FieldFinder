@@ -23,8 +23,8 @@ struct CanchaDetailView: View {
                     .font(.appTitle)
                     .foregroundStyle(.primaryColorGreen)
                 Divider()
-                Text("Cancha de: \(viewModel.fieldData.tipo)")
-                Text("Juego de: \(viewModel.fieldData.modalidad)")
+                Text("Cancha:  \(viewModel.fieldData.tipo)")
+                Text("Juego:  \(viewModel.fieldData.modalidad)")
                 Text("Precio: $\(viewModel.fieldData.precio) por hora.")
                 
                 Divider()
