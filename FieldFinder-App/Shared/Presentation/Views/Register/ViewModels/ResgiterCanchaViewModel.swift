@@ -22,7 +22,7 @@ final class RegisterCanchaViewModel {
         
         guard (canchaModel.precio != 0) else {
             alertMessage = "El campo precio es obligatorio"
-
+            
             isLoading = false
             return
         }
@@ -40,16 +40,33 @@ final class RegisterCanchaViewModel {
             try await useCase.uploadPhotosCancha(canchaID: canchaID, images: images)
             
             alertMessage = "Cancha registrada con éxito"
-           
+            
             isLoading = false
         } catch {
             alertMessage = "Error al registrar la cancha"
             isLoading = false
-         
+            
             
         }
     }
     
+    func editCancha(canchaID: String, canchaModel: RegisterCanchaModel) async throws {
+        do {
+            let _ = try await useCase.editCancha(canchaID: canchaID, canchaModel: canchaModel)
+            alertMessage = "La cancha se ha actualizado correctamente."
+        } catch {
+            alertMessage = "Ocurrió un error al actualizar la cancha. Intenta nuevamente."
+        }
+        
+    }
+    
+    func deleteCancha(canchaID: String) async throws {
+        do {
+            let _ = try await useCase.deleteCancha(canchaID: canchaID)
+            alertMessage = "La cancha se ha eliminado correctamente."
+            print("Se elimino exitosamente")
+        }
+    }
     
     func localCurrencySymbol() -> String {
         let formatter = NumberFormatter()
