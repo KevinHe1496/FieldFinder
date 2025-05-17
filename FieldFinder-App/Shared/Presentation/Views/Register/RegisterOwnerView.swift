@@ -104,7 +104,7 @@ struct RegisterOwnerView: View {
                         Spacer()
                     }
                     
-                    CustomButtonLoginRegister(title: "Continuar", color: .primaryColorGreen, textColor: .white) {
+                    CustomButtonView(title: "Continuar", color: .primaryColorGreen, textColor: .white) {
                         Task {
                             
                             

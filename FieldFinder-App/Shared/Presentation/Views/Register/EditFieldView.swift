@@ -80,7 +80,7 @@ struct EditFieldView: View {
             .clipShape(RoundedRectangle(cornerRadius: 8))
             
             
-            CustomButtonLoginRegister(title: "Guardar", color: .primaryColorGreen, textColor: .thirdColorWhite) {
+            CustomButtonView(title: "Guardar", color: .primaryColorGreen, textColor: .thirdColorWhite) {
                 Task {
                     
                     let newModel = RegisterCanchaModel(

@@ -125,7 +125,7 @@ struct RegisterField: View {
                     Spacer()
                 }
                 
-                CustomButtonLoginRegister(title: "Registrar", color: .primaryColorGreen, textColor: .thirdColorWhite) {
+                CustomButtonView(title: "Registrar", color: .primaryColorGreen, textColor: .thirdColorWhite) {
                     Task {
                        
                         let newModel = RegisterCanchaModel(

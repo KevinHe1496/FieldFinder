@@ -18,7 +18,7 @@ struct CustomTabBarView: View {
     }
 }
 
-// MARK: - Vista privada para cada tab
+// MARK: - Celda de cada tab seleccionado y deseleccionado
 extension CustomTabBarView {
     private func tabView(tab: TabBarItem) -> some View {
         VStack {
@@ -32,6 +32,7 @@ extension CustomTabBarView {
         .frame(maxWidth: .infinity)
         .background(selection == tab ? tab.color.opacity(0.2) : Color.clear)
         .clipShape(.buttonBorder)
+        .contentShape(Rectangle())
     }
     
     private var tabBarVersion1: some View {

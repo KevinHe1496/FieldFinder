@@ -85,7 +85,7 @@ struct RegisterView: View {
                             .clipShape(.buttonBorder)
                             
                             // Sign in button
-                            CustomButtonLoginRegister(title: "Registrar", color: .thirdColorWhite, textColor: .secondaryColorBlack) {
+                            CustomButtonView(title: "Registrar", color: .thirdColorWhite, textColor: .secondaryColorBlack) {
                                 Task {
                                     let error = await viewModel.userRegister(
                                         name: name,

@@ -53,7 +53,7 @@ struct LoginView: View {
                             
                             // Sign in button
                             
-                            CustomButtonLoginRegister(title: "Sign In", color: .thirdColorWhite, textColor: .secondaryColorBlack) {
+                            CustomButtonView(title: "Sign In", color: .thirdColorWhite, textColor: .secondaryColorBlack) {
                                 // To do
                                 Task {
 
