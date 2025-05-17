@@ -114,6 +114,11 @@ struct RegisterView: View {
                 }
                 .padding()
             }
+            .alert("Mensaje", isPresented: $viewModel.showAlert) {
+                Button("OK") { }
+            } message: {
+                Text(viewModel.message ?? "")
+            }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.secondaryColorBlack)
         }

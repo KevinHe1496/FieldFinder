@@ -34,24 +34,25 @@ enum Capacidad: String, CaseIterable, Identifiable {
 
 struct RegisterField: View {
     
-
+    
     @State private var selectedField: Field = .cesped
     @State private var selectedCapacidad: Capacidad = .cinco
     @State private var precio = ""
     @State private var iluminada = false
     @State private var cubierta = false
     @State private var selectedImages: [Data] = []
+    @State private var shouldDismissAfterAlert = false
     
     let localCurrency = Locale.current.currency?.identifier ?? "USD"
     
     
     
     @Environment(\.dismiss) var dismiss
-
+    
     @State var viewModel = RegisterCanchaViewModel()
     @State var showAlert: Bool = false
     
-
+    
     
     var body: some View {
         ScrollView {
@@ -59,11 +60,11 @@ struct RegisterField: View {
                 .font(.appTitle)
                 .foregroundStyle(.primaryColorGreen)
             VStack(alignment: .leading, spacing: 16) {
-              
-               
+                
+                
                 CustomUIImage(selectedImagesData: $selectedImages)
                 
-               
+                
                 VStack {
                     HStack {
                         Text("Cancha")
@@ -127,7 +128,7 @@ struct RegisterField: View {
                 
                 CustomButtonView(title: "Registrar", color: .primaryColorGreen, textColor: .thirdColorWhite) {
                     Task {
-                       
+                        
                         let newModel = RegisterCanchaModel(
                             tipo: selectedField.rawValue,
                             modalidad: selectedCapacidad.rawValue,
@@ -135,7 +136,7 @@ struct RegisterField: View {
                             iluminada: iluminada,
                             cubierta: cubierta
                         )
-                       
+                        
                         await viewModel.registerCancha(newModel, images: selectedImages)
                         
                         showAlert = true
@@ -145,7 +146,10 @@ struct RegisterField: View {
             }
             .padding()
             .alert("Mensaje", isPresented: $showAlert) {
-                Button("OK") { dismiss()}
+                if viewModel.shouldDismissAfterAlert {
+                    Button("OK") { dismiss()}
+                }
+                
             } message: {
                 Text(viewModel.alertMessage ?? "")
             }
@@ -155,5 +159,5 @@ struct RegisterField: View {
 
 #Preview {
     RegisterField(viewModel: RegisterCanchaViewModel())
-     
+    
 }

@@ -12,12 +12,13 @@ struct LoginView: View {
     
     #if DEBUG
     // MARK: - State Properties
-    @State private var email = "kevin@example.com"
+    @State private var email = "bocha@example.com"
     @State private var password = "123456"
     #else
     @State private var email = ""
     @State private var password = ""
     #endif
+   
     
     @Environment(AppState.self) var appState
     
@@ -57,14 +58,10 @@ struct LoginView: View {
                                 // To do
                                 Task {
 
-                                      appState
-                                        .loginApp(
-                                            user: email,
-                                            password: password
-                                        )
 
-                                      appState.loginApp(user:email, password: password)
+                                    try await appState.loginApp(user:email, password: password)
 
+                                   
                                 }
                                
                             }
@@ -101,7 +98,14 @@ struct LoginView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.secondaryColorBlack)
-            
+            .alert("Mensaje", isPresented: Binding(
+                get: { appState.showAlert },
+                set: { appState.showAlert = $0 }
+            )) {
+                Button("OK") {}
+            } message: {
+                Text(appState.messageAlert)
+            }
             
             
         }
