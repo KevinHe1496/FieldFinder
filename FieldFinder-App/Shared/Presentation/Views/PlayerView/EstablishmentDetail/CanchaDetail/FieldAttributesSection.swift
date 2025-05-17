@@ -12,7 +12,7 @@ struct FieldAttributesSection: View {
     let fieldData: Cancha
 
     var body: some View {
-        CardView {
+        VStack(alignment: .leading, spacing: 12) {
             VStack(alignment: .leading, spacing: 10) {
                 Text("Características")
                     .font(.headline)
@@ -24,5 +24,9 @@ struct FieldAttributesSection: View {
                 )
             }
         }
+        .padding(20)
+        .background(.white)
+        .cornerRadius(16)
+        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
     }
 }

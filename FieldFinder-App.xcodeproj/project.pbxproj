@@ -121,7 +121,6 @@
 		C9D4CA3D2DD79E2D00296604 /* AppTabBarOwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CA3C2DD79E2D00296604 /* AppTabBarOwnerView.swift */; };
 		C9D4CA512DD7E36C00296604 /* FieldInfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CA502DD7E36C00296604 /* FieldInfoSection.swift */; };
 		C9D4CA532DD7E37100296604 /* FieldAttributesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CA522DD7E37100296604 /* FieldAttributesSection.swift */; };
-		C9D4CA5C2DD7E69B00296604 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CA5B2DD7E69B00296604 /* CardView.swift */; };
 		C9D4CA5E2DD7E6A400296604 /* EstablishmentInfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CA5D2DD7E6A400296604 /* EstablishmentInfoSection.swift */; };
 		C9D4CA602DD7E6AE00296604 /* EstablishmentServicesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CA5F2DD7E6AE00296604 /* EstablishmentServicesSection.swift */; };
 		C9D4CA622DD7E6B200296604 /* EstablishmentFieldsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CA612DD7E6B200296604 /* EstablishmentFieldsSection.swift */; };
@@ -263,7 +262,6 @@
 		C9D4CA3C2DD79E2D00296604 /* AppTabBarOwnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarOwnerView.swift; sourceTree = "<group>"; };
 		C9D4CA502DD7E36C00296604 /* FieldInfoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldInfoSection.swift; sourceTree = "<group>"; };
 		C9D4CA522DD7E37100296604 /* FieldAttributesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldAttributesSection.swift; sourceTree = "<group>"; };
-		C9D4CA5B2DD7E69B00296604 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C9D4CA5D2DD7E6A400296604 /* EstablishmentInfoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentInfoSection.swift; sourceTree = "<group>"; };
 		C9D4CA5F2DD7E6AE00296604 /* EstablishmentServicesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentServicesSection.swift; sourceTree = "<group>"; };
 		C9D4CA612DD7E6B200296604 /* EstablishmentFieldsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentFieldsSection.swift; sourceTree = "<group>"; };
@@ -723,7 +721,6 @@
 				C9D4CA612DD7E6B200296604 /* EstablishmentFieldsSection.swift */,
 				C9D4CA5F2DD7E6AE00296604 /* EstablishmentServicesSection.swift */,
 				C9D4CA5D2DD7E6A400296604 /* EstablishmentInfoSection.swift */,
-				C9D4CA5B2DD7E69B00296604 /* CardView.swift */,
 			);
 			path = ReusableUI;
 			sourceTree = "<group>";
@@ -941,7 +938,6 @@
 				C9C7BAB32DCE8A17007CB3FA /* PlayerView.swift in Sources */,
 				BFFB27F62DCD471600DD8819 /* LoginUseCase.swift in Sources */,
 				BF9719082DCD16D700CD0AF8 /* StatusModel.swift in Sources */,
-				C9D4CA5C2DD7E69B00296604 /* CardView.swift in Sources */,
 				C92221B02DD3C51100D6BE8B /* GetFieldDetailRepository.swift in Sources */,
 				C98B8BEF2DD4FFB3004F05A3 /* EstablishmentAnnotationView.swift in Sources */,
 				C92221BA2DD3DB2000D6BE8B /* NetworkFavoriteUser.swift in Sources */,

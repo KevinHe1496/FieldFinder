@@ -12,23 +12,36 @@ struct EstablishmentInfoSection: View {
     let establishment: Establecimiento
 
     var body: some View {
-        CardView {
+        VStack(alignment: .leading, spacing: 12) {
             VStack(alignment: .leading, spacing: 12) {
                 Text(establishment.name)
                     .font(.title2.bold())
                     .foregroundColor(.primaryColorGreen)
 
                 Divider()
-
-                Label(establishment.address, systemImage: "mappin.and.ellipse")
-                Label(establishment.phone, systemImage: "phone.fill")
+                HStack {
+                    Image(systemName: "mappin.and.ellipse")
+                        .foregroundStyle(.primaryColorGreen)
+                    Text(establishment.address)
+                }
+                
+                HStack {
+                    Image(systemName: "phone.fill")
+                        .foregroundStyle(.primaryColorGreen)
+                    Text(establishment.phone)
+                }
 
                 Divider()
 
                 Text(establishment.info)
                     .font(.body)
             }
+            .padding(.horizontal, 20)
         }
+        .padding(20)
+        .background(.white)
+        .cornerRadius(16)
+        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
     }
 
     private func callEstablishment(phone: String) {

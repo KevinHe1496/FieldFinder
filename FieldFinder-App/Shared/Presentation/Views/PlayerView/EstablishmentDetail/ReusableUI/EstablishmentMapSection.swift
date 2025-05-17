@@ -17,7 +17,7 @@ struct EstablishmentMapSection: View {
     @Binding var cameraPosition: MapCameraPosition
 
     var body: some View {
-        CardView {
+        VStack(alignment: .leading, spacing: 12)  {
             VStack(alignment: .leading, spacing: 8) {
                 Text("Ubicación")
                     .font(.headline)
@@ -35,7 +35,13 @@ struct EstablishmentMapSection: View {
                     prepareMaps()
                 }
             }
+            .padding(.horizontal, 20)
         }
+        .padding()
+        .background(.white)
+        .cornerRadius(16)
+        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+        
         .alert("¿Abrir en Apple Maps?", isPresented: $showAlert) {
             Button("Abrir") {
                 if let url = mapsURL {
