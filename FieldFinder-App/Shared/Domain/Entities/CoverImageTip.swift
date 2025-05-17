@@ -20,4 +20,5 @@ struct CoverImageTip: Tip {
     var image: Image? {
         Image(systemName: "photo.on.rectangle.angled")
     }
+    
 }

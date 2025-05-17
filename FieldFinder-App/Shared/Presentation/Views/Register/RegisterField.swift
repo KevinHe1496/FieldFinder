@@ -56,10 +56,6 @@ struct RegisterField: View {
     
     @State var viewModel = RegisterCanchaViewModel()
     @State var showAlert: Bool = false
-    
-
-    
-    
 
     var body: some View {
         ScrollView {

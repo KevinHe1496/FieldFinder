@@ -34,7 +34,7 @@ struct RegisterOwnerView: View {
     
     @State private var selectedImages: [Data] = []
     @State var showAlert: Bool = false
-    
+
     
     var body: some View {
         NavigationStack {
@@ -44,7 +44,6 @@ struct RegisterOwnerView: View {
                 VStack(alignment: .leading, spacing: 16) {
                     TipView(coverTip, arrowEdge: .bottom)
                     CustomUIImage(selectedImagesData: $selectedImages)
-                    
                     
                         .padding(.bottom,8)
                     
