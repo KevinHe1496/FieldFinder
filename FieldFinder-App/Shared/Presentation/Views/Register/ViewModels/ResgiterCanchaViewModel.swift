@@ -7,6 +7,7 @@ final class RegisterCanchaViewModel {
     
     var isLoading = false
     var alertMessage: String?
+    var shouldDismissAfterAlert: Bool = false
     
     @ObservationIgnored
     let useCase: RegisterCanchaUseCaseProtocol
@@ -40,12 +41,12 @@ final class RegisterCanchaViewModel {
             try await useCase.uploadPhotosCancha(canchaID: canchaID, images: images)
             
             alertMessage = "Cancha registrada con éxito"
-            
+            shouldDismissAfterAlert = true
             isLoading = false
         } catch {
             alertMessage = "Error al registrar la cancha"
             isLoading = false
-            
+           
             
         }
     }

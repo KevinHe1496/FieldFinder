@@ -47,6 +47,7 @@ final class RegisterViewModel {
                 
             } else {
                 appState.status = .error(error: "Incorrect username or password")
+           
                 isLoading = false
                 return "Incorrect username or password"
             }
@@ -63,13 +64,16 @@ final class RegisterViewModel {
     /// Checks that all fields are filled and email/password are valid.
     func validateFields(name: String, email: String, password: String) -> String? {
         if name.isEmpty || email.isEmpty || password.isEmpty {
-            return "All fields are required."
+            message = "Todos los campos son requeridos."
+            return message
         }
         if !email.contains("@") || !email.contains(".") {
-            return "Invalid email or password."
+            message = "Ingresa un correo electrónico válido, por ejemplo: usuario@ejemplo.com"
+            return message
         }
         if password.count < 6 {
-            return "Invalid email or password."
+            message = "La contraseña debe tener al menos 6 caracteres."
+            return message
         }
         return nil
     }

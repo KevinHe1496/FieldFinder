@@ -122,13 +122,11 @@ final class NetworkRegisterEstablishment: NetworkRegisterEstablishmentProtocol {
         let (_, response) = try await URLSession.shared.data(for: request)
         
         
-        if let httpResponse = response as? HTTPURLResponse {
-            let statusCode = httpResponse.statusCode
-            let responseData = try? await URLSession.shared.data(for: request).0
-            let errorBody = responseData.flatMap { String(data: $0, encoding: .utf8) } ?? "No body"
-            print("❌ Error HTTP \(statusCode): \(errorBody)")
-            throw FFError.errorFromApi(statusCode: statusCode)
+        guard let httpResponse = response as? HTTPURLResponse,
+              200..<300 ~= httpResponse.statusCode else {
+            throw FFError.errorFromApi(statusCode: -1)
         }
+        print("Se edito correctamente")
     }
     
 }
