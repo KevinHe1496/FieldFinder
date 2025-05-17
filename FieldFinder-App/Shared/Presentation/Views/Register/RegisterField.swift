@@ -8,6 +8,7 @@
 
 import SwiftUI
 import PhotosUI
+import TipKit
 
 enum Field: String, CaseIterable, Identifiable {
     case cesped = "cesped"
@@ -41,7 +42,11 @@ struct RegisterField: View {
     @State private var iluminada = false
     @State private var cubierta = false
     @State private var selectedImages: [Data] = []
+
+    let coverTip = CoverImageTip()
+
     @State private var shouldDismissAfterAlert = false
+
     
     let localCurrency = Locale.current.currency?.identifier ?? "USD"
     
@@ -52,8 +57,10 @@ struct RegisterField: View {
     @State var viewModel = RegisterCanchaViewModel()
     @State var showAlert: Bool = false
     
+
     
     
+
     var body: some View {
         ScrollView {
             Text("REGISTRAR CANCHA")
@@ -61,7 +68,9 @@ struct RegisterField: View {
                 .foregroundStyle(.primaryColorGreen)
             VStack(alignment: .leading, spacing: 16) {
                 
-                
+
+                TipView(coverTip, arrowEdge: .bottom)
+
                 CustomUIImage(selectedImagesData: $selectedImages)
                 
                 
@@ -142,6 +151,16 @@ struct RegisterField: View {
                         showAlert = true
                     }
                     
+                }
+            }
+            .task {
+                // Configure and load your tips at app launch.
+                do {
+                    try Tips.configure()
+                }
+                catch {
+                    // Handle TipKit errors
+                    print("Error initializing TipKit \(error.localizedDescription)")
                 }
             }
             .padding()

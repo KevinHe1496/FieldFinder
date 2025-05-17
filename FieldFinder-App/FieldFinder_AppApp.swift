@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import TipKit
 
 @main
 struct FieldFinder_AppApp: App {
     
     @State var appState = AppState()
+    
+    init() {
+        try? Tips.configure()
+    }
     
     var body: some Scene {
         WindowGroup {
