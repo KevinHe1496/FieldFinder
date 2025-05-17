@@ -53,7 +53,7 @@ struct OwnerView: View {
                     }
                     
                 }
-                .navigationTitle("Canchas")
+                .navigationTitle("Mis Canchas")
                 .toolbar {
                     
                     ToolbarItem(placement: .topBarTrailing) {

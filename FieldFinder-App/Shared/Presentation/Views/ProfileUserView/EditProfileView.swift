@@ -32,7 +32,8 @@ struct EditProfileView: View {
                             try await viewModel.updateUser(name: name)
                             showAlertSucess = true
                         } catch {
-                            errorMessage = error.localizedDescription
+                            errorMessage = "Algo salió mal. Intenta más tarde."
+                            print("Error real:", error.localizedDescription)
                             showAlertError = true
                         }
                     }
@@ -51,7 +52,7 @@ struct EditProfileView: View {
         
         .alert("Error Editar mi perfil", isPresented: $showAlertError) {
             Button("OK") {
-
+                
             }
         } message: {
             Text(errorMessage ?? "No se pudo actualizar tu nombre de usuario.")
