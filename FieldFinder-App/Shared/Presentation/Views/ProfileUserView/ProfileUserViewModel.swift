@@ -7,20 +7,9 @@
 
 import Foundation
 
-enum ValidationError: Error, LocalizedError {
-    case invalidName
-
-    var errorDescription: String? {
-        switch self {
-        case .invalidName:
-            return "El nombre debe tener más de 5 caracteres."
-        }
-    }
-}
-
 @Observable
 final class ProfileUserViewModel {
-
+    
     var getMeData = GetMeModel(
         email: "",
         id: "",
@@ -58,7 +47,7 @@ final class ProfileUserViewModel {
     )
     
     var messageError = ""
-
+    
     
     @ObservationIgnored
     private var useCase: GetMeUseCaseProtocol
