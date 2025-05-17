@@ -7,6 +7,8 @@ final class AppState {
     var status = StatusModel.none
     var tokenJWT: String = ""
     var userRole: UserRole?
+    var messageAlert: String = ""
+    var showAlert: Bool = false
     // No Published
     @ObservationIgnored
     var isLogged: Bool = false
@@ -25,25 +27,40 @@ final class AppState {
     }
     
     @MainActor
-    func loginApp(user: String, password: String)  {
+    func loginApp(user: String, password: String) async throws {
         
-        self.status = .loading
         
-        Task {
+        guard !user.isEmpty || !password.isEmpty else {
+            messageAlert = "Los campos son requeridos."
+            showAlert = true
+            return
+        }
+        
+       
+        
+        do {
             
             let loginApp = try await loginUseCase.loginApp(user: user, password: password)
             
             if loginApp == true {
                 // Login Success
+                self.status = .loading
+                
                 let user = try await GetMeUseCase().getUser()
                 self.userRole = user.userRole
+                
                 
                 self.status = .loaded
             } else {
                 // Login Error
-                self.status = .error(error: "Error with the user or password")
+                showAlert = true
+                messageAlert = "El email o la contraseña son inválidos."
+                return
             }
+        } catch {
+            print("Error en el backend o endpoint esta llamada es de AppState")
         }
+        showAlert = false
     }
     
     // Close session
@@ -63,7 +80,7 @@ final class AppState {
                 let user = try await GetMeUseCase().getUser()
                 self.userRole = user.userRole
                 self.status = .loaded
-                NSLog("Login OK")
+                
             } else {
                 self.status = .none
                 NSLog("Login Error")

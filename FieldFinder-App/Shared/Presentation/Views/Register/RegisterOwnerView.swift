@@ -36,16 +36,6 @@ struct RegisterOwnerView: View {
     @State var showAlert: Bool = false
     
     
-    var isFormValid: Bool {
-        return !name.isEmpty &&
-        !info.isEmpty &&
-        !address.isEmpty &&
-        !country.isEmpty &&
-        !city.isEmpty &&
-        !zipcode.isEmpty &&
-        !phone.isEmpty
-    }
-    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -112,8 +102,6 @@ struct RegisterOwnerView: View {
                     
                     CustomButtonView(title: "Continuar", color: .primaryColorGreen, textColor: .white) {
                         Task {
-                            
-                            
                             try await viewModel.registerEstablishment(
                                 name: name,
                                 info: info,
@@ -129,12 +117,10 @@ struct RegisterOwnerView: View {
                                 phone: phone,
                                 images: selectedImages
                             )
+                            showAlert = true
                         }
+                       
                     }
-
-                   // .disabled(!isFormValid)
-                   // .opacity(isFormValid ? 1 : 0.5)
-
                 }
                 .padding()
                 

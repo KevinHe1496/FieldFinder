@@ -24,8 +24,17 @@ final class RegisterEstablismentViewModel {
         
         isLoading = true
         
+        
+     
+        
         guard !address.isEmpty, !info.isEmpty, !country.isEmpty, !city.isEmpty, !zipCode.isEmpty, !name.isEmpty, !phone.isEmpty else {
             self.alertMessage = "Todos los campos son obligatorios. Revisa los datos ingresados."
+            isLoading = false
+            return
+        }
+        
+        guard !images.isEmpty else {
+            alertMessage = "Es obligatorio subir imágenes"
             isLoading = false
             return
         }

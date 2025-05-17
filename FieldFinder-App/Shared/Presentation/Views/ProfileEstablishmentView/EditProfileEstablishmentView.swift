@@ -73,7 +73,27 @@ struct EditProfileEstablishmentView: View {
             
             Section {
                 Button("Guardar cambios") {
-                    showAlert = true
+                    
+                    Task {
+                        try await viewModel.editEstablishment(
+                            establishmentID: establishmentID,
+                            name: name,
+                            info: info,
+                            address: address,
+                            country: country,
+                            city: city,
+                            zipCode: zipcode,
+                            parqueadero: parqueadero,
+                            vestidores: vestidores,
+                            bar: bar,
+                            banos: banos,
+                            duchas: duchas,
+                            phone: phone
+                        )
+                        showAlert = true
+                    }
+                    
+                  
                 }
                
             }
@@ -82,27 +102,11 @@ struct EditProfileEstablishmentView: View {
            
             
             Button("OK") {
-                Task {
-                    try await viewModel.editEstablishment(
-                        establishmentID: establishmentID,
-                        name: name,
-                        info: info,
-                        address: address,
-                        country: country,
-                        city: city,
-                        zipCode: zipcode,
-                        parqueadero: parqueadero,
-                        vestidores: vestidores,
-                        bar: bar,
-                        banos: banos,
-                        duchas: duchas,
-                        phone: phone
-                    )
-                }
+               
                 dismiss()
             }
         } message: {
-            Text("Estas seguro de editar tu información?")
+            Text("Se ha editado exitosamente")
         }
     }
 }

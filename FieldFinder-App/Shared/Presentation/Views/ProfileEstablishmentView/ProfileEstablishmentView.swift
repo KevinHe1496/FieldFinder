@@ -30,7 +30,7 @@ struct ProfileEstablishmentView: View {
                             .foregroundColor(.primaryColorGreen)
                         
                         VStack(alignment: .leading) {
-                            Text(viewModel.getMeData.name)
+                            Text(viewModel.getMeData.establecimiento[0].name)
                                 .font(.title3)
                             Text(viewModel.getMeData.email)
                                 .font(.subheadline)
@@ -43,7 +43,7 @@ struct ProfileEstablishmentView: View {
                 Section {
                     NavigationLink("Editar Establecimiento") {
                         EditProfileEstablishmentView(
-                            name: viewModel.getMeData.name,
+                            name: viewModel.getMeData.establecimiento[0].name,
                             info: viewModel.getMeData.establecimiento[0].info,
                             country: viewModel.getMeData.establecimiento[0].country,
                             address: viewModel.getMeData.establecimiento[0].address,
@@ -89,11 +89,7 @@ struct ProfileEstablishmentView: View {
                 }
                 .navigationTitle("Perfil")
             }
-            .onAppear {
-                Task {
-                    try await viewModel.getMe()
-                }
-            }
+            
             .alert("Borrar mi cuenta", isPresented: $showDeleteUserAlert) {
                 Button("Eliminar", role: .destructive) {
                     Task {
@@ -105,6 +101,11 @@ struct ProfileEstablishmentView: View {
                 Button("Cancelar", role: .cancel) { }
             } message: {
                 Text("Estas seguro que quieres eliminar tu cuenta?")
+            }
+            .onAppear {
+                Task {
+                    try await viewModel.getMe()
+                }
             }
         }
     }

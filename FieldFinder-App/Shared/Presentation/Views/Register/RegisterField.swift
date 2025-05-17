@@ -42,7 +42,11 @@ struct RegisterField: View {
     @State private var iluminada = false
     @State private var cubierta = false
     @State private var selectedImages: [Data] = []
+
     let coverTip = CoverImageTip()
+
+    @State private var shouldDismissAfterAlert = false
+
     
     let localCurrency = Locale.current.currency?.identifier ?? "USD"
     
@@ -53,6 +57,10 @@ struct RegisterField: View {
     @State var viewModel = RegisterCanchaViewModel()
     @State var showAlert: Bool = false
     
+
+    
+    
+
     var body: some View {
         ScrollView {
             Text("REGISTRAR CANCHA")
@@ -60,7 +68,9 @@ struct RegisterField: View {
                 .foregroundStyle(.primaryColorGreen)
             VStack(alignment: .leading, spacing: 16) {
                 
+
                 TipView(coverTip, arrowEdge: .bottom)
+
                 CustomUIImage(selectedImagesData: $selectedImages)
                 
                 
@@ -155,7 +165,10 @@ struct RegisterField: View {
             }
             .padding()
             .alert("Mensaje", isPresented: $showAlert) {
-                Button("OK") { dismiss()}
+                if viewModel.shouldDismissAfterAlert {
+                    Button("OK") { dismiss()}
+                }
+                
             } message: {
                 Text(viewModel.alertMessage ?? "")
             }
