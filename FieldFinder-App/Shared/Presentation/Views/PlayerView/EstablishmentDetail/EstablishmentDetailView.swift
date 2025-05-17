@@ -47,7 +47,6 @@ struct EstablishmentDetailView: View {
                         cameraPosition: $cameraPosition
                     )
                 }
-                
                 .padding(.top)
             }
             .animation(.easeInOut(duration: 0.4), value: contentVisible)
