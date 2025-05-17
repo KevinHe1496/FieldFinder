@@ -1,10 +1,13 @@
 import SwiftUI
 import PhotosUI
+import TipKit
 
 struct RegisterOwnerView: View {
     
     @Environment(AppState.self) var appState
     @State private var viewModel: RegisterEstablismentViewModel
+    
+    let coverTip = CoverImageTip()
     
     
     init(appState: AppState) {
@@ -49,8 +52,11 @@ struct RegisterOwnerView: View {
                 
                 
                 VStack(alignment: .leading, spacing: 16) {
-                
+                    TipView(coverTip, arrowEdge: .bottom)
                     CustomUIImage(selectedImagesData: $selectedImages)
+                    
+                    
+                        .padding(.bottom,8)
                     
                     //MARK: - Register Form
                     
@@ -133,11 +139,16 @@ struct RegisterOwnerView: View {
                 .padding()
                 
             }
-            
-            
-            
-            
-            
+            .task {
+                // Configure and load your tips at app launch.
+                do {
+                    try Tips.configure()
+                }
+                catch {
+                    // Handle TipKit errors
+                    print("Error initializing TipKit \(error.localizedDescription)")
+                }
+            }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
