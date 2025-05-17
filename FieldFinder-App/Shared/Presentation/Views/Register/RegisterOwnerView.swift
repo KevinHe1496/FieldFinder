@@ -34,7 +34,7 @@ struct RegisterOwnerView: View {
     
     @State private var selectedImages: [Data] = []
     @State var showAlert: Bool = false
-    
+
     
     var body: some View {
         NavigationStack {

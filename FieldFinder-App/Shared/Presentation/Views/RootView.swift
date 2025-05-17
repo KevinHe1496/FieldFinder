@@ -37,7 +37,7 @@ struct RootView: View {
         case .ownerView:
             OwnerView()
         case .registerCancha:
-            RegisterField(viewModel: RegisterCanchaViewModel())
+            RegisterField()
         }
     }
 }
