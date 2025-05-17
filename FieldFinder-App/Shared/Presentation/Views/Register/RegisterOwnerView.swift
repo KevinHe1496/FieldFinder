@@ -45,7 +45,6 @@ struct RegisterOwnerView: View {
                     TipView(coverTip, arrowEdge: .bottom)
                     CustomUIImage(selectedImagesData: $selectedImages)
                     
-                    
                         .padding(.bottom,8)
                     
                     //MARK: - Register Form
