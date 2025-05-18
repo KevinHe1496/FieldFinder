@@ -38,10 +38,7 @@ struct MapEstablishmentsView: View {
                         }
                     }
                 }
-                .mapControls {
-                    // Muestra la brújula en el mapa
-                    MapCompass()
-                }
+
                 .ignoresSafeArea()
                 .task {
                     // Carga los datos de establecimientos al aparecer la vista
@@ -68,7 +65,7 @@ struct MapEstablishmentsView: View {
             // MARK: - Hoja inferior con detalles del establecimiento seleccionado
             .sheet(item: $viewModel.selectedEstablishment) { establishment in
                 EstablishmentSelectedMapDestailView(establishment: establishment)
-                    .presentationDetents([.fraction(0.4), .large])
+                    .presentationDetents([.large])
                     .presentationDragIndicator(.visible)
             }
 

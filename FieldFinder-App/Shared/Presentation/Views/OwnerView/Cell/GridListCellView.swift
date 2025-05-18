@@ -26,9 +26,9 @@ struct GridListCellView: View {
                     .lineLimit(1)
 
                 HStack(spacing: 6) {
-                    Image(systemName: "mappin.and.ellipse")
+                    Image(systemName: "creditcard.fill")
                         .foregroundColor(.gray)
-                    Text("\(canchaResponse.precio) por hora.")
+                    Text("$\(String(format: "%.2f", canchaResponse.precio)) por hora")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                         .lineLimit(2)

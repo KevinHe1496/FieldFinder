@@ -15,22 +15,23 @@ struct AnimatedAppearRow<Item: Identifiable, Content: View>: View {
     let content: () -> Content
 
     var body: some View {
-        let isShown = shownItems.contains(item.id) // Verifica si este ítem ya fue mostrado antes
+        let isShown = shownItems.contains(item.id)
 
         content()
-            .opacity(isShown ? 1 : 0) // Si ya apareció, opacidad normal; si no, invisible
-            .offset(y: isShown ? 0 : 12) // Aplica desplazamiento para dar sensación de aparición
-            .animation(.smooth(duration: 0.35), value: isShown) // Anima suavemente cuando cambia isShown
+            .opacity(isShown ? 1 : 0.01) // En lugar de 0, usa un valor bajo para evitar que desaparezca totalmente
+            .offset(y: isShown ? 0 : 12)
+            .animation(.smooth(duration: 0.35), value: isShown)
             .onAppear {
-                // Cuando el ítem aparece por primera vez, lo marcamos como mostrado con animación
-                if !isShown {
+                guard !shownItems.contains(item.id) else { return }
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                     withAnimation {
-                        _ = shownItems.insert(item.id)
+                       _ = shownItems.insert(item.id)
                     }
                 }
             }
+
             .scrollTransition(.animated.threshold(.visible(0.1))) { content, phase in
-                // Aplica una animación cuando el usuario hace scroll y el ítem entra o sale de pantalla
                 content
                     .scaleEffect(phase.isIdentity ? 1 : 0.96)
                     .opacity(phase.isIdentity ? 1 : 0.4)
@@ -38,3 +39,4 @@ struct AnimatedAppearRow<Item: Identifiable, Content: View>: View {
             }
     }
 }
+

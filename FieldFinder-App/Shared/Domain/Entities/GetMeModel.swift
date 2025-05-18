@@ -76,7 +76,7 @@ struct EstablecimientoReponse: Codable, Identifiable {
 struct CanchaResponse: Codable, Identifiable {
     let tipo, modalidad, id: String
     let cubierta, iluminada: Bool
-    let precio: Int
+    let precio: Double
     let fotos: [String]
     
     

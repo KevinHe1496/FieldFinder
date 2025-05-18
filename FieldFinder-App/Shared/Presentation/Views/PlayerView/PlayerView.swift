@@ -57,8 +57,16 @@ struct PlayerView: View {
                 if !didLoad {
                     shownItems = [] // Reinicia animaciones
                     do {
+                        
                         try await viewModel.loadData()
                         didLoad = true
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            for establishment in viewModel.filterEstablishments {
+                                shownItems.insert(establishment.id)
+                            }
+                        }
+                        
                     } catch {
                         print("Error cargando datos: \(error.localizedDescription)")
                     }

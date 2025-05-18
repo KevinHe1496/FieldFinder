@@ -71,11 +71,19 @@ struct OwnerView: View {
                     }
                     
                 }
-                .onAppear {
-                    Task {
-                        await viewModel.getEstablishments()
+                .task {
+                    await viewModel.getEstablishments()
+                    
+                    // 🔁 Marca todos los ítems como mostrados si no hay scroll
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        for establecimiento in viewModel.establishments.establecimiento {
+                            for cancha in establecimiento.canchas {
+                                _ = shownItems.insert(cancha.id)
+                            }
+                        }
                     }
                 }
+
             }
             
         }
