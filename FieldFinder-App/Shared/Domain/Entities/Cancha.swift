@@ -10,7 +10,7 @@ struct Cancha: Codable, Identifiable {
     let id: String
     let tipo: String
     let modalidad: String
-    let precio: Int
+    let precio: Double
     let cubierta: Bool
     let iluminada: Bool
     let fotos: [String]
