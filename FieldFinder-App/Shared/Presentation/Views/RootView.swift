@@ -8,15 +8,24 @@
 import SwiftUI
 
 struct RootView: View {
-    
+    @AppStorage("hasSeenWelcome") var hasSeenWelcome = false
     @Environment(AppState.self) var appState
     
     var body: some View {
         switch appState.status {
         case .none:
-            LoginView()
+            if hasSeenWelcome {
+                AppTabBarView()
+            } else {
+                WelcomeView(hasSeenWelcome: $hasSeenWelcome)
+            }
         case .loading:
             LoadingView()
+        case .home:
+            AppTabBarView()
+        case .registerUser:
+            RegisterView(appState: appState)
+        
         case .loaded:
             if let role = appState.userRole {
                 switch role {
@@ -24,7 +33,7 @@ struct RootView: View {
                 case .dueno:
                     AppTabBarOwnerView()
                 case .jugador:
-                   AppTabBarView()
+                    AppTabBarView()
                 }
             } else {
                 Text("Loading... no sirve nose por que")

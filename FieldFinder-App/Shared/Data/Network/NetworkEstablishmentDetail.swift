@@ -23,9 +23,6 @@ final class NetworkEstablishmentDetail: NetworkEstablishmentDetailProtocol {
         var request = URLRequest(url: url)
         request.httpMethod = HttpMethods.get
         
-        let jwtToken = KeyChainFF().loadPK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
-        request.setValue("\(HttpHeader.bearer) \(jwtToken)", forHTTPHeaderField: HttpHeader.authorization)
-        
         let (data, response) = try await URLSession.shared.data(for: request)
         
         // Verifica que la respuesta sea válida y del tipo HTTPURLResponse.

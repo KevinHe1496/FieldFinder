@@ -28,9 +28,6 @@ final class NetworkGetNearbyEstablishments: NetworkGetNearbyEstablishmentsProtoc
         var request: URLRequest = URLRequest(url: url)
         request.httpMethod = HttpMethods.post
         request.setValue(HttpHeader.content, forHTTPHeaderField: HttpHeader.contentTypeID)
-        
-        let jwtToken = KeyChainFF().loadPK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
-        request.setValue("\(HttpHeader.bearer) \(jwtToken)", forHTTPHeaderField: HttpHeader.authorization)
         request.httpBody = jsonData
         
         let (data, response) = try await URLSession.shared.data(for: request)
