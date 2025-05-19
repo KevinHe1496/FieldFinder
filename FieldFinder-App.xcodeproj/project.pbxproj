@@ -101,6 +101,7 @@
 		C959890F2DCE99B200AC4B5D /* NetworkRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = C959890E2DCE99B200AC4B5D /* NetworkRegister.swift */; };
 		C95989132DCE9AEC00AC4B5D /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95989122DCE9AEC00AC4B5D /* RegisterModel.swift */; };
 		C95C5D0C2DD8F7E000A5310C /* CoverImageTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95C5D0B2DD8F7E000A5310C /* CoverImageTip.swift */; };
+		C961A2D82DDBBEA600A6BF8D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961A2D72DDBBEA600A6BF8D /* WelcomeView.swift */; };
 		C98B8BED2DD4FEE8004F05A3 /* Establishment-coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98B8BEC2DD4FEE8004F05A3 /* Establishment-coordinate.swift */; };
 		C98B8BEF2DD4FFB3004F05A3 /* EstablishmentAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98B8BEE2DD4FFB3004F05A3 /* EstablishmentAnnotationView.swift */; };
 		C98B8BF12DD5015B004F05A3 /* EstablishmentSelectedMapDestailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98B8BF02DD5015B004F05A3 /* EstablishmentSelectedMapDestailView.swift */; };
@@ -243,6 +244,7 @@
 		C959890E2DCE99B200AC4B5D /* NetworkRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRegister.swift; sourceTree = "<group>"; };
 		C95989122DCE9AEC00AC4B5D /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		C95C5D0B2DD8F7E000A5310C /* CoverImageTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverImageTip.swift; sourceTree = "<group>"; };
+		C961A2D72DDBBEA600A6BF8D /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		C98B8BEC2DD4FEE8004F05A3 /* Establishment-coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Establishment-coordinate.swift"; sourceTree = "<group>"; };
 		C98B8BEE2DD4FFB3004F05A3 /* EstablishmentAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentAnnotationView.swift; sourceTree = "<group>"; };
 		C98B8BF02DD5015B004F05A3 /* EstablishmentSelectedMapDestailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentSelectedMapDestailView.swift; sourceTree = "<group>"; };
@@ -595,6 +597,7 @@
 		C939BC6D2DCCF69500B98C16 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C961A2D62DDBBE9B00A6BF8D /* Welcome */,
 				BF0E25A72DD7CAFE00A53745 /* ProfileEstablishmentView */,
 				C9C7BABC2DCE8D62007CB3FA /* ProfileUserView */,
 				C9C7BAB92DCE8A92007CB3FA /* FavoritesView */,
@@ -651,6 +654,14 @@
 				BFE2E09B2DD401AA00B0E0BE /* CustomUIImage.swift */,
 			);
 			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		C961A2D62DDBBE9B00A6BF8D /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				C961A2D72DDBBEA600A6BF8D /* WelcomeView.swift */,
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		C9C7BAA52DCE87BB007CB3FA /* CustomTabBar */ = {
@@ -964,6 +975,7 @@
 				BF46A97D2DD4E9A2006A5FF3 /* GridListCellView.swift in Sources */,
 				BFFB27E82DCD3D6E00DD8819 /* NetworkLogin.swift in Sources */,
 				C9D4CA622DD7E6B200296604 /* EstablishmentFieldsSection.swift in Sources */,
+				C961A2D82DDBBEA600A6BF8D /* WelcomeView.swift in Sources */,
 				C92FD0F62DD288C50008E2F9 /* EstablishmentRowView.swift in Sources */,
 				BF5614A82DCE6E8B003C1F66 /* RegisterField.swift in Sources */,
 				BF11259D2DCFA8C100A9DBE5 /* GetMeRepository.swift in Sources */,
