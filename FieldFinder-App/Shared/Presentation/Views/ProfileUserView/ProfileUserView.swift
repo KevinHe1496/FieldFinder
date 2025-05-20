@@ -17,6 +17,7 @@ struct ProfileUserView: View {
     let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0"
     
     var body: some View {
+       
         NavigationStack {
             List {
                 Section {
@@ -90,7 +91,7 @@ struct ProfileUserView: View {
                     Task {
                         try await viewModel.delete()
                     }
-                    appState.status = .none
+                    appState.status = .login
                 }
                 
                 Button("Cancelar", role: .cancel) { }

@@ -121,4 +121,13 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
             print("Error centering on user location: \(error)")
         }
     }
+    
+    func isFavorite(establishmentId: String) -> Bool {
+        favoritesData.contains { favorite in
+            favorite.id == establishmentId
+        }
+    }
+
+
+
 }

@@ -53,6 +53,8 @@ struct CanchaDetailView: View {
             .toolbar {
                 if userRole == .dueno {
                     ToolbarItemGroup(placement: .topBarTrailing) {
+                    
+                        
                         NavigationLink {
                             EditFieldView(
                                 selectedField: Field(rawValue: viewModel.fieldData.tipo) ?? .cesped,
