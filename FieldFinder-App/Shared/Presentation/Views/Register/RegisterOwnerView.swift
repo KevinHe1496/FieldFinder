@@ -49,9 +49,9 @@ struct RegisterOwnerView: View {
                     
                     //MARK: - Register Form
                     
-                    CustomTextFieldLogin(titleKey: "Name", textField: $name, keyboardType: .default, prompt: Text("name"), Bgcolor: .grayColorTF)
+                    CustomTextFieldLogin(titleKey: "Nombre", textField: $name, keyboardType: .default, prompt: Text("Nombre"), Bgcolor: .grayColorTF)
                     
-                    CustomTextFieldLogin(titleKey: "Info", textField: $info, keyboardType: .default, prompt: Text("info"), Bgcolor: .grayColorTF)
+                    CustomTextFieldLogin(titleKey: "Información", textField: $info, keyboardType: .default, prompt: Text("Información"), Bgcolor: .grayColorTF)
                     
 
                     CustomTextFieldLogin(titleKey: "País", textField: $country, keyboardType: .default, prompt: Text("País"), Bgcolor: .grayColorTF)
