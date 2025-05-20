@@ -89,37 +89,38 @@ struct RegisterOwnerView: View {
                     .background(.grayColorTF)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
                     
-                    
-                    HStack {
-                        Spacer()
-                        if viewModel.isLoading {
-                            ProgressView("Registrando Cancha")
+                 
+                    if viewModel.isLoading {
+                        ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                                .frame(maxWidth: .infinity)
                                 .padding()
+                                .background(Color.primaryColorGreen) 
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                    } else {
+                        CustomButtonView(title: "Continuar", color: .primaryColorGreen, textColor: .white) {
+                            Task {
+                                try await viewModel.registerEstablishment(
+                                    name: name,
+                                    info: info,
+                                    address: address,
+                                    country: country,
+                                    city: city,
+                                    zipCode: zipcode,
+                                    parqueadero: parqueadero,
+                                    vestidores: vestidores,
+                                    bar: bar,
+                                    banos: banos,
+                                    duchas: duchas,
+                                    phone: phone,
+                                    images: selectedImages
+                                )
+                                showAlert = true
+                            }
+                           
                         }
-                        Spacer()
                     }
-                    
-                    CustomButtonView(title: "Continuar", color: .primaryColorGreen, textColor: .white) {
-                        Task {
-                            try await viewModel.registerEstablishment(
-                                name: name,
-                                info: info,
-                                address: address,
-                                country: country,
-                                city: city,
-                                zipCode: zipcode,
-                                parqueadero: parqueadero,
-                                vestidores: vestidores,
-                                bar: bar,
-                                banos: banos,
-                                duchas: duchas,
-                                phone: phone,
-                                images: selectedImages
-                            )
-                            showAlert = true
-                        }
-                       
-                    }
+                   
                 }
                 .padding()
                 

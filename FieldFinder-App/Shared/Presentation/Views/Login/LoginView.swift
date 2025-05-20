@@ -52,27 +52,24 @@ struct LoginView: View {
                             // Password input field
                             CustomSecureFieldView(titleKey: "Password", textField: $password, keyboardType: .default, prompt: Text("Enter your password"))
                             
-                            // Sign in button
+                           //  Sign in button
                             
-                            CustomButtonView(title: "Sign In", color: .thirdColorWhite, textColor: .secondaryColorBlack) {
-                                // To do
-                                Task {
-
-
-                                    try await appState.loginApp(user:email, password: password)
-
+                            if appState.isLoading {
+                                ProgressView()
+                                    .frame(maxWidth: .infinity)
+                                    .padding()
+                                    .background(Color.thirdColorWhite)
+                                    .foregroundColor(.secondaryColorBlack)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                            } else {
+                                CustomButtonView(title: "Sign In", color: .thirdColorWhite, textColor: .secondaryColorBlack) {
+                                    Task {
+                                        try await appState.loginApp(user:email, password: password)
+                                    }
                                    
                                 }
-                               
                             }
                             
-                            Button {
-                                // To do
-                            } label: {
-                                Text("Forgot your password?")
-                                    .font(.appDescription)
-                                    .foregroundStyle(.thirdColorWhite)
-                            }
                         }
                         
                     } header: {
@@ -85,14 +82,6 @@ struct LoginView: View {
                         
                     }
                     Spacer()
-                    NavigationLink {
-                        // To do
-                        RegisterView(appState: appState)
-                    } label: {
-                        Text("Don't have an account? **Sign Up**")
-                            .font(.appDescription)
-                            .foregroundStyle(.thirdColorWhite)
-                    }
                 }
                 .padding()
             }

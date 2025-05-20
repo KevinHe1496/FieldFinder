@@ -19,6 +19,8 @@ struct RegisterView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var selectedRole: UserRole = .jugador
+    @State private var isLoading = false
+
     
     init(appState: AppState) {
         _viewModel = State(initialValue: RegisterViewModel(appState: appState))
@@ -85,19 +87,31 @@ struct RegisterView: View {
                             .clipShape(.buttonBorder)
                             
                             // Sign in button
-                            CustomButtonView(title: "Registrar", color: .thirdColorWhite, textColor: .secondaryColorBlack) {
-                                Task {
-                                    let error = await viewModel.userRegister(
-                                        name: name,
-                                        email: email,
-                                        password: password,
-                                        rol: selectedRole.rawValue.lowercased()
-                                    )
-                                    
-                                    if let error = error {
-                                        print("Error al registrar: \(error)")
-                                    } else {
-                                        print("Registro existoso")
+                            if isLoading {
+                                ProgressView()
+                                    .frame(maxWidth: .infinity)
+                                    .padding()
+                                    .background(Color.thirdColorWhite)
+                                    .foregroundColor(.secondaryColorBlack)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                            } else {
+                                CustomButtonView(title: "Registrar", color: .thirdColorWhite, textColor: .secondaryColorBlack) {
+                                    isLoading = true
+                                    Task {
+                                        let error = await viewModel.userRegister(
+                                            name: name,
+                                            email: email,
+                                            password: password,
+                                            rol: selectedRole.rawValue.lowercased()
+                                        )
+                                        
+                                        isLoading = false
+
+                                        if let error = error {
+                                            print("Error al registrar: \(error)")
+                                        } else {
+                                            print("Registro exitoso")
+                                        }
                                     }
                                 }
                             }

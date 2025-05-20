@@ -9,6 +9,7 @@ final class AppState {
     var userRole: UserRole?
     var messageAlert: String = ""
     var showAlert: Bool = false
+    var isLoading: Bool = false
     // No Published
     @ObservationIgnored
     var isLogged: Bool = false
@@ -29,7 +30,7 @@ final class AppState {
     @MainActor
     func loginApp(user: String, password: String) async throws {
         
-        
+        isLoading = true
         guard !user.isEmpty || !password.isEmpty else {
             messageAlert = "Los campos son requeridos."
             showAlert = true
@@ -51,10 +52,12 @@ final class AppState {
                 
                 
                 self.status = .loaded
+                self.isLoading = false
             } else {
                 // Login Error
                 showAlert = true
                 messageAlert = "El email o la contraseña son inválidos."
+                isLoading = false
                 return
             }
         } catch {

@@ -122,32 +122,35 @@ struct RegisterField: View {
                 .background(.grayColorTF)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 
-                HStack {
-                    Spacer()
-                    if viewModel.isLoading {
-                        ProgressView("Registrando Cancha")
+                
+                if viewModel.isLoading {
+                    ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                            .frame(maxWidth: .infinity)
                             .padding()
+                            .background(Color.primaryColorGreen)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                } else {
+                    CustomButtonView(title: "Registrar", color: .primaryColorGreen, textColor: .thirdColorWhite) {
+                        Task {
+                            
+                            let newModel = RegisterCanchaModel(
+                                tipo: selectedField.rawValue,
+                                modalidad: selectedCapacidad.rawValue,
+                                precio: Double(precio) ?? 0,
+                                iluminada: iluminada,
+                                cubierta: cubierta
+                            )
+                            
+                            await viewModel.registerCancha(newModel, images: selectedImages)
+                            
+                            showAlert = true
+                        }
+                        
                     }
-                    Spacer()
                 }
                 
-                CustomButtonView(title: "Registrar", color: .primaryColorGreen, textColor: .thirdColorWhite) {
-                    Task {
-                        
-                        let newModel = RegisterCanchaModel(
-                            tipo: selectedField.rawValue,
-                            modalidad: selectedCapacidad.rawValue,
-                            precio: Double(precio) ?? 0,
-                            iluminada: iluminada,
-                            cubierta: cubierta
-                        )
-                        
-                        await viewModel.registerCancha(newModel, images: selectedImages)
-                        
-                        showAlert = true
-                    }
-                    
-                }
+                
             }
             .task {
                 // Configure and load your tips at app launch.
