@@ -1,12 +1,13 @@
 import SwiftUI
 import CoreLocation
 
-@available(iOS 18.0, *)
+
 struct PlayerView: View {
     @State private var searchText = ""
     @State private var didLoad = false
+    @State private var isLoading = true // 👈 indicador de carga
+
     @ObservedObject var viewModel: GetNearbyEstablishmentsViewModel
-    
     @State private var shownItems: Set<String> = []
     
     let columns = [GridItem(.flexible())]
@@ -15,53 +16,54 @@ struct PlayerView: View {
         NavigationStack {
             ZStack {
                 Color(.systemGroupedBackground).ignoresSafeArea()
-                
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 20) {
-                        
-                        // Encabezado personalizado
-                        
-                        Text("Todos")
-                            .font(.title2.bold())
-                            .padding(.horizontal)
-                            .padding(.top)
-                        
-                        // Resultado si hay búsqueda activa
-                        if !viewModel.establishmentSearch.isEmpty {
-                            Text("Mostrando \(viewModel.filterEstablishments.count) resultados")
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
+
+                if isLoading {
+                    ProgressView("Cargando establecimientos...")
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .scaleEffect(1.3)
+                } else {
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 20) {
+                            
+                            Text("Todos")
+                                .font(.title2.bold())
                                 .padding(.horizontal)
-                        }
-                        
-                        // Grid con animación
-                        LazyVGrid(columns: columns, spacing: 20) {
-                            ForEach(viewModel.filterEstablishments) { establishment in
-                                NavigationLink {
-                                    EstablishmentDetailView(establishmentId: establishment.id)
-                                } label: {
-                                    AnimatedAppearRow(item: establishment, shownItems: $shownItems, content: {
-                                        EstablishmentRowView(establishment: establishment, viewModel: viewModel)
-                                    })
+                                .padding(.top)
+                            
+                            if !viewModel.establishmentSearch.isEmpty {
+                                Text("Mostrando \(viewModel.filterEstablishments.count) resultados")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                                    .padding(.horizontal)
+                            }
+                            
+                            LazyVGrid(columns: columns, spacing: 20) {
+                                ForEach(viewModel.filterEstablishments) { establishment in
+                                    NavigationLink {
+                                        EstablishmentDetailView(establishmentId: establishment.id)
+                                    } label: {
+                                        AnimatedAppearRow(item: establishment, shownItems: $shownItems, content: {
+                                            EstablishmentRowView(establishment: establishment, viewModel: viewModel)
+                                        })
+                                    }
                                 }
                             }
+                            .padding(.bottom)
                         }
-                        .padding(.bottom)
                     }
+                    .scrollIndicators(.hidden)
                 }
-                .scrollIndicators(.hidden)
             }
             .navigationTitle("Establecimientos")
             .searchable(text: $viewModel.establishmentSearch)
             .onAppear {
                 Task {
-                    try await viewModel.loadData()
-                    try await viewModel.getFavoritesUser()
-                    if !didLoad {
-                        shownItems = [] // Reinicia animaciones
-                        do {
-                            
-                            try await viewModel.loadData()
+                    do {
+                        try await viewModel.loadData()
+                        try await viewModel.getFavoritesUser()
+                        
+                        if !didLoad {
+                            shownItems = []
                             didLoad = true
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
@@ -69,17 +71,17 @@ struct PlayerView: View {
                                     shownItems.insert(establishment.id)
                                 }
                             }
-                            
-                        } catch {
-                            print("Error cargando datos: \(error.localizedDescription)")
                         }
+                        
+                        isLoading = false // 👈 Finaliza la carga
+                    } catch {
+                        print("Error cargando datos: \(error.localizedDescription)")
+                        isLoading = false
                     }
                 }
-               
             }
         }
     }
-    
 }
 
 
