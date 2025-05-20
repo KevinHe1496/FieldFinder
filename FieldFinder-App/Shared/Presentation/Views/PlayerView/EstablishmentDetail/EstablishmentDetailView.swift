@@ -10,6 +10,7 @@ import MapKit
 
 struct EstablishmentDetailView: View {
     @Environment(\.dismiss) var dismiss
+    
     var establishmentID: String
     
     let rows = [GridItem(.fixed(200))]
@@ -26,41 +27,81 @@ struct EstablishmentDetailView: View {
         ZStack {
             Color(.systemGroupedBackground).ignoresSafeArea()
             
-            ScrollView {
-                VStack(spacing: 20) {
-                    PhotoGalleryView(photoURLs: viewModel.establishmentData.photoEstablishment, height: 280)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
-                        .shadow(radius: 4)
+            switch viewModel.status {
+            case .idle, .loading:
+                ProgressView("Cargando...")
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .scaleEffect(1.3)
+            case .success(let establecimiento):
+                ScrollView {
+                    VStack(spacing: 20) {
+                        PhotoGalleryView(photoURLs: establecimiento.photoEstablishment, height: 280)
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                            .shadow(radius: 4)
                         
-                    
-                    EstablishmentInfoSection(establishment: viewModel.establishmentData)
-                    EstablishmentServicesSection(establishment: viewModel.establishmentData)
-                    
-                    EstablishmentFieldsSection(canchas: viewModel.establishmentData.canchas)
-                    EstablishmentMapSection(
-                        coordinate: viewModel.establishmentData.coordinate,
-                        showAlert: $viewModel.showOpenInMapsAlert,
-                        mapsURL: viewModel.mapsURL,
-                        prepareMaps: {
-                            viewModel.prepareMapsURL(for: viewModel.establishmentData)
-                        },
-                        cameraPosition: $cameraPosition
-                    )
+                        EstablishmentInfoSection(establishment: establecimiento)
+                        EstablishmentServicesSection(establishment: establecimiento)
+                        
+                        if !establecimiento.canchas.isEmpty {
+                            EstablishmentFieldsSection(canchas: establecimiento.canchas)
+                        } else {
+                            VStack(alignment: .center, spacing: 16) {
+                                Image(systemName: "sportscourt")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40, height: 40)
+                                    .foregroundColor(.gray)
+                                
+                                Text("No hay canchas registradas")
+                                    .font(.headline)
+                                    .foregroundColor(.primaryColorGreen)
+                            }
+                            .padding(20)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 200)
+                            .background(Color.white)
+                            .cornerRadius(16)
+                            .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+                        }
+                        
+                        EstablishmentMapSection(
+                            coordinate: establecimiento.coordinate,
+                            showAlert: $viewModel.showOpenInMapsAlert,
+                            mapsURL: viewModel.mapsURL,
+                            prepareMaps: {
+                                viewModel.prepareMapsURL(for: establecimiento)
+                            },
+                            cameraPosition: $cameraPosition
+                        )
+                    }
+                    .padding(.top)
+                    .animation(.easeInOut(duration: 0.4), value: contentVisible)
                 }
-                .padding(.top)
+            case .error(let message):
+                VStack(spacing: 16) {
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .font(.system(size: 48))
+                        .foregroundColor(.red)
+                    Text("Error al cargar el establecimiento")
+                        .font(.headline)
+                    Text(message)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.secondary)
+                }
+                .padding()
             }
-            .animation(.easeInOut(duration: 0.4), value: contentVisible)
+            
+            
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle(viewModel.establishmentData.name)
+        .navigationTitle("Establecimiento")
         .task {
             try? await viewModel.getEstablishmentDetail(establishmentId: establishmentID)
-            withAnimation {
-                contentVisible = true
+            if case .success(let establecimiento) = viewModel.status {
+                let coordinate = establecimiento.coordinate
+                let region = MKCoordinateRegion(center: coordinate, span: .init(latitudeDelta: 0.005, longitudeDelta: 0.005))
+                cameraPosition = .region(region)
             }
-            let coordinate = viewModel.establishmentData.coordinate
-            let region = MKCoordinateRegion(center: coordinate, span: .init(latitudeDelta: 0.005, longitudeDelta: 0.005))
-            cameraPosition = .region(region)
         }
     }
 }

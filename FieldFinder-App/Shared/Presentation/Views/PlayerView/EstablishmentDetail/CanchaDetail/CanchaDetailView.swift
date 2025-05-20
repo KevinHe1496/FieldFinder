@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct CanchaDetailView: View {
     @State private var viewModel = FieldDetailViewModel()
     @State private var viewModelRegisterCancha = RegisterCanchaViewModel()
@@ -15,7 +17,7 @@ struct CanchaDetailView: View {
     @State private var showAlert: Bool = false
     @State private var contentVisible = false
 
-    var fieldId = ""
+    var fieldId: String
     var userRole: UserRole?
 
     init(fieldId: String, userRole: UserRole? = nil) {
@@ -28,40 +30,54 @@ struct CanchaDetailView: View {
             ZStack {
                 Color(.systemGroupedBackground).ignoresSafeArea()
 
-                if contentVisible {
+                switch viewModel.state {
+                case .idle, .loading:
+                    ProgressView("Cargando cancha...")
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .scaleEffect(1.2)
+
+                case .success(let cancha):
                     ScrollView {
                         VStack(spacing: 20) {
-                            PhotoGalleryView(photoURLs: viewModel.fieldData.photoCanchas, height: 280)
+                            PhotoGalleryView(photoURLs: cancha.photoCanchas, height: 280)
                                 .clipShape(RoundedRectangle(cornerRadius: 16))
                                 .shadow(radius: 4)
                                 .padding(.horizontal)
                                 .transition(.opacity.combined(with: .move(edge: .top)))
 
-                            FieldInfoSection(fieldData: viewModel.fieldData)
-                            FieldAttributesSection(fieldData: viewModel.fieldData)
-
+                            FieldInfoSection(fieldData: cancha)
+                            FieldAttributesSection(fieldData: cancha)
                         }
                         .padding(.top)
                         .animation(.easeInOut(duration: 0.4), value: contentVisible)
                     }
-                } else {
-                    ProgressView("Cargando cancha...")
+
+                case .error(let errorMessage):
+                    VStack(spacing: 16) {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .font(.system(size: 48))
+                            .foregroundColor(.orange)
+                        Text("Error al cargar la cancha")
+                            .font(.headline)
+                        Text(errorMessage)
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.secondary)
+                    }
+                    .padding()
                 }
             }
             .navigationTitle("Detalle de Cancha")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                if userRole == .dueno {
+                if case .success(let cancha) = viewModel.state, userRole == .dueno {
                     ToolbarItemGroup(placement: .topBarTrailing) {
-                    
-                        
                         NavigationLink {
                             EditFieldView(
-                                selectedField: Field(rawValue: viewModel.fieldData.tipo) ?? .cesped,
-                                selectedCapacidad: Capacidad(rawValue: viewModel.fieldData.modalidad) ?? .cinco,
-                                precio: String(viewModel.fieldData.precio),
-                                iluminada: viewModel.fieldData.iluminada,
-                                cubierta: viewModel.fieldData.cubierta,
+                                selectedField: Field(rawValue: cancha.tipo) ?? .cesped,
+                                selectedCapacidad: Capacidad(rawValue: cancha.modalidad) ?? .cinco,
+                                precio: String(cancha.precio),
+                                iluminada: cancha.iluminada,
+                                cubierta: cancha.cubierta,
                                 canchaID: fieldId
                             )
                         } label: {
@@ -102,6 +118,8 @@ struct CanchaDetailView: View {
         }
     }
 }
+
+
 
 
 #Preview {

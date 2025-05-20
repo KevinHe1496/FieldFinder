@@ -9,15 +9,7 @@ import Foundation
 
 @Observable
 final class FieldDetailViewModel {
-    var fieldData = Cancha(
-        id: "",
-        tipo: "",
-        modalidad: "",
-        precio: 0,
-        cubierta: false,
-        iluminada: false,
-        fotos: [""]
-    )
+    var state: ViewState<Cancha> = .idle
     
     @ObservationIgnored
     private var useCase: GetFieldDetailUseCaseProtocol
@@ -28,7 +20,12 @@ final class FieldDetailViewModel {
     
     @MainActor
     func getFieldDetail(with fieldId: String) async throws {
-        let data = try await useCase.getFieldDetail(with: fieldId)
-        fieldData = data
+        state = .loading
+        do {
+            let cancha = try await useCase.getFieldDetail(with: fieldId)
+            state = .success(cancha)
+        } catch {
+            state = .error("No se pudo cargar la cancha.")
+        }
     }
 }
