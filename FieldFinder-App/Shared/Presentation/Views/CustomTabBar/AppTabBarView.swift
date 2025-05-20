@@ -13,6 +13,23 @@ struct AppTabBarView: View {
     @State private var tabSelection: TabBarItem = .home
     @StateObject private var viewModel = GetNearbyEstablishmentsViewModel()
     
+    init() {
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.backgroundColor = UIColor.systemGroupedBackground
+
+        UINavigationBar.appearance().standardAppearance = navBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithOpaqueBackground()
+        tabBarAppearance.backgroundColor = UIColor.systemGroupedBackground
+
+        UITabBar.appearance().standardAppearance = tabBarAppearance
+        UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+    }
+
+    
     var body: some View {
         TabView(selection: $tabSelection) {
            
@@ -31,7 +48,6 @@ struct AppTabBarView: View {
             
         }
         .tint(.primaryColorGreen)
-        
         .ignoresSafeArea(.keyboard)
     }
 }

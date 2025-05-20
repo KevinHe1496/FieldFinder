@@ -11,38 +11,38 @@ import _MapKit_SwiftUI
 import SwiftUI
 
 // ViewModel que gestiona la lógica para mostrar establecimientos cercanos en un mapa.
+@Observable
 final class GetNearbyEstablishmentsViewModel: ObservableObject {
+    
+    var status: ViewState<[Establecimiento]> = .idle
     
     var locationService = LocationService() // Servicio para obtener la ubicación del usuario.
     
     // Valor que controla cuánto se ve (zoom del mapa).
-    @Published var lastLatitudeDelta: Double = 0.05
-    
-    // Lista de establecimientos cercanos obtenidos desde el backend.
-    @Published var nearbyEstablishments = [Establecimiento]()
+    var lastLatitudeDelta: Double = 0.05
     
     // Lista de establecimientos favoritos del usuario.
-    @Published var favoritesData = [FavoriteEstablishment]()
+    var favoritesData = [FavoriteEstablishment]()
     
     // Establecimiento seleccionado por el usuario (para ver detalles).
-    @Published var selectedEstablishment: Establecimiento?
+    var selectedEstablishment: Establecimiento?
     
     // Controla la posición de la cámara del mapa (zoom y centro).
-    @Published var cameraPosition: MapCameraPosition = .automatic
+    var cameraPosition: MapCameraPosition = .automatic
     
     // Texto del buscador de establecimientos.
-    @Published var establishmentSearch = ""
+    var establishmentSearch = ""
     
     // Devuelve los establecimientos filtrados por nombre según lo que escribe el usuario.
     var filterEstablishments: [Establecimiento] {
+        guard let all = status.data else { return [] }
         if establishmentSearch.isEmpty {
-            nearbyEstablishments
+            return all
         } else {
-            nearbyEstablishments.filter { establishment in
-                establishment.name.localizedStandardContains(establishmentSearch)
-            }
+            return all.filter { $0.name.localizedStandardContains(establishmentSearch) }
         }
     }
+    
     
     // Casos de uso para obtener establecimientos (se comunica con la capa de red).
     @ObservationIgnored
@@ -61,16 +61,26 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     // Obtiene la lista de establecimientos cercanos desde la API, según una ubicación.
     @MainActor
     private func fetchEstablishments(near coordinate: CLLocationCoordinate2D) async throws {
-        let result = try await useCase.getAllEstablishments(coordinate: coordinate)
-        nearbyEstablishments = result
+        status = .loading
+        do{
+            let establecimientos = try await useCase.getAllEstablishments(coordinate: coordinate)
+            status = .success(establecimientos)
+        } catch {
+            status = .error("No se pudo cargar los establecimientos.")
+        }
     }
     
     // Carga los datos iniciales: obtiene ubicación, establecimientos y centra el mapa.
     @MainActor
     func loadData() async throws {
-        let coordinates = try await locationService.requestLocation()
-        try await fetchEstablishments(near: coordinates)
-        updateCamera(to: coordinates) // Centra el mapa en la ubicación del usuario.
+        status = .loading
+        do {
+            let coordinates = try await locationService.requestLocation()
+            try await fetchEstablishments(near: coordinates)
+            updateCamera(to: coordinates) // Centra el mapa en la ubicación del usuario.
+        } catch {
+            status = .error("No se pdo cargar los establecimientos ni la ubicación.")
+        }
     }
     
     // Marca o desmarca un establecimiento como favorito.
@@ -104,7 +114,7 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
             )
         }
     }
-
+    
     /// Guarda el establecimiento que el usuario selecciona para mostrar sus detalles.
     @MainActor
     func selectEstablishment(_ establishment: Establecimiento) {
@@ -127,7 +137,4 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
             favorite.id == establishmentId
         }
     }
-
-
-
 }

@@ -10,11 +10,9 @@ import UIKit
 
 @Observable
 final class EstablishmentDetailViewModel {
-    
+    var status: ViewState<Establecimiento> = .idle
     var showOpenInMapsAlert = false
     var mapsURL: URL?
-    
-    var establishmentData = Establecimiento(id: "", name: "", info: "", address: "", city: "", isFavorite: false, zipCode: "", country: "", phone: "", userName: "", userRol: "", parquedero: false, vestidores: false, banos: false, duchas: false, bar: false, fotos: [], latitude: 0, longitude: 0, canchas: [])
     
     @ObservationIgnored
     private var useCase: GetEstablishmentDetailUseCaseProtocol
@@ -29,8 +27,13 @@ final class EstablishmentDetailViewModel {
     
     @MainActor
     func getEstablishmentDetail(establishmentId: String) async throws {
-        let data = try await useCase.getEstablishmentDetail(with: establishmentId)
-        establishmentData = data
+        status = .loading
+        do {
+            let establecimiento = try await useCase.getEstablishmentDetail(with: establishmentId)
+            status = .success(establecimiento)
+        } catch {
+            status = .error("No se pudo cargar el establecimiento")
+        }
     }
     
     @MainActor

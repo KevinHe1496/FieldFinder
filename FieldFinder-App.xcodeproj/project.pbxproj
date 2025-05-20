@@ -99,6 +99,7 @@
 		C939BC812DCCF91600B98C16 /* Font-Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C939BC802DCCF91600B98C16 /* Font-Theme.swift */; };
 		C939BC832DCCF94D00B98C16 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C939BC822DCCF94D00B98C16 /* LoadingView.swift */; };
 		C939BC852DCCF95800B98C16 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C939BC842DCCF95800B98C16 /* LoginView.swift */; };
+		C942BC932DDCF9AC00F0304D /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C942BC922DDCF9AC00F0304D /* ViewState.swift */; };
 		C959890F2DCE99B200AC4B5D /* NetworkRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = C959890E2DCE99B200AC4B5D /* NetworkRegister.swift */; };
 		C95989132DCE9AEC00AC4B5D /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95989122DCE9AEC00AC4B5D /* RegisterModel.swift */; };
 		C95C5D0C2DD8F7E000A5310C /* CoverImageTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95C5D0B2DD8F7E000A5310C /* CoverImageTip.swift */; };
@@ -243,6 +244,7 @@
 		C939BC802DCCF91600B98C16 /* Font-Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font-Theme.swift"; sourceTree = "<group>"; };
 		C939BC822DCCF94D00B98C16 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C939BC842DCCF95800B98C16 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C942BC922DDCF9AC00F0304D /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		C959890E2DCE99B200AC4B5D /* NetworkRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRegister.swift; sourceTree = "<group>"; };
 		C95989122DCE9AEC00AC4B5D /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		C95C5D0B2DD8F7E000A5310C /* CoverImageTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverImageTip.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 		BF5614AD2DCE7095003C1F66 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				C942BC922DDCF9AC00F0304D /* ViewState.swift */,
 				C95C5D0B2DD8F7E000A5310C /* CoverImageTip.swift */,
 				BF1471D82DD650EF008C1E09 /* RegisterCanchaModel.swift */,
 				BF1125B42DCFF31500A9DBE5 /* EstablishmentModel.swift */,
@@ -976,6 +979,7 @@
 				BF1125B32DCFF1D400A9DBE5 /* NetworkRegisterEstablishment.swift in Sources */,
 				BF1471D52DD64B81008C1E09 /* RegisterCanchaUseCase.swift in Sources */,
 				C9C7BABB2DCE8A9D007CB3FA /* FavoritesView.swift in Sources */,
+				C942BC932DDCF9AC00F0304D /* ViewState.swift in Sources */,
 				C9D4CA602DD7E6AE00296604 /* EstablishmentServicesSection.swift in Sources */,
 				C9D4CA532DD7E37100296604 /* FieldAttributesSection.swift in Sources */,
 				C92FD0FE2DD296E40008E2F9 /* GetEstablishmentDetailRepository.swift in Sources */,

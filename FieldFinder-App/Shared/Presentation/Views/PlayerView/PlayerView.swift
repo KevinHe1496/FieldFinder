@@ -5,8 +5,7 @@ import CoreLocation
 struct PlayerView: View {
     @State private var searchText = ""
     @State private var didLoad = false
-    @State private var isLoading = true // 👈 indicador de carga
-
+    
     @ObservedObject var viewModel: GetNearbyEstablishmentsViewModel
     @State private var shownItems: Set<String> = []
     
@@ -14,14 +13,14 @@ struct PlayerView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                Color(.systemGroupedBackground).ignoresSafeArea()
-
-                if isLoading {
-                    ProgressView("Cargando establecimientos...")
+            Group {
+                switch viewModel.status {
+                case .idle, .loading:
+                    ProgressView("Cargando...")
                         .progressViewStyle(CircularProgressViewStyle())
                         .scaleEffect(1.3)
-                } else {
+                    
+                case .success:
                     ScrollView {
                         VStack(alignment: .leading, spacing: 20) {
                             
@@ -52,6 +51,21 @@ struct PlayerView: View {
                         }
                     }
                     .scrollIndicators(.hidden)
+                    .background(Color(UIColor.systemGroupedBackground))
+                    
+                    
+                case .error(let message):
+                    VStack(spacing: 16) {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .font(.system(size: 48))
+                            .foregroundColor(.primaryColorGreen)
+                        Text("Error al cargar los establecimientos")
+                            .font(.headline)
+                        Text(message)
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.secondary)
+                    }
+                    .padding()
                 }
             }
             .navigationTitle("Establecimientos")
@@ -72,18 +86,12 @@ struct PlayerView: View {
                                 }
                             }
                         }
-                        
-                        isLoading = false // 👈 Finaliza la carga
-                    } catch {
-                        print("Error cargando datos: \(error.localizedDescription)")
-                        isLoading = false
                     }
                 }
             }
         }
     }
 }
-
 
 #Preview {
     PlayerView(viewModel: GetNearbyEstablishmentsViewModel())

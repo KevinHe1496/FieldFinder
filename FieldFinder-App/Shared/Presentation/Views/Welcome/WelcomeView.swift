@@ -23,7 +23,7 @@ struct WelcomeView: View {
                         .font(.appTitle)
                         .foregroundStyle(.primaryColorGreen)
                     
-                    Text("Encuentra canchas deportivas cerca de ti o regístrate como dueño para administrar tus espacios.")
+                    Text("Explora canchas deportivas cerca de ti. Si quieres guardar tus favoritas o administrar tus propias canchas, regístrate desde el perfil.")
                         .font(.appDescription)
                         .foregroundStyle(.thirdColorWhite)
                     
@@ -33,15 +33,6 @@ struct WelcomeView: View {
                         CustomButtonView(title: "Continuar", color: .primaryColorGreen, textColor: .thirdColorWhite) {
                             hasSeenWelcome = true
                             appState.status = .home
-                        }
-                    }
-                    
-                    NavigationLink {
-                        AppTabBarView()
-                    } label: {
-                        CustomButtonView(title: "Registrar Establecimiento", color: .primaryColorGreen, textColor: .thirdColorWhite) {
-                            hasSeenWelcome = true
-                            appState.status = .registerUser
                         }
                     }
                 }
