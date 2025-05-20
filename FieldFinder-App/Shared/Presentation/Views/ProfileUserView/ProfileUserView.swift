@@ -98,10 +98,10 @@ struct ProfileUserView: View {
                     .padding()
                 }
             }
-        }
-        .onAppear {
-            Task {
-                try await viewModel.getMe()
+            .onAppear {
+                Task {
+                    try await viewModel.getMe()
+                }
             }
         }
         .alert("Borrar mi cuenta", isPresented: $showDeleteUserAlert) {
