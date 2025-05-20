@@ -43,14 +43,15 @@ struct LoginView: View {
                                 textField: $email,
                                 keyboardType: .emailAddress,
                                 prompt: Text(
-                                    "Enter your email"
+                                    "Email"
                                 )
                                 , Bgcolor: .thirdColorWhite
                                 
                             )
                             
                             // Password input field
-                            CustomSecureFieldView(titleKey: "Password", textField: $password, keyboardType: .default, prompt: Text("Enter your password"))
+                            CustomSecureFieldView(titleKey: "Contraseña", textField: $password, keyboardType: .default, prompt: Text("Contraseña"))
+                                
                             
                            //  Sign in button
                             
@@ -62,7 +63,7 @@ struct LoginView: View {
                                     .foregroundColor(.secondaryColorBlack)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                             } else {
-                                CustomButtonView(title: "Sign In", color: .thirdColorWhite, textColor: .secondaryColorBlack) {
+                                CustomButtonView(title: "Iniciar Sesión", color: .thirdColorWhite, textColor: .secondaryColorBlack) {
                                     Task {
                                         try await appState.loginApp(user:email, password: password)
                                     }
@@ -74,7 +75,7 @@ struct LoginView: View {
                         
                     } header: {
                         HStack {
-                            Text("LOGIN TO YOUR ACCOUNT")
+                            Text("INICIA SESIÓN")
                                 .font(.appTitle)
                                 .foregroundStyle(.primaryColorGreen)
                             Spacer()

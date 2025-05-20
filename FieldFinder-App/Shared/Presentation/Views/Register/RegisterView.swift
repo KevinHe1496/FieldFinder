@@ -45,10 +45,10 @@ struct RegisterView: View {
                             // Name input field
                             
                             CustomTextFieldLogin(
-                                titleKey: "Name",
+                                titleKey: "Nombre",
                                 textField: $name,
                                 keyboardType: .default,
-                                prompt: Text("Enter your name"),
+                                prompt: Text("Nombre"),
                                 Bgcolor: .thirdColorWhite
                             )
                             
@@ -58,13 +58,13 @@ struct RegisterView: View {
                                 textField: $email,
                                 keyboardType: .emailAddress,
                                 prompt: Text(
-                                    "Enter your email"
+                                    "Email"
                                 ), Bgcolor: .thirdColorWhite
                             )
                             
                             
                             // Password input field
-                            CustomSecureFieldView(titleKey: "Password", textField: $password, keyboardType: .default, prompt: Text("Enter your password"))
+                            CustomSecureFieldView(titleKey: "Contraseña", textField: $password, keyboardType: .default, prompt: Text("Contraseña"))
                             
                             
                             // Rol
@@ -77,9 +77,10 @@ struct RegisterView: View {
                                         Text(role.displayName)
                                             .tag(role)
                                     }
+                                    
                                 }
                                 .pickerStyle(.menu)
-                                .frame(width: 120)
+                                .frame(width: 130)
                             }
                             .padding()
                             .frame(maxWidth: .infinity, maxHeight: 55)
