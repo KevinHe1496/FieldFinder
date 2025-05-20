@@ -2,7 +2,7 @@ import Foundation
 
 /// Status app
 enum StatusModel: Equatable {
-    case none, loading, loaded, register, error(error: String), ownerView, registerCancha, home, registerUser
+    case login, loading, loaded, register, error(error: String), ownerView, registerCancha, home, registerUser
 }
 
 //

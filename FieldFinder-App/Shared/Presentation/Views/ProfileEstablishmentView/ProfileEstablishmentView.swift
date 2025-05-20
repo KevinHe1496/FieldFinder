@@ -41,7 +41,7 @@ struct ProfileEstablishmentView: View {
                 }
                 
                 Section {
-                    NavigationLink("Editar Establecimiento") {
+                    NavigationLink("Mi Establecimiento") {
                         EditProfileEstablishmentView(
                             name: viewModel.getMeData.establecimiento[0].name,
                             info: viewModel.getMeData.establecimiento[0].info,
@@ -69,6 +69,10 @@ struct ProfileEstablishmentView: View {
                         Text(appVersion)
                             .foregroundStyle(.gray)
                     }
+                    NavigationLink("Mis Canchas") {
+                        OwnerView()
+                    }
+
                 }
                 
                 
@@ -95,7 +99,7 @@ struct ProfileEstablishmentView: View {
                     Task {
                         try await viewModel.delete()
                     }
-                    appState.status = .none
+                    appState.status = .login
                 }
                 
                 Button("Cancelar", role: .cancel) { }

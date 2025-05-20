@@ -4,7 +4,7 @@ import Combine
 @Observable
 final class AppState {
     // Published
-    var status = StatusModel.none
+    var status = StatusModel.login
     var tokenJWT: String = ""
     var userRole: UserRole?
     var messageAlert: String = ""
@@ -68,7 +68,7 @@ final class AppState {
     func closeSessionUser() {
         Task {
             try await loginUseCase.logout()
-            self.status = .none
+            self.status = .login
         }
         
     }
@@ -82,7 +82,7 @@ final class AppState {
                 self.status = .loaded
                 
             } else {
-                self.status = .none
+                self.status = .login
                 NSLog("Login Error")
             }
         }

@@ -38,6 +38,7 @@
 		BF93CBB42DD39E5A002A8627 /* RegisterEstablishmentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB32DD39E4F002A8627 /* RegisterEstablishmentRepository.swift */; };
 		BF93CBB62DD39FD8002A8627 /* RegisterEstablishmentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB52DD39FD1002A8627 /* RegisterEstablishmentUseCase.swift */; };
 		BF93CBB82DD3A02C002A8627 /* RegisterEstablismentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB72DD3A025002A8627 /* RegisterEstablismentViewModel.swift */; };
+		BF947F252DDBD6B200A0DFA0 /* DefaultProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF947F242DDBD6B200A0DFA0 /* DefaultProfile.swift */; };
 		BF9719082DCD16D700CD0AF8 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9719072DCD16D700CD0AF8 /* StatusModel.swift */; };
 		BF97190A2DCD199800CD0AF8 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9719092DCD198F00CD0AF8 /* AppState.swift */; };
 		BF97190C2DCD1BD100CD0AF8 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97190B2DCD1BD100CD0AF8 /* Endpoints.swift */; };
@@ -179,6 +180,7 @@
 		BF93CBB32DD39E4F002A8627 /* RegisterEstablishmentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablishmentRepository.swift; sourceTree = "<group>"; };
 		BF93CBB52DD39FD1002A8627 /* RegisterEstablishmentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablishmentUseCase.swift; sourceTree = "<group>"; };
 		BF93CBB72DD3A025002A8627 /* RegisterEstablismentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablismentViewModel.swift; sourceTree = "<group>"; };
+		BF947F242DDBD6B200A0DFA0 /* DefaultProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProfile.swift; sourceTree = "<group>"; };
 		BF9719072DCD16D700CD0AF8 /* StatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatusModel.swift; path = "FieldFinder-App/Shared/Domain/Entities/StatusModel.swift"; sourceTree = SOURCE_ROOT; };
 		BF9719092DCD198F00CD0AF8 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		BF97190B2DCD1BD100CD0AF8 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Endpoints.swift; path = "FieldFinder-App/Shared/Data/Network/Endpoints.swift"; sourceTree = SOURCE_ROOT; };
@@ -444,6 +446,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		BF947F232DDBD68700A0DFA0 /* DefaultProfile */ = {
+			isa = PBXGroup;
+			children = (
+				BF947F242DDBD6B200A0DFA0 /* DefaultProfile.swift */,
+			);
+			path = DefaultProfile;
+			sourceTree = "<group>";
+		};
 		C92221AC2DD3C34300D6BE8B /* CanchaDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,6 +607,7 @@
 		C939BC6D2DCCF69500B98C16 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BF947F232DDBD68700A0DFA0 /* DefaultProfile */,
 				C961A2D62DDBBE9B00A6BF8D /* Welcome */,
 				BF0E25A72DD7CAFE00A53745 /* ProfileEstablishmentView */,
 				C9C7BABC2DCE8D62007CB3FA /* ProfileUserView */,
@@ -930,6 +941,7 @@
 				C92221B42DD3C5D400D6BE8B /* GetFieldDetailUseCase.swift in Sources */,
 				C9B0AD6B2DCD00950043A9A2 /* RegisterView.swift in Sources */,
 				C92FD1102DD2BC390008E2F9 /* Cancha.swift in Sources */,
+				BF947F252DDBD6B200A0DFA0 /* DefaultProfile.swift in Sources */,
 				C9C7BABE2DCE8D71007CB3FA /* ProfileUserView.swift in Sources */,
 				C92221BC2DD3EA9800D6BE8B /* FavoriteUserRepositoryProtocol.swift in Sources */,
 				BF1125952DCFA01800A9DBE5 /* GetMeModel.swift in Sources */,

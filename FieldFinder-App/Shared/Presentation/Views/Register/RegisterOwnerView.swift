@@ -18,10 +18,10 @@ struct RegisterOwnerView: View {
     
     @State private var name = ""
     @State private var info = ""
-    @State private var country: String = "Ecuador"
-    @State private var address = "Av. Amazonas N34-451 y Av. Atahualpa"
-    @State private var city = "Quito"
-    @State private var zipcode = "170507"
+    @State private var country: String = "Estados Unidos"
+    @State private var address = "10800 Torre Avenue"
+    @State private var city = "Cupertino"
+    @State private var zipcode = "95014"
     @State private var phone = ""
     @State private var parqueadero = false
     @State private var vestidores = false

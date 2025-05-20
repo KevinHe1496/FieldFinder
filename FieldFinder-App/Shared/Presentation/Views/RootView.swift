@@ -13,7 +13,7 @@ struct RootView: View {
     
     var body: some View {
         switch appState.status {
-        case .none:
+        case .login:
             if hasSeenWelcome {
                 AppTabBarView()
             } else {
@@ -31,7 +31,7 @@ struct RootView: View {
                 switch role {
                     
                 case .dueno:
-                    AppTabBarOwnerView()
+                    AppTabBarView()
                 case .jugador:
                     AppTabBarView()
                 }

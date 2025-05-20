@@ -76,7 +76,7 @@ final class RegisterEstablismentViewModel {
             
             
             alertMessage = "Establecimiento registrado con éxito."
-            appState.status = .none
+            appState.status = .home
         } catch {
             alertMessage = "Error al registrar: \(error.localizedDescription)"
             isLoading = false

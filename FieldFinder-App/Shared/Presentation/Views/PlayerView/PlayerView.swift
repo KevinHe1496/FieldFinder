@@ -53,24 +53,29 @@ struct PlayerView: View {
             }
             .navigationTitle("Establecimientos")
             .searchable(text: $viewModel.establishmentSearch)
-            .task {
-                if !didLoad {
-                    shownItems = [] // Reinicia animaciones
-                    do {
-                        
-                        try await viewModel.loadData()
-                        didLoad = true
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                            for establishment in viewModel.filterEstablishments {
-                                shownItems.insert(establishment.id)
+            .onAppear {
+                Task {
+                    try await viewModel.loadData()
+                    try await viewModel.getFavoritesUser()
+                    if !didLoad {
+                        shownItems = [] // Reinicia animaciones
+                        do {
+                            
+                            try await viewModel.loadData()
+                            didLoad = true
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                for establishment in viewModel.filterEstablishments {
+                                    shownItems.insert(establishment.id)
+                                }
                             }
+                            
+                        } catch {
+                            print("Error cargando datos: \(error.localizedDescription)")
                         }
-                        
-                    } catch {
-                        print("Error cargando datos: \(error.localizedDescription)")
                     }
                 }
+               
             }
         }
     }

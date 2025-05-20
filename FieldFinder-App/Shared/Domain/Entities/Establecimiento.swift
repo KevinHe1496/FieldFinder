@@ -45,7 +45,7 @@ struct Establecimiento: Codable, Identifiable {
         country: "Ecuador",
         phone: "+593987654321",
         userName: "kevin_heredia",
-        userRol: "Dueño",
+        userRol: "jugador",
         parquedero: true,
         vestidores: true,
         banos: true,

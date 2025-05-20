@@ -40,7 +40,7 @@ final class RegisterViewModel {
                     isLoading = false
                     return nil
                 } else {
-                    appState.status = .none
+                    appState.status = .login
                     isLoading = false
                     return nil
                 }

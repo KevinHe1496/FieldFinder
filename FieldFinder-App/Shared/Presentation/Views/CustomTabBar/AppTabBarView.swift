@@ -14,16 +14,24 @@ struct AppTabBarView: View {
     @StateObject private var viewModel = GetNearbyEstablishmentsViewModel()
     
     var body: some View {
-        CustomTabBarContainerView(selection: $tabSelection) {
-            PlayerView(viewModel: viewModel)
-                .tabBarItem(tab: .home, selection: $tabSelection)
+        TabView(selection: $tabSelection) {
+           
+            Tab("Inicio", systemImage: "house.fill", value: tabSelection) {
+                PlayerView(viewModel: viewModel)
+            }
             
-            MapEstablishmentsView()
-                .tabBarItem(tab: .map, selection: $tabSelection)
             
-            ProfileUserView()
-                .tabBarItem(tab: .profile, selection: $tabSelection)
+            Tab("Mapa", systemImage: "map.fill", value: tabSelection) {
+                MapEstablishmentsView()
+            }
+            
+            Tab("Inicio", systemImage: "person.fill", value: tabSelection) {
+                DefaultProfile()
+            }
+            
         }
+        .tint(.primaryColorGreen)
+        
         .ignoresSafeArea(.keyboard)
     }
 }
