@@ -32,7 +32,8 @@ struct EstablishmentRowView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 16))
                     .shadow(radius: 4)
                 
-                if viewModelUser.getMeData.rol == "jugador" {
+                if case .success(let user) = viewModelUser.status, user.rol == "jugador" {
+ 
                     FavoriteButton(isFavorite: $isFavorite ) { newValue in
                         Task {
                             isFavorite = newValue

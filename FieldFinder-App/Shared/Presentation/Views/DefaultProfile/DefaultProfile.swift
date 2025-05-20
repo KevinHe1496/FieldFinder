@@ -16,12 +16,23 @@ struct DefaultProfile: View {
     
     var body: some View {
         Group {
-            switch viewModel.getMeData.rol {
-            case "dueno":
-                ProfileEstablishmentView()
-            case "jugador":
-                ProfileUserView(appState: _appState)
-            default:
+            switch viewModel.status {
+            case .success(let user):
+                switch user.rol {
+                case "dueno":
+                    ProfileEstablishmentView()
+                case "jugador":
+                    ProfileUserView(appState: _appState)
+                default:
+                    unauthenticatedView
+                }
+                
+            case .loading:
+                ProgressView("Cargando...")
+
+            case .error:
+                unauthenticatedView
+            case .idle:
                 unauthenticatedView
             }
         }

@@ -10,45 +10,10 @@ import Foundation
 @Observable
 final class ProfileUserViewModel {
     
-    var getMeData = GetMeModel(
-        email: "",
-        id: "",
-        rol: "",
-        name: "",
-        establecimiento: [EstablecimientoReponse.init(
-            longitude: 0.0,
-            info: "",
-            address: "",
-            fotos: [""],
-            parquedero: false,
-            userName: "",
-            id: "",
-            name: "",
-            zipCode: "",
-            city: "",
-            canchas: [CanchaResponse.init(
-                tipo: "",
-                modalidad: "",
-                id: "",
-                cubierta: false,
-                iluminada: false,
-                precio: 0,
-                fotos: [""]
-            )],
-            phone: "",
-            vestidores: false,
-            duchas: false,
-            userRol: "",
-            banos: false,
-            bar: false,
-            country: "",
-            latitude: 0.0
-        )]
-    )
+    var status: ViewState<GetMeModel> = .idle
     
     var messageError = ""
-    
-    
+
     @ObservationIgnored
     private var useCase: GetMeUseCaseProtocol
     
@@ -58,8 +23,13 @@ final class ProfileUserViewModel {
     
     @MainActor
     func getMe() async throws {
-        let result = try await useCase.getUser()
-        self.getMeData = result
+        status = .loading
+        do {
+            let result = try await useCase.getUser()
+            status = .success(result)
+        } catch {
+            status = .error("No se pudo cargar el perfil.")
+        }
     }
     
     @MainActor
