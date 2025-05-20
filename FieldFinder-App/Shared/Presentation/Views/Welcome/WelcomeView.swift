@@ -40,6 +40,7 @@ struct WelcomeView: View {
                         AppTabBarView()
                     } label: {
                         CustomButtonView(title: "Registrar Establecimiento", color: .primaryColorGreen, textColor: .thirdColorWhite) {
+                            hasSeenWelcome = true
                             appState.status = .registerUser
                         }
                     }
