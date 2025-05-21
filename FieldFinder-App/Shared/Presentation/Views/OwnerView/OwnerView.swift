@@ -49,6 +49,7 @@ struct OwnerView: View {
                                 }
                             }
                         }
+                        .padding(.top)
                         .padding(.bottom)
                     }
                     
@@ -83,9 +84,8 @@ struct OwnerView: View {
                         }
                     }
                 }
-
+                
             }
-            
         }
     }
 }
