@@ -17,6 +17,7 @@ struct FieldFinder_AppApp: App {
         try? Tips.configure()
     }
     
+    
     var body: some Scene {
         WindowGroup {
             RootView()

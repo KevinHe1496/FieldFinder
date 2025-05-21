@@ -19,7 +19,6 @@ struct CustomSecureFieldView: View {
     
     var body: some View {
         HStack {
-            
             Group {
                 if isPasswordVisible {
                     TextField(titleKey, text: $textField)
@@ -47,8 +46,6 @@ struct CustomSecureFieldView: View {
         .frame(height: 53)
         .background(.thirdColorWhite)
         .clipShape(.buttonBorder)
-        
-        
     }
 }
 

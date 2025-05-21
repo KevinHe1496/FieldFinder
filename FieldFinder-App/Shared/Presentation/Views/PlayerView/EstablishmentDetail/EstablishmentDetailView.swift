@@ -50,11 +50,11 @@ struct EstablishmentDetailView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 40, height: 40)
-                                    .foregroundColor(.gray)
+                                    .foregroundStyle(.gray)
                                 
                                 Text("No hay canchas registradas")
                                     .font(.headline)
-                                    .foregroundColor(.primaryColorGreen)
+                                    .foregroundStyle(.primaryColorGreen)
                             }
                             .padding(20)
                             .frame(maxWidth: .infinity)
@@ -81,17 +81,15 @@ struct EstablishmentDetailView: View {
                 VStack(spacing: 16) {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .font(.system(size: 48))
-                        .foregroundColor(.red)
+                        .foregroundStyle(.primaryColorGreen)
                     Text("Error al cargar el establecimiento")
                         .font(.headline)
                     Text(message)
                         .multilineTextAlignment(.center)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
                 .padding()
             }
-            
-            
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Establecimiento")

@@ -26,7 +26,7 @@ struct FavoriteEstablishmentRowView: View {
                         .scaledToFill()
                         .frame(height: 180)
                         .clipped()
-                        .cornerRadius(16)
+                        .clipShape(RoundedRectangle(cornerRadius: 16))
                 } placeholder: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 16)
@@ -40,15 +40,15 @@ struct FavoriteEstablishmentRowView: View {
             VStack(alignment: .leading, spacing: 6) {
                 Text(establishment.name)
                     .font(.headline)
-                    .foregroundColor(.primaryColorGreen)
+                    .foregroundStyle(.primaryColorGreen)
                     .lineLimit(1)
 
                 HStack(spacing: 6) {
                     Image(systemName: "mappin.and.ellipse")
-                        .foregroundColor(.gray)
+                        .foregroundStyle(.primaryColorGreen)
                     Text(establishment.address)
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.colorBlack)
                         .lineLimit(2)
                 }
 
@@ -57,7 +57,7 @@ struct FavoriteEstablishmentRowView: View {
         }
         .padding()
         .background(.thirdColorWhite)
-        .clipShape(RoundedRectangle(cornerRadius: 12)) // 👈 AQUÍ debe ir
+        .clipShape(RoundedRectangle(cornerRadius: 12)) 
         .shadow(radius: 2)
         .padding(.horizontal)
 

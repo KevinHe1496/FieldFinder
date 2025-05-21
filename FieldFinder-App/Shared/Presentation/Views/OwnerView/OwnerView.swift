@@ -32,9 +32,7 @@ struct OwnerView: View {
                         .padding(.top, 250)
                         
                     } else {
-                        
-                        
-                        
+
                         LazyVGrid(columns: columns, spacing: 20) {
                             ForEach(viewModel.establishments.establecimiento) { establecimiento in
                                 ForEach(establecimiento.canchas) { cancha in

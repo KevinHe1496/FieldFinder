@@ -12,19 +12,19 @@ struct EstablishmentRowView: View {
     let establishment: Establecimiento
     
     @State private var animateFavorite = false
-
+    
     @State var viewModel: GetNearbyEstablishmentsViewModel
     @State private var isFavorite: Bool
     @State var viewModelUser = ProfileUserViewModel()
     
-
+    
     init(establishment: Establecimiento, viewModel: GetNearbyEstablishmentsViewModel) {
         self.establishment = establishment
         self.viewModel = viewModel
         _isFavorite = State(initialValue: viewModel.isFavorite(establishmentId: establishment.id))
-
+        
     }
-
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             ZStack(alignment: .topTrailing) {
@@ -33,7 +33,7 @@ struct EstablishmentRowView: View {
                     .shadow(radius: 4)
                 
                 if case .success(let user) = viewModelUser.status, user.rol == "jugador" {
- 
+                    
                     FavoriteButton(isFavorite: $isFavorite ) { newValue in
                         Task {
                             isFavorite = newValue
@@ -43,27 +43,24 @@ struct EstablishmentRowView: View {
                                 isFavorite = viewModel.isFavorite(establishmentId: establishment.id)
                             }
                         }
-
+                        
                     }
                     .padding(12)
-                } else {
-                    
                 }
-                
             }
-
+            
             VStack(alignment: .leading, spacing: 6) {
                 Text(establishment.name)
                     .font(.headline)
                     .foregroundStyle(.primaryColorGreen)
                     .lineLimit(1)
-
+                
                 HStack(spacing: 6) {
                     Image(systemName: "mappin.and.ellipse")
-                        .foregroundColor(.gray)
+                        .foregroundStyle(.primaryColorGreen)
                     Text(establishment.address)
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(Color.colorBlack)
                         .lineLimit(2)
                 }
             }
@@ -85,7 +82,7 @@ struct EstablishmentRowView: View {
         .clipShape(RoundedRectangle(cornerRadius: 12))
         .shadow(radius: 2)
         .padding(.horizontal)
-
+        
     }
 }
 

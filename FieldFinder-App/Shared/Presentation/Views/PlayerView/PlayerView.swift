@@ -32,7 +32,7 @@ struct PlayerView: View {
                             if !viewModel.establishmentSearch.isEmpty {
                                 Text("Mostrando \(viewModel.filterEstablishments.count) resultados")
                                     .font(.subheadline)
-                                    .foregroundColor(.gray)
+                                    .foregroundStyle(.gray)
                                     .padding(.horizontal)
                             }
                             
@@ -58,12 +58,12 @@ struct PlayerView: View {
                     VStack(spacing: 16) {
                         Image(systemName: "exclamationmark.triangle.fill")
                             .font(.system(size: 48))
-                            .foregroundColor(.primaryColorGreen)
+                            .foregroundStyle(.primaryColorGreen)
                         Text("Error al cargar los establecimientos")
                             .font(.headline)
                         Text(message)
                             .multilineTextAlignment(.center)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                     .padding()
                 }

@@ -44,11 +44,11 @@ struct FieldAttributesView: View {
             if isAvailable {
                 Image(systemName: name)
                     .font(.title2)
-                    .foregroundColor(.primaryColorGreen)
+                    .foregroundStyle(.primaryColorGreen)
             } else {
                 Image(systemName: "xmark.circle")
                     .font(.title2)
-                    .foregroundColor(.red)
+                    .foregroundStyle(.red)
             }
 
             Text(label)

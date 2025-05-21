@@ -25,7 +25,7 @@ struct ProfileUserView: View {
                                 Image(systemName: "person.circle.fill")
                                     .resizable()
                                     .frame(width: 60, height: 60)
-                                    .foregroundColor(.primaryColorGreen)
+                                    .foregroundStyle(.primaryColorGreen)
 
                                 VStack(alignment: .leading) {
                                     Text(user.name)
@@ -88,12 +88,12 @@ struct ProfileUserView: View {
                     VStack(spacing: 16) {
                         Image(systemName: "exclamationmark.triangle.fill")
                             .font(.system(size: 48))
-                            .foregroundColor(.primaryColorGreen)
+                            .foregroundStyle(.primaryColorGreen)
                         Text("Error al cargar el perfil.")
                             .font(.headline)
                         Text(message)
                             .multilineTextAlignment(.center)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                     .padding()
                 }

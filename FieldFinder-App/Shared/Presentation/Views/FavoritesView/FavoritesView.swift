@@ -7,7 +7,7 @@ struct FavoritesView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                // ✅ Fondo plomo suave estilo iOS
+                
                 Color(.systemGroupedBackground)
                     .ignoresSafeArea()
 

@@ -60,7 +60,7 @@ struct LoginView: View {
                                     .frame(maxWidth: .infinity)
                                     .padding()
                                     .background(Color.thirdColorWhite)
-                                    .foregroundColor(.secondaryColorBlack)
+                                    .foregroundStyle(.secondaryColorBlack)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                             } else {
                                 CustomButtonView(title: "Iniciar Sesión", color: .primaryColorGreen, textColor: .thirdColorWhite) {

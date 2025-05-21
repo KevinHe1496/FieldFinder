@@ -27,10 +27,10 @@ struct GridListCellView: View {
 
                 HStack(spacing: 6) {
                     Image(systemName: "creditcard.fill")
-                        .foregroundColor(.gray)
+                        .foregroundStyle(.primaryColorGreen)
                     Text("$\(String(format: "%.2f", canchaResponse.precio)) por hora")
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(Color.colorBlack)
                         .lineLimit(2)
                 }
             }

@@ -99,7 +99,7 @@ struct EstablishmentSelectedMapDestailView: View {
                 }
 
                 // Botón Cancelar
-                CustomButtonView(title: "Cancelar", color: .primaryColorGreen, textColor: .thirdColorWhite) {
+                CustomButtonView(title: "Cancelar", color: .primaryColorGreen, textColor: .white) {
                     dismiss()
                 }
                 .padding(.horizontal)

@@ -17,7 +17,7 @@ struct EstablishmentServicesSection: View {
                 Text("Servicios disponibles")
                     .font(.headline)
                     .padding(.horizontal, 20)
-                    .foregroundColor(.primaryColorGreen)
+                    .foregroundStyle(.primaryColorGreen)
                 
                 FacilitiesIconsView(
                     parquedero: establishment.parquedero,

@@ -26,10 +26,10 @@ struct RemoteImageCardView: View {
                     case .success(let image):
                         image
                             .resizable()
-                            .scaledToFill() // <-- Rellena todo el espacio disponible
+                            .scaledToFill()
                             .frame(maxWidth: .infinity)
                             .frame(height: height)
-                            .clipped() // <-- Recorta el exceso
+                            .clipped()
                             .clipShape(RoundedRectangle(cornerRadius: 8))
                     case .failure:
                         VStack {
@@ -38,7 +38,7 @@ struct RemoteImageCardView: View {
                         .scaledToFit()
                         .frame(maxWidth: .infinity)
                         .frame(height: height)
-                        .foregroundColor(.gray)
+                        .foregroundStyle(.gray)
                         .clipShape(RoundedRectangle(cornerRadius: 8))
                     @unknown default:
                         EmptyView()
