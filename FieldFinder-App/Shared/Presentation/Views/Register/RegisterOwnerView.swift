@@ -49,20 +49,20 @@ struct RegisterOwnerView: View {
                     
                     //MARK: - Register Form
                     
-                    CustomTextFieldLogin(titleKey: "Nombre", textField: $name, keyboardType: .default, prompt: Text("Nombre"), Bgcolor: .grayColorTF)
+                    CustomTextFieldLogin(titleKey: "Nombre", textField: $name, keyboardType: .default, prompt: Text("Nombre"))
                     
-                    CustomTextFieldLogin(titleKey: "Información", textField: $info, keyboardType: .default, prompt: Text("Información"), Bgcolor: .grayColorTF)
+                    CustomTextFieldLogin(titleKey: "Información", textField: $info, keyboardType: .default, prompt: Text("Información"))
                     
 
-                    CustomTextFieldLogin(titleKey: "País", textField: $country, keyboardType: .default, prompt: Text("País"), Bgcolor: .grayColorTF)
+                    CustomTextFieldLogin(titleKey: "País", textField: $country, keyboardType: .default, prompt: Text("País"))
                     
-                    CustomTextFieldLogin(titleKey: "Ciudad", textField: $city, keyboardType: .default, prompt: Text("Ciudad"), Bgcolor: .grayColorTF)
+                    CustomTextFieldLogin(titleKey: "Ciudad", textField: $city, keyboardType: .default, prompt: Text("Ciudad"))
                     
-                    CustomTextFieldLogin(titleKey: "Dirección", textField: $address, keyboardType: .default, prompt: Text("Dirección"), Bgcolor: .grayColorTF)
+                    CustomTextFieldLogin(titleKey: "Dirección", textField: $address, keyboardType: .default, prompt: Text("Dirección"))
                     
-                    CustomTextFieldLogin(titleKey: "Codigo Zip", textField: $zipcode, keyboardType: .default, prompt: Text("Codigo Zip"), Bgcolor: .grayColorTF)
+                    CustomTextFieldLogin(titleKey: "Codigo Zip", textField: $zipcode, keyboardType: .default, prompt: Text("Codigo Zip"))
                     
-                    CustomTextFieldLogin(titleKey: "Teléfono", textField: $phone, keyboardType: .phonePad, prompt: Text("Teléfono"), Bgcolor: .grayColorTF)
+                    CustomTextFieldLogin(titleKey: "Teléfono", textField: $phone, keyboardType: .phonePad, prompt: Text("Teléfono"))
                     
                     VStack {
                         
@@ -86,7 +86,7 @@ struct RegisterOwnerView: View {
 
                     }
                     .padding()
-                    .background(.grayColorTF)
+                    .background(.thirdColorWhite)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
                     
                  

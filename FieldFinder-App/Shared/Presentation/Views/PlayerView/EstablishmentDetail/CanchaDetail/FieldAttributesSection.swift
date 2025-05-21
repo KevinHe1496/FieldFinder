@@ -16,7 +16,7 @@ struct FieldAttributesSection: View {
             VStack(alignment: .leading, spacing: 10) {
                 Text("Características")
                     .font(.headline)
-                    .foregroundColor(.primaryColorGreen)
+                    .foregroundStyle(.primaryColorGreen)
 
                 FieldAttributesView(
                     iluminada: fieldData.iluminada,
@@ -25,7 +25,7 @@ struct FieldAttributesSection: View {
             }
         }
         .padding(20)
-        .background(.white)
+        .background(.thirdColorWhite)
         .cornerRadius(16)
         .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
     }

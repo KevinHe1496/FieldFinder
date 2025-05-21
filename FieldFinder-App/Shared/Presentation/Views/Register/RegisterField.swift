@@ -86,6 +86,7 @@ struct RegisterField: View {
                     Divider()
                     HStack {
                         Text("Capacidad")
+                            .foregroundStyle(.primary)
                         Spacer()
                         Picker("Selecciona modalidad", selection: $selectedCapacidad) {
                             ForEach(Capacidad.allCases) { capacidad in
@@ -103,7 +104,7 @@ struct RegisterField: View {
                     Toggle("Cubierta", isOn: $cubierta)
                 }
                 .padding()
-                .background(.grayColorTF)
+                .background(Color(.secondarySystemBackground))
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 
                 //MARK: PRECIO
@@ -119,7 +120,7 @@ struct RegisterField: View {
                     }
                 }
                 .padding()
-                .background(.grayColorTF)
+                .background(Color(.secondarySystemBackground))
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 
                 

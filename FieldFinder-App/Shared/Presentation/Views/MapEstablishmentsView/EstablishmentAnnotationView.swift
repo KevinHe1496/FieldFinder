@@ -14,11 +14,11 @@ struct EstablishmentAnnotationView: View {
         VStack {
             Image(.logoFieldfinderTransparent)
             Text(establishment.name)
-                .foregroundStyle(.thirdColorWhite)
+                .foregroundStyle(.primary)
                 .font(.caption)
                 .fixedSize()
                 .padding(4)
-                .background(Color.secondaryColorBlack.opacity(0.8))
+                .background(.thirdColorWhite)
                 .cornerRadius(5)
         }
     }

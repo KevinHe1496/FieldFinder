@@ -45,11 +45,10 @@ struct CanchaRowView: View {
             .padding(.horizontal, 4)
         }
         .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 16)
-                .fill(Color.white)
-                .shadow(color: Color.black.opacity(0.08), radius: 6, x: 0, y: 4)
-        )
+        .background(Color(.systemBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .shadow(radius: 2)
+        .padding(.horizontal)
     }
 }
 

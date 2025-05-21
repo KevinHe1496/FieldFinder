@@ -53,14 +53,14 @@ struct EstablishmentSelectedMapDestailView: View {
                 if !establishment.phone.isEmpty {
                     HStack(spacing: 12) {
                         Image(systemName: "phone.fill")
-                            .foregroundColor(.primaryColorGreen)
+                            .foregroundStyle(.primaryColorGreen)
                         Text(establishment.phone)
                             .font(.subheadline)
-                            .foregroundColor(.secondaryColorBlack)
+                            .foregroundStyle(.primary)
                         Spacer()
                     }
                     .padding()
-                    .background(.gray.opacity(0.1))
+                    .background(.ultraThinMaterial)
                     .cornerRadius(12)
                     .padding(.horizontal)
                 }

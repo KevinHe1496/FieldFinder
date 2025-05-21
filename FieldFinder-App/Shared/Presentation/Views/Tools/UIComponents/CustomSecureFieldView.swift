@@ -25,13 +25,14 @@ struct CustomSecureFieldView: View {
                     TextField(titleKey, text: $textField)
                         .font(.appDescription)
                         .padding(.vertical, 12)
-                 
+                    
+                    
                 } else {
                     SecureField(titleKey, text: $textField, prompt: prompt)
                         .font(.appDescription)
                         .padding(.vertical, 12)
-                 
-                       
+                    
+                    
                 }
                 
                 Button {
@@ -40,7 +41,6 @@ struct CustomSecureFieldView: View {
                     Image(systemName: isPasswordVisible ? "eye.slash.fill" : "eye.fill")
                         .foregroundStyle(.primaryColorGreen)
                 }
-
             }
         }
         .padding()
@@ -48,7 +48,7 @@ struct CustomSecureFieldView: View {
         .background(.thirdColorWhite)
         .clipShape(.buttonBorder)
         
-       
+        
     }
 }
 

@@ -37,12 +37,11 @@ struct GridListCellView: View {
             .padding(.horizontal, 4)
         }
         .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 16)
-                .fill(Color.white)
-                .shadow(color: .black.opacity(0.08), radius: 5, x: 0, y: 3)
-        )
+        .background(.thirdColorWhite)
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .shadow(radius: 2)
         .padding(.horizontal)
+
     }
 }
 

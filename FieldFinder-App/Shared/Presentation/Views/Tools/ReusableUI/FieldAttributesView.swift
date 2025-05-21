@@ -53,9 +53,9 @@ struct FieldAttributesView: View {
 
             Text(label)
                 .font(.caption)
-                .foregroundColor(.secondaryColorBlack)
+                .foregroundStyle(.primary)
         }
         .frame(width: 70, height: 60)
-        .background(Color.white)
+        .background(.thirdColorWhite)
     }
 }
