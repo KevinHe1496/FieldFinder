@@ -25,12 +25,12 @@ struct WelcomeView: View {
                     
                     Text("Explora canchas deportivas cerca de ti. Si quieres guardar tus favoritas o administrar tus propias canchas, regístrate desde el perfil.")
                         .font(.appDescription)
-                        .foregroundStyle(.thirdColorWhite)
+                        .foregroundStyle(.colorBlack)
                     
                     NavigationLink {
                         AppTabBarView()
                     } label: {
-                        CustomButtonView(title: "Continuar", color: .primaryColorGreen, textColor: .thirdColorWhite) {
+                        CustomButtonView(title: "Continuar", color: .primaryColorGreen, textColor: .white) {
                             hasSeenWelcome = true
                             appState.status = .home
                         }
