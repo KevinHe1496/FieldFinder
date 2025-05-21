@@ -18,7 +18,7 @@ struct EstablishmentFieldsSection: View {
                 Text("Canchas")
                     .font(.headline)
                     .padding(.horizontal, 20)
-                    .foregroundColor(.primaryColorGreen)
+                    .foregroundStyle(.primaryColorGreen)
 
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHGrid(rows: [GridItem(.fixed(280))]) {

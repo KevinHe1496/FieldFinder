@@ -92,7 +92,7 @@ struct RegisterView: View {
                                     .frame(maxWidth: .infinity)
                                     .padding()
                                     .background(Color.thirdColorWhite)
-                                    .foregroundColor(.secondaryColorBlack)
+                                    .foregroundStyle(.secondaryColorBlack)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                             } else {
                                 CustomButtonView(title: "Registrar", color: .primaryColorGreen, textColor: .thirdColorWhite) {

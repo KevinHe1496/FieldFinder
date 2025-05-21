@@ -113,16 +113,12 @@
 		C9B0AD6B2DCD00950043A9A2 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0AD6A2DCD00950043A9A2 /* RegisterView.swift */; };
 		C9B0AD6D2DCD07EB0043A9A2 /* RegisterOwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0AD6C2DCD07EB0043A9A2 /* RegisterOwnerView.swift */; };
 		C9C7BAA72DCE88AD007CB3FA /* AppTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BAA62DCE88AD007CB3FA /* AppTabBarView.swift */; };
-		C9C7BAA92DCE88B8007CB3FA /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BAA82DCE88B8007CB3FA /* CustomTabBarView.swift */; };
-		C9C7BAAB2DCE88C1007CB3FA /* CustomTabBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BAAA2DCE88C1007CB3FA /* CustomTabBarContainerView.swift */; };
-		C9C7BAAD2DCE88C7007CB3FA /* TabBarItemsPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BAAC2DCE88C7007CB3FA /* TabBarItemsPreferenceKey.swift */; };
 		C9C7BAAF2DCE88CE007CB3FA /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BAAE2DCE88CE007CB3FA /* TabBarItem.swift */; };
 		C9C7BAB32DCE8A17007CB3FA /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BAB22DCE8A17007CB3FA /* PlayerView.swift */; };
 		C9C7BAB52DCE8A29007CB3FA /* OwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BAB42DCE8A29007CB3FA /* OwnerView.swift */; };
 		C9C7BAB82DCE8A60007CB3FA /* MapEstablishmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BAB72DCE8A60007CB3FA /* MapEstablishmentsView.swift */; };
 		C9C7BABB2DCE8A9D007CB3FA /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BABA2DCE8A9D007CB3FA /* FavoritesView.swift */; };
 		C9C7BABE2DCE8D71007CB3FA /* ProfileUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BABD2DCE8D71007CB3FA /* ProfileUserView.swift */; };
-		C9D4CA3D2DD79E2D00296604 /* AppTabBarOwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CA3C2DD79E2D00296604 /* AppTabBarOwnerView.swift */; };
 		C9D4CA512DD7E36C00296604 /* FieldInfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CA502DD7E36C00296604 /* FieldInfoSection.swift */; };
 		C9D4CA532DD7E37100296604 /* FieldAttributesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CA522DD7E37100296604 /* FieldAttributesSection.swift */; };
 		C9D4CA5E2DD7E6A400296604 /* EstablishmentInfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CA5D2DD7E6A400296604 /* EstablishmentInfoSection.swift */; };
@@ -258,16 +254,12 @@
 		C9B0AD6A2DCD00950043A9A2 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		C9B0AD6C2DCD07EB0043A9A2 /* RegisterOwnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterOwnerView.swift; sourceTree = "<group>"; };
 		C9C7BAA62DCE88AD007CB3FA /* AppTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarView.swift; sourceTree = "<group>"; };
-		C9C7BAA82DCE88B8007CB3FA /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
-		C9C7BAAA2DCE88C1007CB3FA /* CustomTabBarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarContainerView.swift; sourceTree = "<group>"; };
-		C9C7BAAC2DCE88C7007CB3FA /* TabBarItemsPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemsPreferenceKey.swift; sourceTree = "<group>"; };
 		C9C7BAAE2DCE88CE007CB3FA /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		C9C7BAB22DCE8A17007CB3FA /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		C9C7BAB42DCE8A29007CB3FA /* OwnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerView.swift; sourceTree = "<group>"; };
 		C9C7BAB72DCE8A60007CB3FA /* MapEstablishmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEstablishmentsView.swift; sourceTree = "<group>"; };
 		C9C7BABA2DCE8A9D007CB3FA /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		C9C7BABD2DCE8D71007CB3FA /* ProfileUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserView.swift; sourceTree = "<group>"; };
-		C9D4CA3C2DD79E2D00296604 /* AppTabBarOwnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarOwnerView.swift; sourceTree = "<group>"; };
 		C9D4CA502DD7E36C00296604 /* FieldInfoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldInfoSection.swift; sourceTree = "<group>"; };
 		C9D4CA522DD7E37100296604 /* FieldAttributesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldAttributesSection.swift; sourceTree = "<group>"; };
 		C9D4CA5D2DD7E6A400296604 /* EstablishmentInfoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentInfoSection.swift; sourceTree = "<group>"; };
@@ -682,10 +674,6 @@
 			isa = PBXGroup;
 			children = (
 				C9C7BAA62DCE88AD007CB3FA /* AppTabBarView.swift */,
-				C9D4CA3C2DD79E2D00296604 /* AppTabBarOwnerView.swift */,
-				C9C7BAA82DCE88B8007CB3FA /* CustomTabBarView.swift */,
-				C9C7BAAA2DCE88C1007CB3FA /* CustomTabBarContainerView.swift */,
-				C9C7BAAC2DCE88C7007CB3FA /* TabBarItemsPreferenceKey.swift */,
 				C9C7BAAE2DCE88CE007CB3FA /* TabBarItem.swift */,
 			);
 			path = CustomTabBar;
@@ -911,7 +899,6 @@
 				C9C7BAAF2DCE88CE007CB3FA /* TabBarItem.swift in Sources */,
 				BF93CBB22DD39E3F002A8627 /* RegisterEstablismentRepositoryProtocol.swift in Sources */,
 				C939BC812DCCF91600B98C16 /* Font-Theme.swift in Sources */,
-				C9C7BAAB2DCE88C1007CB3FA /* CustomTabBarContainerView.swift in Sources */,
 				C92FD10C2DD2BB170008E2F9 /* RemoteImageCardView.swift in Sources */,
 				C92FD0EC2DD277960008E2F9 /* GetNearbyEstablismentsRepository.swift in Sources */,
 				C92221BE2DD3EABD00D6BE8B /* FavoriteUserRepository.swift in Sources */,
@@ -931,10 +918,8 @@
 				BFE2E09A2DD3E68700B0E0BE /* ResizeImagesData.swift in Sources */,
 				C939BC852DCCF95800B98C16 /* LoginView.swift in Sources */,
 				BFFB27F82DCD472400DD8819 /* LoginUseCaseProtocol.swift in Sources */,
-				C9C7BAA92DCE88B8007CB3FA /* CustomTabBarView.swift in Sources */,
 				C92FD1002DD297140008E2F9 /* GetEstablishmentDetailProtocol.swift in Sources */,
 				C9D4CA5E2DD7E6A400296604 /* EstablishmentInfoSection.swift in Sources */,
-				C9C7BAAD2DCE88C7007CB3FA /* TabBarItemsPreferenceKey.swift in Sources */,
 				C92221C02DD3EAF700D6BE8B /* FavoriteUserUseCase.swift in Sources */,
 				BFFB27F42DCD462300DD8819 /* LoginRepository.swift in Sources */,
 				BF97190A2DCD199800CD0AF8 /* AppState.swift in Sources */,
@@ -1018,7 +1003,6 @@
 				BF1125932DCF9F6500A9DBE5 /* UserRole.swift in Sources */,
 				C92FD0F82DD291920008E2F9 /* EstablishmentDetailView.swift in Sources */,
 				BFFB28F42DCD61A200DD8819 /* RootView.swift in Sources */,
-				C9D4CA3D2DD79E2D00296604 /* AppTabBarOwnerView.swift in Sources */,
 				C92FD0F42DD27A460008E2F9 /* LocationManagerHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -70,12 +70,12 @@ struct MapEstablishmentsView: View {
                     VStack(spacing: 16) {
                         Image(systemName: "exclamationmark.triangle.fill")
                             .font(.system(size: 48))
-                            .foregroundColor(.primaryColorGreen)
+                            .foregroundStyle(.primaryColorGreen)
                         Text("Error al cargar el mapa")
                             .font(.headline)
                         Text(message)
                             .multilineTextAlignment(.center)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                     .padding()
                 }

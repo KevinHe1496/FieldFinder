@@ -56,7 +56,7 @@ struct CanchaDetailView: View {
                     VStack(spacing: 16) {
                         Image(systemName: "exclamationmark.triangle.fill")
                             .font(.system(size: 48))
-                            .foregroundColor(.orange)
+                            .foregroundStyle(.primaryColorGreen)
                         Text("Error al cargar la cancha")
                             .font(.headline)
                         Text(errorMessage)
@@ -84,7 +84,7 @@ struct CanchaDetailView: View {
                             Image(systemName: "pencil.circle.fill")
                                 .resizable()
                                 .frame(width: 30, height: 30)
-                                .foregroundColor(.primaryColorGreen)
+                                .foregroundStyle(.primaryColorGreen)
                         }
 
                         Button {
@@ -93,7 +93,7 @@ struct CanchaDetailView: View {
                             Image(systemName: "trash.circle.fill")
                                 .resizable()
                                 .frame(width: 30, height: 30)
-                                .foregroundColor(.primaryColorGreen)
+                                .foregroundStyle(.primaryColorGreen)
                         }
                     }
                 }
