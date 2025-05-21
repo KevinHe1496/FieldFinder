@@ -50,6 +50,18 @@ struct PlayerView: View {
                             .padding(.bottom)
                         }
                     }
+                    .refreshable {
+                        do {
+                            try await viewModel.loadData()
+                            try await viewModel.getFavoritesUser()
+                            shownItems = []
+                            for establishment in viewModel.filterEstablishments {
+                                shownItems.insert(establishment.id)
+                            }
+                        } catch {
+                            print("Error al refrescar: \(error)")
+                        }
+                    }
                     .scrollIndicators(.hidden)
                     .background(Color(UIColor.systemGroupedBackground))
                     
@@ -64,6 +76,26 @@ struct PlayerView: View {
                         Text(message)
                             .multilineTextAlignment(.center)
                             .foregroundStyle(.secondary)
+                        
+                        CustomButtonView(title: "Intentar denuevo.", color: .primaryColorGreen, textColor: .white) {
+                            Task {
+                                do {
+                                    try await viewModel.loadData()
+                                    try await viewModel.getFavoritesUser()
+                                    
+                                    if !didLoad {
+                                        shownItems = []
+                                        didLoad = true
+                                        
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                            for establishment in viewModel.filterEstablishments {
+                                                shownItems.insert(establishment.id)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                     .padding()
                 }

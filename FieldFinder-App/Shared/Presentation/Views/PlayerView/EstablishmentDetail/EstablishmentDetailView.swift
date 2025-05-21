@@ -39,7 +39,18 @@ struct EstablishmentDetailView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 16))
                             .shadow(radius: 4)
                         
-                        EstablishmentInfoSection(establishment: establecimiento)
+                        EstablishmentInfoSection(
+                            establishment: establecimiento,
+                            callManager: viewModel.callManager,
+                            mapsManager: viewModel.mapsManager,
+                            onCallTap: {
+                                viewModel.prepareCall(phone: establecimiento.phone)
+                            },
+                            onMapTap: {
+                                viewModel.prepareMaps(for: establecimiento)
+                            }
+                        )
+
                         EstablishmentServicesSection(establishment: establecimiento)
                         
                         if !establecimiento.canchas.isEmpty {
