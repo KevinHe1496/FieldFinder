@@ -16,7 +16,9 @@ import MapKit
 
 struct MapEstablishmentsView: View {
     
-    @StateObject var viewModel = GetNearbyEstablishmentsViewModel()
+    @State var viewModel = GetNearbyEstablishmentsViewModel()
+    @State var callManager = ExternalLinkManager()
+    @State var mapsManager = ExternalLinkManager()
     
     var body: some View {
         NavigationStack {
@@ -84,14 +86,43 @@ struct MapEstablishmentsView: View {
                 try? await viewModel.loadData()
             }
             .sheet(item: $viewModel.selectedEstablishment) { establishment in
-                EstablishmentSelectedMapDestailView(establishment: establishment)
-                    .presentationDetents([.large])
-                    .presentationDragIndicator(.visible)
+                EstablishmentSelectedMapDestailView(
+                    establishment: establishment,
+                    callManager: callManager,
+                    mapsManager: mapsManager,
+                    onCallTap: {
+                        openCallFor(establishment)
+                    },
+                    onMapTap: {
+                        openMapsFor(establishment)
+                    }
+                )
+                .presentationDetents([.large])
+                .presentationDragIndicator(.visible)
             }
-            .navigationTitle("Establecimientos cercanos")
-            .navigationBarTitleDisplayMode(.inline)
+
         }
     }
+    
+    func openCallFor(_ establishment: Establecimiento) {
+        callManager.prepareToOpen(
+            title: "¿Llamar al propietario?",
+            message: "Esto iniciará una llamada al número del establecimiento.",
+            url: URL(string: "tel://\(establishment.phone.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "-", with: ""))")
+        )
+    }
+
+    func openMapsFor(_ establishment: Establecimiento) {
+        let placeName = establishment.name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Ubicación"
+        let coord = establishment.coordinate
+        let url = URL(string: "maps://?q=\(placeName)&ll=\(coord.latitude),\(coord.longitude)")
+        mapsManager.prepareToOpen(
+            title: "¿Abrir en Apple Maps?",
+            message: "Esto abrirá la app Mapas con la ubicación del establecimiento.",
+            url: url
+        )
+    }
+
 }
 
 #Preview {
