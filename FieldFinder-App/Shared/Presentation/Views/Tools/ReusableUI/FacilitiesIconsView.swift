@@ -36,10 +36,7 @@ struct FacilitiesIconsView: View {
                 }
             }
         }
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .stroke(Color.gray.opacity(0.4), lineWidth: 1)
-        )
+        .background(.thirdColorWhite)
         .clipShape(RoundedRectangle(cornerRadius: 12))
         .padding(.horizontal)
     }
@@ -49,18 +46,18 @@ struct FacilitiesIconsView: View {
             if isAvailable {
                 Image(systemName: name)
                     .font(.title2)
-                    .foregroundColor(.primaryColorGreen)
+                    .foregroundStyle(.primaryColorGreen)
             } else {
                 Image(systemName: "xmark.circle")
                     .font(.title2)
-                    .foregroundColor(.red)
+                    .foregroundStyle(.red)
             }
 
             Text(label)
                 .font(.caption)
-                .foregroundColor(.secondaryColorBlack)
+                .foregroundStyle(.primary)
         }
         .frame(width: 70, height: 60)
-        .background(Color.white)
+        .background(.thirdColorWhite)
     }
 }

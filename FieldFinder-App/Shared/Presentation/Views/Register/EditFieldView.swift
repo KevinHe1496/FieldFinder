@@ -60,7 +60,7 @@ struct EditFieldView: View {
                 Toggle("Cubierta", isOn: $cubierta)
             }
             .padding()
-            .background(.grayColorTF)
+            .background(.thirdColorWhite)
             .clipShape(RoundedRectangle(cornerRadius: 8))
             
             //MARK: PRECIO
@@ -76,7 +76,7 @@ struct EditFieldView: View {
                 }
             }
             .padding()
-            .background(.grayColorTF)
+            .background(.thirdColorWhite)
             .clipShape(RoundedRectangle(cornerRadius: 8))
             
             

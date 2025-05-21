@@ -58,8 +58,8 @@ struct EstablishmentDetailView: View {
                             }
                             .padding(20)
                             .frame(maxWidth: .infinity)
-                            .frame(height: 200)
-                            .background(Color.white)
+                            .frame(height: 210)
+                            .background(Color(.secondarySystemBackground))
                             .cornerRadius(16)
                             .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
                         }

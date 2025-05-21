@@ -21,27 +21,26 @@ struct EstablishmentFieldsSection: View {
                     .foregroundColor(.primaryColorGreen)
 
                 ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHGrid(rows: [GridItem(.fixed(200))]) {
+                    LazyHGrid(rows: [GridItem(.fixed(300))]) {
                         ForEach(canchas) { cancha in
                             NavigationLink {
                                 CanchaDetailView(fieldId: cancha.id)
                             } label: {
                                 AnimatedAppearRow(item: cancha, shownItems: $shownItems) {
                                     CanchaRowView(cancha: cancha)
-                                        .frame(width: UIScreen.main.bounds.width * 0.8)
+                                        .frame(width: UIScreen.main.bounds.width * 0.8, height: 300)
                                         .clipShape(RoundedRectangle(cornerRadius: 12))
-                                        .shadow(radius: 2)
                                         .padding(.horizontal)
                                 }
                             }
                         }
                     }
-                    .frame(height: 300)
+                    .frame(height: 320)
                 }
             }
         }
         .padding(20)
-        .background(.white)
+        .background(.thirdColorWhite)
         .cornerRadius(16)
         .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
     }

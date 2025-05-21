@@ -48,8 +48,7 @@ struct RegisterView: View {
                                 titleKey: "Nombre",
                                 textField: $name,
                                 keyboardType: .default,
-                                prompt: Text("Nombre"),
-                                Bgcolor: .thirdColorWhite
+                                prompt: Text("Nombre")
                             )
                             
                             // Email input field
@@ -59,7 +58,7 @@ struct RegisterView: View {
                                 keyboardType: .emailAddress,
                                 prompt: Text(
                                     "Email"
-                                ), Bgcolor: .thirdColorWhite
+                                )
                             )
                             
                             
@@ -84,7 +83,7 @@ struct RegisterView: View {
                             }
                             .padding()
                             .frame(maxWidth: .infinity, maxHeight: 55)
-                            .background(Color.white)
+                            .background(.thirdColorWhite)
                             .clipShape(.buttonBorder)
                             
                             // Sign in button
@@ -96,7 +95,7 @@ struct RegisterView: View {
                                     .foregroundColor(.secondaryColorBlack)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                             } else {
-                                CustomButtonView(title: "Registrar", color: .thirdColorWhite, textColor: .secondaryColorBlack) {
+                                CustomButtonView(title: "Registrar", color: .primaryColorGreen, textColor: .thirdColorWhite) {
                                     isLoading = true
                                     Task {
                                         let error = await viewModel.userRegister(

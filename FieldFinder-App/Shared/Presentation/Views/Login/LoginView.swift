@@ -45,7 +45,7 @@ struct LoginView: View {
                                 prompt: Text(
                                     "Email"
                                 )
-                                , Bgcolor: .thirdColorWhite
+                                
                                 
                             )
                             
@@ -63,7 +63,7 @@ struct LoginView: View {
                                     .foregroundColor(.secondaryColorBlack)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                             } else {
-                                CustomButtonView(title: "Iniciar Sesión", color: .thirdColorWhite, textColor: .secondaryColorBlack) {
+                                CustomButtonView(title: "Iniciar Sesión", color: .primaryColorGreen, textColor: .secondaryColorBlack) {
                                     Task {
                                         try await appState.loginApp(user:email, password: password)
                                     }
