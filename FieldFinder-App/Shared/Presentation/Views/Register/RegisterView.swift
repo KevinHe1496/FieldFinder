@@ -95,7 +95,7 @@ struct RegisterView: View {
                                     .foregroundStyle(.secondaryColorBlack)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                             } else {
-                                CustomButtonView(title: "Registrar", color: .primaryColorGreen, textColor: .thirdColorWhite) {
+                                CustomButtonView(title: "Registrar", color: .primaryColorGreen, textColor: .white) {
                                     isLoading = true
                                     Task {
                                         let error = await viewModel.userRegister(
