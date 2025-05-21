@@ -61,7 +61,8 @@ struct EstablishmentSelectedMapDestailView: View {
                     }
                     .padding()
                     .background(.ultraThinMaterial)
-                    .cornerRadius(12)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    .shadow(radius: 1)
                     .padding(.horizontal)
                 }
 
@@ -88,7 +89,7 @@ struct EstablishmentSelectedMapDestailView: View {
                 }
                 .padding()
                 .background(.ultraThinMaterial)
-                .cornerRadius(16)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
                 .shadow(radius: 1)
                 .padding(.horizontal)
                 .onTapGesture {
