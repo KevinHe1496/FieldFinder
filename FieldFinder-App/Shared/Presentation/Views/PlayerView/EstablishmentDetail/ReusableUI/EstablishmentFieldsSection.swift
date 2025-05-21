@@ -21,27 +21,31 @@ struct EstablishmentFieldsSection: View {
                     .foregroundColor(.primaryColorGreen)
 
                 ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHGrid(rows: [GridItem(.fixed(300))]) {
+                    LazyHGrid(rows: [GridItem(.fixed(280))]) {
                         ForEach(canchas) { cancha in
                             NavigationLink {
                                 CanchaDetailView(fieldId: cancha.id)
                             } label: {
                                 AnimatedAppearRow(item: cancha, shownItems: $shownItems) {
                                     CanchaRowView(cancha: cancha)
-                                        .frame(width: UIScreen.main.bounds.width * 0.8, height: 300)
+                                        .frame(width: UIScreen.main.bounds.width * 0.8, height: 280)
                                         .clipShape(RoundedRectangle(cornerRadius: 12))
                                         .padding(.horizontal)
                                 }
                             }
                         }
                     }
-                    .frame(height: 320)
+                    .frame(height: 300)
                 }
             }
         }
-        .padding(20)
+        .padding()
         .background(.thirdColorWhite)
-        .cornerRadius(16)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
         .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
     }
+}
+
+#Preview {
+    EstablishmentFieldsSection(canchas: [.sample])
 }
