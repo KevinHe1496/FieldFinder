@@ -28,7 +28,7 @@ struct EstablishmentRowView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             ZStack(alignment: .topTrailing) {
-                RemoteImageCardView(url: establishment.photoEstablishment.first, height: 180)
+                RemoteImageCardView(url: establishment.photoEstablishment.first)
                     .clipShape(RoundedRectangle(cornerRadius: 16))
                     .shadow(radius: 4)
                 
