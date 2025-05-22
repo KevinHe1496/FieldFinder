@@ -14,9 +14,7 @@ struct ProfileUserView: View {
             Group {
                 switch viewModel.status {
                 case .idle, .loading:
-                    ProgressView("Cargando...")
-                        .progressViewStyle(CircularProgressViewStyle())
-                        .scaleEffect(1.3)
+                    LoadingProgressView()
 
                 case .success(let user):
                     List {

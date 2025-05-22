@@ -28,7 +28,7 @@ struct DefaultProfile: View {
                 }
                 
             case .loading:
-                ProgressView("Cargando...")
+                LoadingProgressView()
 
             case .error:
                 unauthenticatedView

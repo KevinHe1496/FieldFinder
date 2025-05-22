@@ -26,9 +26,7 @@ struct MapEstablishmentsView: View {
                 // Contenido dinámico por estado
                 switch viewModel.status {
                 case .idle, .loading:
-                    ProgressView("Cargando...")
-                        .progressViewStyle(CircularProgressViewStyle())
-                        .scaleEffect(1.3)
+                    LoadingProgressView()
                     
                 case .success(let establecimientos):
                     ZStack(alignment: .bottomTrailing) {
@@ -78,6 +76,12 @@ struct MapEstablishmentsView: View {
                         Text(message)
                             .multilineTextAlignment(.center)
                             .foregroundStyle(.secondary)
+                        
+                        CustomButtonView(title: "Intentar denuevo", color: .primaryColorGreen, textColor: .white) {
+                            Task {
+                                try await viewModel.loadData()
+                            }
+                        }
                     }
                     .padding()
                 }
@@ -100,7 +104,8 @@ struct MapEstablishmentsView: View {
                 .presentationDetents([.large])
                 .presentationDragIndicator(.visible)
             }
-
+            .navigationTitle("Establecimientos cercanos")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
     

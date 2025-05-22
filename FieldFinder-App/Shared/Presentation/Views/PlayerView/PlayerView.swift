@@ -16,9 +16,7 @@ struct PlayerView: View {
             Group {
                 switch viewModel.status {
                 case .idle, .loading:
-                    ProgressView("Cargando...")
-                        .progressViewStyle(CircularProgressViewStyle())
-                        .scaleEffect(1.3)
+                    LoadingProgressView()
                     
                 case .success:
                     ScrollView {
@@ -77,7 +75,7 @@ struct PlayerView: View {
                             .multilineTextAlignment(.center)
                             .foregroundStyle(.secondary)
                         
-                        CustomButtonView(title: "Intentar denuevo.", color: .primaryColorGreen, textColor: .white) {
+                        CustomButtonView(title: "Intentar denuevo", color: .primaryColorGreen, textColor: .white) {
                             Task {
                                 do {
                                     try await viewModel.loadData()

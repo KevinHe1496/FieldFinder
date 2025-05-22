@@ -48,7 +48,8 @@ struct RegisterView: View {
                                 titleKey: "Nombre",
                                 textField: $name,
                                 keyboardType: .default,
-                                prompt: Text("Nombre")
+                                prompt: Text("Nombre"),
+                                colorBackground: .thirdColorWhite
                             )
                             
                             // Email input field
@@ -56,9 +57,8 @@ struct RegisterView: View {
                                 titleKey: "Email",
                                 textField: $email,
                                 keyboardType: .emailAddress,
-                                prompt: Text(
-                                    "Email"
-                                )
+                                prompt: Text("Email"),
+                                colorBackground: .thirdColorWhite
                             )
                             
                             
