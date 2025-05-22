@@ -42,11 +42,8 @@ struct LoginView: View {
                                 titleKey: "Email",
                                 textField: $email,
                                 keyboardType: .emailAddress,
-                                prompt: Text(
-                                    "Email"
-                                )
-                                
-                                
+                                prompt: Text("Email"),
+                                colorBackground: .thirdColorWhite
                             )
                             
                             // Password input field

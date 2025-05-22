@@ -12,9 +12,8 @@ struct FavoritesView: View {
                     .ignoresSafeArea()
                 switch viewModel.statusFavorites {
                 case .idle, .loading:
-                    ProgressView("Cargando...")
-                        .progressViewStyle(CircularProgressViewStyle())
-                        .scaleEffect(1.3)
+                    LoadingProgressView()
+                    
                 case .success(let favoritos):
                     ScrollView {
                         VStack(spacing: 20) {

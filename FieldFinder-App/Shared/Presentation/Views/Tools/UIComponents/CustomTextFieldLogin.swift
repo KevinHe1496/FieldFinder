@@ -5,6 +5,7 @@ struct CustomTextFieldLogin: View {
     @Binding var textField: String
     var keyboardType: UIKeyboardType
     var prompt: Text
+    var colorBackground: Color
     
     var body: some View {
         
@@ -12,7 +13,7 @@ struct CustomTextFieldLogin: View {
             .font(.appDescription)
             .foregroundStyle(.primary)
             .padding()
-            .background(.thirdColorWhite)
+            .background(colorBackground)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .keyboardType(keyboardType)
             .textInputAutocapitalization(.never)
@@ -21,5 +22,5 @@ struct CustomTextFieldLogin: View {
 }
 
 #Preview {
-    CustomTextFieldLogin(titleKey: "Email", textField: .constant(""), keyboardType: .emailAddress, prompt: Text("Email"))
+    CustomTextFieldLogin(titleKey: "Email", textField: .constant(""), keyboardType: .emailAddress, prompt: Text("Email"), colorBackground: .thirdColorWhite)
 }

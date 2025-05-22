@@ -32,9 +32,7 @@ struct CanchaDetailView: View {
 
                 switch viewModel.state {
                 case .idle, .loading:
-                    ProgressView("Cargando cancha...")
-                        .progressViewStyle(CircularProgressViewStyle())
-                        .scaleEffect(1.2)
+                    LoadingProgressView()
 
                 case .success(let cancha):
                     ScrollView {

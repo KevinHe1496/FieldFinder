@@ -25,7 +25,7 @@ struct WelcomeView: View {
                     
                     Text("Explora canchas deportivas cerca de ti. Si quieres guardar tus favoritas o administrar tus propias canchas, regístrate desde el perfil.")
                         .font(.appDescription)
-                        .foregroundStyle(.colorBlack)
+                        .foregroundStyle(.white)
                     
                     NavigationLink {
                         AppTabBarView()
