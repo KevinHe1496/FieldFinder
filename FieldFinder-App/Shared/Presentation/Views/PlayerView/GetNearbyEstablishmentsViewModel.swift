@@ -14,7 +14,7 @@ import SwiftUI
 @Observable
 final class GetNearbyEstablishmentsViewModel: ObservableObject {
     
-    var status: ViewState<[Establecimiento]> = .idle
+    var status: ViewState<[EstablishmentResponse]> = .idle
     
     var locationService = LocationService() // Servicio para obtener la ubicación del usuario.
     
@@ -25,7 +25,7 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     var favoritesData = [FavoriteEstablishment]()
     
     // Establecimiento seleccionado por el usuario (para ver detalles).
-    var selectedEstablishment: Establecimiento?
+    var selectedEstablishment: EstablishmentResponse?
     
     // Controla la posición de la cámara del mapa (zoom y centro).
     var cameraPosition: MapCameraPosition = .automatic
@@ -34,7 +34,7 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     var establishmentSearch = ""
     
     // Devuelve los establecimientos filtrados por nombre según lo que escribe el usuario.
-    var filterEstablishments: [Establecimiento] {
+    var filterEstablishments: [EstablishmentResponse] {
         guard let all = status.data else { return [] }
         if establishmentSearch.isEmpty {
             return all
@@ -117,7 +117,7 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     
     /// Guarda el establecimiento que el usuario selecciona para mostrar sus detalles.
     @MainActor
-    func selectEstablishment(_ establishment: Establecimiento) {
+    func selectEstablishment(_ establishment: EstablishmentResponse) {
         selectedEstablishment = establishment
     }
     

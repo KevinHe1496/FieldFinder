@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EstablishmentRowView: View {
     
-    let establishment: Establecimiento
+    let establishment: EstablishmentResponse
     
     @State private var animateFavorite = false
 
@@ -18,7 +18,7 @@ struct EstablishmentRowView: View {
     @State var viewModelUser = ProfileUserViewModel()
     
 
-    init(establishment: Establecimiento, viewModel: GetNearbyEstablishmentsViewModel) {
+    init(establishment: EstablishmentResponse, viewModel: GetNearbyEstablishmentsViewModel) {
         self.establishment = establishment
         self.viewModel = viewModel
         _isFavorite = State(initialValue: viewModel.isFavorite(establishmentId: establishment.id))

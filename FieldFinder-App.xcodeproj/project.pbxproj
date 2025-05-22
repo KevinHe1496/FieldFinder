@@ -15,31 +15,30 @@
 		BF1125862DCEC22000A9DBE5 /* RegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125852DCEC21C00A9DBE5 /* RegisterRepository.swift */; };
 		BF1125882DCEC2B700A9DBE5 /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125872DCEC2B200A9DBE5 /* RegisterUseCase.swift */; };
 		BF11258B2DCEC64B00A9DBE5 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11258A2DCEC64800A9DBE5 /* RegisterViewModel.swift */; };
-		BF1125932DCF9F6500A9DBE5 /* UserRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125922DCF9F6500A9DBE5 /* UserRole.swift */; };
-		BF1125952DCFA01800A9DBE5 /* GetMeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125942DCFA01100A9DBE5 /* GetMeModel.swift */; };
 		BF1125972DCFA07B00A9DBE5 /* NetworkGetMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125962DCFA07000A9DBE5 /* NetworkGetMe.swift */; };
 		BF11259D2DCFA8C100A9DBE5 /* GetMeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11259C2DCFA8BB00A9DBE5 /* GetMeRepository.swift */; };
 		BF11259F2DCFA8E800A9DBE5 /* GetMeRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11259E2DCFA8E300A9DBE5 /* GetMeRepositoryProtocol.swift */; };
 		BF1125A12DCFA92900A9DBE5 /* GetMeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125A02DCFA92200A9DBE5 /* GetMeUseCase.swift */; };
 		BF1125AF2DCFF0B800A9DBE5 /* GeocodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125AE2DCFF0B800A9DBE5 /* GeocodingHelper.swift */; };
 		BF1125B12DCFF10600A9DBE5 /* Data-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125B02DCFF10600A9DBE5 /* Data-extension.swift */; };
-		BF1125B32DCFF1D400A9DBE5 /* NetworkRegisterEstablishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125B22DCFF1CE00A9DBE5 /* NetworkRegisterEstablishment.swift */; };
-		BF1125B52DCFF31500A9DBE5 /* EstablishmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125B42DCFF31500A9DBE5 /* EstablishmentModel.swift */; };
-		BF1471CF2DD646ED008C1E09 /* NetworkRegisterCancha.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1471CE2DD646E4008C1E09 /* NetworkRegisterCancha.swift */; };
+		BF1125B32DCFF1D400A9DBE5 /* EstablishmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125B22DCFF1CE00A9DBE5 /* EstablishmentService.swift */; };
+		BF1125B52DCFF31500A9DBE5 /* EstablishmentModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125B42DCFF31500A9DBE5 /* EstablishmentModels.swift */; };
+		BF1471CF2DD646ED008C1E09 /* FieldService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1471CE2DD646E4008C1E09 /* FieldService.swift */; };
 		BF1471D12DD64A8B008C1E09 /* RegisterCanchaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1471D02DD64A7B008C1E09 /* RegisterCanchaRepository.swift */; };
 		BF1471D32DD64B0F008C1E09 /* RegisterCanchaRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1471D22DD64B07008C1E09 /* RegisterCanchaRepositoryProtocol.swift */; };
 		BF1471D52DD64B81008C1E09 /* RegisterCanchaUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1471D42DD64B75008C1E09 /* RegisterCanchaUseCase.swift */; };
 		BF1471D72DD64DB2008C1E09 /* ResgiterCanchaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1471D62DD64DAC008C1E09 /* ResgiterCanchaViewModel.swift */; };
-		BF1471D92DD65102008C1E09 /* RegisterCanchaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1471D82DD650EF008C1E09 /* RegisterCanchaModel.swift */; };
+		BF1471D92DD65102008C1E09 /* CanchaModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1471D82DD650EF008C1E09 /* CanchaModels.swift */; };
 		BF46A97A2DD4DF76006A5FF3 /* OwnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46A9792DD4DF71006A5FF3 /* OwnerViewModel.swift */; };
 		BF46A97D2DD4E9A2006A5FF3 /* GridListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46A97C2DD4E9A2006A5FF3 /* GridListCellView.swift */; };
 		BF5614A82DCE6E8B003C1F66 /* RegisterField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5614A72DCE6E8B003C1F66 /* RegisterField.swift */; };
-		BF93CBB22DD39E3F002A8627 /* RegisterEstablismentRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB12DD39E31002A8627 /* RegisterEstablismentRepositoryProtocol.swift */; };
-		BF93CBB42DD39E5A002A8627 /* RegisterEstablishmentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB32DD39E4F002A8627 /* RegisterEstablishmentRepository.swift */; };
+		BF784DAF2DDE6BB200B2B2E6 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF784DAE2DDE6BA900B2B2E6 /* Enums.swift */; };
+		BF784DB12DDE6CD700B2B2E6 /* UserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF784DB02DDE6CD400B2B2E6 /* UserModels.swift */; };
+		BF93CBB22DD39E3F002A8627 /* EstablishmentServiceRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB12DD39E31002A8627 /* EstablishmentServiceRepositoryProtocol.swift */; };
+		BF93CBB42DD39E5A002A8627 /* EstablishmentServiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB32DD39E4F002A8627 /* EstablishmentServiceRepository.swift */; };
 		BF93CBB62DD39FD8002A8627 /* RegisterEstablishmentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB52DD39FD1002A8627 /* RegisterEstablishmentUseCase.swift */; };
 		BF93CBB82DD3A02C002A8627 /* RegisterEstablismentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB72DD3A025002A8627 /* RegisterEstablismentViewModel.swift */; };
 		BF947F252DDBD6B200A0DFA0 /* DefaultProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF947F242DDBD6B200A0DFA0 /* DefaultProfile.swift */; };
-		BF9719082DCD16D700CD0AF8 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9719072DCD16D700CD0AF8 /* StatusModel.swift */; };
 		BF97190A2DCD199800CD0AF8 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9719092DCD198F00CD0AF8 /* AppState.swift */; };
 		BF97190C2DCD1BD100CD0AF8 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97190B2DCD1BD100CD0AF8 /* Endpoints.swift */; };
 		BF97190E2DCD1BE600CD0AF8 /* HttpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97190D2DCD1BE600CD0AF8 /* HttpMethods.swift */; };
@@ -53,7 +52,6 @@
 		BFFB27F42DCD462300DD8819 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB27F32DCD462300DD8819 /* LoginRepository.swift */; };
 		BFFB27F62DCD471600DD8819 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB27F52DCD471600DD8819 /* LoginUseCase.swift */; };
 		BFFB27F82DCD472400DD8819 /* LoginUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB27F72DCD472400DD8819 /* LoginUseCaseProtocol.swift */; };
-		BFFB27FA2DCD585300DD8819 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB27F92DCD585300DD8819 /* LoginResponse.swift */; };
 		BFFB28F02DCD5F7C00DD8819 /* FFPersistenceKeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB28EF2DCD5F7C00DD8819 /* FFPersistenceKeyChain.swift */; };
 		BFFB28F42DCD61A200DD8819 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB28F32DCD61A200DD8819 /* RootView.swift */; };
 		C92221A92DD3BB4000D6BE8B /* CanchaRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221A82DD3BB4000D6BE8B /* CanchaRowView.swift */; };
@@ -71,7 +69,6 @@
 		C92221C42DD3F1BB00D6BE8B /* FavoriteEstablishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221C32DD3F1BB00D6BE8B /* FavoriteEstablishment.swift */; };
 		C92221C62DD416F600D6BE8B /* FavoriteEstablishmentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221C52DD416F600D6BE8B /* FavoriteEstablishmentRowView.swift */; };
 		C92FD0E82DD267D20008E2F9 /* NetworkGetNearbyEstablishments.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FD0E72DD267D20008E2F9 /* NetworkGetNearbyEstablishments.swift */; };
-		C92FD0EA2DD269A30008E2F9 /* Establecimiento.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FD0E92DD2699B0008E2F9 /* Establecimiento.swift */; };
 		C92FD0EC2DD277960008E2F9 /* GetNearbyEstablismentsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FD0EB2DD277960008E2F9 /* GetNearbyEstablismentsRepository.swift */; };
 		C92FD0EE2DD278050008E2F9 /* GetNearbyEstablishmentsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FD0ED2DD278050008E2F9 /* GetNearbyEstablishmentsProtocol.swift */; };
 		C92FD0F02DD278ED0008E2F9 /* GetNearbyEstablishmentsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FD0EF2DD278ED0008E2F9 /* GetNearbyEstablishmentsUseCase.swift */; };
@@ -79,7 +76,6 @@
 		C92FD0F42DD27A460008E2F9 /* LocationManagerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FD0F32DD27A460008E2F9 /* LocationManagerHelper.swift */; };
 		C92FD0F62DD288C50008E2F9 /* EstablishmentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FD0F52DD288C50008E2F9 /* EstablishmentRowView.swift */; };
 		C92FD0F82DD291920008E2F9 /* EstablishmentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FD0F72DD291920008E2F9 /* EstablishmentDetailView.swift */; };
-		C92FD0FA2DD292410008E2F9 /* NetworkEstablishmentDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FD0F92DD292410008E2F9 /* NetworkEstablishmentDetail.swift */; };
 		C92FD0FE2DD296E40008E2F9 /* GetEstablishmentDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FD0FD2DD296E40008E2F9 /* GetEstablishmentDetailRepository.swift */; };
 		C92FD1002DD297140008E2F9 /* GetEstablishmentDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FD0FF2DD297140008E2F9 /* GetEstablishmentDetailProtocol.swift */; };
 		C92FD1022DD297850008E2F9 /* GetEstablishmentDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FD1012DD297850008E2F9 /* GetEstablishmentDetailUseCase.swift */; };
@@ -88,7 +84,6 @@
 		C92FD1092DD2B8820008E2F9 /* FacilitiesIconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FD1082DD2B8820008E2F9 /* FacilitiesIconsView.swift */; };
 		C92FD10C2DD2BB170008E2F9 /* RemoteImageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FD10B2DD2BB170008E2F9 /* RemoteImageCardView.swift */; };
 		C92FD10E2DD2BB570008E2F9 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FD10D2DD2BB570008E2F9 /* FavoriteButton.swift */; };
-		C92FD1102DD2BC390008E2F9 /* Cancha.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FD10F2DD2BC390008E2F9 /* Cancha.swift */; };
 		C939BC5A2DCCF4BE00B98C16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C939BC562DCCF4BE00B98C16 /* Assets.xcassets */; };
 		C939BC5C2DCCF4BE00B98C16 /* FieldFinder_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C939BC582DCCF4BE00B98C16 /* FieldFinder_AppApp.swift */; };
 		C939BC732DCCF88400B98C16 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C939BC722DCCF88400B98C16 /* KeychainSwift */; };
@@ -99,9 +94,7 @@
 		C939BC812DCCF91600B98C16 /* Font-Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C939BC802DCCF91600B98C16 /* Font-Theme.swift */; };
 		C939BC832DCCF94D00B98C16 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C939BC822DCCF94D00B98C16 /* LoadingView.swift */; };
 		C939BC852DCCF95800B98C16 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C939BC842DCCF95800B98C16 /* LoginView.swift */; };
-		C942BC932DDCF9AC00F0304D /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C942BC922DDCF9AC00F0304D /* ViewState.swift */; };
 		C959890F2DCE99B200AC4B5D /* NetworkRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = C959890E2DCE99B200AC4B5D /* NetworkRegister.swift */; };
-		C95989132DCE9AEC00AC4B5D /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95989122DCE9AEC00AC4B5D /* RegisterModel.swift */; };
 		C95C5D0C2DD8F7E000A5310C /* CoverImageTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95C5D0B2DD8F7E000A5310C /* CoverImageTip.swift */; };
 		C961A2D82DDBBEA600A6BF8D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961A2D72DDBBEA600A6BF8D /* WelcomeView.swift */; };
 		C98B8BED2DD4FEE8004F05A3 /* Establishment-coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98B8BEC2DD4FEE8004F05A3 /* Establishment-coordinate.swift */; };
@@ -158,31 +151,30 @@
 		BF1125852DCEC21C00A9DBE5 /* RegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepository.swift; sourceTree = "<group>"; };
 		BF1125872DCEC2B200A9DBE5 /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
 		BF11258A2DCEC64800A9DBE5 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
-		BF1125922DCF9F6500A9DBE5 /* UserRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRole.swift; sourceTree = "<group>"; };
-		BF1125942DCFA01100A9DBE5 /* GetMeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMeModel.swift; sourceTree = "<group>"; };
 		BF1125962DCFA07000A9DBE5 /* NetworkGetMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGetMe.swift; sourceTree = "<group>"; };
 		BF11259C2DCFA8BB00A9DBE5 /* GetMeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMeRepository.swift; sourceTree = "<group>"; };
 		BF11259E2DCFA8E300A9DBE5 /* GetMeRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMeRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BF1125A02DCFA92200A9DBE5 /* GetMeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMeUseCase.swift; sourceTree = "<group>"; };
 		BF1125AE2DCFF0B800A9DBE5 /* GeocodingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingHelper.swift; sourceTree = "<group>"; };
 		BF1125B02DCFF10600A9DBE5 /* Data-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data-extension.swift"; sourceTree = "<group>"; };
-		BF1125B22DCFF1CE00A9DBE5 /* NetworkRegisterEstablishment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRegisterEstablishment.swift; sourceTree = "<group>"; };
-		BF1125B42DCFF31500A9DBE5 /* EstablishmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentModel.swift; sourceTree = "<group>"; };
-		BF1471CE2DD646E4008C1E09 /* NetworkRegisterCancha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRegisterCancha.swift; sourceTree = "<group>"; };
+		BF1125B22DCFF1CE00A9DBE5 /* EstablishmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentService.swift; sourceTree = "<group>"; };
+		BF1125B42DCFF31500A9DBE5 /* EstablishmentModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentModels.swift; sourceTree = "<group>"; };
+		BF1471CE2DD646E4008C1E09 /* FieldService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldService.swift; sourceTree = "<group>"; };
 		BF1471D02DD64A7B008C1E09 /* RegisterCanchaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCanchaRepository.swift; sourceTree = "<group>"; };
 		BF1471D22DD64B07008C1E09 /* RegisterCanchaRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCanchaRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BF1471D42DD64B75008C1E09 /* RegisterCanchaUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCanchaUseCase.swift; sourceTree = "<group>"; };
 		BF1471D62DD64DAC008C1E09 /* ResgiterCanchaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResgiterCanchaViewModel.swift; sourceTree = "<group>"; };
-		BF1471D82DD650EF008C1E09 /* RegisterCanchaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCanchaModel.swift; sourceTree = "<group>"; };
+		BF1471D82DD650EF008C1E09 /* CanchaModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanchaModels.swift; sourceTree = "<group>"; };
 		BF46A9792DD4DF71006A5FF3 /* OwnerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerViewModel.swift; sourceTree = "<group>"; };
 		BF46A97C2DD4E9A2006A5FF3 /* GridListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridListCellView.swift; sourceTree = "<group>"; };
 		BF5614A72DCE6E8B003C1F66 /* RegisterField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterField.swift; sourceTree = "<group>"; };
-		BF93CBB12DD39E31002A8627 /* RegisterEstablismentRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablismentRepositoryProtocol.swift; sourceTree = "<group>"; };
-		BF93CBB32DD39E4F002A8627 /* RegisterEstablishmentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablishmentRepository.swift; sourceTree = "<group>"; };
+		BF784DAE2DDE6BA900B2B2E6 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		BF784DB02DDE6CD400B2B2E6 /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModels.swift; sourceTree = "<group>"; };
+		BF93CBB12DD39E31002A8627 /* EstablishmentServiceRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentServiceRepositoryProtocol.swift; sourceTree = "<group>"; };
+		BF93CBB32DD39E4F002A8627 /* EstablishmentServiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentServiceRepository.swift; sourceTree = "<group>"; };
 		BF93CBB52DD39FD1002A8627 /* RegisterEstablishmentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablishmentUseCase.swift; sourceTree = "<group>"; };
 		BF93CBB72DD3A025002A8627 /* RegisterEstablismentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablismentViewModel.swift; sourceTree = "<group>"; };
 		BF947F242DDBD6B200A0DFA0 /* DefaultProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProfile.swift; sourceTree = "<group>"; };
-		BF9719072DCD16D700CD0AF8 /* StatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatusModel.swift; path = "FieldFinder-App/Shared/Domain/Entities/StatusModel.swift"; sourceTree = SOURCE_ROOT; };
 		BF9719092DCD198F00CD0AF8 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		BF97190B2DCD1BD100CD0AF8 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Endpoints.swift; path = "FieldFinder-App/Shared/Data/Network/Endpoints.swift"; sourceTree = SOURCE_ROOT; };
 		BF97190D2DCD1BE600CD0AF8 /* HttpMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpMethods.swift; path = "FieldFinder-App/Shared/Data/Network/HttpMethods.swift"; sourceTree = SOURCE_ROOT; };
@@ -196,7 +188,6 @@
 		BFFB27F32DCD462300DD8819 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginRepository.swift; path = "FieldFinder-App/Shared/Data/LoginRepository.swift"; sourceTree = SOURCE_ROOT; };
 		BFFB27F52DCD471600DD8819 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginUseCase.swift; path = "FieldFinder-App/Shared/Domain/LoginUseCase.swift"; sourceTree = SOURCE_ROOT; };
 		BFFB27F72DCD472400DD8819 /* LoginUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginUseCaseProtocol.swift; path = "FieldFinder-App/Shared/Domain/Protocols/LoginUseCaseProtocol.swift"; sourceTree = SOURCE_ROOT; };
-		BFFB27F92DCD585300DD8819 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginResponse.swift; path = "FieldFinder-App/Shared/Domain/Entities/LoginResponse.swift"; sourceTree = SOURCE_ROOT; };
 		BFFB28EF2DCD5F7C00DD8819 /* FFPersistenceKeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FFPersistenceKeyChain.swift; path = "FieldFinder-App/Shared/Domain/Tools/FFPersistenceKeyChain.swift"; sourceTree = SOURCE_ROOT; };
 		BFFB28F32DCD61A200DD8819 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		C92221A82DD3BB4000D6BE8B /* CanchaRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanchaRowView.swift; sourceTree = "<group>"; };
@@ -214,7 +205,6 @@
 		C92221C32DD3F1BB00D6BE8B /* FavoriteEstablishment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteEstablishment.swift; sourceTree = "<group>"; };
 		C92221C52DD416F600D6BE8B /* FavoriteEstablishmentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteEstablishmentRowView.swift; sourceTree = "<group>"; };
 		C92FD0E72DD267D20008E2F9 /* NetworkGetNearbyEstablishments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGetNearbyEstablishments.swift; sourceTree = "<group>"; };
-		C92FD0E92DD2699B0008E2F9 /* Establecimiento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Establecimiento.swift; sourceTree = "<group>"; };
 		C92FD0EB2DD277960008E2F9 /* GetNearbyEstablismentsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNearbyEstablismentsRepository.swift; sourceTree = "<group>"; };
 		C92FD0ED2DD278050008E2F9 /* GetNearbyEstablishmentsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNearbyEstablishmentsProtocol.swift; sourceTree = "<group>"; };
 		C92FD0EF2DD278ED0008E2F9 /* GetNearbyEstablishmentsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNearbyEstablishmentsUseCase.swift; sourceTree = "<group>"; };
@@ -222,7 +212,6 @@
 		C92FD0F32DD27A460008E2F9 /* LocationManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerHelper.swift; sourceTree = "<group>"; };
 		C92FD0F52DD288C50008E2F9 /* EstablishmentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentRowView.swift; sourceTree = "<group>"; };
 		C92FD0F72DD291920008E2F9 /* EstablishmentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentDetailView.swift; sourceTree = "<group>"; };
-		C92FD0F92DD292410008E2F9 /* NetworkEstablishmentDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEstablishmentDetail.swift; sourceTree = "<group>"; };
 		C92FD0FD2DD296E40008E2F9 /* GetEstablishmentDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEstablishmentDetailRepository.swift; sourceTree = "<group>"; };
 		C92FD0FF2DD297140008E2F9 /* GetEstablishmentDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEstablishmentDetailProtocol.swift; sourceTree = "<group>"; };
 		C92FD1012DD297850008E2F9 /* GetEstablishmentDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEstablishmentDetailUseCase.swift; sourceTree = "<group>"; };
@@ -231,7 +220,6 @@
 		C92FD1082DD2B8820008E2F9 /* FacilitiesIconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilitiesIconsView.swift; sourceTree = "<group>"; };
 		C92FD10B2DD2BB170008E2F9 /* RemoteImageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageCardView.swift; sourceTree = "<group>"; };
 		C92FD10D2DD2BB570008E2F9 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
-		C92FD10F2DD2BC390008E2F9 /* Cancha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cancha.swift; sourceTree = "<group>"; };
 		C939BC2C2DCCF38400B98C16 /* FieldFinder-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FieldFinder-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C939BC392DCCF38500B98C16 /* FieldFinder-AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FieldFinder-AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C939BC432DCCF38500B98C16 /* FieldFinder-AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FieldFinder-AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,9 +232,7 @@
 		C939BC802DCCF91600B98C16 /* Font-Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font-Theme.swift"; sourceTree = "<group>"; };
 		C939BC822DCCF94D00B98C16 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C939BC842DCCF95800B98C16 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		C942BC922DDCF9AC00F0304D /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		C959890E2DCE99B200AC4B5D /* NetworkRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRegister.swift; sourceTree = "<group>"; };
-		C95989122DCE9AEC00AC4B5D /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		C95C5D0B2DD8F7E000A5310C /* CoverImageTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverImageTip.swift; sourceTree = "<group>"; };
 		C961A2D72DDBBEA600A6BF8D /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		C98B8BEC2DD4FEE8004F05A3 /* Establishment-coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Establishment-coordinate.swift"; sourceTree = "<group>"; };
@@ -380,7 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				BF1471D22DD64B07008C1E09 /* RegisterCanchaRepositoryProtocol.swift */,
-				BF93CBB12DD39E31002A8627 /* RegisterEstablismentRepositoryProtocol.swift */,
+				BF93CBB12DD39E31002A8627 /* EstablishmentServiceRepositoryProtocol.swift */,
 				BF11259E2DCFA8E300A9DBE5 /* GetMeRepositoryProtocol.swift */,
 				BF1125832DCEC1E500A9DBE5 /* RegisterRepositoryProtocol.swift */,
 				BFFB27F12DCD45F100DD8819 /* LoginRepositoryProtocol.swift */,
@@ -396,17 +382,11 @@
 		BF5614AD2DCE7095003C1F66 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				C942BC922DDCF9AC00F0304D /* ViewState.swift */,
+				BF784DAE2DDE6BA900B2B2E6 /* Enums.swift */,
+				BF784DB02DDE6CD400B2B2E6 /* UserModels.swift */,
 				C95C5D0B2DD8F7E000A5310C /* CoverImageTip.swift */,
-				BF1471D82DD650EF008C1E09 /* RegisterCanchaModel.swift */,
-				BF1125B42DCFF31500A9DBE5 /* EstablishmentModel.swift */,
-				C92FD10F2DD2BC390008E2F9 /* Cancha.swift */,
-				C92FD0E92DD2699B0008E2F9 /* Establecimiento.swift */,
-				BF1125942DCFA01100A9DBE5 /* GetMeModel.swift */,
-				BF1125922DCF9F6500A9DBE5 /* UserRole.swift */,
-				BFFB27F92DCD585300DD8819 /* LoginResponse.swift */,
-				BF9719072DCD16D700CD0AF8 /* StatusModel.swift */,
-				C95989122DCE9AEC00AC4B5D /* RegisterModel.swift */,
+				BF1471D82DD650EF008C1E09 /* CanchaModels.swift */,
+				BF1125B42DCFF31500A9DBE5 /* EstablishmentModels.swift */,
 				C92221C32DD3F1BB00D6BE8B /* FavoriteEstablishment.swift */,
 			);
 			path = Entities;
@@ -428,7 +408,7 @@
 			children = (
 				BF1471D02DD64A7B008C1E09 /* RegisterCanchaRepository.swift */,
 				C92221BD2DD3EABD00D6BE8B /* FavoriteUserRepository.swift */,
-				BF93CBB32DD39E4F002A8627 /* RegisterEstablishmentRepository.swift */,
+				BF93CBB32DD39E4F002A8627 /* EstablishmentServiceRepository.swift */,
 				BF11259C2DCFA8BB00A9DBE5 /* GetMeRepository.swift */,
 				BF1125852DCEC21C00A9DBE5 /* RegisterRepository.swift */,
 				BFFB27F32DCD462300DD8819 /* LoginRepository.swift */,
@@ -568,13 +548,12 @@
 			children = (
 				C939BC652DCCF62E00B98C16 /* Local */,
 				BF5614AE2DCE70C3003C1F66 /* BaseNetwork */,
-				BF1471CE2DD646E4008C1E09 /* NetworkRegisterCancha.swift */,
-				BF1125B22DCFF1CE00A9DBE5 /* NetworkRegisterEstablishment.swift */,
+				BF1471CE2DD646E4008C1E09 /* FieldService.swift */,
+				BF1125B22DCFF1CE00A9DBE5 /* EstablishmentService.swift */,
 				BFFB27E72DCD3D6800DD8819 /* NetworkLogin.swift */,
 				BF1125962DCFA07000A9DBE5 /* NetworkGetMe.swift */,
 				C959890E2DCE99B200AC4B5D /* NetworkRegister.swift */,
 				C92FD0E72DD267D20008E2F9 /* NetworkGetNearbyEstablishments.swift */,
-				C92FD0F92DD292410008E2F9 /* NetworkEstablishmentDetail.swift */,
 				C92221AD2DD3C38C00D6BE8B /* NetworkFieldDetail.swift */,
 				C92221B92DD3DB2000D6BE8B /* NetworkFavoriteUser.swift */,
 			);
@@ -610,6 +589,7 @@
 		C939BC6D2DCCF69500B98C16 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BF9719092DCD198F00CD0AF8 /* AppState.swift */,
 				BF947F232DDBD68700A0DFA0 /* DefaultProfile */,
 				C961A2D62DDBBE9B00A6BF8D /* Welcome */,
 				BF0E25A72DD7CAFE00A53745 /* ProfileEstablishmentView */,
@@ -620,7 +600,6 @@
 				C9C7BAB02DCE89FA007CB3FA /* PlayerView */,
 				C9C7BAA52DCE87BB007CB3FA /* CustomTabBar */,
 				BF5614A92DCE6FAD003C1F66 /* Splash */,
-				BF9719092DCD198F00CD0AF8 /* AppState.swift */,
 				C939BC762DCCF8BD00B98C16 /* Tools */,
 				C939BC6F2DCCF6AF00B98C16 /* Register */,
 				C939BC6E2DCCF6AB00B98C16 /* Login */,
@@ -899,28 +878,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF93CBB42DD39E5A002A8627 /* RegisterEstablishmentRepository.swift in Sources */,
+				BF93CBB42DD39E5A002A8627 /* EstablishmentServiceRepository.swift in Sources */,
 				BF03C62D2DD78E35005DB158 /* EditFieldView.swift in Sources */,
 				C98B8BF72DD530ED004F05A3 /* EditProfileView.swift in Sources */,
 				C95C5D0C2DD8F7E000A5310C /* CoverImageTip.swift in Sources */,
-				BF1125B52DCFF31500A9DBE5 /* EstablishmentModel.swift in Sources */,
+				BF1125B52DCFF31500A9DBE5 /* EstablishmentModels.swift in Sources */,
 				C9D4CA642DD7E6B700296604 /* EstablishmentMapSection.swift in Sources */,
 				C92FD1022DD297850008E2F9 /* GetEstablishmentDetailUseCase.swift in Sources */,
 				C939BC752DCCF89300B98C16 /* KeyChainFF.swift in Sources */,
 				C92FD0EE2DD278050008E2F9 /* GetNearbyEstablishmentsProtocol.swift in Sources */,
 				C9C7BAAF2DCE88CE007CB3FA /* TabBarItem.swift in Sources */,
-				BF93CBB22DD39E3F002A8627 /* RegisterEstablismentRepositoryProtocol.swift in Sources */,
+				BF93CBB22DD39E3F002A8627 /* EstablishmentServiceRepositoryProtocol.swift in Sources */,
 				C939BC812DCCF91600B98C16 /* Font-Theme.swift in Sources */,
 				C9C7BAAB2DCE88C1007CB3FA /* CustomTabBarContainerView.swift in Sources */,
 				C92FD10C2DD2BB170008E2F9 /* RemoteImageCardView.swift in Sources */,
 				C92FD0EC2DD277960008E2F9 /* GetNearbyEstablismentsRepository.swift in Sources */,
 				C92221BE2DD3EABD00D6BE8B /* FavoriteUserRepository.swift in Sources */,
 				C92221C42DD3F1BB00D6BE8B /* FavoriteEstablishment.swift in Sources */,
-				BFFB27FA2DCD585300DD8819 /* LoginResponse.swift in Sources */,
 				C92FD10E2DD2BB570008E2F9 /* FavoriteButton.swift in Sources */,
 				C92221AB2DD3C21D00D6BE8B /* CanchaDetailView.swift in Sources */,
 				BF1471D32DD64B0F008C1E09 /* RegisterCanchaRepositoryProtocol.swift in Sources */,
 				C92FD1092DD2B8820008E2F9 /* FacilitiesIconsView.swift in Sources */,
+				BF784DAF2DDE6BB200B2B2E6 /* Enums.swift in Sources */,
 				BF1125882DCEC2B700A9DBE5 /* RegisterUseCase.swift in Sources */,
 				BF97190E2DCD1BE600CD0AF8 /* HttpMethods.swift in Sources */,
 				C98B8BF12DD5015B004F05A3 /* EstablishmentSelectedMapDestailView.swift in Sources */,
@@ -928,6 +907,7 @@
 				BF97190C2DCD1BD100CD0AF8 /* Endpoints.swift in Sources */,
 				BF1125A12DCFA92900A9DBE5 /* GetMeUseCase.swift in Sources */,
 				C98B8BF92DD530F7004F05A3 /* TermsAndConditionsView.swift in Sources */,
+				BF784DB12DDE6CD700B2B2E6 /* UserModels.swift in Sources */,
 				BFE2E09A2DD3E68700B0E0BE /* ResizeImagesData.swift in Sources */,
 				C939BC852DCCF95800B98C16 /* LoginView.swift in Sources */,
 				BFFB27F82DCD472400DD8819 /* LoginUseCaseProtocol.swift in Sources */,
@@ -939,15 +919,12 @@
 				BFFB27F42DCD462300DD8819 /* LoginRepository.swift in Sources */,
 				BF97190A2DCD199800CD0AF8 /* AppState.swift in Sources */,
 				C9C7BAB82DCE8A60007CB3FA /* MapEstablishmentsView.swift in Sources */,
-				C95989132DCE9AEC00AC4B5D /* RegisterModel.swift in Sources */,
 				C92221AE2DD3C38C00D6BE8B /* NetworkFieldDetail.swift in Sources */,
 				C92221B42DD3C5D400D6BE8B /* GetFieldDetailUseCase.swift in Sources */,
 				C9B0AD6B2DCD00950043A9A2 /* RegisterView.swift in Sources */,
-				C92FD1102DD2BC390008E2F9 /* Cancha.swift in Sources */,
 				BF947F252DDBD6B200A0DFA0 /* DefaultProfile.swift in Sources */,
 				C9C7BABE2DCE8D71007CB3FA /* ProfileUserView.swift in Sources */,
 				C92221BC2DD3EA9800D6BE8B /* FavoriteUserRepositoryProtocol.swift in Sources */,
-				BF1125952DCFA01800A9DBE5 /* GetMeModel.swift in Sources */,
 				C939BC7B2DCCF8F000B98C16 /* CustomSecureFieldView.swift in Sources */,
 				BF1125842DCEC1F100A9DBE5 /* RegisterRepositoryProtocol.swift in Sources */,
 				C9D4CA662DD7FD5F00296604 /* AnimatedAppearRow.swift in Sources */,
@@ -967,7 +944,6 @@
 				BF93CBB82DD3A02C002A8627 /* RegisterEstablismentViewModel.swift in Sources */,
 				C9C7BAB32DCE8A17007CB3FA /* PlayerView.swift in Sources */,
 				BFFB27F62DCD471600DD8819 /* LoginUseCase.swift in Sources */,
-				BF9719082DCD16D700CD0AF8 /* StatusModel.swift in Sources */,
 				C92221B02DD3C51100D6BE8B /* GetFieldDetailRepository.swift in Sources */,
 				C98B8BEF2DD4FFB3004F05A3 /* EstablishmentAnnotationView.swift in Sources */,
 				C92221BA2DD3DB2000D6BE8B /* NetworkFavoriteUser.swift in Sources */,
@@ -976,10 +952,9 @@
 				BF46A97A2DD4DF76006A5FF3 /* OwnerViewModel.swift in Sources */,
 				C959890F2DCE99B200AC4B5D /* NetworkRegister.swift in Sources */,
 				BFFB27E62DCD3C7600DD8819 /* ConstantsApp.swift in Sources */,
-				BF1125B32DCFF1D400A9DBE5 /* NetworkRegisterEstablishment.swift in Sources */,
+				BF1125B32DCFF1D400A9DBE5 /* EstablishmentService.swift in Sources */,
 				BF1471D52DD64B81008C1E09 /* RegisterCanchaUseCase.swift in Sources */,
 				C9C7BABB2DCE8A9D007CB3FA /* FavoritesView.swift in Sources */,
-				C942BC932DDCF9AC00F0304D /* ViewState.swift in Sources */,
 				C9D4CA602DD7E6AE00296604 /* EstablishmentServicesSection.swift in Sources */,
 				C9D4CA532DD7E37100296604 /* FieldAttributesSection.swift in Sources */,
 				C92FD0FE2DD296E40008E2F9 /* GetEstablishmentDetailRepository.swift in Sources */,
@@ -995,14 +970,13 @@
 				C92FD0F62DD288C50008E2F9 /* EstablishmentRowView.swift in Sources */,
 				BF5614A82DCE6E8B003C1F66 /* RegisterField.swift in Sources */,
 				BF11259D2DCFA8C100A9DBE5 /* GetMeRepository.swift in Sources */,
-				BF1471D92DD65102008C1E09 /* RegisterCanchaModel.swift in Sources */,
+				BF1471D92DD65102008C1E09 /* CanchaModels.swift in Sources */,
 				BF11259F2DCFA8E800A9DBE5 /* GetMeRepositoryProtocol.swift in Sources */,
 				C92221B22DD3C53B00D6BE8B /* GetFieldDetailRepositoryProtocol.swift in Sources */,
 				BF0E25AD2DD7E23500A53745 /* ProfileEstablishmentViewModel.swift in Sources */,
 				BF0E25A92DD7CB1300A53745 /* ProfileEstablishmentView.swift in Sources */,
 				C98B8BF52DD52F6F004F05A3 /* ProfileUserViewModel.swift in Sources */,
-				BF1471CF2DD646ED008C1E09 /* NetworkRegisterCancha.swift in Sources */,
-				C92FD0EA2DD269A30008E2F9 /* Establecimiento.swift in Sources */,
+				BF1471CF2DD646ED008C1E09 /* FieldService.swift in Sources */,
 				BF1471D72DD64DB2008C1E09 /* ResgiterCanchaViewModel.swift in Sources */,
 				C92221B82DD3D84600D6BE8B /* FieldAttributesView.swift in Sources */,
 				C939BC832DCCF94D00B98C16 /* LoadingView.swift in Sources */,
@@ -1012,10 +986,8 @@
 				C939BC5C2DCCF4BE00B98C16 /* FieldFinder_AppApp.swift in Sources */,
 				C92221A92DD3BB4000D6BE8B /* CanchaRowView.swift in Sources */,
 				BFFB27F22DCD45F100DD8819 /* LoginRepositoryProtocol.swift in Sources */,
-				C92FD0FA2DD292410008E2F9 /* NetworkEstablishmentDetail.swift in Sources */,
 				C92FD1072DD2B4E60008E2F9 /* PhotoGalleryView.swift in Sources */,
 				C939BC7D2DCCF8F900B98C16 /* CustomButtonView.swift in Sources */,
-				BF1125932DCF9F6500A9DBE5 /* UserRole.swift in Sources */,
 				C92FD0F82DD291920008E2F9 /* EstablishmentDetailView.swift in Sources */,
 				BFFB28F42DCD61A200DD8819 /* RootView.swift in Sources */,
 				C9D4CA3D2DD79E2D00296604 /* AppTabBarOwnerView.swift in Sources */,

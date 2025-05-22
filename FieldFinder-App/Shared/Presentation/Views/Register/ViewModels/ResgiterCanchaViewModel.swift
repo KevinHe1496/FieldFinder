@@ -17,7 +17,7 @@ final class RegisterCanchaViewModel {
     }
     
     
-    func registerCancha(_ canchaModel: RegisterCanchaModel, images: [Data]) async {
+    func registerCancha(_ canchaModel: CanchaRequest, images: [Data]) async {
         
         isLoading = true
         
@@ -51,7 +51,7 @@ final class RegisterCanchaViewModel {
         }
     }
     
-    func editCancha(canchaID: String, canchaModel: RegisterCanchaModel) async throws {
+    func editCancha(canchaID: String, canchaModel: CanchaRequest) async throws {
         do {
             let _ = try await useCase.editCancha(canchaID: canchaID, canchaModel: canchaModel)
             alertMessage = "La cancha se ha actualizado correctamente."

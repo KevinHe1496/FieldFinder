@@ -14,7 +14,7 @@ final class GetFieldDetailRepository: GetFieldDetailRepositoryProtocol {
         self.network = network
     }
     
-    func getFieldDetail(with fieldId: String) async throws -> Cancha {
+    func getFieldDetail(with fieldId: String) async throws -> CanchaResponse {
         return try await network.getFieldDetail(with: fieldId)
     }
 }

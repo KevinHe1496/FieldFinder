@@ -8,11 +8,11 @@
 import Foundation
 
 protocol NetworkFieldDetailProtocol {
-    func getFieldDetail(with fieldId: String) async throws -> Cancha
+    func getFieldDetail(with fieldId: String) async throws -> CanchaResponse
 }
 
 final class NetworkFieldDetail: NetworkFieldDetailProtocol {
-    func getFieldDetail(with fieldId: String) async throws -> Cancha {
+    func getFieldDetail(with fieldId: String) async throws -> CanchaResponse {
         
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getFieldById.rawValue)/\(fieldId)"
         
@@ -36,7 +36,7 @@ final class NetworkFieldDetail: NetworkFieldDetailProtocol {
         }
         
         do {
-            let result = try JSONDecoder().decode(Cancha.self, from: data)
+            let result = try JSONDecoder().decode(CanchaResponse.self, from: data)
             return result
         } catch {
             print("Decoding error: \(error.localizedDescription)")

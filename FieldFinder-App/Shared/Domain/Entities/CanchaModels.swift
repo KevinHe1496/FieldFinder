@@ -1,12 +1,21 @@
-//
-//  Cancha.swift
-//  FieldFinder-App
-//
-//  Created by Kevin Heredia on 12/5/25.
-//
 import Foundation
+// Register and Update
+struct CanchaRequest: Codable {
+    let tipo: String
+    let modalidad: String
+    let precio: Double
+    let iluminada: Bool
+    let cubierta: Bool
+ 
+}
 
-struct Cancha: Codable, Identifiable {
+// Response ID
+struct IDResponse: Codable {
+    let id: String
+}
+
+// Get by ID
+struct CanchaResponse: Codable, Identifiable {
     let id: String
     let tipo: String
     let modalidad: String
@@ -21,7 +30,7 @@ struct Cancha: Codable, Identifiable {
         }
     }
     
-    static let sample = Cancha(
+    static let sample = CanchaResponse(
         id: "cancha001",
         tipo: "Fútbol 7",
         modalidad: "Partido completo",

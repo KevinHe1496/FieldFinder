@@ -16,7 +16,7 @@ struct NetworkRegister: NetworkRegisterProtocol {
         }
         
         // Create the request body with the user details
-        let requestBody = RegisterModel(name: name, email: email, password: password, rol: rol)
+        let requestBody = RegisterUserRequest(name: name, email: email, password: password, rol: rol)
         let jsonData = try JSONEncoder().encode(requestBody)
         
         // Create the URL Request

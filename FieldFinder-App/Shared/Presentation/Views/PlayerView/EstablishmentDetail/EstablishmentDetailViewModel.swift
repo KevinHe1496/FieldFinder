@@ -10,12 +10,12 @@ import UIKit
 
 @Observable
 final class EstablishmentDetailViewModel {
-    var status: ViewState<Establecimiento> = .idle
+    var status: ViewState<EstablishmentResponse> = .idle
     var showOpenInMapsAlert = false
     var mapsURL: URL?
     
     @ObservationIgnored
-    private var useCase: GetEstablishmentDetailUseCaseProtocol
+    private var useCase: RegisterEstablishmentUseCaseProtocol
     
     @ObservationIgnored
     private var favoriteUseCase: FavoriteUserUseCaseProtocol
@@ -47,7 +47,7 @@ final class EstablishmentDetailViewModel {
     }
     
     @MainActor
-    func prepareMapsURL(for establishment: Establecimiento) {
+    func prepareMapsURL(for establishment: EstablishmentResponse) {
         let coordinate = establishment.coordinate
 
         guard coordinate.latitude != 0.0, coordinate.longitude != 0.0 else {

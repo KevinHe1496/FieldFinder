@@ -10,7 +10,7 @@ final class ProfileEstablishmentViewModel {
         self.useCase = useCase
     }
     
-    func editEstablishment(establishmentID: String, establishmentModel: EstablishmentModel) async throws {
+    func editEstablishment(establishmentID: String, establishmentModel: EstablishmentRequest) async throws {
         
     }
 }

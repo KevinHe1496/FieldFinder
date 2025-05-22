@@ -1,18 +1,17 @@
 import Foundation
 
-protocol NetworkRegisterCanchaProtocol {
-    func registerCancha(_ canchaModel: CanchaRequest) async throws -> String
-    func uploadImagesCancha(canchaID: String, images: [Data]) async throws
-    func editCancha(canchaID: String, canchaModel: CanchaRequest) async throws -> CanchaRequest
-    func deleteCancha(canchaID: String) async throws
+protocol EstablishmentServiceProtocol {
+    func createEstablishment(_ establishmentModel: EstablishmentRequest) async throws -> String
+    func uploadEstablishmentImages(establishmentID: String, images: [Data]) async throws
+    func updateEstablishment(establishmentID: String, establishmentModel: EstablishmentRequest) async throws
+    func fetchEstablishment(with establishmentId: String) async throws -> EstablishmentResponse
 }
 
-
-final class CanchaNetworkService: NetworkRegisterCanchaProtocol {
+final class EstablishmentService: EstablishmentServiceProtocol {
     
-    
-    func registerCancha(_ canchaModel: CanchaRequest) async throws -> String {
-        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.registerCancha.rawValue)"
+    func createEstablishment(_ establishmentModel: EstablishmentRequest) async throws -> String  {
+        
+        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.registerEstablishment.rawValue)"
         
         guard let url = URL(string: urlString) else {
             throw FFError.badUrl
@@ -22,11 +21,10 @@ final class CanchaNetworkService: NetworkRegisterCanchaProtocol {
         request.httpMethod = HttpMethods.post
         request.setValue(HttpHeader.content, forHTTPHeaderField: HttpHeader.contentTypeID)
         
-        let tokenJWT = KeyChainFF().loadPK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
-        request.setValue("\(HttpHeader.bearer) \(tokenJWT)", forHTTPHeaderField: HttpHeader.authorization)
+        let jwtToken = KeyChainFF().loadPK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
+        request.setValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
         
-        request.httpBody = try JSONEncoder().encode(canchaModel)
-        
+        request.httpBody = try JSONEncoder().encode(establishmentModel)
         
         let (data, response) = try await URLSession.shared.data(for: request)
         
@@ -42,22 +40,24 @@ final class CanchaNetworkService: NetworkRegisterCanchaProtocol {
             }
             throw FFError.errorFromApi(statusCode: httpResponse.statusCode)
         }
+        
         do {
-            print("✅ Cancha registrada con éxito.")
-            let decoded = try JSONDecoder().decode(IDResponse.self, from: data)
-            return decoded.id
+            let establishmentID = try JSONDecoder().decode(IDResponse.self, from: data)
+            print("✅ Establecimiento registrado con éxito.")
             
-            
+            return establishmentID.id
         } catch {
-            print("Error al registrar la cancha: \(error.localizedDescription)")
-            throw FFError.errorParsingData
+            print("Error al registrar: \(error.localizedDescription)")
+            throw FFError.requestWasNil
         }
         
     }
     
     
-    func uploadImagesCancha(canchaID: String, images: [Data]) async throws {
-        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.uploadImagesCancha.rawValue)/\(canchaID)"
+    // Upload Images Network
+    
+    func uploadEstablishmentImages(establishmentID: String, images: [Data]) async throws {
+        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.uploadImagesEstablishment.rawValue)/\(establishmentID)"
         
         guard let url = URL(string: urlString) else {
             throw FFError.badUrl
@@ -70,7 +70,7 @@ final class CanchaNetworkService: NetworkRegisterCanchaProtocol {
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: HttpHeader.contentTypeID)
         
         let jwtToken = KeyChainFF().loadPK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
-        request.setValue("\(HttpHeader.bearer) \(jwtToken)", forHTTPHeaderField: HttpHeader.authorization)
+        request.setValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
         
         var body = Data()
         
@@ -102,8 +102,10 @@ final class CanchaNetworkService: NetworkRegisterCanchaProtocol {
         }
     }
     
-    func editCancha(canchaID: String, canchaModel: CanchaRequest) async throws -> CanchaRequest {
-        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getFieldById.rawValue)/\(canchaID)"
+    // Edit establishment
+    
+    func updateEstablishment(establishmentID: String, establishmentModel: EstablishmentRequest) async throws {
+        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getEstablishmentById.rawValue)/\(establishmentID)"
         
         guard let url = URL(string: urlString) else {
             throw FFError.badUrl
@@ -116,49 +118,52 @@ final class CanchaNetworkService: NetworkRegisterCanchaProtocol {
         let tokenJWT = KeyChainFF().loadPK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
         request.setValue("\(HttpHeader.bearer) \(tokenJWT)", forHTTPHeaderField: HttpHeader.authorization)
         
-        request.httpBody = try JSONEncoder().encode(canchaModel)
+        request.httpBody = try JSONEncoder().encode(establishmentModel)
         
-        let (data, response) = try await URLSession.shared.data(for: request)
+        let (_, response) = try await URLSession.shared.data(for: request)
+        
         
         guard let httpResponse = response as? HTTPURLResponse,
               200..<300 ~= httpResponse.statusCode else {
             throw FFError.errorFromApi(statusCode: -1)
         }
-        
-        do {
-            let result = try JSONDecoder().decode(CanchaRequest.self, from: data)
-            return result
-        } catch {
-            throw FFError.errorParsingData
-        }
-        
+        print("Se edito correctamente")
     }
     
-    func deleteCancha(canchaID: String) async throws {
-        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getFieldById.rawValue)/\(canchaID)"
+    // Get
+    func fetchEstablishment(with establishmentId: String) async throws -> EstablishmentResponse {
+        
+        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getEstablishmentById.rawValue)/\(establishmentId)"
         
         guard let url = URL(string: urlString) else {
             throw FFError.badUrl
         }
         
-        var request: URLRequest = URLRequest(url: url)
-        request.httpMethod = HttpMethods.delete
+        var request = URLRequest(url: url)
+        request.httpMethod = HttpMethods.get
         
-        let tokenJWT = KeyChainFF().loadPK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
-        request.setValue("\(HttpHeader.bearer) \(tokenJWT)", forHTTPHeaderField: HttpHeader.authorization)
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        // Verifica que la respuesta sea válida y del tipo HTTPURLResponse.
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw FFError.errorFromApi(statusCode: -1)
+        }
+        
+        // Valida que el código de respuesta HTTP sea exitoso.
+        guard httpResponse.statusCode == HttpResponseCodes.SUCCESS else {
+            throw FFError.errorFromApi(statusCode: httpResponse.statusCode)
+        }
         
         do {
-            let (_, response) = try await URLSession.shared.data(for: request)
-            
-            guard let httpResponse = response as? HTTPURLResponse,
-                  200..<300 ~= httpResponse.statusCode else {
-                throw FFError.errorFromApi(statusCode: -1)
-            }
-        } 
-        
-        
+            let result = try JSONDecoder().decode(EstablishmentResponse.self, from: data)
+            return result
+        } catch {
+            print("Decoding error: \(error.localizedDescription)")
+            throw FFError.decodingError
+        }
     }
     
-    
-    
 }
+
+
+

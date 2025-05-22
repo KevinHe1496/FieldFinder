@@ -3,14 +3,14 @@ import Foundation
 final class RegisterCanchaRepository: RegisterCanchaRepositoryProtocol {
    
     
-    var network: NetworkRegisterCanchaProtocol
+    var network: FieldServiceProtocol
     
-    init(network: NetworkRegisterCanchaProtocol = NetworkRegisterCancha()) {
+    init(network: FieldServiceProtocol = FieldService()) {
         self.network = network
     }
     // GET ID
-    func registerCancha(_ canchaModel: RegisterCanchaModel) async throws -> String {
-        try await network.registerCancha(canchaModel)
+    func registerCancha(_ canchaModel: CanchaRequest) async throws -> String {
+        try await network.createField(canchaModel)
     }
     
     
@@ -18,15 +18,15 @@ final class RegisterCanchaRepository: RegisterCanchaRepositoryProtocol {
     // UPLOAD IMAGES
     
     func uploadImagesCancha(canchaID: String, images: [Data]) async throws {
-        try await network.uploadImagesCancha(canchaID: canchaID, images: images)
+        try await network.uploadFieldImages(fieldID: canchaID, images: images)
     }
     
-    func editCancha(canchaID: String, canchaModel: RegisterCanchaModel) async throws -> RegisterCanchaModel {
-        try await network.editCancha(canchaID: canchaID, canchaModel: canchaModel)
+    func editCancha(canchaID: String, canchaModel: CanchaRequest) async throws -> CanchaRequest {
+        try await network.updateField(fieldID: canchaID, fieldModel: canchaModel)
     }
     
     func deleteCancha(canchaID: String) async throws {
-        try await network.deleteCancha(canchaID: canchaID)
+        try await network.deleteField(fieldID: canchaID)
     }
     
 }

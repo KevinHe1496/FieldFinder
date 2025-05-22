@@ -1,14 +1,14 @@
 import Foundation
 
 protocol NetworkRegisterEstablishmentProtocol {
-    func registerEstablishment(_ establishmentModel: EstablishmentModel) async throws -> String
+    func registerEstablishment(_ establishmentModel: EstablishmentRequest) async throws -> String
     func uploadImages(establishmentID: String, images: [Data]) async throws
-    func editEstablishment(establishmentID: String, establishmentModel: EstablishmentModel) async throws
+    func editEstablishment(establishmentID: String, establishmentModel: EstablishmentRequest) async throws
 }
 
-final class NetworkRegisterEstablishment: NetworkRegisterEstablishmentProtocol {
+final class EstablishmentService: NetworkRegisterEstablishmentProtocol {
     
-    func registerEstablishment(_ establishmentModel: EstablishmentModel) async throws -> String  {
+    func registerEstablishment(_ establishmentModel: EstablishmentRequest) async throws -> String  {
         
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.registerEstablishment.rawValue)"
         
@@ -103,7 +103,7 @@ final class NetworkRegisterEstablishment: NetworkRegisterEstablishmentProtocol {
     
     // Edit establishment
     
-    func editEstablishment(establishmentID: String, establishmentModel: EstablishmentModel) async throws {
+    func editEstablishment(establishmentID: String, establishmentModel: EstablishmentRequest) async throws {
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getEstablishmentById.rawValue)/\(establishmentID)"
         
         guard let url = URL(string: urlString) else {

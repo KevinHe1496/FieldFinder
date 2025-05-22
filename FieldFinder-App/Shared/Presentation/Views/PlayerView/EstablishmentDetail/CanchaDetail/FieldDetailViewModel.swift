@@ -9,7 +9,7 @@ import Foundation
 
 @Observable
 final class FieldDetailViewModel {
-    var state: ViewState<Cancha> = .idle
+    var state: ViewState<CanchaResponse> = .idle
     
     @ObservationIgnored
     private var useCase: GetFieldDetailUseCaseProtocol

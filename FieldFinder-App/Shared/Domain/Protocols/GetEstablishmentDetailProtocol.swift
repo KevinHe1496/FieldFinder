@@ -8,5 +8,5 @@
 import Foundation
 
 protocol GetEstablishmentDetailProtocol {
-    func getEstablishmentDetail(with establishmentId: String) async throws -> Establecimiento
+    func getEstablishmentDetail(with establishmentId: String) async throws -> EstablishmentResponse
 }

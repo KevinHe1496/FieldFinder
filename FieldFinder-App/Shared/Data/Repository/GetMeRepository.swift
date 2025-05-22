@@ -8,11 +8,11 @@ final class GetMeRepository: GetMeRepositoryProtocol {
         self.network = network
     }
     
-    func getUser() async throws -> GetMeModel {
+    func getUser() async throws -> UserProfileResponse {
         try await network.getUser()
     }
     
-    func updateUser(name: String) async throws -> updateUserModel {
+    func updateUser(name: String) async throws -> UserProfileRequest {
         try await network.updateUser(name: name)
     }
     

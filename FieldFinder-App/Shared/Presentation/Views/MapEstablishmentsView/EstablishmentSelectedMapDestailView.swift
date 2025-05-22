@@ -10,7 +10,7 @@ import MapKit
 
 struct EstablishmentSelectedMapDestailView: View {
     @Environment(\.dismiss) var dismiss
-    let establishment: Establecimiento
+    let establishment: EstablishmentResponse
     @State private var viewModel = EstablishmentDetailViewModel()
     @State private var cameraPosition: MapCameraPosition = .automatic
     

@@ -9,12 +9,12 @@ import Foundation
 import CoreLocation
 
 protocol NetworkGetNearbyEstablishmentsProtocol {
-    func getAllEstablishments(coordinate: CLLocationCoordinate2D) async throws -> [Establecimiento]
+    func getAllEstablishments(coordinate: CLLocationCoordinate2D) async throws -> [EstablishmentResponse]
 }
 
 final class NetworkGetNearbyEstablishments: NetworkGetNearbyEstablishmentsProtocol {
-    func getAllEstablishments(coordinate: CLLocationCoordinate2D) async throws -> [Establecimiento] {
-        var modelReturn = [Establecimiento]()
+    func getAllEstablishments(coordinate: CLLocationCoordinate2D) async throws -> [EstablishmentResponse] {
+        var modelReturn = [EstablishmentResponse]()
         
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getNearbyEstablishments.rawValue)"
         
@@ -37,7 +37,7 @@ final class NetworkGetNearbyEstablishments: NetworkGetNearbyEstablishmentsProtoc
         }
         
         do {
-            let result = try JSONDecoder().decode([Establecimiento].self, from: data)
+            let result = try JSONDecoder().decode([EstablishmentResponse].self, from: data)
             modelReturn = result
         } catch {
             print("Decoding error: \(error.localizedDescription)")

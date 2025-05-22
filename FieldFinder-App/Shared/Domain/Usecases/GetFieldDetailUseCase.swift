@@ -9,7 +9,7 @@ import Foundation
 
 protocol GetFieldDetailUseCaseProtocol {
     var repo: GetFieldDetailRepositoryProtocol { get set }
-    func getFieldDetail(with fieldId: String) async throws -> Cancha
+    func getFieldDetail(with fieldId: String) async throws -> CanchaResponse
 }
 
 final class GetFieldDetailUseCase: GetFieldDetailUseCaseProtocol {
@@ -19,7 +19,7 @@ final class GetFieldDetailUseCase: GetFieldDetailUseCaseProtocol {
         self.repo = repo
     }
     
-    func getFieldDetail(with fieldId: String) async throws -> Cancha {
+    func getFieldDetail(with fieldId: String) async throws -> CanchaResponse {
         return try await repo.getFieldDetail(with: fieldId)
     }
 }

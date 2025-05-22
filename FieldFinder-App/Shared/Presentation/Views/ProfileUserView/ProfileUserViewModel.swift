@@ -10,7 +10,7 @@ import Foundation
 @Observable
 final class ProfileUserViewModel {
     
-    var status: ViewState<GetMeModel> = .idle
+    var status: ViewState<UserProfileResponse> = .idle
     
     var messageError = ""
 

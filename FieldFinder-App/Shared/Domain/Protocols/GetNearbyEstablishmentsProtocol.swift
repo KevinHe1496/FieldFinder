@@ -9,5 +9,5 @@ import Foundation
 import CoreLocation
 
 protocol GetNearbyEstablishmentsProtocol {
-    func getAllEstablishments(coordinate: CLLocationCoordinate2D) async throws -> [Establecimiento]
+    func getAllEstablishments(coordinate: CLLocationCoordinate2D) async throws -> [EstablishmentResponse]
 }

@@ -16,7 +16,7 @@ final class GetNearbyEstablismentsRepository: GetNearbyEstablishmentsProtocol {
         self.network = network
     }
     
-    func getAllEstablishments(coordinate: CLLocationCoordinate2D) async throws -> [Establecimiento] {
+    func getAllEstablishments(coordinate: CLLocationCoordinate2D) async throws -> [EstablishmentResponse] {
         return try await network.getAllEstablishments(coordinate: coordinate)
     }
 }

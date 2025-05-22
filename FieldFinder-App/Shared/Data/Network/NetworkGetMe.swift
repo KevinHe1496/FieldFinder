@@ -1,14 +1,14 @@
 import Foundation
 
 protocol NetworkGetMeProtocol {
-    func getUser() async throws -> GetMeModel
-    func updateUser(name: String) async throws -> updateUserModel
+    func getUser() async throws -> UserProfileResponse
+    func updateUser(name: String) async throws -> UserProfileRequest
     func deleteUser() async throws
 }
 
 final class NetworkGetMe: NetworkGetMeProtocol {
-    func getUser() async throws -> GetMeModel {
-        var userModel = GetMeModel(email: "", id: "", rol: "", name: "", establecimiento: [])
+    func getUser() async throws -> UserProfileResponse {
+        var userModel = UserProfileResponse(email: "", id: "", rol: "", name: "", establecimiento: [])
         
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getMe.rawValue)"
         
@@ -29,7 +29,7 @@ final class NetworkGetMe: NetworkGetMeProtocol {
                 throw FFError.errorFromApi(statusCode: -1)
             }
             
-            let result = try JSONDecoder().decode(GetMeModel.self, from: data)
+            let result = try JSONDecoder().decode(UserProfileResponse.self, from: data)
             
             userModel = result
             
@@ -42,7 +42,7 @@ final class NetworkGetMe: NetworkGetMeProtocol {
     }
     
     
-    func updateUser(name: String) async throws -> updateUserModel {
+    func updateUser(name: String) async throws -> UserProfileRequest {
         
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getMe.rawValue)"
         
@@ -50,7 +50,7 @@ final class NetworkGetMe: NetworkGetMeProtocol {
             throw FFError.badUrl
         }
         
-        let requestBody = updateUserModel(name: name)
+        let requestBody = UserProfileRequest(name: name)
         let jsonData = try JSONEncoder().encode(requestBody)
         
         var request: URLRequest = URLRequest(url: url)
@@ -73,7 +73,7 @@ final class NetworkGetMe: NetworkGetMeProtocol {
         }
         
         do {
-            let result = try JSONDecoder().decode(updateUserModel.self, from: data)
+            let result = try JSONDecoder().decode(UserProfileRequest.self, from: data)
             return result
         } catch {
             print("Error update User name: \(error.localizedDescription)")

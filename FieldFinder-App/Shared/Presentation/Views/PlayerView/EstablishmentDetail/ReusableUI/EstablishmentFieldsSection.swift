@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct EstablishmentFieldsSection: View {
-    let canchas: [Cancha]
+    let canchas: [CanchaResponse]
     @State private var shownItems: Set<String> = []
 
     var body: some View {

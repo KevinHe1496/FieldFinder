@@ -8,5 +8,5 @@
 import Foundation
 
 protocol GetFieldDetailRepositoryProtocol {
-    func getFieldDetail(with fieldId: String) async throws -> Cancha
+    func getFieldDetail(with fieldId: String) async throws -> CanchaResponse
 }

@@ -10,29 +10,6 @@ import SwiftUI
 import PhotosUI
 import TipKit
 
-enum Field: String, CaseIterable, Identifiable {
-    case cesped = "cesped"
-    case sintetico = "sintetico"
-    
-    var id: String { rawValue }
-    
-    var displayName: String {
-        switch self {
-        case .sintetico: return "Sintético"
-        case .cesped: return "Césped"
-        }
-    }
-}
-
-enum Capacidad: String, CaseIterable, Identifiable {
-    case cinco = "5-5"
-    case siete = "7-7"
-    case nueve = "9-9"
-    case once = "11-11"
-    
-    var id: String { self.rawValue }
-}
-
 struct RegisterField: View {
     
     
@@ -135,7 +112,7 @@ struct RegisterField: View {
                     CustomButtonView(title: "Registrar", color: .primaryColorGreen, textColor: .thirdColorWhite) {
                         Task {
                             
-                            let newModel = RegisterCanchaModel(
+                            let newModel = CanchaRequest(
                                 tipo: selectedField.rawValue,
                                 modalidad: selectedCapacidad.rawValue,
                                 precio: Double(precio) ?? 0,

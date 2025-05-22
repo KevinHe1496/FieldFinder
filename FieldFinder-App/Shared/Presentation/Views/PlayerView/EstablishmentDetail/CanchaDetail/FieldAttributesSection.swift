@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct FieldAttributesSection: View {
-    let fieldData: Cancha
+    let fieldData: CanchaResponse
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {

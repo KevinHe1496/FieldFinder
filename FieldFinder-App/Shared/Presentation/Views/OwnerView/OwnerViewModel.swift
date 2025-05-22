@@ -4,7 +4,7 @@ import Foundation
 @Observable
 final class OwnerViewModel {
     
-    var establishments = GetMeModel(email: "", id: "", rol: "", name: "", establecimiento: [])
+    var establishments = UserProfileResponse(email: "", id: "", rol: "", name: "", establecimiento: [])
     @ObservationIgnored
     private var useCase: GetMeUseCaseProtocol
 

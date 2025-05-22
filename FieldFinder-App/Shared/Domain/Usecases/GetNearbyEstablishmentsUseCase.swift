@@ -11,7 +11,7 @@ import CoreLocation
 protocol GetNearbyEstablishmentsUseCaseProtocol {
     var repo: GetNearbyEstablishmentsProtocol { get set }
     
-    func getAllEstablishments(coordinate: CLLocationCoordinate2D) async throws -> [Establecimiento]
+    func getAllEstablishments(coordinate: CLLocationCoordinate2D) async throws -> [EstablishmentResponse]
 }
 
 final class GetNearbyEstablishmentsUseCase: GetNearbyEstablishmentsUseCaseProtocol {
@@ -21,7 +21,7 @@ final class GetNearbyEstablishmentsUseCase: GetNearbyEstablishmentsUseCaseProtoc
         self.repo = repo
     }
     
-    func getAllEstablishments(coordinate: CLLocationCoordinate2D) async throws -> [Establecimiento] {
+    func getAllEstablishments(coordinate: CLLocationCoordinate2D) async throws -> [EstablishmentResponse] {
         return try await repo.getAllEstablishments(coordinate: coordinate)
     }
 }

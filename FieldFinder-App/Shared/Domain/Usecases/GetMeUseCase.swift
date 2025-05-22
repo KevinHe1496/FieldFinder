@@ -2,8 +2,8 @@ import Foundation
 
 protocol GetMeUseCaseProtocol {
     var repo: GetMeRepositoryProtocol { get set }
-    func getUser() async throws -> GetMeModel
-    func updateUser(name: String) async throws -> updateUserModel
+    func getUser() async throws -> UserProfileResponse
+    func updateUser(name: String) async throws -> UserProfileRequest
     func deleteUser() async throws
 }
 
@@ -14,11 +14,11 @@ final class GetMeUseCase: GetMeUseCaseProtocol {
         self.repo = repo
     }
     
-    func getUser() async throws -> GetMeModel {
+    func getUser() async throws -> UserProfileResponse {
         try await repo.getUser()
     }
     
-    func updateUser(name: String) async throws -> updateUserModel {
+    func updateUser(name: String) async throws -> UserProfileRequest {
         try await repo.updateUser(name: name)
     }
     

@@ -2,9 +2,9 @@ import Foundation
 
 protocol RegisterCanchaUseCaseProtocol {
     var repo: RegisterCanchaRepositoryProtocol { get set }
-    func registerCancha(_ canchaModel: RegisterCanchaModel) async throws -> String
+    func registerCancha(_ canchaModel: CanchaRequest) async throws -> String
     func uploadPhotosCancha(canchaID: String, images: [Data]) async throws
-    func editCancha(canchaID: String, canchaModel: RegisterCanchaModel) async throws -> RegisterCanchaModel
+    func editCancha(canchaID: String, canchaModel: CanchaRequest) async throws -> CanchaRequest
     func deleteCancha(canchaID: String) async throws
 }
 
@@ -17,7 +17,7 @@ final class RegisterCanchaUseCase: RegisterCanchaUseCaseProtocol {
         self.repo = repo
     }
     
-    func registerCancha(_ canchaModel: RegisterCanchaModel) async throws -> String {
+    func registerCancha(_ canchaModel: CanchaRequest) async throws -> String {
         try await repo.registerCancha(canchaModel)
     }
     
@@ -26,7 +26,7 @@ final class RegisterCanchaUseCase: RegisterCanchaUseCaseProtocol {
         try await repo.uploadImagesCancha(canchaID: canchaID, images: images)
     }
     
-    func editCancha(canchaID: String, canchaModel: RegisterCanchaModel) async throws -> RegisterCanchaModel {
+    func editCancha(canchaID: String, canchaModel: CanchaRequest) async throws -> CanchaRequest {
         try await repo.editCancha(canchaID: canchaID, canchaModel: canchaModel)
     }
     

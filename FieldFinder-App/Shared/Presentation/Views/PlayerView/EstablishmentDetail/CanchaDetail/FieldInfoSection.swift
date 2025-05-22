@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct FieldInfoSection: View {
-    let fieldData: Cancha
+    let fieldData: CanchaResponse
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {

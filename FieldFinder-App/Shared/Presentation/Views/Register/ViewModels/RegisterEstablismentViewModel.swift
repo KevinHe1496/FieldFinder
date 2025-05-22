@@ -53,7 +53,7 @@ final class RegisterEstablismentViewModel {
             self.latitude = coordinates.latitude
             self.longitude = coordinates.longitude
             
-            let newModel = EstablishmentModel(
+            let newModel = EstablishmentRequest(
                 name: name,
                 info: info,
                 address: address,
@@ -102,7 +102,7 @@ final class RegisterEstablismentViewModel {
             self.latitude = coordinates.latitude
             self.longitude = coordinates.longitude
             
-            let newModel = EstablishmentModel(
+            let newModel = EstablishmentRequest(
                 name: name,
                 info: info,
                 address: address,
