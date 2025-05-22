@@ -31,6 +31,7 @@ struct EstablishmentRowView: View {
                 RemoteImageCardView(url: establishment.photoEstablishment.first)
                     .clipShape(RoundedRectangle(cornerRadius: 16))
                     .shadow(radius: 4)
+                    
                 
                 if case .success(let user) = viewModelUser.status, user.rol == "jugador" {
                     

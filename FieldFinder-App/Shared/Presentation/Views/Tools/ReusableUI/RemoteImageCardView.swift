@@ -18,8 +18,8 @@ struct RemoteImageCardView: View {
                     switch phase {
                     case .empty:
                         ProgressView()
-                            .frame(minWidth: 350)
                             .frame(height: 240)
+                            .frame(maxWidth: 320)
                             .background(Color.gray.opacity(0.3))
                             .clipShape(RoundedRectangle(cornerRadius: 8))
 
@@ -28,7 +28,7 @@ struct RemoteImageCardView: View {
                             .resizable()
                             .scaledToFill()
                             .frame(height: 240)
-                            .frame(minWidth: 250)
+                            .frame(maxWidth: 320)
                             .clipped()
                             .clipShape(RoundedRectangle(cornerRadius: 8))
 
@@ -36,8 +36,8 @@ struct RemoteImageCardView: View {
                         VStack {
                             Text("No se pudo cargar la foto")
                         }
-                        .frame(minWidth: 250)
                         .frame(height: 240)
+                        .frame(maxWidth: 320)
                         .foregroundStyle(.gray)
                         .clipShape(RoundedRectangle(cornerRadius: 8))
 
@@ -50,8 +50,8 @@ struct RemoteImageCardView: View {
                     Text("No hay fotos disponibles")
                         .foregroundStyle(.black)
                 }
-                .frame(minWidth: 250)
                 .frame(height: 240)
+                .frame(maxWidth: 320)
                 .background(Color.gray.opacity(0.3))
                 .clipShape(RoundedRectangle(cornerRadius: 8))
             }

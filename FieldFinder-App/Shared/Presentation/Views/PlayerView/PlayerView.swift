@@ -6,7 +6,7 @@ struct PlayerView: View {
     @State private var searchText = ""
     @State private var didLoad = false
     
-    @ObservedObject var viewModel: GetNearbyEstablishmentsViewModel
+    @State var viewModel: GetNearbyEstablishmentsViewModel
     @State private var shownItems: Set<String> = []
     
     let columns = [GridItem(.flexible())]
