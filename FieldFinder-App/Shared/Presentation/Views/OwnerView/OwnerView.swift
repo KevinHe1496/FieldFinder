@@ -73,7 +73,6 @@ struct OwnerView: View {
                 .task {
                     await viewModel.getEstablishments()
                     
-                    // 🔁 Marca todos los ítems como mostrados si no hay scroll
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                         for establecimiento in viewModel.establishments.establecimiento {
                             for cancha in establecimiento.canchas {
