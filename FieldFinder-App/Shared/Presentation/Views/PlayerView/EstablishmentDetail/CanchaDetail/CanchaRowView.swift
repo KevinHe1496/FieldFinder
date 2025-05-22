@@ -15,7 +15,7 @@ struct CanchaRowView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             ZStack(alignment: .topLeading) {
-                RemoteImageCardView(url: cancha.photoCanchas.first, height: 180)
+                RemoteImageCardView(url: cancha.photoCanchas.first)
                     .clipShape(RoundedRectangle(cornerRadius: 16))
                 
                 // Etiqueta en la esquina

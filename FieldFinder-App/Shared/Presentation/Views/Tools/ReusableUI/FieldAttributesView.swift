@@ -18,44 +18,42 @@ struct FieldAttributesView: View {
             ("house.fill", "Cubierta", cubierta)
         ]
 
-        HStack(spacing: 0) {
+        HStack(spacing: 20) {
             ForEach(items.indices, id: \.self) { index in
-                attributeBox(name: items[index].0,
-                             label: items[index].1,
-                             isAvailable: items[index].2)
-
-                if index < items.count - 1 {
-                    Rectangle()
-                        .fill(Color.gray.opacity(0.3))
-                        .frame(width: 1, height: 60)
-                }
+                attributeBox(
+                    name: items[index].0,
+                    label: items[index].1,
+                    isAvailable: items[index].2
+                )
             }
         }
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .stroke(Color.gray.opacity(0.4), lineWidth: 1)
-        )
+        .padding(.vertical, 10)
+        .padding(.horizontal)
+        .background(.thirdColorWhite)
         .clipShape(RoundedRectangle(cornerRadius: 12))
         .padding(.horizontal)
     }
 
     private func attributeBox(name: String, label: String, isAvailable: Bool) -> some View {
-        VStack(spacing: 4) {
-            if isAvailable {
-                Image(systemName: name)
-                    .font(.title2)
-                    .foregroundStyle(.primaryColorGreen)
-            } else {
-                Image(systemName: "xmark.circle")
-                    .font(.title2)
-                    .foregroundStyle(.red)
+        VStack(spacing: 6) {
+            ZStack {
+                Circle()
+                    .fill(Color.gray.opacity(0.1))
+                    .frame(width: 34, height: 34)
+
+                Image(systemName: isAvailable ? name : "xmark")
+                    .font(.body)
+                    .foregroundStyle(isAvailable ? .primaryColorGreen : .red)
             }
 
             Text(label)
-                .font(.caption)
+                .font(.caption2)
+                .lineLimit(1)
+                .minimumScaleFactor(0.6)
+                .truncationMode(.tail)
                 .foregroundStyle(.primary)
         }
-        .frame(width: 70, height: 60)
-        .background(.thirdColorWhite)
+        .frame(width: 72)
     }
 }
+

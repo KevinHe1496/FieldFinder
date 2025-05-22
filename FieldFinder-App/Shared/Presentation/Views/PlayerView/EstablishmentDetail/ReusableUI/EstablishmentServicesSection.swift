@@ -33,3 +33,7 @@ struct EstablishmentServicesSection: View {
         .cornerRadius(16)
     }
 }
+
+#Preview {
+    EstablishmentServicesSection(establishment: .sample)
+}

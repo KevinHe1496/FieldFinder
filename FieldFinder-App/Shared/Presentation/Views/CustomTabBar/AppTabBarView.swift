@@ -46,7 +46,7 @@ struct AppTabBarView: View {
                 MapEstablishmentsView()
             }
             
-            Tab("Inicio", systemImage: "person.fill", value: tabSelection) {
+            Tab("Perfil", systemImage: "person.fill", value: tabSelection) {
                 DefaultProfile()
             }
             
