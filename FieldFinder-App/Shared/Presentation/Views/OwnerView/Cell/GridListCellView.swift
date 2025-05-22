@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GridListCellView: View {
     
-    let canchaResponse: CanchaResponse
+    let canchaResponse: FieldResponse
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             ZStack(alignment: .topTrailing) {

@@ -1,10 +1,12 @@
 import Foundation
+import CoreLocation
 
 protocol EstablishmentServiceProtocol {
     func createEstablishment(_ establishmentModel: EstablishmentRequest) async throws -> String
     func uploadEstablishmentImages(establishmentID: String, images: [Data]) async throws
     func updateEstablishment(establishmentID: String, establishmentModel: EstablishmentRequest) async throws
     func fetchEstablishment(with establishmentId: String) async throws -> EstablishmentResponse
+    func fetchAllEstablishments(coordinate: CLLocationCoordinate2D) async throws -> [EstablishmentResponse]
 }
 
 final class EstablishmentService: EstablishmentServiceProtocol {
@@ -161,6 +163,38 @@ final class EstablishmentService: EstablishmentServiceProtocol {
             print("Decoding error: \(error.localizedDescription)")
             throw FFError.decodingError
         }
+    }
+    
+    func fetchAllEstablishments(coordinate: CLLocationCoordinate2D) async throws -> [EstablishmentResponse] {
+        var modelReturn = [EstablishmentResponse]()
+        
+        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getNearbyEstablishments.rawValue)"
+        
+        guard let url = URL(string: urlString) else {
+            throw FFError.badUrl
+        }
+        
+        let requestBody = GetNearbyEstablishmentsRequest(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        let jsonData = try JSONEncoder().encode(requestBody)
+        
+        var request: URLRequest = URLRequest(url: url)
+        request.httpMethod = HttpMethods.post
+        request.setValue(HttpHeader.content, forHTTPHeaderField: HttpHeader.contentTypeID)
+        request.httpBody = jsonData
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let res = response as? HTTPURLResponse, res.statusCode == HttpResponseCodes.SUCCESS else {
+            throw FFError.errorFromApi(statusCode: -1)
+        }
+        
+        do {
+            let result = try JSONDecoder().decode([EstablishmentResponse].self, from: data)
+            modelReturn = result
+        } catch {
+            print("Decoding error: \(error.localizedDescription)")
+        }
+        return modelReturn
     }
     
 }

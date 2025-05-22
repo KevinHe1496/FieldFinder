@@ -10,14 +10,14 @@ final class RegisterCanchaViewModel {
     var shouldDismissAfterAlert: Bool = false
     
     @ObservationIgnored
-    let useCase: RegisterCanchaUseCaseProtocol
+    let useCase: FieldServiceUseCaseProtocol
     
-    init(useCase: RegisterCanchaUseCaseProtocol = RegisterCanchaUseCase()) {
+    init(useCase: FieldServiceUseCaseProtocol = FieldServiceUseCase()) {
         self.useCase = useCase
     }
     
     
-    func registerCancha(_ canchaModel: CanchaRequest, images: [Data]) async {
+    func registerCancha(_ canchaModel: FieldRequest, images: [Data]) async {
         
         isLoading = true
         
@@ -37,8 +37,8 @@ final class RegisterCanchaViewModel {
         
         
         do {
-            let canchaID = try await useCase.registerCancha(canchaModel)
-            try await useCase.uploadPhotosCancha(canchaID: canchaID, images: images)
+            let canchaID = try await useCase.createField(canchaModel)
+            try await useCase.uploadFieldImages(fieldID: canchaID, images: images)
             
             alertMessage = "Cancha registrada con éxito"
             shouldDismissAfterAlert = true
@@ -51,9 +51,9 @@ final class RegisterCanchaViewModel {
         }
     }
     
-    func editCancha(canchaID: String, canchaModel: CanchaRequest) async throws {
+    func editCancha(canchaID: String, canchaModel: FieldRequest) async throws {
         do {
-            let _ = try await useCase.editCancha(canchaID: canchaID, canchaModel: canchaModel)
+            let _ = try await useCase.updateField(fieldID: canchaID, fieldModel: canchaModel)
             alertMessage = "La cancha se ha actualizado correctamente."
         } catch {
             alertMessage = "Ocurrió un error al actualizar la cancha. Intenta nuevamente."
@@ -63,7 +63,7 @@ final class RegisterCanchaViewModel {
     
     func deleteCancha(canchaID: String) async throws {
         do {
-            let _ = try await useCase.deleteCancha(canchaID: canchaID)
+            let _ = try await useCase.deleteField(fieldID: canchaID)
             alertMessage = "La cancha se ha eliminado correctamente."
             print("Se elimino exitosamente")
         }

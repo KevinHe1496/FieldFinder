@@ -9,12 +9,12 @@ import Foundation
 
 @Observable
 final class FieldDetailViewModel {
-    var state: ViewState<CanchaResponse> = .idle
+    var state: ViewState<FieldResponse> = .idle
     
     @ObservationIgnored
-    private var useCase: GetFieldDetailUseCaseProtocol
+    private var useCase: FieldServiceUseCaseProtocol
     
-    init(useCase: GetFieldDetailUseCaseProtocol = GetFieldDetailUseCase()) {
+    init(useCase: FieldServiceUseCaseProtocol = FieldServiceUseCase()) {
         self.useCase = useCase
     }
     
@@ -22,7 +22,7 @@ final class FieldDetailViewModel {
     func getFieldDetail(with fieldId: String) async throws {
         state = .loading
         do {
-            let cancha = try await useCase.getFieldDetail(with: fieldId)
+            let cancha = try await useCase.fetchField(with: fieldId)
             state = .success(cancha)
         } catch {
             state = .error("No se pudo cargar la cancha.")

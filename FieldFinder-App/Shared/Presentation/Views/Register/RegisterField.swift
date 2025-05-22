@@ -112,7 +112,7 @@ struct RegisterField: View {
                     CustomButtonView(title: "Registrar", color: .primaryColorGreen, textColor: .thirdColorWhite) {
                         Task {
                             
-                            let newModel = CanchaRequest(
+                            let newModel = FieldRequest(
                                 tipo: selectedField.rawValue,
                                 modalidad: selectedCapacidad.rawValue,
                                 precio: Double(precio) ?? 0,

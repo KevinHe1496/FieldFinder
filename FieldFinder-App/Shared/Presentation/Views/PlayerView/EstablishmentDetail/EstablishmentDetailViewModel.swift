@@ -15,12 +15,12 @@ final class EstablishmentDetailViewModel {
     var mapsURL: URL?
     
     @ObservationIgnored
-    private var useCase: RegisterEstablishmentUseCaseProtocol
+    private var useCase: EstablishmentServiceUseCaseProtocol
     
     @ObservationIgnored
     private var favoriteUseCase: FavoriteUserUseCaseProtocol
     
-    init(useCase: GetEstablishmentDetailUseCaseProtocol = GetEstablishmentDetailUseCase(), favoriteUseCase: FavoriteUserUseCaseProtocol = FavoriteUserUseCase()) {
+    init(useCase: EstablishmentServiceUseCaseProtocol = EstablishmentServiceUseCase(), favoriteUseCase: FavoriteUserUseCaseProtocol = FavoriteUserUseCase()) {
         self.useCase = useCase
         self.favoriteUseCase = favoriteUseCase
     }
@@ -29,7 +29,7 @@ final class EstablishmentDetailViewModel {
     func getEstablishmentDetail(establishmentId: String) async throws {
         status = .loading
         do {
-            let establecimiento = try await useCase.getEstablishmentDetail(with: establishmentId)
+            let establecimiento = try await useCase.fetchEstablishment(with: establishmentId)
             status = .success(establecimiento)
         } catch {
             status = .error("No se pudo cargar el establecimiento")

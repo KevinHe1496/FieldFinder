@@ -46,14 +46,14 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     
     // Casos de uso para obtener establecimientos (se comunica con la capa de red).
     @ObservationIgnored
-    private var useCase: GetNearbyEstablishmentsUseCaseProtocol
+    private var useCase: EstablishmentServiceUseCaseProtocol
     
     // Casos de uso para favoritos del usuario.
     @ObservationIgnored
     private let favoriteUseCase: FavoriteUserUseCaseProtocol
     
     // Inicializa el ViewModel con las dependencias necesarias.
-    init(useCase: GetNearbyEstablishmentsUseCaseProtocol = GetNearbyEstablishmentsUseCase(), favoriteUseCase: FavoriteUserUseCaseProtocol = FavoriteUserUseCase()) {
+    init(useCase: EstablishmentServiceUseCaseProtocol = EstablishmentServiceUseCase(), favoriteUseCase: FavoriteUserUseCaseProtocol = FavoriteUserUseCase()) {
         self.useCase = useCase
         self.favoriteUseCase = favoriteUseCase
     }
@@ -63,7 +63,7 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     private func fetchEstablishments(near coordinate: CLLocationCoordinate2D) async throws {
         status = .loading
         do{
-            let establecimientos = try await useCase.getAllEstablishments(coordinate: coordinate)
+            let establecimientos = try await useCase.fetchAllEstablishments(coordinate: coordinate)
             status = .success(establecimientos)
         } catch {
             status = .error("No se pudo cargar los establecimientos.")

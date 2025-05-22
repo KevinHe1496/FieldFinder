@@ -1,6 +1,6 @@
 import Foundation
 // Register and Update
-struct CanchaRequest: Codable {
+struct FieldRequest: Codable {
     let tipo: String
     let modalidad: String
     let precio: Double
@@ -15,7 +15,7 @@ struct IDResponse: Codable {
 }
 
 // Get by ID
-struct CanchaResponse: Codable, Identifiable {
+struct FieldResponse: Codable, Identifiable {
     let id: String
     let tipo: String
     let modalidad: String
@@ -30,7 +30,7 @@ struct CanchaResponse: Codable, Identifiable {
         }
     }
     
-    static let sample = CanchaResponse(
+    static let sample = FieldResponse(
         id: "cancha001",
         tipo: "Fútbol 7",
         modalidad: "Partido completo",

@@ -1,17 +1,17 @@
 import Foundation
 
 protocol FieldServiceProtocol {
-    func createField(_ fieldModel: CanchaRequest) async throws -> String
+    func createField(_ fieldModel: FieldRequest) async throws -> String
     func uploadFieldImages(fieldID: String, images: [Data]) async throws
-    func updateField(fieldID: String, fieldModel: CanchaRequest) async throws -> CanchaRequest
+    func updateField(fieldID: String, fieldModel: FieldRequest) async throws -> FieldRequest
     func deleteField(fieldID: String) async throws
+    func fetchField(with fieldId: String) async throws -> FieldResponse
 }
 
 
 final class FieldService: FieldServiceProtocol {
     
-    
-    func createField(_ fieldModel: CanchaRequest) async throws -> String {
+    func createField(_ fieldModel: FieldRequest) async throws -> String {
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.registerCancha.rawValue)"
         
         guard let url = URL(string: urlString) else {
@@ -54,7 +54,6 @@ final class FieldService: FieldServiceProtocol {
         }
         
     }
-    
     
     func uploadFieldImages(fieldID: String, images: [Data]) async throws {
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.uploadImagesCancha.rawValue)/\(fieldID)"
@@ -102,7 +101,7 @@ final class FieldService: FieldServiceProtocol {
         }
     }
     
-    func updateField(fieldID: String, fieldModel: CanchaRequest) async throws -> CanchaRequest {
+    func updateField(fieldID: String, fieldModel: FieldRequest) async throws -> FieldRequest {
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getFieldById.rawValue)/\(fieldID)"
         
         guard let url = URL(string: urlString) else {
@@ -126,7 +125,7 @@ final class FieldService: FieldServiceProtocol {
         }
         
         do {
-            let result = try JSONDecoder().decode(CanchaRequest.self, from: data)
+            let result = try JSONDecoder().decode(FieldRequest.self, from: data)
             return result
         } catch {
             throw FFError.errorParsingData
@@ -154,11 +153,40 @@ final class FieldService: FieldServiceProtocol {
                   200..<300 ~= httpResponse.statusCode else {
                 throw FFError.errorFromApi(statusCode: -1)
             }
-        } 
-        
-        
+        }   
     }
     
     
+    func fetchField(with fieldId: String) async throws -> FieldResponse {
+        
+        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getFieldById.rawValue)/\(fieldId)"
+        
+        guard let url = URL(string: urlString) else {
+            throw FFError.badUrl
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = HttpMethods.get
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        // Verifica que la respuesta sea válida y del tipo HTTPURLResponse.
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw FFError.errorFromApi(statusCode: -1)
+        }
+        
+        // Valida que el código de respuesta HTTP sea exitoso.
+        guard httpResponse.statusCode == HttpResponseCodes.SUCCESS else {
+            throw FFError.errorFromApi(statusCode: httpResponse.statusCode)
+        }
+        
+        do {
+            let result = try JSONDecoder().decode(FieldResponse.self, from: data)
+            return result
+        } catch {
+            print("Decoding error: \(error.localizedDescription)")
+            throw FFError.decodingError
+        }
+    }
     
 }

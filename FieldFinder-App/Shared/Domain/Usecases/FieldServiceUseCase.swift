@@ -6,12 +6,12 @@ protocol FieldServiceUseCaseProtocol {
     func uploadFieldImages(fieldID: String, images: [Data]) async throws
     func updateField(fieldID: String, fieldModel: FieldRequest) async throws -> FieldRequest
     func deleteField(fieldID: String) async throws
+    func fetchField(with fieldId: String) async throws -> FieldResponse
 }
 
 
 final class FieldServiceUseCase: FieldServiceUseCaseProtocol {
    
-    
     var repo: FieldServiceRepositoryProtocol
     
     init(repo: FieldServiceRepositoryProtocol = FieldServiceRepository()) {
@@ -21,7 +21,6 @@ final class FieldServiceUseCase: FieldServiceUseCaseProtocol {
     func createField(_ fieldModel: FieldRequest) async throws -> String {
         try await repo.createField(fieldModel)
     }
-    
     
     func uploadFieldImages(fieldID: String, images: [Data]) async throws {
         try await repo.uploadFieldImages(fieldID: fieldID, images: images)
@@ -33,6 +32,10 @@ final class FieldServiceUseCase: FieldServiceUseCaseProtocol {
     
     func deleteField(fieldID: String) async throws {
         try await repo.deleteField(fieldID: fieldID)
+    }
+    
+    func fetchField(with fieldId: String) async throws -> FieldResponse {
+        try await repo.fetchField(with: fieldId)
     }
     
 }

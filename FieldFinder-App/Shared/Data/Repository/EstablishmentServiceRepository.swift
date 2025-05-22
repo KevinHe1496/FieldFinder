@@ -1,4 +1,5 @@
 import Foundation
+import CoreLocation
 
 final class EstablishmentServiceRepository: EstablishmentServiceRepositoryProtocol {
    
@@ -28,6 +29,10 @@ final class EstablishmentServiceRepository: EstablishmentServiceRepositoryProtoc
     
     func fetchEstablishment(with establishmentId: String) async throws -> EstablishmentResponse {
         try await network.fetchEstablishment(with: establishmentId)
+    }
+    
+    func fetchAllEstablishments(coordinate: CLLocationCoordinate2D) async throws -> [EstablishmentResponse] {
+        try await network.fetchAllEstablishments(coordinate: coordinate)
     }
     
 }

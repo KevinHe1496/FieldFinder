@@ -46,7 +46,7 @@ struct EstablishmentResponse: Codable, Identifiable {
     let fotos: [String]
     let latitude: Double
     let longitude: Double
-    let canchas: [CanchaResponse]
+    let canchas: [FieldResponse]
     
     var photoEstablishment: [URL] {
         fotos.compactMap { url in
@@ -78,7 +78,7 @@ struct EstablishmentResponse: Codable, Identifiable {
         latitude: 0.0,
         longitude: 0.0,
         canchas: [
-            CanchaResponse(
+            FieldResponse(
                 id: "cancha001",
                 tipo: "Fútbol 7",
                 modalidad: "Partido completo",

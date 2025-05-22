@@ -83,7 +83,7 @@ struct EditFieldView: View {
             CustomButtonView(title: "Guardar", color: .primaryColorGreen, textColor: .thirdColorWhite) {
                 Task {
                     
-                    let newModel = CanchaRequest(
+                    let newModel = FieldRequest(
                         tipo: selectedField.rawValue,
                         modalidad: selectedCapacidad.rawValue,
                         precio: Double(precio) ?? 0,
