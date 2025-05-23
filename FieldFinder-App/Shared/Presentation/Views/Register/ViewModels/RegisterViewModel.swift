@@ -11,10 +11,10 @@ final class RegisterViewModel {
     var tokenJWT: String = ""
     
     @ObservationIgnored
-    private let useCase: RegisterUseCaseProtocol
+    private let useCase: UserAuthServiceUseCaseProtocol
     
     // MARK: - Initialization
-    init(appState: AppState, useCase: RegisterUseCaseProtocol = RegisterUseCase()) {
+    init(appState: AppState, useCase: UserAuthServiceUseCaseProtocol = UserAuthServiceUseCase()) {
         self.appState = appState
         self.useCase = useCase
     }
@@ -32,7 +32,7 @@ final class RegisterViewModel {
         appState.status = .loading
         
         do {
-            let result = try await useCase.registerUsers(name: name, email: email, password: password, rol: rol)
+            let result = try await useCase.registerUser(name: name, email: email, password: password, rol: rol)
             
             if result {
                 if rol == "dueno" {

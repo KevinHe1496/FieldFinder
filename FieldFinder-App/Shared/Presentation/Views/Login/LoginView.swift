@@ -65,7 +65,7 @@ struct LoginView: View {
                             } else {
                                 CustomButtonView(title: "Iniciar Sesión", color: .primaryColorGreen, textColor: .thirdColorWhite) {
                                     Task {
-                                        try await appState.loginApp(user:email, password: password)
+                                        try await appState.login(email:email, password: password)
                                     }
                                    
                                 }

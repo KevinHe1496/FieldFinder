@@ -1,13 +1,13 @@
 import Foundation
 
 protocol NetworkGetMeProtocol {
-    func getUser() async throws -> UserProfileResponse
+    func fetchUser() async throws -> UserProfileResponse
     func updateUser(name: String) async throws -> UserProfileRequest
     func deleteUser() async throws
 }
 
-final class NetworkGetMe: NetworkGetMeProtocol {
-    func getUser() async throws -> UserProfileResponse {
+final class UserProfileService: NetworkGetMeProtocol {
+    func fetchUser() async throws -> UserProfileResponse {
         var userModel = UserProfileResponse(email: "", id: "", rol: "", name: "", establecimiento: [])
         
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getMe.rawValue)"

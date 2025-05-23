@@ -8,13 +8,13 @@
 import Foundation
 
 protocol UserFavoritesServiceProtocol {
-    func favoriteUser(with establishmentId: String) async throws
-    func deleteFavoriteUser(with establishmentId: String) async throws
-    func getFavoriteUser() async throws -> [FavoriteEstablishment]
+    func addFavorite(with establishmentId: String) async throws
+    func removeFavorite(with establishmentId: String) async throws
+    func fetchFavorites() async throws -> [FavoriteEstablishment]
 }
 
 final class UserFavoritesService: UserFavoritesServiceProtocol {
-    func favoriteUser(with establishmentId: String) async throws {
+    func addFavorite(with establishmentId: String) async throws {
         
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.favoriteUser.rawValue)/\(establishmentId)"
         
@@ -41,7 +41,7 @@ final class UserFavoritesService: UserFavoritesServiceProtocol {
         }
     }
     
-    func deleteFavoriteUser(with establishmentId: String) async throws  {
+    func removeFavorite(with establishmentId: String) async throws  {
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.favoriteUser.rawValue)/\(establishmentId)"
         
         guard let url = URL(string: urlString) else {
@@ -67,7 +67,7 @@ final class UserFavoritesService: UserFavoritesServiceProtocol {
         }
     }
     
-    func getFavoriteUser() async throws -> [FavoriteEstablishment] {
+    func fetchFavorites() async throws -> [FavoriteEstablishment] {
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.favoriteUser.rawValue)"
         
         guard let url = URL(string: urlString) else {

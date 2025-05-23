@@ -4,12 +4,12 @@ final class GetMeRepository: GetMeRepositoryProtocol {
     
     let network: NetworkGetMeProtocol
     
-    init(network: NetworkGetMeProtocol = NetworkGetMe()) {
+    init(network: NetworkGetMeProtocol = UserProfileService()) {
         self.network = network
     }
     
     func getUser() async throws -> UserProfileResponse {
-        try await network.getUser()
+        try await network.fetchUser()
     }
     
     func updateUser(name: String) async throws -> UserProfileRequest {
