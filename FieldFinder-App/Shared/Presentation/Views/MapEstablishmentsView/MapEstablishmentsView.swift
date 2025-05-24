@@ -109,7 +109,7 @@ struct MapEstablishmentsView: View {
         }
     }
     
-    func openCallFor(_ establishment: Establecimiento) {
+    func openCallFor(_ establishment: EstablishmentResponse) {
         callManager.prepareToOpen(
             title: "¿Llamar al propietario?",
             message: "Esto iniciará una llamada al número del establecimiento.",
@@ -117,7 +117,7 @@ struct MapEstablishmentsView: View {
         )
     }
 
-    func openMapsFor(_ establishment: Establecimiento) {
+    func openMapsFor(_ establishment: EstablishmentResponse) {
         let placeName = establishment.name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Ubicación"
         let coord = establishment.coordinate
         let url = URL(string: "maps://?q=\(placeName)&ll=\(coord.latitude),\(coord.longitude)")

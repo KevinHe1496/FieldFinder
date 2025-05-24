@@ -104,7 +104,7 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
 
         statusFavorites = .loading
         do {
-            let favoritos = try await favoriteUseCase.getFavoriteUser()
+            let favoritos = try await favoriteUseCase.fetchFavorites()
             self.favoritesData = favoritos
             statusFavorites = .success(favoritos)
         } catch {
