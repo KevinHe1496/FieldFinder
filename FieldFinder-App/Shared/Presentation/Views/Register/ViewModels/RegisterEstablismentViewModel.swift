@@ -12,9 +12,9 @@ final class RegisterEstablismentViewModel {
     var longitude: Double?
     var alertMessage: String?
     @ObservationIgnored
-    var useCase: RegisterEstablishmentUseCaseProtocol
+    var useCase: EstablishmentServiceUseCaseProtocol
     
-    init(useCase: RegisterEstablishmentUseCaseProtocol = RegisterEstablishmentUseCase(), appState: AppState) {
+    init(useCase: EstablishmentServiceUseCaseProtocol = EstablishmentServiceUseCase(), appState: AppState) {
         self.useCase = useCase
         self.appState = appState
     }
@@ -53,7 +53,7 @@ final class RegisterEstablismentViewModel {
             self.latitude = coordinates.latitude
             self.longitude = coordinates.longitude
             
-            let newModel = EstablishmentModel(
+            let newModel = EstablishmentRequest(
                 name: name,
                 info: info,
                 address: address,
@@ -70,9 +70,8 @@ final class RegisterEstablismentViewModel {
                 phone: phone
             )
             
-            let establismentID = try await useCase.registerEstablishment(newModel)
-            
-            try await useCase.uploadImages(establishmentID: establismentID, images: images)
+            let establismentID = try await useCase.createEstablishment(newModel)
+            try await useCase.uploadEstablishmentImages(establishmentID: establismentID, images: images)
             
             
             alertMessage = "Establecimiento registrado con éxito."
@@ -102,7 +101,7 @@ final class RegisterEstablismentViewModel {
             self.latitude = coordinates.latitude
             self.longitude = coordinates.longitude
             
-            let newModel = EstablishmentModel(
+            let newModel = EstablishmentRequest(
                 name: name,
                 info: info,
                 address: address,
@@ -121,7 +120,7 @@ final class RegisterEstablismentViewModel {
             
           
             
-            try await useCase.editEstablishment(establishmentID: establishmentID, establishmentModel: newModel)
+            try await useCase.updateEstablishment(establishmentID: establishmentID, establishmentModel: newModel)
             
             
             alertMessage = "Establecimiento registrado con éxito."

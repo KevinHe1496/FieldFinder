@@ -14,8 +14,11 @@ import SwiftUI
 @Observable
 final class GetNearbyEstablishmentsViewModel: ObservableObject {
     
-    var status: ViewState<[Establecimiento]> = .idle
+
+    var status: ViewState<[EstablishmentResponse]> = .idle
+
     var statusFavorites: ViewState<[FavoriteEstablishment]> = .idle
+
     
     var locationService = LocationService() // Servicio para obtener la ubicación del usuario.
     
@@ -26,7 +29,7 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     var favoritesData = [FavoriteEstablishment]()
     
     // Establecimiento seleccionado por el usuario (para ver detalles).
-    var selectedEstablishment: Establecimiento?
+    var selectedEstablishment: EstablishmentResponse?
     
     // Controla la posición de la cámara del mapa (zoom y centro).
     var cameraPosition: MapCameraPosition = .automatic
@@ -35,7 +38,7 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     var establishmentSearch = ""
     
     // Devuelve los establecimientos filtrados por nombre según lo que escribe el usuario.
-    var filterEstablishments: [Establecimiento] {
+    var filterEstablishments: [EstablishmentResponse] {
         guard let all = status.data else { return [] }
         if establishmentSearch.isEmpty {
             return all
@@ -47,14 +50,14 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     
     // Casos de uso para obtener establecimientos (se comunica con la capa de red).
     @ObservationIgnored
-    private var useCase: GetNearbyEstablishmentsUseCaseProtocol
+    private var useCase: EstablishmentServiceUseCaseProtocol
     
     // Casos de uso para favoritos del usuario.
     @ObservationIgnored
-    private let favoriteUseCase: FavoriteUserUseCaseProtocol
+    private let favoriteUseCase: UserFavoritesServiceUseCaseProtocol
     
     // Inicializa el ViewModel con las dependencias necesarias.
-    init(useCase: GetNearbyEstablishmentsUseCaseProtocol = GetNearbyEstablishmentsUseCase(), favoriteUseCase: FavoriteUserUseCaseProtocol = FavoriteUserUseCase()) {
+    init(useCase: EstablishmentServiceUseCaseProtocol = EstablishmentServiceUseCase(), favoriteUseCase: UserFavoritesServiceUseCaseProtocol = UserFavoritesServiceUseCase()) {
         self.useCase = useCase
         self.favoriteUseCase = favoriteUseCase
     }
@@ -64,7 +67,7 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     private func fetchEstablishments(near coordinate: CLLocationCoordinate2D) async throws {
         status = .loading
         do{
-            let establecimientos = try await useCase.getAllEstablishments(coordinate: coordinate)
+            let establecimientos = try await useCase.fetchAllEstablishments(coordinate: coordinate)
             status = .success(establecimientos)
         } catch {
             status = .error("No se pudo cargar los establecimientos.")
@@ -88,9 +91,9 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     @MainActor
     func toggleFavorite(establishmentId: String, isFavorite: Bool) async throws {
         if isFavorite {
-            try await favoriteUseCase.favoriteUser(establishmentId: establishmentId)
+            try await favoriteUseCase.addFavorite(establishmentId: establishmentId)
         } else {
-            try await favoriteUseCase.deleteFavoriteUser(establishmentId: establishmentId)
+            try await favoriteUseCase.removeFavorite(establishmentId: establishmentId)
         }
         try await self.getFavoritesUser() // Actualiza la lista de favoritos.
     }
@@ -98,6 +101,7 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     // Carga los establecimientos favoritos del usuario.
     @MainActor
     func getFavoritesUser() async throws {
+
         statusFavorites = .loading
         do {
             let favoritos = try await favoriteUseCase.getFavoriteUser()
@@ -106,6 +110,7 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
         } catch {
             statusFavorites = .error("No se pudo cargar los favoritos.")
         }
+
     }
     
     /// Actualiza la posición de la cámara en el mapa.
@@ -124,7 +129,7 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     
     /// Guarda el establecimiento que el usuario selecciona para mostrar sus detalles.
     @MainActor
-    func selectEstablishment(_ establishment: Establecimiento) {
+    func selectEstablishment(_ establishment: EstablishmentResponse) {
         selectedEstablishment = establishment
     }
     

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct EstablishmentServicesSection: View {
-    let establishment: Establecimiento
+    let establishment: EstablishmentResponse
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {

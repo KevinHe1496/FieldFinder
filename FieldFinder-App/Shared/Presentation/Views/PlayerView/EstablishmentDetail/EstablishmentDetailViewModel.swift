@@ -10,7 +10,7 @@ import UIKit
 
 @Observable
 final class EstablishmentDetailViewModel {
-    var status: ViewState<Establecimiento> = .idle
+    var status: ViewState<EstablishmentResponse> = .idle
     var showOpenInMapsAlert = false
     var mapsURL: URL?
     
@@ -21,12 +21,12 @@ final class EstablishmentDetailViewModel {
     let mapsManager = ExternalLinkManager()
     
     @ObservationIgnored
-    private var useCase: GetEstablishmentDetailUseCaseProtocol
+    private var useCase: EstablishmentServiceUseCaseProtocol
     
     @ObservationIgnored
-    private var favoriteUseCase: FavoriteUserUseCaseProtocol
+    private var favoriteUseCase: UserFavoritesServiceUseCaseProtocol
     
-    init(useCase: GetEstablishmentDetailUseCaseProtocol = GetEstablishmentDetailUseCase(), favoriteUseCase: FavoriteUserUseCaseProtocol = FavoriteUserUseCase()) {
+    init(useCase: EstablishmentServiceUseCaseProtocol = EstablishmentServiceUseCase(), favoriteUseCase: UserFavoritesServiceUseCaseProtocol = UserFavoritesServiceUseCase()) {
         self.useCase = useCase
         self.favoriteUseCase = favoriteUseCase
     }
@@ -35,7 +35,7 @@ final class EstablishmentDetailViewModel {
     func getEstablishmentDetail(establishmentId: String) async throws {
         status = .loading
         do {
-            let establecimiento = try await useCase.getEstablishmentDetail(with: establishmentId)
+            let establecimiento = try await useCase.fetchEstablishment(with: establishmentId)
             status = .success(establecimiento)
         } catch {
             status = .error("No se pudo cargar el establecimiento")
@@ -44,16 +44,16 @@ final class EstablishmentDetailViewModel {
     
     @MainActor
     func addToFavorites(establishmentId: String) async throws {
-        try await favoriteUseCase.favoriteUser(establishmentId: establishmentId)
+        try await favoriteUseCase.addFavorite(establishmentId: establishmentId)
     }
     
     @MainActor
     func removeFromFavorites(establishmentId: String) async throws {
-        try await favoriteUseCase.deleteFavoriteUser(establishmentId: establishmentId)
+        try await favoriteUseCase.removeFavorite(establishmentId: establishmentId)
     }
     
     @MainActor
-    func prepareMapsURL(for establishment: Establecimiento) {
+    func prepareMapsURL(for establishment: EstablishmentResponse) {
         let coordinate = establishment.coordinate
 
         guard coordinate.latitude != 0.0, coordinate.longitude != 0.0 else {

@@ -1,14 +1,17 @@
 import Foundation
+import CoreLocation
 
-protocol NetworkRegisterEstablishmentProtocol {
-    func registerEstablishment(_ establishmentModel: EstablishmentRequest) async throws -> String
-    func uploadImages(establishmentID: String, images: [Data]) async throws
-    func editEstablishment(establishmentID: String, establishmentModel: EstablishmentRequest) async throws
+protocol EstablishmentServiceProtocol {
+    func createEstablishment(_ establishmentModel: EstablishmentRequest) async throws -> String
+    func uploadEstablishmentImages(establishmentID: String, images: [Data]) async throws
+    func updateEstablishment(establishmentID: String, establishmentModel: EstablishmentRequest) async throws
+    func fetchEstablishment(with establishmentId: String) async throws -> EstablishmentResponse
+    func fetchAllEstablishments(coordinate: CLLocationCoordinate2D) async throws -> [EstablishmentResponse]
 }
 
-final class EstablishmentService: NetworkRegisterEstablishmentProtocol {
+final class EstablishmentService: EstablishmentServiceProtocol {
     
-    func registerEstablishment(_ establishmentModel: EstablishmentRequest) async throws -> String  {
+    func createEstablishment(_ establishmentModel: EstablishmentRequest) async throws -> String  {
         
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.registerEstablishment.rawValue)"
         
@@ -55,7 +58,7 @@ final class EstablishmentService: NetworkRegisterEstablishmentProtocol {
     
     // Upload Images Network
     
-    func uploadImages(establishmentID: String, images: [Data]) async throws {
+    func uploadEstablishmentImages(establishmentID: String, images: [Data]) async throws {
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.uploadImagesEstablishment.rawValue)/\(establishmentID)"
         
         guard let url = URL(string: urlString) else {
@@ -103,7 +106,7 @@ final class EstablishmentService: NetworkRegisterEstablishmentProtocol {
     
     // Edit establishment
     
-    func editEstablishment(establishmentID: String, establishmentModel: EstablishmentRequest) async throws {
+    func updateEstablishment(establishmentID: String, establishmentModel: EstablishmentRequest) async throws {
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getEstablishmentById.rawValue)/\(establishmentID)"
         
         guard let url = URL(string: urlString) else {
@@ -127,6 +130,71 @@ final class EstablishmentService: NetworkRegisterEstablishmentProtocol {
             throw FFError.errorFromApi(statusCode: -1)
         }
         print("Se edito correctamente")
+    }
+    
+    // Get
+    func fetchEstablishment(with establishmentId: String) async throws -> EstablishmentResponse {
+        
+        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getEstablishmentById.rawValue)/\(establishmentId)"
+        
+        guard let url = URL(string: urlString) else {
+            throw FFError.badUrl
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = HttpMethods.get
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        // Verifica que la respuesta sea válida y del tipo HTTPURLResponse.
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw FFError.errorFromApi(statusCode: -1)
+        }
+        
+        // Valida que el código de respuesta HTTP sea exitoso.
+        guard httpResponse.statusCode == HttpResponseCodes.SUCCESS else {
+            throw FFError.errorFromApi(statusCode: httpResponse.statusCode)
+        }
+        
+        do {
+            let result = try JSONDecoder().decode(EstablishmentResponse.self, from: data)
+            return result
+        } catch {
+            print("Decoding error: \(error.localizedDescription)")
+            throw FFError.decodingError
+        }
+    }
+    
+    func fetchAllEstablishments(coordinate: CLLocationCoordinate2D) async throws -> [EstablishmentResponse] {
+        var modelReturn = [EstablishmentResponse]()
+        
+        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getNearbyEstablishments.rawValue)"
+        
+        guard let url = URL(string: urlString) else {
+            throw FFError.badUrl
+        }
+        
+        let requestBody = GetNearbyEstablishmentsRequest(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        let jsonData = try JSONEncoder().encode(requestBody)
+        
+        var request: URLRequest = URLRequest(url: url)
+        request.httpMethod = HttpMethods.post
+        request.setValue(HttpHeader.content, forHTTPHeaderField: HttpHeader.contentTypeID)
+        request.httpBody = jsonData
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let res = response as? HTTPURLResponse, res.statusCode == HttpResponseCodes.SUCCESS else {
+            throw FFError.errorFromApi(statusCode: -1)
+        }
+        
+        do {
+            let result = try JSONDecoder().decode([EstablishmentResponse].self, from: data)
+            modelReturn = result
+        } catch {
+            print("Decoding error: \(error.localizedDescription)")
+        }
+        return modelReturn
     }
     
 }

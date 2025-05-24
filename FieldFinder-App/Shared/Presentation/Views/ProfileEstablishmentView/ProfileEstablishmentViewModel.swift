@@ -4,13 +4,13 @@ import Foundation
 @Observable
 final class ProfileEstablishmentViewModel {
     @ObservationIgnored
-    var useCase: RegisterEstablishmentUseCase
+    var useCase: EstablishmentServiceUseCase
     
-    init(useCase: RegisterEstablishmentUseCase = RegisterEstablishmentUseCase()) {
+    init(useCase: EstablishmentServiceUseCase = EstablishmentServiceUseCase()) {
         self.useCase = useCase
     }
     
-    func editEstablishment(establishmentID: String, establishmentModel: EstablishmentModel) async throws {
+    func editEstablishment(establishmentID: String, establishmentModel: EstablishmentRequest) async throws {
         
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EstablishmentAnnotationView: View {
-    var establishment: Establecimiento
+    var establishment: EstablishmentResponse
     
     var body: some View {
         VStack {

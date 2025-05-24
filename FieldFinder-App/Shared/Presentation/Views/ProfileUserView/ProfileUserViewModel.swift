@@ -10,14 +10,14 @@ import Foundation
 @Observable
 final class ProfileUserViewModel {
     
-    var status: ViewState<GetMeModel> = .idle
+    var status: ViewState<UserProfileResponse> = .idle
     
     var messageError = ""
 
     @ObservationIgnored
-    private var useCase: GetMeUseCaseProtocol
+    private var useCase: UserProfileServiceUseCaseProtocol
     
-    init(useCase: GetMeUseCaseProtocol = GetMeUseCase()) {
+    init(useCase: UserProfileServiceUseCaseProtocol = UserProfileServiceUseCase()) {
         self.useCase = useCase
     }
     
@@ -25,7 +25,7 @@ final class ProfileUserViewModel {
     func getMe() async throws {
         status = .loading
         do {
-            let result = try await useCase.getUser()
+            let result = try await useCase.fetchUser()
             status = .success(result)
         } catch {
             status = .error("No se pudo cargar el perfil.")

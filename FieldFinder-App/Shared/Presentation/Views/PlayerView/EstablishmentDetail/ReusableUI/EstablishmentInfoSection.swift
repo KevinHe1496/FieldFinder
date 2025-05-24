@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct EstablishmentInfoSection: View {
+
     let establishment: Establecimiento
     
     // Managers reutilizables
@@ -18,6 +19,7 @@ struct EstablishmentInfoSection: View {
     let onCallTap: () -> Void
     let onMapTap: () -> Void
     
+
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             VStack(alignment: .leading, spacing: 12) {

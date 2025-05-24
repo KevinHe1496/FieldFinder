@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct EstablishmentFieldsSection: View {
-    let canchas: [Cancha]
+    let canchas: [FieldResponse]
     @State private var shownItems: Set<String> = []
     let rows = GridItem(.flexible(minimum: 80))
 

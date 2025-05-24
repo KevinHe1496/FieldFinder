@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftUI
 
 struct CanchaRowView: View {
-    let cancha: Cancha
+    let cancha: FieldResponse
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {

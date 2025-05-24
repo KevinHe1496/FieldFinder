@@ -1,12 +1,32 @@
 //
-//  GetAllEstablishments.swift
+//  Establecimiento.swift
 //  FieldFinder-App
 //
-//  Created by Kevin Heredia on 12/5/25.
+//  Created by Andy Heredia on 10/5/25.
 //
-import Foundation
 
-struct Establecimiento: Codable, Identifiable {
+import Foundation
+// Register and Update
+struct EstablishmentRequest: Codable {
+    let name: String
+    let info: String
+    let address: String
+    let country: String
+    let city: String
+    let zipCode: String
+    let parqueadero: Bool
+    let vestidores: Bool
+    let bar: Bool
+    let banos: Bool
+    let duchas: Bool
+    let latitude: Double
+    let longitude: Double
+    let phone: String
+}
+
+// GET by ID
+
+struct EstablishmentResponse: Codable, Identifiable {
     let id: String
     let name: String
     let info: String
@@ -26,7 +46,7 @@ struct Establecimiento: Codable, Identifiable {
     let fotos: [String]
     let latitude: Double
     let longitude: Double
-    let canchas: [Cancha]
+    let canchas: [FieldResponse]
     
     var photoEstablishment: [URL] {
         fotos.compactMap { url in
@@ -34,7 +54,7 @@ struct Establecimiento: Codable, Identifiable {
         }
     }
     
-    static let sample = Establecimiento(
+    static let sample = EstablishmentResponse(
         id: "12345",
         name: "Cancha Los Libertadores",
         info: "Complejo deportivo con canchas de fútbol 7 y servicios adicionales.",
@@ -58,7 +78,7 @@ struct Establecimiento: Codable, Identifiable {
         latitude: 0.0,
         longitude: 0.0,
         canchas: [
-            Cancha(
+            FieldResponse(
                 id: "cancha001",
                 tipo: "Fútbol 7",
                 modalidad: "Partido completo",
@@ -79,3 +99,4 @@ struct GetNearbyEstablishmentsRequest: Codable {
     let latitude: Double
     let longitude: Double
 }
+

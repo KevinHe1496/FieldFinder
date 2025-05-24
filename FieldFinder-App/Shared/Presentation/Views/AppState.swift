@@ -14,9 +14,9 @@ final class AppState {
     @ObservationIgnored
     var isLogged: Bool = false
     
-    private var loginUseCase: LoginUseCaseProtocol
+    private var loginUseCase: UserAuthServiceUseCaseProtocol
     
-    init(loginUseCase: LoginUseCaseProtocol = LoginUseCase()) {
+    init(loginUseCase: UserAuthServiceUseCaseProtocol = UserAuthServiceUseCase()) {
         self.loginUseCase = loginUseCase
         // Temporal
 //        KeyChainFF().deletePK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
@@ -28,10 +28,10 @@ final class AppState {
     }
     
     @MainActor
-    func loginApp(user: String, password: String) async throws {
+    func login(email: String, password: String) async throws {
         
         isLoading = true
-        guard !user.isEmpty || !password.isEmpty else {
+        guard !email.isEmpty || !password.isEmpty else {
             messageAlert = "Los campos son requeridos."
             showAlert = true
             return
@@ -41,13 +41,13 @@ final class AppState {
         
         do {
             
-            let loginApp = try await loginUseCase.loginApp(user: user, password: password)
+            let loginApp = try await loginUseCase.login(email: email, password: password)
             
             if loginApp == true {
                 // Login Success
                 self.status = .loading
                 
-                let user = try await GetMeUseCase().getUser()
+                let user = try await UserProfileServiceUseCase().fetchUser()
                 self.userRole = user.userRole
                 
                 
@@ -80,7 +80,7 @@ final class AppState {
     func validateToken() async {
         Task {
             if (await loginUseCase.validateToken() == true) {
-                let user = try await GetMeUseCase().getUser()
+                let user = try await UserProfileServiceUseCase().fetchUser()
                 self.userRole = user.userRole
                 self.status = .loaded
                 

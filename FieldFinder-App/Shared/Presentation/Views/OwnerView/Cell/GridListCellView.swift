@@ -9,11 +9,13 @@ import SwiftUI
 
 struct GridListCellView: View {
     
-    let canchaResponse: CanchaResponse
+    let canchaResponse: FieldResponse
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             ZStack(alignment: .topTrailing) {
-                RemoteImageCardView(url: canchaResponse.photoCancha.first)
+
+                RemoteImageCardView(url: canchaResponse.photoCanchas.first, height: 180)
+
                     .clipShape(RoundedRectangle(cornerRadius: 16))
                     .shadow(radius: 4)
 
