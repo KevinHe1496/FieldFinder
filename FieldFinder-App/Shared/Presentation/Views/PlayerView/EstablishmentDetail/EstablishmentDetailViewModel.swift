@@ -89,7 +89,7 @@ final class EstablishmentDetailViewModel {
 
 
     @MainActor
-    func prepareMaps(for establishment: Establecimiento) {
+    func prepareMaps(for establishment: EstablishmentResponse) {
         let coordinate = establishment.coordinate
         let name = establishment.name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Ubicación"
         let url = URL(string: "maps://?q=\(name)&ll=\(coordinate.latitude),\(coordinate.longitude)")

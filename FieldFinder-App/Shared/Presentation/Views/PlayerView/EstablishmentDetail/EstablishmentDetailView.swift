@@ -49,6 +49,8 @@ struct EstablishmentDetailView: View {
                                 viewModel.prepareMaps(for: establecimiento)
                             }
                         )
+                        
+                      
 
                         EstablishmentServicesSection(establishment: establecimiento)
                         

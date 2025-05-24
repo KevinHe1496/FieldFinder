@@ -2,15 +2,16 @@
 //  EstablishmentInfoSection.swift
 //  FieldFinder-App
 //
-//  Created by Kevin Heredia on 16/5/25.
+//  Created by Andy Heredia on 23/5/25.
 //
+
 
 
 import SwiftUI
 
 struct EstablishmentInfoSection: View {
 
-    let establishment: Establecimiento
+    let establishment: EstablishmentResponse
     
     // Managers reutilizables
     @Bindable var callManager: ExternalLinkManager
