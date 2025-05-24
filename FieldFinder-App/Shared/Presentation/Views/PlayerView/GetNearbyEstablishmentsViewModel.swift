@@ -14,7 +14,11 @@ import SwiftUI
 @Observable
 final class GetNearbyEstablishmentsViewModel: ObservableObject {
     
+
     var status: ViewState<[EstablishmentResponse]> = .idle
+
+    var statusFavorites: ViewState<[FavoriteEstablishment]> = .idle
+
     
     var locationService = LocationService() // Servicio para obtener la ubicación del usuario.
     
@@ -97,8 +101,16 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     // Carga los establecimientos favoritos del usuario.
     @MainActor
     func getFavoritesUser() async throws {
-        let data = try await favoriteUseCase.fetchFavorites()
-        self.favoritesData = data
+
+        statusFavorites = .loading
+        do {
+            let favoritos = try await favoriteUseCase.getFavoriteUser()
+            self.favoritesData = favoritos
+            statusFavorites = .success(favoritos)
+        } catch {
+            statusFavorites = .error("No se pudo cargar los favoritos.")
+        }
+
     }
     
     /// Actualiza la posición de la cámara en el mapa.

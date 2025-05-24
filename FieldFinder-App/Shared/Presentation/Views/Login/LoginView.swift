@@ -42,11 +42,8 @@ struct LoginView: View {
                                 titleKey: "Email",
                                 textField: $email,
                                 keyboardType: .emailAddress,
-                                prompt: Text(
-                                    "Email"
-                                )
-                                
-                                
+                                prompt: Text("Email"),
+                                colorBackground: .thirdColorWhite
                             )
                             
                             // Password input field
@@ -60,10 +57,10 @@ struct LoginView: View {
                                     .frame(maxWidth: .infinity)
                                     .padding()
                                     .background(Color.thirdColorWhite)
-                                    .foregroundColor(.secondaryColorBlack)
+                                    .foregroundStyle(.secondaryColorBlack)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                             } else {
-                                CustomButtonView(title: "Iniciar Sesión", color: .primaryColorGreen, textColor: .thirdColorWhite) {
+                                CustomButtonView(title: "Iniciar Sesión", color: .primaryColorGreen, textColor: .white) {
                                     Task {
                                         try await appState.login(email:email, password: password)
                                     }

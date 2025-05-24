@@ -13,7 +13,9 @@ struct GridListCellView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             ZStack(alignment: .topTrailing) {
+
                 RemoteImageCardView(url: canchaResponse.photoCanchas.first, height: 180)
+
                     .clipShape(RoundedRectangle(cornerRadius: 16))
                     .shadow(radius: 4)
 
@@ -27,10 +29,10 @@ struct GridListCellView: View {
 
                 HStack(spacing: 6) {
                     Image(systemName: "creditcard.fill")
-                        .foregroundColor(.gray)
+                        .foregroundStyle(.primaryColorGreen)
                     Text("$\(String(format: "%.2f", canchaResponse.precio)) por hora")
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(Color.colorBlack)
                         .lineLimit(2)
                 }
             }

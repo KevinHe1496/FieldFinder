@@ -25,7 +25,7 @@ struct FavoriteButton: View {
         }) {
             Image(systemName: isFavorite ? "heart.fill" : "heart")
                 .font(.system(size: 24))
-                .foregroundColor(.red)
+                .foregroundStyle(.red)
                 .padding(8)
                 .background(Color.white)
                 .clipShape(Circle())

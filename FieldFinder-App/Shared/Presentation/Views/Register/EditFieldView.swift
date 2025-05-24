@@ -60,7 +60,7 @@ struct EditFieldView: View {
                 Toggle("Cubierta", isOn: $cubierta)
             }
             .padding()
-            .background(.thirdColorWhite)
+            .background(Color(.secondarySystemBackground))
             .clipShape(RoundedRectangle(cornerRadius: 8))
             
             //MARK: PRECIO
@@ -74,9 +74,10 @@ struct EditFieldView: View {
                         .keyboardType(.decimalPad)
                         .multilineTextAlignment(.trailing)
                 }
+                
             }
             .padding()
-            .background(.thirdColorWhite)
+            .background(Color(.secondarySystemBackground))
             .clipShape(RoundedRectangle(cornerRadius: 8))
             
             

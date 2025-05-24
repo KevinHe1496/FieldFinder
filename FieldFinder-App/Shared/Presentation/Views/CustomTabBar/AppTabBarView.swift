@@ -7,27 +7,31 @@
 import SwiftUI
 
 struct AppTabBarView: View {
-    
-    @State private var selection: String = "home"
-    
+
     @State private var tabSelection: TabBarItem = .home
     @StateObject private var viewModel = GetNearbyEstablishmentsViewModel()
     
     init() {
-        let navBarAppearance = UINavigationBarAppearance()
-        navBarAppearance.configureWithOpaqueBackground()
-        navBarAppearance.backgroundColor = UIColor.systemGroupedBackground
-
-        UINavigationBar.appearance().standardAppearance = navBarAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
-
         let tabBarAppearance = UITabBarAppearance()
         tabBarAppearance.configureWithOpaqueBackground()
         tabBarAppearance.backgroundColor = UIColor.systemGroupedBackground
 
+        // Deseleccionado: ícono y texto gris
+        tabBarAppearance.stackedLayoutAppearance.normal.iconColor = .lightGray
+        tabBarAppearance.stackedLayoutAppearance.normal.titleTextAttributes = [
+            .foregroundColor: UIColor.lightGray
+        ]
+
+        // Seleccionado: ícono y texto verde
+        tabBarAppearance.stackedLayoutAppearance.selected.iconColor = UIColor(Color.primaryColorGreen)
+        tabBarAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [
+            .foregroundColor: UIColor(Color.primaryColorGreen) 
+        ]
+
         UITabBar.appearance().standardAppearance = tabBarAppearance
         UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
     }
+
 
     
     var body: some View {
@@ -42,7 +46,7 @@ struct AppTabBarView: View {
                 MapEstablishmentsView()
             }
             
-            Tab("Inicio", systemImage: "person.fill", value: tabSelection) {
+            Tab("Perfil", systemImage: "person.fill", value: tabSelection) {
                 DefaultProfile()
             }
             
@@ -53,33 +57,6 @@ struct AppTabBarView: View {
 }
 
 #Preview {
-    
     AppTabBarView()
         .environment(AppState())
-}
-
-
-extension AppTabBarView {
-    private var defaultTabView: some View {
-        TabView(selection: $selection) {
-            
-            Color.red
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
-                }
-            
-            Color.blue
-                .tabItem {
-                    Image(systemName: "map.fill")
-                    Text("Map")
-                }
-            
-            Color.orange
-                .tabItem {
-                    Image(systemName: "person.fill")
-                    Text("Profile")
-                }
-        }
-    }
 }

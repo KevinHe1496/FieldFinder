@@ -14,7 +14,7 @@ struct EstablishmentAnnotationView: View {
         VStack {
             Image(.logoFieldfinderTransparent)
             Text(establishment.name)
-                .foregroundStyle(.primary)
+                .foregroundStyle(Color.colorBlack)
                 .font(.caption)
                 .fixedSize()
                 .padding(4)

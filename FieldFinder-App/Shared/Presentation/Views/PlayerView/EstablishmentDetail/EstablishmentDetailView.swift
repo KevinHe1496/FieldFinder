@@ -29,9 +29,8 @@ struct EstablishmentDetailView: View {
             
             switch viewModel.status {
             case .idle, .loading:
-                ProgressView("Cargando...")
-                    .progressViewStyle(CircularProgressViewStyle())
-                    .scaleEffect(1.3)
+                LoadingProgressView()
+                
             case .success(let establecimiento):
                 ScrollView {
                     VStack(spacing: 20) {
@@ -39,7 +38,18 @@ struct EstablishmentDetailView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 16))
                             .shadow(radius: 4)
                         
-                        EstablishmentInfoSection(establishment: establecimiento)
+                        EstablishmentInfoSection(
+                            establishment: establecimiento,
+                            callManager: viewModel.callManager,
+                            mapsManager: viewModel.mapsManager,
+                            onCallTap: {
+                                viewModel.prepareCall(phone: establecimiento.phone)
+                            },
+                            onMapTap: {
+                                viewModel.prepareMaps(for: establecimiento)
+                            }
+                        )
+
                         EstablishmentServicesSection(establishment: establecimiento)
                         
                         if !establecimiento.canchas.isEmpty {
@@ -50,11 +60,11 @@ struct EstablishmentDetailView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 40, height: 40)
-                                    .foregroundColor(.gray)
+                                    .foregroundStyle(.gray)
                                 
                                 Text("No hay canchas registradas")
                                     .font(.headline)
-                                    .foregroundColor(.primaryColorGreen)
+                                    .foregroundStyle(.primaryColorGreen)
                             }
                             .padding(20)
                             .frame(maxWidth: .infinity)
@@ -81,17 +91,15 @@ struct EstablishmentDetailView: View {
                 VStack(spacing: 16) {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .font(.system(size: 48))
-                        .foregroundColor(.red)
+                        .foregroundStyle(.primaryColorGreen)
                     Text("Error al cargar el establecimiento")
                         .font(.headline)
                     Text(message)
                         .multilineTextAlignment(.center)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
                 .padding()
             }
-            
-            
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Establecimiento")

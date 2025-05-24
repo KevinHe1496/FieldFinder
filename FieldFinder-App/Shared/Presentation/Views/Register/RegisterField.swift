@@ -109,7 +109,7 @@ struct RegisterField: View {
                             .background(Color.primaryColorGreen)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                 } else {
-                    CustomButtonView(title: "Registrar", color: .primaryColorGreen, textColor: .thirdColorWhite) {
+                    CustomButtonView(title: "Registrar", color: .primaryColorGreen, textColor: .white) {
                         Task {
                             
                             let newModel = FieldRequest(

@@ -28,7 +28,7 @@ struct DefaultProfile: View {
                 }
                 
             case .loading:
-                ProgressView("Cargando...")
+                LoadingProgressView()
 
             case .error:
                 unauthenticatedView
@@ -55,7 +55,7 @@ struct DefaultProfile: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 80, height: 80)
-                .foregroundColor(.primaryColorGreen)
+                .foregroundStyle(.primaryColorGreen)
             
             Text("¿Aún no tienes cuenta?")
                 .font(.title2)
@@ -65,14 +65,14 @@ struct DefaultProfile: View {
             Text("Inicia sesión si ya tienes una cuenta o regístrate como jugador o dueño para guardar tus canchas o administrarlas.")
                 .font(.subheadline)
                 .multilineTextAlignment(.center)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
                 .padding(.horizontal)
             
             VStack(spacing: 16) {
                 CustomButtonView(
                     title: "Iniciar Sesión",
                     color: Color.primaryColorGreen,
-                    textColor: Color.thirdColorWhite
+                    textColor: Color.white
                 ) {
                     showLoginSheet.toggle()
                 }
@@ -80,7 +80,7 @@ struct DefaultProfile: View {
                 CustomButtonView(
                     title: "Registrarse",
                     color: Color.primaryColorGreen,
-                    textColor: Color.thirdColorWhite
+                    textColor: Color.white
                 ) {
                     showRegisterSheet.toggle()
                 }

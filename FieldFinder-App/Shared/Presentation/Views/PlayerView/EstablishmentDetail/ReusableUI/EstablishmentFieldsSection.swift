@@ -11,31 +11,31 @@ import SwiftUI
 struct EstablishmentFieldsSection: View {
     let canchas: [FieldResponse]
     @State private var shownItems: Set<String> = []
+    let rows = GridItem(.flexible(minimum: 80))
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 8) {
                 Text("Canchas")
                     .font(.headline)
                     .padding(.horizontal, 20)
-                    .foregroundColor(.primaryColorGreen)
+                    .foregroundStyle(.primaryColorGreen)
 
                 ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHGrid(rows: [GridItem(.fixed(280))]) {
+                    LazyHGrid(rows: [rows]) {
                         ForEach(canchas) { cancha in
                             NavigationLink {
                                 CanchaDetailView(fieldId: cancha.id)
                             } label: {
                                 AnimatedAppearRow(item: cancha, shownItems: $shownItems) {
                                     CanchaRowView(cancha: cancha)
-                                        .frame(width: UIScreen.main.bounds.width * 0.8, height: 280)
+                                        .frame(width: UIScreen.main.bounds.width * 1, height: 350)
                                         .clipShape(RoundedRectangle(cornerRadius: 12))
                                         .padding(.horizontal)
                                 }
                             }
                         }
                     }
-                    .frame(height: 300)
                 }
             }
         }

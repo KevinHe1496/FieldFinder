@@ -21,7 +21,7 @@ struct EstablishmentMapSection: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text("Ubicación")
                     .font(.headline)
-                    .foregroundColor(.primaryColorGreen)
+                    .foregroundStyle(.primaryColorGreen)
 
                 Map(position: $cameraPosition) {
                     Annotation("Ubicación", coordinate: coordinate) {
@@ -39,7 +39,7 @@ struct EstablishmentMapSection: View {
         }
         .padding()
         .background(.thirdColorWhite)
-        .cornerRadius(16)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
         .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
         
         .alert("¿Abrir en Apple Maps?", isPresented: $showAlert) {

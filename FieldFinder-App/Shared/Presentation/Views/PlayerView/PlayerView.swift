@@ -6,7 +6,7 @@ struct PlayerView: View {
     @State private var searchText = ""
     @State private var didLoad = false
     
-    @ObservedObject var viewModel: GetNearbyEstablishmentsViewModel
+    @State var viewModel: GetNearbyEstablishmentsViewModel
     @State private var shownItems: Set<String> = []
     
     let columns = [GridItem(.flexible())]
@@ -16,9 +16,7 @@ struct PlayerView: View {
             Group {
                 switch viewModel.status {
                 case .idle, .loading:
-                    ProgressView("Cargando...")
-                        .progressViewStyle(CircularProgressViewStyle())
-                        .scaleEffect(1.3)
+                    LoadingProgressView()
                     
                 case .success:
                     ScrollView {
@@ -32,7 +30,7 @@ struct PlayerView: View {
                             if !viewModel.establishmentSearch.isEmpty {
                                 Text("Mostrando \(viewModel.filterEstablishments.count) resultados")
                                     .font(.subheadline)
-                                    .foregroundColor(.gray)
+                                    .foregroundStyle(.gray)
                                     .padding(.horizontal)
                             }
                             
@@ -50,6 +48,18 @@ struct PlayerView: View {
                             .padding(.bottom)
                         }
                     }
+                    .refreshable {
+                        do {
+                            try await viewModel.loadData()
+                            try await viewModel.getFavoritesUser()
+                            shownItems = []
+                            for establishment in viewModel.filterEstablishments {
+                                shownItems.insert(establishment.id)
+                            }
+                        } catch {
+                            print("Error al refrescar: \(error)")
+                        }
+                    }
                     .scrollIndicators(.hidden)
                     .background(Color(UIColor.systemGroupedBackground))
                     
@@ -58,12 +68,32 @@ struct PlayerView: View {
                     VStack(spacing: 16) {
                         Image(systemName: "exclamationmark.triangle.fill")
                             .font(.system(size: 48))
-                            .foregroundColor(.primaryColorGreen)
+                            .foregroundStyle(.primaryColorGreen)
                         Text("Error al cargar los establecimientos")
                             .font(.headline)
                         Text(message)
                             .multilineTextAlignment(.center)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
+                        
+                        CustomButtonView(title: "Intentar denuevo", color: .primaryColorGreen, textColor: .white) {
+                            Task {
+                                do {
+                                    try await viewModel.loadData()
+                                    try await viewModel.getFavoritesUser()
+                                    
+                                    if !didLoad {
+                                        shownItems = []
+                                        didLoad = true
+                                        
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                            for establishment in viewModel.filterEstablishments {
+                                                shownItems.insert(establishment.id)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                     .padding()
                 }
