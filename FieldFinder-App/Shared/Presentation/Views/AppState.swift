@@ -47,7 +47,7 @@ final class AppState {
                 // Login Success
                 self.status = .loading
                 
-                let user = try await GetMeUseCase().getUser()
+                let user = try await UserProfileServiceUseCase().fetchUser()
                 self.userRole = user.userRole
                 
                 
@@ -80,7 +80,7 @@ final class AppState {
     func validateToken() async {
         Task {
             if (await loginUseCase.validateToken() == true) {
-                let user = try await GetMeUseCase().getUser()
+                let user = try await UserProfileServiceUseCase().fetchUser()
                 self.userRole = user.userRole
                 self.status = .loaded
                 

@@ -13,9 +13,9 @@
 		BF0E25AD2DD7E23500A53745 /* ProfileEstablishmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0E25AC2DD7E22900A53745 /* ProfileEstablishmentViewModel.swift */; };
 		BF11258B2DCEC64B00A9DBE5 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11258A2DCEC64800A9DBE5 /* RegisterViewModel.swift */; };
 		BF1125972DCFA07B00A9DBE5 /* UserProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125962DCFA07000A9DBE5 /* UserProfileService.swift */; };
-		BF11259D2DCFA8C100A9DBE5 /* GetMeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11259C2DCFA8BB00A9DBE5 /* GetMeRepository.swift */; };
-		BF11259F2DCFA8E800A9DBE5 /* GetMeRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11259E2DCFA8E300A9DBE5 /* GetMeRepositoryProtocol.swift */; };
-		BF1125A12DCFA92900A9DBE5 /* GetMeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125A02DCFA92200A9DBE5 /* GetMeUseCase.swift */; };
+		BF11259D2DCFA8C100A9DBE5 /* UserProfileServiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11259C2DCFA8BB00A9DBE5 /* UserProfileServiceRepository.swift */; };
+		BF11259F2DCFA8E800A9DBE5 /* UserProfileServiceRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11259E2DCFA8E300A9DBE5 /* UserProfileServiceRepositoryProtocol.swift */; };
+		BF1125A12DCFA92900A9DBE5 /* UserProfileServiceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125A02DCFA92200A9DBE5 /* UserProfileServiceUseCase.swift */; };
 		BF1125AF2DCFF0B800A9DBE5 /* GeocodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125AE2DCFF0B800A9DBE5 /* GeocodingHelper.swift */; };
 		BF1125B12DCFF10600A9DBE5 /* Data-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125B02DCFF10600A9DBE5 /* Data-extension.swift */; };
 		BF1125B32DCFF1D400A9DBE5 /* EstablishmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125B22DCFF1CE00A9DBE5 /* EstablishmentService.swift */; };
@@ -55,9 +55,9 @@
 		C92221B62DD3C62F00D6BE8B /* FieldDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221B52DD3C62F00D6BE8B /* FieldDetailViewModel.swift */; };
 		C92221B82DD3D84600D6BE8B /* FieldAttributesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221B72DD3D84600D6BE8B /* FieldAttributesView.swift */; };
 		C92221BA2DD3DB2000D6BE8B /* UserFavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221B92DD3DB2000D6BE8B /* UserFavoritesService.swift */; };
-		C92221BC2DD3EA9800D6BE8B /* FavoriteUserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221BB2DD3EA9800D6BE8B /* FavoriteUserRepositoryProtocol.swift */; };
-		C92221BE2DD3EABD00D6BE8B /* FavoriteUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221BD2DD3EABD00D6BE8B /* FavoriteUserRepository.swift */; };
-		C92221C02DD3EAF700D6BE8B /* FavoriteUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221BF2DD3EAF700D6BE8B /* FavoriteUserUseCase.swift */; };
+		C92221BC2DD3EA9800D6BE8B /* UserFavoritesServiceRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221BB2DD3EA9800D6BE8B /* UserFavoritesServiceRepositoryProtocol.swift */; };
+		C92221BE2DD3EABD00D6BE8B /* UserFavoritesServiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221BD2DD3EABD00D6BE8B /* UserFavoritesServiceRepository.swift */; };
+		C92221C02DD3EAF700D6BE8B /* UserFavoritesServiceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221BF2DD3EAF700D6BE8B /* UserFavoritesServiceUseCase.swift */; };
 		C92221C42DD3F1BB00D6BE8B /* FavoriteEstablishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221C32DD3F1BB00D6BE8B /* FavoriteEstablishment.swift */; };
 		C92221C62DD416F600D6BE8B /* FavoriteEstablishmentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221C52DD416F600D6BE8B /* FavoriteEstablishmentRowView.swift */; };
 		C92FD0F22DD279DC0008E2F9 /* GetNearbyEstablishmentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92FD0F12DD279DC0008E2F9 /* GetNearbyEstablishmentsViewModel.swift */; };
@@ -133,9 +133,9 @@
 		BF0E25AC2DD7E22900A53745 /* ProfileEstablishmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEstablishmentViewModel.swift; sourceTree = "<group>"; };
 		BF11258A2DCEC64800A9DBE5 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		BF1125962DCFA07000A9DBE5 /* UserProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileService.swift; sourceTree = "<group>"; };
-		BF11259C2DCFA8BB00A9DBE5 /* GetMeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMeRepository.swift; sourceTree = "<group>"; };
-		BF11259E2DCFA8E300A9DBE5 /* GetMeRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMeRepositoryProtocol.swift; sourceTree = "<group>"; };
-		BF1125A02DCFA92200A9DBE5 /* GetMeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMeUseCase.swift; sourceTree = "<group>"; };
+		BF11259C2DCFA8BB00A9DBE5 /* UserProfileServiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileServiceRepository.swift; sourceTree = "<group>"; };
+		BF11259E2DCFA8E300A9DBE5 /* UserProfileServiceRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileServiceRepositoryProtocol.swift; sourceTree = "<group>"; };
+		BF1125A02DCFA92200A9DBE5 /* UserProfileServiceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileServiceUseCase.swift; sourceTree = "<group>"; };
 		BF1125AE2DCFF0B800A9DBE5 /* GeocodingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodingHelper.swift; sourceTree = "<group>"; };
 		BF1125B02DCFF10600A9DBE5 /* Data-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data-extension.swift"; sourceTree = "<group>"; };
 		BF1125B22DCFF1CE00A9DBE5 /* EstablishmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentService.swift; sourceTree = "<group>"; };
@@ -175,9 +175,9 @@
 		C92221B52DD3C62F00D6BE8B /* FieldDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldDetailViewModel.swift; sourceTree = "<group>"; };
 		C92221B72DD3D84600D6BE8B /* FieldAttributesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldAttributesView.swift; sourceTree = "<group>"; };
 		C92221B92DD3DB2000D6BE8B /* UserFavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavoritesService.swift; sourceTree = "<group>"; };
-		C92221BB2DD3EA9800D6BE8B /* FavoriteUserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteUserRepositoryProtocol.swift; sourceTree = "<group>"; };
-		C92221BD2DD3EABD00D6BE8B /* FavoriteUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteUserRepository.swift; sourceTree = "<group>"; };
-		C92221BF2DD3EAF700D6BE8B /* FavoriteUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteUserUseCase.swift; sourceTree = "<group>"; };
+		C92221BB2DD3EA9800D6BE8B /* UserFavoritesServiceRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavoritesServiceRepositoryProtocol.swift; sourceTree = "<group>"; };
+		C92221BD2DD3EABD00D6BE8B /* UserFavoritesServiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavoritesServiceRepository.swift; sourceTree = "<group>"; };
+		C92221BF2DD3EAF700D6BE8B /* UserFavoritesServiceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavoritesServiceUseCase.swift; sourceTree = "<group>"; };
 		C92221C32DD3F1BB00D6BE8B /* FavoriteEstablishment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteEstablishment.swift; sourceTree = "<group>"; };
 		C92221C52DD416F600D6BE8B /* FavoriteEstablishmentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteEstablishmentRowView.swift; sourceTree = "<group>"; };
 		C92FD0F12DD279DC0008E2F9 /* GetNearbyEstablishmentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNearbyEstablishmentsViewModel.swift; sourceTree = "<group>"; };
@@ -310,8 +310,8 @@
 			children = (
 				BF1471D42DD64B75008C1E09 /* FieldServiceUseCase.swift */,
 				BF93CBB52DD39FD1002A8627 /* EstablishmentServiceUseCase.swift */,
-				C92221BF2DD3EAF700D6BE8B /* FavoriteUserUseCase.swift */,
-				BF1125A02DCFA92200A9DBE5 /* GetMeUseCase.swift */,
+				C92221BF2DD3EAF700D6BE8B /* UserFavoritesServiceUseCase.swift */,
+				BF1125A02DCFA92200A9DBE5 /* UserProfileServiceUseCase.swift */,
 				BFFB27F52DCD471600DD8819 /* UserAuthServiceUseCase.swift */,
 			);
 			path = Usecases;
@@ -331,9 +331,9 @@
 			children = (
 				BF1471D22DD64B07008C1E09 /* FieldServiceRepositoryProtocol.swift */,
 				BF93CBB12DD39E31002A8627 /* EstablishmentServiceRepositoryProtocol.swift */,
-				BF11259E2DCFA8E300A9DBE5 /* GetMeRepositoryProtocol.swift */,
+				BF11259E2DCFA8E300A9DBE5 /* UserProfileServiceRepositoryProtocol.swift */,
 				BFFB27F12DCD45F100DD8819 /* UserAuthServiceRepositoryProtocol.swift */,
-				C92221BB2DD3EA9800D6BE8B /* FavoriteUserRepositoryProtocol.swift */,
+				C92221BB2DD3EA9800D6BE8B /* UserFavoritesServiceRepositoryProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -367,9 +367,9 @@
 			children = (
 				BF1471D02DD64A7B008C1E09 /* FieldServiceRepository.swift */,
 				BF93CBB32DD39E4F002A8627 /* EstablishmentServiceRepository.swift */,
-				C92221BD2DD3EABD00D6BE8B /* FavoriteUserRepository.swift */,
-				BF11259C2DCFA8BB00A9DBE5 /* GetMeRepository.swift */,
 				BFFB27F32DCD462300DD8819 /* UserAuthServiceRepository.swift */,
+				BF11259C2DCFA8BB00A9DBE5 /* UserProfileServiceRepository.swift */,
+				C92221BD2DD3EABD00D6BE8B /* UserFavoritesServiceRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -842,7 +842,7 @@
 				C939BC812DCCF91600B98C16 /* Font-Theme.swift in Sources */,
 				C9C7BAAB2DCE88C1007CB3FA /* CustomTabBarContainerView.swift in Sources */,
 				C92FD10C2DD2BB170008E2F9 /* RemoteImageCardView.swift in Sources */,
-				C92221BE2DD3EABD00D6BE8B /* FavoriteUserRepository.swift in Sources */,
+				C92221BE2DD3EABD00D6BE8B /* UserFavoritesServiceRepository.swift in Sources */,
 				C92221C42DD3F1BB00D6BE8B /* FavoriteEstablishment.swift in Sources */,
 				C92FD10E2DD2BB570008E2F9 /* FavoriteButton.swift in Sources */,
 				C92221AB2DD3C21D00D6BE8B /* CanchaDetailView.swift in Sources */,
@@ -853,7 +853,7 @@
 				C98B8BF12DD5015B004F05A3 /* EstablishmentSelectedMapDestailView.swift in Sources */,
 				C92FD0F22DD279DC0008E2F9 /* GetNearbyEstablishmentsViewModel.swift in Sources */,
 				BF97190C2DCD1BD100CD0AF8 /* Endpoints.swift in Sources */,
-				BF1125A12DCFA92900A9DBE5 /* GetMeUseCase.swift in Sources */,
+				BF1125A12DCFA92900A9DBE5 /* UserProfileServiceUseCase.swift in Sources */,
 				C98B8BF92DD530F7004F05A3 /* TermsAndConditionsView.swift in Sources */,
 				BF784DB12DDE6CD700B2B2E6 /* UserModels.swift in Sources */,
 				BFE2E09A2DD3E68700B0E0BE /* ResizeImagesData.swift in Sources */,
@@ -861,14 +861,14 @@
 				C9C7BAA92DCE88B8007CB3FA /* CustomTabBarView.swift in Sources */,
 				C9D4CA5E2DD7E6A400296604 /* EstablishmentInfoSection.swift in Sources */,
 				C9C7BAAD2DCE88C7007CB3FA /* TabBarItemsPreferenceKey.swift in Sources */,
-				C92221C02DD3EAF700D6BE8B /* FavoriteUserUseCase.swift in Sources */,
+				C92221C02DD3EAF700D6BE8B /* UserFavoritesServiceUseCase.swift in Sources */,
 				BFFB27F42DCD462300DD8819 /* UserAuthServiceRepository.swift in Sources */,
 				BF97190A2DCD199800CD0AF8 /* AppState.swift in Sources */,
 				C9C7BAB82DCE8A60007CB3FA /* MapEstablishmentsView.swift in Sources */,
 				C9B0AD6B2DCD00950043A9A2 /* RegisterView.swift in Sources */,
 				BF947F252DDBD6B200A0DFA0 /* DefaultProfile.swift in Sources */,
 				C9C7BABE2DCE8D71007CB3FA /* ProfileUserView.swift in Sources */,
-				C92221BC2DD3EA9800D6BE8B /* FavoriteUserRepositoryProtocol.swift in Sources */,
+				C92221BC2DD3EA9800D6BE8B /* UserFavoritesServiceRepositoryProtocol.swift in Sources */,
 				C939BC7B2DCCF8F000B98C16 /* CustomSecureFieldView.swift in Sources */,
 				C9D4CA662DD7FD5F00296604 /* AnimatedAppearRow.swift in Sources */,
 				BF1125AF2DCFF0B800A9DBE5 /* GeocodingHelper.swift in Sources */,
@@ -906,9 +906,9 @@
 				C961A2D82DDBBEA600A6BF8D /* WelcomeView.swift in Sources */,
 				C92FD0F62DD288C50008E2F9 /* EstablishmentRowView.swift in Sources */,
 				BF5614A82DCE6E8B003C1F66 /* RegisterField.swift in Sources */,
-				BF11259D2DCFA8C100A9DBE5 /* GetMeRepository.swift in Sources */,
+				BF11259D2DCFA8C100A9DBE5 /* UserProfileServiceRepository.swift in Sources */,
 				BF1471D92DD65102008C1E09 /* CanchaModels.swift in Sources */,
-				BF11259F2DCFA8E800A9DBE5 /* GetMeRepositoryProtocol.swift in Sources */,
+				BF11259F2DCFA8E800A9DBE5 /* UserProfileServiceRepositoryProtocol.swift in Sources */,
 				BF0E25AD2DD7E23500A53745 /* ProfileEstablishmentViewModel.swift in Sources */,
 				BF0E25A92DD7CB1300A53745 /* ProfileEstablishmentView.swift in Sources */,
 				C98B8BF52DD52F6F004F05A3 /* ProfileUserViewModel.swift in Sources */,

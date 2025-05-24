@@ -6,10 +6,10 @@ final class OwnerViewModel {
     
     var establishments = UserProfileResponse(email: "", id: "", rol: "", name: "", establecimiento: [])
     @ObservationIgnored
-    private var useCase: GetMeUseCaseProtocol
+    private var useCase: UserProfileServiceUseCaseProtocol
 
     
-    init(useCase: GetMeUseCaseProtocol = GetMeUseCase()) {
+    init(useCase: UserProfileServiceUseCaseProtocol = UserProfileServiceUseCase()) {
         self.useCase = useCase
         Task {
             await getEstablishments()
@@ -19,7 +19,7 @@ final class OwnerViewModel {
     
     func getEstablishments() async {
         do {
-            let data = try await useCase.getUser()
+            let data = try await useCase.fetchUser()
             establishments = data
         } catch {
             print("Error en el viewModel decodificando datos")

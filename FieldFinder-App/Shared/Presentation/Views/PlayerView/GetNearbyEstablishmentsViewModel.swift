@@ -50,10 +50,10 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     
     // Casos de uso para favoritos del usuario.
     @ObservationIgnored
-    private let favoriteUseCase: FavoriteUserUseCaseProtocol
+    private let favoriteUseCase: UserFavoritesServiceUseCaseProtocol
     
     // Inicializa el ViewModel con las dependencias necesarias.
-    init(useCase: EstablishmentServiceUseCaseProtocol = EstablishmentServiceUseCase(), favoriteUseCase: FavoriteUserUseCaseProtocol = FavoriteUserUseCase()) {
+    init(useCase: EstablishmentServiceUseCaseProtocol = EstablishmentServiceUseCase(), favoriteUseCase: UserFavoritesServiceUseCaseProtocol = UserFavoritesServiceUseCase()) {
         self.useCase = useCase
         self.favoriteUseCase = favoriteUseCase
     }
@@ -87,9 +87,9 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     @MainActor
     func toggleFavorite(establishmentId: String, isFavorite: Bool) async throws {
         if isFavorite {
-            try await favoriteUseCase.favoriteUser(establishmentId: establishmentId)
+            try await favoriteUseCase.addFavorite(establishmentId: establishmentId)
         } else {
-            try await favoriteUseCase.deleteFavoriteUser(establishmentId: establishmentId)
+            try await favoriteUseCase.removeFavorite(establishmentId: establishmentId)
         }
         try await self.getFavoritesUser() // Actualiza la lista de favoritos.
     }
@@ -97,7 +97,7 @@ final class GetNearbyEstablishmentsViewModel: ObservableObject {
     // Carga los establecimientos favoritos del usuario.
     @MainActor
     func getFavoritesUser() async throws {
-        let data = try await favoriteUseCase.getFavoriteUser()
+        let data = try await favoriteUseCase.fetchFavorites()
         self.favoritesData = data
     }
     

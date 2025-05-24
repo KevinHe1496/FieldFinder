@@ -6,7 +6,7 @@
 //
 import Foundation
 
-final class FavoriteUserRepository: FavoriteUserRepositoryProtocol {
+final class UserFavoritesServiceRepository: UserFavoritesServiceRepositoryProtocol {
 
     private let network: UserFavoritesServiceProtocol
 
@@ -14,15 +14,15 @@ final class FavoriteUserRepository: FavoriteUserRepositoryProtocol {
         self.network = network
     }
 
-    func favoriteUser(establishmentId: String) async throws {
+    func addFavorite(establishmentId: String) async throws {
         try await network.addFavorite(with: establishmentId)
     }
 
-    func deleteFavoriteUser(establishmentId: String) async throws {
+    func removeFavorite(establishmentId: String) async throws {
         try await network.removeFavorite(with: establishmentId)
     }
     
-    func getFavoriteUser() async throws -> [FavoriteEstablishment] {
+    func fetchFavorites() async throws -> [FavoriteEstablishment] {
         try await network.fetchFavorites()
     }
 }

@@ -18,9 +18,9 @@ final class EstablishmentDetailViewModel {
     private var useCase: EstablishmentServiceUseCaseProtocol
     
     @ObservationIgnored
-    private var favoriteUseCase: FavoriteUserUseCaseProtocol
+    private var favoriteUseCase: UserFavoritesServiceUseCaseProtocol
     
-    init(useCase: EstablishmentServiceUseCaseProtocol = EstablishmentServiceUseCase(), favoriteUseCase: FavoriteUserUseCaseProtocol = FavoriteUserUseCase()) {
+    init(useCase: EstablishmentServiceUseCaseProtocol = EstablishmentServiceUseCase(), favoriteUseCase: UserFavoritesServiceUseCaseProtocol = UserFavoritesServiceUseCase()) {
         self.useCase = useCase
         self.favoriteUseCase = favoriteUseCase
     }
@@ -38,12 +38,12 @@ final class EstablishmentDetailViewModel {
     
     @MainActor
     func addToFavorites(establishmentId: String) async throws {
-        try await favoriteUseCase.favoriteUser(establishmentId: establishmentId)
+        try await favoriteUseCase.addFavorite(establishmentId: establishmentId)
     }
     
     @MainActor
     func removeFromFavorites(establishmentId: String) async throws {
-        try await favoriteUseCase.deleteFavoriteUser(establishmentId: establishmentId)
+        try await favoriteUseCase.removeFavorite(establishmentId: establishmentId)
     }
     
     @MainActor

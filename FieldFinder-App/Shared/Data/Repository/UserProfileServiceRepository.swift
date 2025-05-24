@@ -1,6 +1,6 @@
 import Foundation
 
-final class GetMeRepository: GetMeRepositoryProtocol {
+final class UserProfileServiceRepository: UserProfileServiceRepositoryProtocol {
     
     let network: NetworkGetMeProtocol
     
@@ -8,7 +8,7 @@ final class GetMeRepository: GetMeRepositoryProtocol {
         self.network = network
     }
     
-    func getUser() async throws -> UserProfileResponse {
+    func fetchUser() async throws -> UserProfileResponse {
         try await network.fetchUser()
     }
     
