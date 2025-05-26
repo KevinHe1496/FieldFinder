@@ -93,22 +93,3 @@ final class UserAuthService: AuthServiceProtocol {
     }
     
 }
-
-
-// MOCK Success
-
-
-final class MockAuthService: AuthServiceProtocol {
-    var loginCalled = false
-    var registerCalled = false
-    
-    func login(email: String, password: String) async throws -> String {
-        loginCalled = true
-        return "mockedToken"
-    }
-    
-    func registerUser(name: String, email: String, password: String, role: String) async throws -> String {
-        registerCalled = true
-        return "mockedToken"
-    }
-}
