@@ -1,0 +1,57 @@
+//
+//  RootView.swift
+//  FieldFinder-App
+//
+//  Created by Andy Heredia on 8/5/25.
+//
+
+import SwiftUI
+
+struct RootView: View {
+    @AppStorage("hasSeenWelcome") var hasSeenWelcome = false
+    @Environment(AppState.self) var appState
+    
+    var body: some View {
+        switch appState.status {
+        case .login:
+            if hasSeenWelcome {
+                AppTabBarView()
+            } else {
+                WelcomeView(hasSeenWelcome: $hasSeenWelcome)
+            }
+        case .loading:
+            LoadingView()
+        case .home:
+            AppTabBarView()
+        case .registerUser:
+            RegisterUserView(appState: appState)
+        
+        case .loaded:
+            if let role = appState.userRole {
+                switch role {
+                    
+                case .dueno:
+                    AppTabBarView()
+                case .jugador:
+                    AppTabBarView()
+                }
+            } else {
+                Text("Loading... no sirve nose por que")
+            }
+            
+        case .register:
+            RegisterEstablishmentView(appState: appState)
+        case .error(error: let errorString):
+            Text("Error \(errorString)")
+        case .ownerView:
+            OwnerView()
+        case .registerCancha:
+            RegisterFieldView()
+        }
+    }
+}
+
+#Preview {
+    RootView()
+        .environment(AppState())
+}

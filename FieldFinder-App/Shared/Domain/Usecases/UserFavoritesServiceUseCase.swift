@@ -9,7 +9,7 @@ import Foundation
 protocol UserFavoritesServiceUseCaseProtocol {
     func addFavorite(establishmentId: String) async throws
     func removeFavorite(establishmentId: String) async throws
-    func fetchFavorites() async throws -> [FavoriteEstablishment]
+    func fetchFavorites() async throws -> [FavoriteEstablishmentModel]
 }
 
 final class UserFavoritesServiceUseCase: UserFavoritesServiceUseCaseProtocol {
@@ -27,7 +27,7 @@ final class UserFavoritesServiceUseCase: UserFavoritesServiceUseCaseProtocol {
         try await repository.removeFavorite(establishmentId: establishmentId)
     }
     
-    func fetchFavorites() async throws -> [FavoriteEstablishment] {
+    func fetchFavorites() async throws -> [FavoriteEstablishmentModel] {
         try await repository.fetchFavorites()
     }
 }
