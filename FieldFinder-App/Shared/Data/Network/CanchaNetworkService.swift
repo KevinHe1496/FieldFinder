@@ -1,17 +1,17 @@
 import Foundation
 
-protocol NetworkRegisterCanchaProtocol {
-    func registerCancha(_ canchaModel: CanchaRequest) async throws -> String
-    func uploadImagesCancha(canchaID: String, images: [Data]) async throws
-    func editCancha(canchaID: String, canchaModel: CanchaRequest) async throws -> CanchaRequest
-    func deleteCancha(canchaID: String) async throws
+protocol CanchaNetworkServiceProtocol {
+    func createField(_ fieldModel: CanchaRequest) async throws -> String
+    func uploadFieldImages(fieldID: String, images: [Data]) async throws
+    func updateField(fieldID: String, fieldModel: CanchaRequest) async throws -> CanchaRequest
+    func deleteField(fieldID: String) async throws
 }
 
 
-final class CanchaNetworkService: NetworkRegisterCanchaProtocol {
+final class FieldService: CanchaNetworkServiceProtocol {
     
     
-    func registerCancha(_ canchaModel: CanchaRequest) async throws -> String {
+    func createField(_ fieldModel: CanchaRequest) async throws -> String {
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.registerCancha.rawValue)"
         
         guard let url = URL(string: urlString) else {
@@ -25,7 +25,7 @@ final class CanchaNetworkService: NetworkRegisterCanchaProtocol {
         let tokenJWT = KeyChainFF().loadPK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
         request.setValue("\(HttpHeader.bearer) \(tokenJWT)", forHTTPHeaderField: HttpHeader.authorization)
         
-        request.httpBody = try JSONEncoder().encode(canchaModel)
+        request.httpBody = try JSONEncoder().encode(fieldModel)
         
         
         let (data, response) = try await URLSession.shared.data(for: request)
@@ -56,8 +56,8 @@ final class CanchaNetworkService: NetworkRegisterCanchaProtocol {
     }
     
     
-    func uploadImagesCancha(canchaID: String, images: [Data]) async throws {
-        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.uploadImagesCancha.rawValue)/\(canchaID)"
+    func uploadFieldImages(fieldID: String, images: [Data]) async throws {
+        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.uploadImagesCancha.rawValue)/\(fieldID)"
         
         guard let url = URL(string: urlString) else {
             throw FFError.badUrl
@@ -102,8 +102,8 @@ final class CanchaNetworkService: NetworkRegisterCanchaProtocol {
         }
     }
     
-    func editCancha(canchaID: String, canchaModel: CanchaRequest) async throws -> CanchaRequest {
-        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getFieldById.rawValue)/\(canchaID)"
+    func updateField(fieldID: String, fieldModel: CanchaRequest) async throws -> CanchaRequest {
+        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getFieldById.rawValue)/\(fieldID)"
         
         guard let url = URL(string: urlString) else {
             throw FFError.badUrl
@@ -116,7 +116,7 @@ final class CanchaNetworkService: NetworkRegisterCanchaProtocol {
         let tokenJWT = KeyChainFF().loadPK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
         request.setValue("\(HttpHeader.bearer) \(tokenJWT)", forHTTPHeaderField: HttpHeader.authorization)
         
-        request.httpBody = try JSONEncoder().encode(canchaModel)
+        request.httpBody = try JSONEncoder().encode(fieldModel)
         
         let (data, response) = try await URLSession.shared.data(for: request)
         
@@ -134,8 +134,8 @@ final class CanchaNetworkService: NetworkRegisterCanchaProtocol {
         
     }
     
-    func deleteCancha(canchaID: String) async throws {
-        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getFieldById.rawValue)/\(canchaID)"
+    func deleteField(fieldID: String) async throws {
+        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getFieldById.rawValue)/\(fieldID)"
         
         guard let url = URL(string: urlString) else {
             throw FFError.badUrl
