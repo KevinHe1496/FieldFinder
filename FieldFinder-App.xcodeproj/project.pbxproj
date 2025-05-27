@@ -39,6 +39,11 @@
 		BF97190E2DCD1BE600CD0AF8 /* HttpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97190D2DCD1BE600CD0AF8 /* HttpMethods.swift */; };
 		BF9719102DCD1BFD00CD0AF8 /* HttpResponseCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97190F2DCD1BFD00CD0AF8 /* HttpResponseCodes.swift */; };
 		BFA9DC322DE4F9A50016AA2C /* OwnerFieldGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9DC312DE4F9A50016AA2C /* OwnerFieldGridItemView.swift */; };
+		BFA9DC4D2DE52BDB0016AA2C /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9DC4C2DE52BDB0016AA2C /* MockAuthService.swift */; };
+		BFA9DC502DE52E6E0016AA2C /* UserAuthServiceRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9DC4F2DE52E6E0016AA2C /* UserAuthServiceRepositoryTests.swift */; };
+		BFA9DC532DE5386F0016AA2C /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9DC522DE5386A0016AA2C /* URLProtocolStub.swift */; };
+		BFA9DC552DE541690016AA2C /* UserAuthServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9DC542DE541690016AA2C /* UserAuthServiceTests.swift */; };
+		BFA9DC572DE5439B0016AA2C /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9DC562DE5439B0016AA2C /* MockData.swift */; };
 		BFB50ED42DE15C960086F1A5 /* EstablishmentInfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB50ED32DE15C960086F1A5 /* EstablishmentInfoSection.swift */; };
 		BFE2E09A2DD3E68700B0E0BE /* ResizeImagesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2E0992DD3E68000B0E0BE /* ResizeImagesData.swift */; };
 		BFE2E09C2DD401AA00B0E0BE /* CustomUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2E09B2DD401AA00B0E0BE /* CustomUIImage.swift */; };
@@ -155,6 +160,11 @@
 		BF97190D2DCD1BE600CD0AF8 /* HttpMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpMethods.swift; path = "FieldFinder-App/Shared/Data/Network/HttpMethods.swift"; sourceTree = SOURCE_ROOT; };
 		BF97190F2DCD1BFD00CD0AF8 /* HttpResponseCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpResponseCodes.swift; path = "FieldFinder-App/Shared/Data/Network/HttpResponseCodes.swift"; sourceTree = SOURCE_ROOT; };
 		BFA9DC312DE4F9A50016AA2C /* OwnerFieldGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerFieldGridItemView.swift; sourceTree = "<group>"; };
+		BFA9DC4C2DE52BDB0016AA2C /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
+		BFA9DC4F2DE52E6E0016AA2C /* UserAuthServiceRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthServiceRepositoryTests.swift; sourceTree = "<group>"; };
+		BFA9DC522DE5386A0016AA2C /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
+		BFA9DC542DE541690016AA2C /* UserAuthServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthServiceTests.swift; sourceTree = "<group>"; };
+		BFA9DC562DE5439B0016AA2C /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		BFB50ED32DE15C960086F1A5 /* EstablishmentInfoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentInfoSection.swift; sourceTree = "<group>"; };
 		BFE2E0992DD3E68000B0E0BE /* ResizeImagesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeImagesData.swift; sourceTree = "<group>"; };
 		BFE2E09B2DD401AA00B0E0BE /* CustomUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIImage.swift; sourceTree = "<group>"; };
@@ -224,11 +234,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		C939BC3C2DCCF38500B98C16 /* FieldFinder-AppTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "FieldFinder-AppTests";
-			sourceTree = "<group>";
-		};
 		C939BC462DCCF38500B98C16 /* FieldFinder-AppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "FieldFinder-AppUITests";
@@ -431,6 +436,66 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		BFA9DC462DE5292F0016AA2C /* FieldFinder-AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				BFA9DC512DE538640016AA2C /* Helpers */,
+				BFA9DC4E2DE52E4A0016AA2C /* Repositories */,
+				BFA9DC4B2DE5294F0016AA2C /* Mocks */,
+				BFA9DC4A2DE529480016AA2C /* Services */,
+				BFA9DC492DE5293D0016AA2C /* UseCases */,
+				BFA9DC482DE529320016AA2C /* ViewModels */,
+			);
+			path = "FieldFinder-AppTests";
+			sourceTree = "<group>";
+		};
+		BFA9DC482DE529320016AA2C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BFA9DC492DE5293D0016AA2C /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		BFA9DC4A2DE529480016AA2C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BFA9DC542DE541690016AA2C /* UserAuthServiceTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BFA9DC4B2DE5294F0016AA2C /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				BFA9DC562DE5439B0016AA2C /* MockData.swift */,
+				BFA9DC4C2DE52BDB0016AA2C /* MockAuthService.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		BFA9DC4E2DE52E4A0016AA2C /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				BFA9DC4F2DE52E6E0016AA2C /* UserAuthServiceRepositoryTests.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		BFA9DC512DE538640016AA2C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BFA9DC522DE5386A0016AA2C /* URLProtocolStub.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		C92221AC2DD3C34300D6BE8B /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,7 +535,7 @@
 			isa = PBXGroup;
 			children = (
 				C939BC592DCCF4BE00B98C16 /* FieldFinder-App */,
-				C939BC3C2DCCF38500B98C16 /* FieldFinder-AppTests */,
+				BFA9DC462DE5292F0016AA2C /* FieldFinder-AppTests */,
 				C939BC462DCCF38500B98C16 /* FieldFinder-AppUITests */,
 				C939BC2D2DCCF38400B98C16 /* Products */,
 			);
@@ -732,9 +797,6 @@
 			dependencies = (
 				C939BC3B2DCCF38500B98C16 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				C939BC3C2DCCF38500B98C16 /* FieldFinder-AppTests */,
-			);
 			name = "FieldFinder-AppTests";
 			packageProductDependencies = (
 			);
@@ -943,6 +1005,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFA9DC572DE5439B0016AA2C /* MockData.swift in Sources */,
+				BFA9DC4D2DE52BDB0016AA2C /* MockAuthService.swift in Sources */,
+				BFA9DC502DE52E6E0016AA2C /* UserAuthServiceRepositoryTests.swift in Sources */,
+				BFA9DC552DE541690016AA2C /* UserAuthServiceTests.swift in Sources */,
+				BFA9DC532DE5386F0016AA2C /* URLProtocolStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,11 @@ protocol AuthServiceProtocol {
 
 final class UserAuthService: AuthServiceProtocol {
     
+    private let session: URLSession
+    
+    init(session: URLSession = .shared) {
+        self.session = session
+    }
     
     func login(email: String, password: String) async throws -> String {
         
@@ -34,7 +39,7 @@ final class UserAuthService: AuthServiceProtocol {
         
         // Call to server
         do {
-            let (data, response) = try await URLSession.shared.data(for: request)
+            let (data, response) = try await session.data(for: request)
             
             guard let res = response as? HTTPURLResponse, res.statusCode == HttpResponseCodes.SUCCESS else {
                 throw FFError.errorFromApi(statusCode: -1)
@@ -44,8 +49,7 @@ final class UserAuthService: AuthServiceProtocol {
             tokenJWT = result.accessToken
             
         } catch {
-            print("No data response \(error.localizedDescription)")
-            tokenJWT = ""
+            throw FFError.errorParsingData
         }
         
         return tokenJWT
@@ -73,7 +77,7 @@ final class UserAuthService: AuthServiceProtocol {
         request.httpBody = jsonData
         
         do {
-            let (data, response) = try await URLSession.shared.data(for: request)
+            let (data, response) = try await session.data(for: request)
             
             guard let res = response as? HTTPURLResponse, res.statusCode == HttpResponseCodes.SUCCESS else {
                 throw FFError.errorFromApi(statusCode: -1)
@@ -92,23 +96,4 @@ final class UserAuthService: AuthServiceProtocol {
         return tokenJWT
     }
     
-}
-
-
-// MOCK Success
-
-
-final class MockAuthService: AuthServiceProtocol {
-    var loginCalled = false
-    var registerCalled = false
-    
-    func login(email: String, password: String) async throws -> String {
-        loginCalled = true
-        return "mockedToken"
-    }
-    
-    func registerUser(name: String, email: String, password: String, role: String) async throws -> String {
-        registerCalled = true
-        return "mockedToken"
-    }
 }

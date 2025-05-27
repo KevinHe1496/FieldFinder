@@ -17,28 +17,3 @@ final class UserAuthServiceRepository: UserAuthServiceRepositoryProtocol {
     }
     
 }
-
-
-// MOCK
-
-final class LoginRepositoryMock: UserAuthServiceRepositoryProtocol {
-    
-    
-     
-    var network: AuthServiceProtocol
-    
-    init(network: AuthServiceProtocol = MockAuthService()) {
-        self.network = network
-    }
-    
-    func login(email: String, password: String) async throws -> String {
-        try await network.login(email: email, password: password)
-    }
-    
-    
-    func registerUser(name: String, email: String, password: String, role: String) async throws -> String {
-        // TO DO
-        return "todo"
-    }
-    
-}
