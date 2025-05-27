@@ -1,14 +1,13 @@
 import Foundation
 
 @Observable
-final class RegisterUserViewModel {
+final class UserAuthViewModel {
     // MARK: -- Properties
     private var appState: AppState
     var isLoading: Bool = false
     var isRegistered: Bool = false
     var showAlert: Bool = false
     var message: String?
-    var tokenJWT: String = ""
     
     @ObservationIgnored
     private let useCase: UserAuthServiceUseCaseProtocol
