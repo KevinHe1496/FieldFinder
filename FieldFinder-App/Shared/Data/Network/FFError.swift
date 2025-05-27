@@ -44,3 +44,30 @@ enum FFError: Error, CustomStringConvertible {
         }
     }
 }
+
+extension FFError: Equatable {
+    static func == (lhs: FFError, rhs: FFError) -> Bool {
+        switch (lhs, rhs) {
+        case (.requestWasNil, .requestWasNil),
+             (.dataNoReveiced, .dataNoReveiced),
+             (.errorParsingData, .errorParsingData),
+             (.sessionTokenMissing, .sessionTokenMissing),
+             (.badUrl, .badUrl),
+             (.authenticationFailed, .authenticationFailed),
+             (.locationDisabled, .locationDisabled),
+             (.noLocationFound, .noLocationFound),
+             (.decodingError, .decodingError),
+             (.locationPermissionDenied, .locationPermissionDenied):
+            return true
+
+        case let (.errorFromApi(code1), .errorFromApi(code2)):
+            return code1 == code2
+
+        case (.errorFromServer, .errorFromServer):
+            return true // ⚠️ No se compara el error interno
+
+        default:
+            return false
+        }
+    }
+}
