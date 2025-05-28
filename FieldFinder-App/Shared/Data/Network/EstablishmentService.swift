@@ -198,6 +198,7 @@ final class EstablishmentService: EstablishmentServiceProtocol {
             let result = try JSONDecoder().decode([EstablishmentResponse].self, from: data)
             modelReturn = result
         } catch {
+            throw FFError.decodingError
             print("Decoding error: \(error.localizedDescription)")
         }
         return modelReturn

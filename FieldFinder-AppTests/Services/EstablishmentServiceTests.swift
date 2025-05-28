@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import CoreLocation
 
 @testable import FieldFinder_App
 final class EstablishmentServiceTests: XCTestCase {
@@ -37,7 +38,7 @@ final class EstablishmentServiceTests: XCTestCase {
         let data = try MockData.loadJSONData(name: "IDResponse")
         URLProtocolStub.stubResponseData = data
         URLProtocolStub.stubStatusCode = 200
-      
+        
         let request = EstablishmentRequest(
             name: "Bocha",
             info: "Cancha sintética de fútbol 7 con iluminación nocturna",
@@ -124,7 +125,197 @@ final class EstablishmentServiceTests: XCTestCase {
         }
     }
     
+    func testUploadEstablishmentImages_Succeeds_WhenStatusCodeIs200() async throws {
+        // Arrage
+        URLProtocolStub.stubStatusCode = 200
+        URLProtocolStub.stubResponseData = "Upload success".data(using: .utf8)
+        
+        let dummyImage = UIImage(systemName: "photo")?.jpegData(compressionQuality: 1.0)
+        guard let imagesData = dummyImage else {
+            return
+        }
+        let images = [imagesData]
+        
+        
+        // Act & Assert
+        do {
+            try await sut.uploadEstablishmentImages(establishmentID: "1", images: images)
+        } catch {
+            XCTFail("Expected upload to succeed, but got error: \(error)")
+        }
+        
+    }
     
+    func testUploadEstablishmentImages_ThrowsError_WhenStatusCodeIs500() async {
+        // Arrange
+        URLProtocolStub.stubResponseData = "Internal Server Error".data(using: .utf8)
+        URLProtocolStub.stubStatusCode = 500
+        
+        let dummyImage = UIImage(systemName: "photo")?.jpegData(compressionQuality: 1.0)
+        guard let imagesData = dummyImage else {
+            return
+        }
+        let images = [imagesData]
+        
+        
+        // Act & Assert
+        do {
+            _ = try await sut.uploadEstablishmentImages(establishmentID: "1", images: images)
+            XCTFail()
+        } catch let error as FFError {
+            XCTAssertEqual(error, .requestWasNil)
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+    }
     
+    func testUpdateEstablishment_Suceeds_WhenStatusCodeIs200() async throws {
+        // Arrange
+        URLProtocolStub.stubStatusCode = 200
+        URLProtocolStub.stubResponseData = "Upload success".data(using: .utf8)
+        
+        // Act & Assert
+        
+        do {
+            
+            let request = EstablishmentRequest(
+                name: "Show Gol",
+                info: "Cancha sintética de fútbol 7 con iluminación nocturna",
+                address: "123 Main St",
+                country: "Ecuador",
+                city: "Quito",
+                zipCode: "170123",
+                parqueadero: true,
+                vestidores: true,
+                bar: true,
+                banos: true,
+                duchas: false,
+                latitude: -0.2299,
+                longitude: -78.5249,
+                phone: "0998041792"
+            )
+            
+            try await sut.updateEstablishment(establishmentID: "1", establishmentModel: request)
+        } catch {
+            XCTFail("Expected update to succeed, but got error: \(error)")
+        }
+    }
     
+    func testUpdateEstablishment_ThrowsError_WhenStatusCodeIs500() async {
+        //Arrange
+        URLProtocolStub.stubStatusCode = 500
+        
+        
+        let request = EstablishmentRequest(
+            name: "Show Gol",
+            info: "Cancha sintética de fútbol 7 con iluminación nocturna",
+            address: "123 Main St",
+            country: "Ecuador",
+            city: "Quito",
+            zipCode: "170123",
+            parqueadero: true,
+            vestidores: true,
+            bar: true,
+            banos: true,
+            duchas: false,
+            latitude: -0.2299,
+            longitude: -78.5249,
+            phone: "0998041792"
+        )
+        
+        do {
+            try await sut.updateEstablishment(establishmentID: "1", establishmentModel: request)
+            XCTFail()
+        } catch let error as FFError {
+            XCTAssertEqual(error, .errorFromApi(statusCode: -1))
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+    }
+    
+    func testFetchEstablishment_ReturnsEstablishment_WhenResponseIsValid() async throws {
+        // Arrange
+        let jsonData = try MockData.loadJSONData(name: "EstablishmentResponse")
+        URLProtocolStub.stubResponseData = jsonData
+        URLProtocolStub.stubStatusCode = 200
+        // Act * Assert
+        let establishment = try await sut.fetchEstablishment(with: "1")
+        XCTAssertNotNil(establishment)
+        XCTAssertEqual(establishment.id, "1")
+        XCTAssertEqual(establishment.name, "Cancha Los Libertadores")
+        XCTAssertEqual(establishment.info, "Complejo deportivo con canchas de fútbol 7 y servicios adicionales.")
+        XCTAssertEqual(establishment.address, "Av. Amazonas y Naciones Unidas")
+        XCTAssertEqual(establishment.city, "Quito")
+        XCTAssertTrue(establishment.isFavorite)
+        XCTAssertEqual(establishment.zipCode, "170102")
+        XCTAssertEqual(establishment.country, "Ecuador")
+        XCTAssertEqual(establishment.phone, "+593987654321")
+        XCTAssertEqual(establishment.userName, "kevin_heredia")
+        XCTAssertEqual(establishment.userRol, "dueno")
+        XCTAssertTrue(establishment.parquedero)
+        XCTAssertTrue(establishment.vestidores)
+        XCTAssertFalse(establishment.duchas)
+        XCTAssertTrue(establishment.bar)
+        
+    }
+    
+    func testFetchEstablishment_ThrowsError_WhenResponseIsInvalid() async throws {
+        // Arrange
+        URLProtocolStub.stubResponseData = Data()
+        URLProtocolStub.stubStatusCode = 200
+        // Act & Assert
+        do {
+            _ = try await sut.fetchEstablishment(with: "1")
+            XCTFail("Expected to throw decodingError, but it did not.")
+        } catch let error as FFError {
+            XCTAssertEqual(error, .decodingError, "Expected a decodingError when the response JSON does not match the expected model.")
+        } catch {
+            XCTFail("Unexpected error type: \(error)")
+        }
+    }
+    
+    func testFetchAllEstablishment_ReturnsAllEstablishments_WhenResponseIsValid() async throws {
+        // Arrange
+        let jsonData = try MockData.loadJSONData(name: "GetNearbyEstablishmentRequest")
+        URLProtocolStub.stubResponseData = jsonData
+        URLProtocolStub.stubStatusCode = 200
+        
+        let coordinate = CLLocationCoordinate2D(latitude: -0.2299, longitude: -78.5249)
+        
+        // Act & Assert
+        let establishments = try await sut.fetchAllEstablishments(coordinate: coordinate)
+        XCTAssertNotNil(establishments)
+        XCTAssertEqual(establishments.count, 1)
+        XCTAssertEqual(establishments.first?.id, "1")
+        XCTAssertEqual(establishments.first?.name, "Cancha Los Libertadores")
+        XCTAssertEqual(establishments.first?.info, "Complejo deportivo con canchas de fútbol 7 y servicios adicionales.")
+        XCTAssertEqual(establishments.first?.address, "Av. Amazonas y Naciones Unidas")
+        XCTAssertEqual(establishments.first?.city, "Quito")
+        XCTAssertTrue(((establishments.first?.isFavorite) != nil))
+        XCTAssertEqual(establishments.first?.zipCode, "170102")
+        XCTAssertEqual(establishments.first?.country, "Ecuador")
+        XCTAssertEqual(establishments.first?.phone, "+593987654321")
+        XCTAssertEqual(establishments.first?.userName, "kevin_heredia")
+        XCTAssertEqual(establishments.first?.userRol, "dueno")
+        XCTAssertTrue(((establishments.first?.parquedero) != nil))
+        XCTAssertTrue(((establishments.first?.vestidores) != nil))
+        XCTAssertTrue(((establishments.first?.bar) != nil))
+        
+    }
+    
+    func testFetchAllEstablishment_ThrowsError_WhenResponseIsInvalid() async throws {
+        // Arrange
+        URLProtocolStub.stubResponseData = Data()
+        URLProtocolStub.stubStatusCode = 200
+        
+        // Act & Assert
+        do {
+            _ = try await sut.fetchAllEstablishments(coordinate: CLLocationCoordinate2D(latitude: -0.2299, longitude: -78.5249))
+            XCTFail("Expected to throw decodingError, but it did not.")
+        } catch let error as FFError {
+            XCTAssertEqual(error, .decodingError)
+        } catch {
+            XCTFail("Unexpected error type: \(error)")
+        }
+    }
 }

@@ -121,7 +121,7 @@ final class UserAuthServiceTests: XCTestCase {
             )
             XCTFail("Expected to throw errorParsingData, but it did not.")
         } catch let error as FFError {
-            XCTAssertEqual(error, .errorParsingData)
+            XCTAssertEqual(error, .errorParsingData, "Expected a errorParsingData when the response JSON does not match the expected model.")
         } catch {
             XCTFail("Unexpected error type: \(error)")
         }
