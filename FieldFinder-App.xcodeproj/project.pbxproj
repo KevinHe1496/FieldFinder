@@ -28,6 +28,7 @@
 		BF1D6B482DE631A300ACF5A8 /* UserAuthServiceUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1D6B472DE631A300ACF5A8 /* UserAuthServiceUseCaseTests.swift */; };
 		BF1D6B4C2DE6501C00ACF5A8 /* UserAuthViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1D6B4B2DE6501C00ACF5A8 /* UserAuthViewModelTests.swift */; };
 		BF1D6B4E2DE6779C00ACF5A8 /* EstablishmentServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1D6B4D2DE6779C00ACF5A8 /* EstablishmentServiceTests.swift */; };
+		BF1D6B512DE67BED00ACF5A8 /* IDResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = BF1D6B502DE67BE500ACF5A8 /* IDResponse.json */; };
 		BF46A97A2DD4DF76006A5FF3 /* OwnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46A9792DD4DF71006A5FF3 /* OwnerViewModel.swift */; };
 		BF5614A82DCE6E8B003C1F66 /* RegisterFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5614A72DCE6E8B003C1F66 /* RegisterFieldView.swift */; };
 		BF784DAF2DDE6BB200B2B2E6 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF784DAE2DDE6BA900B2B2E6 /* Enums.swift */; };
@@ -152,6 +153,7 @@
 		BF1D6B472DE631A300ACF5A8 /* UserAuthServiceUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthServiceUseCaseTests.swift; sourceTree = "<group>"; };
 		BF1D6B4B2DE6501C00ACF5A8 /* UserAuthViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthViewModelTests.swift; sourceTree = "<group>"; };
 		BF1D6B4D2DE6779C00ACF5A8 /* EstablishmentServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentServiceTests.swift; sourceTree = "<group>"; };
+		BF1D6B502DE67BE500ACF5A8 /* IDResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = IDResponse.json; sourceTree = "<group>"; };
 		BF46A9792DD4DF71006A5FF3 /* OwnerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerViewModel.swift; sourceTree = "<group>"; };
 		BF5614A72DCE6E8B003C1F66 /* RegisterFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFieldView.swift; sourceTree = "<group>"; };
 		BF784DAE2DDE6BA900B2B2E6 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 		BF1D6B4F2DE677A400ACF5A8 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				BF1D6B502DE67BE500ACF5A8 /* IDResponse.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -904,6 +907,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF1D6B512DE67BED00ACF5A8 /* IDResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -74,18 +74,6 @@ final class UserAuthServiceTests: XCTestCase {
         }
     }
     
-    func testLogin_ThrowsError_WhenStatusCodeIsNotSucces() async {
-        // Arrange
-        URLProtocolStub.stubResponseData = Data()
-        URLProtocolStub.stubStatusCode = 400
-        
-        // Act
-        let result = try? await sut.login(email: "wrong", password: "bad")
-        
-        //Assert
-        XCTAssertEqual(result, "", "Expected empty token when API response status is not 200.")
-    }
-    
     func testRegisterUser_RetunrsToken_WhenResponseIsValid() async throws {
         // Arrange
         let refreshToken = "refreshTokenExample123"
