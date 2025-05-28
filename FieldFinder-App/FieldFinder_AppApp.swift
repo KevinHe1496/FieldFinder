@@ -22,6 +22,9 @@ struct FieldFinder_AppApp: App {
         WindowGroup {
             RootView()
                 .environment(appState)
+                .task {
+                    await appState.checkSubscriptionStatus()
+                }
         }
     }
 }

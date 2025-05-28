@@ -7,15 +7,28 @@
 
 import SwiftUI
 
+enum OwnerNavigationDestination: Hashable {
+    case registerField
+}
+
 struct OwnerView: View {
     
     @Environment(AppState.self) var appState
     @State private var shownItems: Set<String> = []
     
-    @State private var viewModel = OwnerViewModel()
+   
+    @State private var showingStore = false
+    @State private var selectedNavigation: OwnerNavigationDestination?
+    
     let columns = [
         GridItem(.flexible())
     ]
+    
+    @State private var viewModel: OwnerViewModel
+
+    init(appState: AppState = AppState()) {
+        _viewModel = State(initialValue: OwnerViewModel(appState: appState))
+    }
     
     var body: some View {
         NavigationStack {
@@ -32,7 +45,7 @@ struct OwnerView: View {
                         .padding(.top, 250)
                         
                     } else {
-
+                        
                         LazyVGrid(columns: columns, spacing: 20) {
                             ForEach(viewModel.establishments.establecimiento) { establecimiento in
                                 ForEach(establecimiento.canchas) { cancha in
@@ -40,7 +53,7 @@ struct OwnerView: View {
                                         FieldDetailView(fieldId: cancha.id, userRole: viewModel.establishments.userRole)
                                     } label: {
                                         AnimatedAppearRow(item: cancha, shownItems: $shownItems) {
-                                           FieldGridItemView(field: cancha)
+                                            FieldGridItemView(field: cancha)
                                         }
                                         
                                     }
@@ -50,30 +63,32 @@ struct OwnerView: View {
                         .padding(.top)
                         .padding(.bottom)
                     }
-                    
                 }
                 .navigationTitle("Mis Canchas")
                 .toolbar {
-                    
                     ToolbarItem(placement: .topBarTrailing) {
-                        
-                        NavigationLink {
-                            RegisterFieldView()
-                            
-                        } label: {
+                        Button(action: handleAddFieldTapped) {
                             Image(systemName: "plus.circle.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 30)
+                                .font(.title2) // Tamaño recomendado por Apple
+                                .accessibilityLabel("Agregar cancha")
                         }
                         .tint(.primaryColorGreen)
                     }
-                    
+                }
+                NavigationLink(
+                    destination: RegisterFieldView(),
+                    tag: .registerField,
+                    selection: $selectedNavigation
+                ) {
+                    EmptyView()
+                }
+                .hidden()
+                .sheet(isPresented: $showingStore) {
+                    StoreView()
                 }
                 .task {
                     await viewModel.getEstablishments()
                     
-                    // 🔁 Marca todos los ítems como mostrados si no hay scroll
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                         for establecimiento in viewModel.establishments.establecimiento {
                             for cancha in establecimiento.canchas {
@@ -86,9 +101,18 @@ struct OwnerView: View {
             }
         }
     }
+    private func handleAddFieldTapped() {
+        if viewModel.canAddField() {
+            selectedNavigation = .registerField
+        } else {
+            showingStore = true
+        }
+    }
 }
 
+
+
 #Preview {
-    OwnerView()
+    OwnerView(appState: AppState())
         .environment(AppState())
 }

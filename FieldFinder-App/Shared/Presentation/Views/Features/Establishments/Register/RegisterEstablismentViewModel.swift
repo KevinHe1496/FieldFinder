@@ -5,16 +5,16 @@ import UIKit
 @Observable
 final class RegisterEstablismentViewModel {
     
-    
     private var appState: AppState
     var isLoading = false
     var latitude: Double?
     var longitude: Double?
     var alertMessage: String?
+
     @ObservationIgnored
     var useCase: EstablishmentServiceUseCaseProtocol
     
-    init(useCase: EstablishmentServiceUseCaseProtocol = EstablishmentServiceUseCase(), appState: AppState) {
+    init(useCase: EstablishmentServiceUseCaseProtocol = EstablishmentServiceUseCase(), appState: AppState, ) {
         self.useCase = useCase
         self.appState = appState
     }
@@ -23,10 +23,7 @@ final class RegisterEstablismentViewModel {
     func registerEstablishment(name: String, info: String, address: String, country: String, city: String, zipCode: String, parqueadero: Bool, vestidores: Bool, bar: Bool, banos: Bool, duchas: Bool, phone: String, images: [Data]) async throws {
         
         isLoading = true
-        
-        
-     
-        
+
         guard !address.isEmpty, !info.isEmpty, !country.isEmpty, !city.isEmpty, !zipCode.isEmpty, !name.isEmpty, !phone.isEmpty else {
             self.alertMessage = "Todos los campos son obligatorios. Revisa los datos ingresados."
             isLoading = false
