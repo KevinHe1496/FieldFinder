@@ -13,7 +13,7 @@ struct RegisterUserView: View {
     // MARK: - State Properties
     
     @Environment(AppState.self) var appState
-    @State private var viewModel: RegisterUserViewModel
+    @State private var viewModel: UserAuthViewModel
     
     @State private var name = ""
     @State private var email = ""
@@ -23,7 +23,7 @@ struct RegisterUserView: View {
 
     
     init(appState: AppState) {
-        _viewModel = State(initialValue: RegisterUserViewModel(appState: appState))
+        _viewModel = State(initialValue: UserAuthViewModel(appState: appState))
     }
     
     var body: some View {

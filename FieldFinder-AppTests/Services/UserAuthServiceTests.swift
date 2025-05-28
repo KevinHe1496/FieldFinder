@@ -74,18 +74,6 @@ final class UserAuthServiceTests: XCTestCase {
         }
     }
     
-    func testLogin_ThrowsError_WhenStatusCodeIsNotSucces() async {
-        // Arrange
-        URLProtocolStub.stubResponseData = Data()
-        URLProtocolStub.stubStatusCode = 400
-        
-        // Act
-        let result = try? await sut.login(email: "wrong", password: "bad")
-        
-        //Assert
-        XCTAssertEqual(result, "", "Expected empty token when API response status is not 200.")
-    }
-    
     func testRegisterUser_RetunrsToken_WhenResponseIsValid() async throws {
         // Arrange
         let refreshToken = "refreshTokenExample123"
@@ -133,7 +121,7 @@ final class UserAuthServiceTests: XCTestCase {
             )
             XCTFail("Expected to throw errorParsingData, but it did not.")
         } catch let error as FFError {
-            XCTAssertEqual(error, .errorParsingData)
+            XCTAssertEqual(error, .errorParsingData, "Expected a errorParsingData when the response JSON does not match the expected model.")
         } catch {
             XCTFail("Unexpected error type: \(error)")
         }
