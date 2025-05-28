@@ -36,35 +36,45 @@ struct ProfileOwnerView: View {
                                     .foregroundStyle(.primaryColorGreen)
                                 
                                 VStack(alignment: .leading) {
-                                    Text(user.establecimiento[0].name)
-                                        .font(.title3)
-                                    Text(user.email)
-                                        .font(.subheadline)
-                                        .foregroundStyle(.gray)
+                                    if let firstEstablishment = user.establecimiento.first {
+                                        Text(firstEstablishment.name)
+                                            .font(.title3)
+                                        Text(user.email)
+                                            .font(.subheadline)
+                                            .foregroundStyle(.gray)
+                                    } else {
+                                        Text("Aún no has registrado tu establecimiento.")
+                                            .font(.headline)
+                                            .foregroundStyle(.secondary)
+                                    }
+
                                 }
                             }
                             .padding(.vertical, 4)
                         }
                         
                         Section {
-                            NavigationLink("Mi Establecimiento") {
-                                EditEstablishmentView(
-                                    name: user.establecimiento[0].name,
-                                    info: user.establecimiento[0].info,
-                                    country: user.establecimiento[0].country,
-                                    address: user.establecimiento[0].address,
-                                    city: user.establecimiento[0].city,
-                                    zipcode: user.establecimiento[0].zipCode,
-                                    phone: user.establecimiento[0].phone,
-                                    establishmentID: user.establecimiento[0].id,
-                                    parqueadero: user.establecimiento[0].parquedero,
-                                    vestidores: user.establecimiento[0].vestidores,
-                                    bar: user.establecimiento[0].bar,
-                                    banos: user.establecimiento[0].banos,
-                                    duchas: user.establecimiento[0].duchas, appState: appState
-                                    
-                                )
+                            if let est = user.establecimiento.first {
+                                NavigationLink("Mi Establecimiento") {
+                                    EditEstablishmentView(
+                                        name: est.name,
+                                        info: est.info,
+                                        country: est.country,
+                                        address: est.address,
+                                        city: est.city,
+                                        zipcode: est.zipCode,
+                                        phone: est.phone,
+                                        establishmentID: est.id,
+                                        parqueadero: est.parquedero,
+                                        vestidores: est.vestidores,
+                                        bar: est.bar,
+                                        banos: est.banos,
+                                        duchas: est.duchas,
+                                        appState: appState
+                                    )
+                                }
                             }
+
                             NavigationLink("Condiciones de uso") {
                                 TermsAndConditionsView()
                             }

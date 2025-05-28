@@ -5,12 +5,16 @@ import Foundation
 final class OwnerViewModel {
     
     var establishments = UserProfileResponse(email: "", id: "", rol: "", name: "", establecimiento: [])
+    
     @ObservationIgnored
     private var useCase: UserProfileServiceUseCaseProtocol
-
+    @ObservationIgnored
+    private let appState: AppState
     
-    init(useCase: UserProfileServiceUseCaseProtocol = UserProfileServiceUseCase()) {
+    init(appState: AppState, useCase: UserProfileServiceUseCaseProtocol = UserProfileServiceUseCase()) {
         self.useCase = useCase
+        self.appState = appState
+        
         Task {
             await getEstablishments()
         }
@@ -26,4 +30,18 @@ final class OwnerViewModel {
         }
         
     }
+    
+    func canAddField() -> Bool {
+        let establishmentCount = establishments.establecimiento.count
+        let canchaCount = establishments.establecimiento.flatMap { $0.canchas }.count
+        
+        if appState.fullVersionUnlocked {
+            // Plan premium: hasta 2 establecimientos y 3 canchas por cada uno
+            return establishmentCount < 3 && canchaCount < 9
+        } else {
+            // Plan free: solo 1 establecimiento y 1 cancha
+            return establishmentCount == 0 || canchaCount == 0
+        }
+    }
+
 }
