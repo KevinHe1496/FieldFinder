@@ -54,6 +54,9 @@
 		BFA9DC532DE5386F0016AA2C /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9DC522DE5386A0016AA2C /* URLProtocolStub.swift */; };
 		BFA9DC552DE541690016AA2C /* UserAuthServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9DC542DE541690016AA2C /* UserAuthServiceTests.swift */; };
 		BFA9DC572DE5439B0016AA2C /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9DC562DE5439B0016AA2C /* MockData.swift */; };
+		BFB3652D2DE8CF14006EE463 /* FieldServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB3652C2DE8CF14006EE463 /* FieldServiceTests.swift */; };
+		BFB3652F2DE8DED0006EE463 /* FieldRequest.json in Resources */ = {isa = PBXBuildFile; fileRef = BFB3652E2DE8DEC5006EE463 /* FieldRequest.json */; };
+		BFB365312DE8E0D6006EE463 /* FieldResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = BFB365302DE8E0CF006EE463 /* FieldResponse.json */; };
 		BFB50ED42DE15C960086F1A5 /* EstablishmentInfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB50ED32DE15C960086F1A5 /* EstablishmentInfoSection.swift */; };
 		BFE2E09A2DD3E68700B0E0BE /* ResizeImagesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2E0992DD3E68000B0E0BE /* ResizeImagesData.swift */; };
 		BFE2E09C2DD401AA00B0E0BE /* CustomUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2E09B2DD401AA00B0E0BE /* CustomUIImage.swift */; };
@@ -185,6 +188,9 @@
 		BFA9DC522DE5386A0016AA2C /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
 		BFA9DC542DE541690016AA2C /* UserAuthServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthServiceTests.swift; sourceTree = "<group>"; };
 		BFA9DC562DE5439B0016AA2C /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		BFB3652C2DE8CF14006EE463 /* FieldServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldServiceTests.swift; sourceTree = "<group>"; };
+		BFB3652E2DE8DEC5006EE463 /* FieldRequest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FieldRequest.json; sourceTree = "<group>"; };
+		BFB365302DE8E0CF006EE463 /* FieldResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FieldResponse.json; sourceTree = "<group>"; };
 		BFB50ED32DE15C960086F1A5 /* EstablishmentInfoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentInfoSection.swift; sourceTree = "<group>"; };
 		BFE2E0992DD3E68000B0E0BE /* ResizeImagesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeImagesData.swift; sourceTree = "<group>"; };
 		BFE2E09B2DD401AA00B0E0BE /* CustomUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIImage.swift; sourceTree = "<group>"; };
@@ -298,6 +304,8 @@
 		BF1D6B4F2DE677A400ACF5A8 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				BFB365302DE8E0CF006EE463 /* FieldResponse.json */,
+				BFB3652E2DE8DEC5006EE463 /* FieldRequest.json */,
 				BF2D43E62DE7CCF700FE5FCE /* GetNearbyEstablishmentRequest.json */,
 				BF2D43E22DE79BAA00FE5FCE /* EstablishmentResponse.json */,
 				BF1D6B502DE67BE500ACF5A8 /* IDResponse.json */,
@@ -502,6 +510,7 @@
 			children = (
 				BFA9DC542DE541690016AA2C /* UserAuthServiceTests.swift */,
 				BF1D6B4D2DE6779C00ACF5A8 /* EstablishmentServiceTests.swift */,
+				BFB3652C2DE8CF14006EE463 /* FieldServiceTests.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -925,8 +934,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFB365312DE8E0D6006EE463 /* FieldResponse.json in Resources */,
 				BF2D43E32DE79BB400FE5FCE /* EstablishmentResponse.json in Resources */,
 				BF2D43E72DE7CD0400FE5FCE /* GetNearbyEstablishmentRequest.json in Resources */,
+				BFB3652F2DE8DED0006EE463 /* FieldRequest.json in Resources */,
 				BF1D6B512DE67BED00ACF5A8 /* IDResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1050,6 +1061,7 @@
 				BF57D35B2DE8A43D00CD3B93 /* EstablishmentServiceRepositoryTests.swift in Sources */,
 				BF1D6B4E2DE6779C00ACF5A8 /* EstablishmentServiceTests.swift in Sources */,
 				BFA9DC572DE5439B0016AA2C /* MockData.swift in Sources */,
+				BFB3652D2DE8CF14006EE463 /* FieldServiceTests.swift in Sources */,
 				BFA9DC4D2DE52BDB0016AA2C /* MockAuthService.swift in Sources */,
 				BFA9DC502DE52E6E0016AA2C /* UserAuthServiceRepositoryTests.swift in Sources */,
 				BF57D3592DE8A24100CD3B93 /* MockEstablishmentService.swift in Sources */,
