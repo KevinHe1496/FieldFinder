@@ -115,13 +115,13 @@ struct EstablishmentDetailView: View {
                 
                 // 💾 Incrementar contador de establecimientos visitados
                 var viewedCount = UserDefaults.standard.integer(forKey: "establishmentViewCount")
-                var reviewed = UserDefaults.standard.bool(forKey: "hasRequestedReviewEstablishment")
+                let reviewed = UserDefaults.standard.bool(forKey: "hasRequestedReviewEstablishment")
 
                 if !reviewed {
                     viewedCount += 1
                     UserDefaults.standard.set(viewedCount, forKey: "establishmentViewCount")
 
-                    // ✅ Mostrar review solo si ha visto 3 establecimientos
+                    // ✅ Mostrar review solo si ha visto 5 establecimientos
                     if viewedCount >= 5 {
                         requestReviewIfAppropriate()
                         UserDefaults.standard.set(true, forKey: "hasRequestedReviewEstablishment")

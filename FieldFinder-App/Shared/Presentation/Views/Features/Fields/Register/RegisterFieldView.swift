@@ -108,12 +108,6 @@ struct RegisterFieldView: View {
                             
                             await viewModel.registerCancha(newModel, images: selectedImages)
                             
-                            // ✅ Si se registró con éxito, pedir review
-                            if viewModel.shouldDismissAfterAlert && !appState.hasAskedReviewForRegisterField {
-                                appState.requestReviewIfAppropriate()
-                                appState.hasAskedReviewForRegisterField = true
-                            }
-                            
                             showAlert = true
                         }
                     }

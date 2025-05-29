@@ -14,7 +14,6 @@ final class AppState {
     // No Published
     @ObservationIgnored
     var isLogged: Bool = false
-    var hasAskedReviewForRegisterField = false
     
     private var storeTask: Task<Void, Never>?
     
