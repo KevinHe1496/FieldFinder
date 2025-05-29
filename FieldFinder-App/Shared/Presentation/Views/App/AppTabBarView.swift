@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct AppTabBarView: View {
-
+    
     @State private var tabSelection: TabBarItem = .home
     @StateObject private var viewModel = PlayerGetNearbyEstablishmentsViewModel()
     

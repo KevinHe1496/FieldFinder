@@ -14,6 +14,7 @@ final class AppState {
     // No Published
     @ObservationIgnored
     var isLogged: Bool = false
+    var hasAskedReviewForRegisterField = false
     
     private var storeTask: Task<Void, Never>?
     
@@ -121,5 +122,13 @@ final class AppState {
         fullVersionUnlocked = false
         isOnFreeTrial = false
     }
-
+    
+    // Función recomendada por Apple (fuera del body)
+    @MainActor
+    func requestReviewIfAppropriate() {
+        guard let scene = UIApplication.shared.connectedScenes
+            .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene else { return }
+        
+        AppStore.requestReview(in: scene)
+    }
 }

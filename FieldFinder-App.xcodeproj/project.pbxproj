@@ -10,7 +10,6 @@
 		BF03C62D2DD78E35005DB158 /* EditFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF03C62C2DD78E35005DB158 /* EditFieldView.swift */; };
 		BF0E25A92DD7CB1300A53745 /* ProfileOwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0E25A82DD7CB1300A53745 /* ProfileOwnerView.swift */; };
 		BF0E25AB2DD7DE9400A53745 /* EditEstablishmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0E25AA2DD7DE9400A53745 /* EditEstablishmentView.swift */; };
-		BF11258B2DCEC64B00A9DBE5 /* UserAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11258A2DCEC64800A9DBE5 /* UserAuthViewModel.swift */; };
 		BF1125972DCFA07B00A9DBE5 /* UserProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1125962DCFA07000A9DBE5 /* UserProfileService.swift */; };
 		BF11259D2DCFA8C100A9DBE5 /* UserProfileServiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11259C2DCFA8BB00A9DBE5 /* UserProfileServiceRepository.swift */; };
 		BF11259F2DCFA8E800A9DBE5 /* UserProfileServiceRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11259E2DCFA8E300A9DBE5 /* UserProfileServiceRepositoryProtocol.swift */; };
@@ -25,12 +24,6 @@
 		BF1471D52DD64B81008C1E09 /* FieldServiceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1471D42DD64B75008C1E09 /* FieldServiceUseCase.swift */; };
 		BF1471D72DD64DB2008C1E09 /* ResgiterFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1471D62DD64DAC008C1E09 /* ResgiterFieldViewModel.swift */; };
 		BF1471D92DD65102008C1E09 /* FieldModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1471D82DD650EF008C1E09 /* FieldModels.swift */; };
-		BF1D6B482DE631A300ACF5A8 /* UserAuthServiceUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1D6B472DE631A300ACF5A8 /* UserAuthServiceUseCaseTests.swift */; };
-		BF1D6B4C2DE6501C00ACF5A8 /* UserAuthViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1D6B4B2DE6501C00ACF5A8 /* UserAuthViewModelTests.swift */; };
-		BF1D6B4E2DE6779C00ACF5A8 /* EstablishmentServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1D6B4D2DE6779C00ACF5A8 /* EstablishmentServiceTests.swift */; };
-		BF1D6B512DE67BED00ACF5A8 /* IDResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = BF1D6B502DE67BE500ACF5A8 /* IDResponse.json */; };
-		BF2D43E32DE79BB400FE5FCE /* EstablishmentResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = BF2D43E22DE79BAA00FE5FCE /* EstablishmentResponse.json */; };
-		BF2D43E72DE7CD0400FE5FCE /* GetNearbyEstablishmentRequest.json in Resources */ = {isa = PBXBuildFile; fileRef = BF2D43E62DE7CCF700FE5FCE /* GetNearbyEstablishmentRequest.json */; };
 		BF46A97A2DD4DF76006A5FF3 /* OwnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46A9792DD4DF71006A5FF3 /* OwnerViewModel.swift */; };
 		BF5614A82DCE6E8B003C1F66 /* RegisterFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5614A72DCE6E8B003C1F66 /* RegisterFieldView.swift */; };
 		BF784DAF2DDE6BB200B2B2E6 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF784DAE2DDE6BA900B2B2E6 /* Enums.swift */; };
@@ -113,6 +106,7 @@
 		C9D4CA622DD7E6B200296604 /* EstablishmentFieldsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CA612DD7E6B200296604 /* EstablishmentFieldsSection.swift */; };
 		C9D4CA642DD7E6B700296604 /* EstablishmentMapSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CA632DD7E6B700296604 /* EstablishmentMapSection.swift */; };
 		C9D4CA662DD7FD5F00296604 /* AnimatedAppearRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CA652DD7FD5F00296604 /* AnimatedAppearRow.swift */; };
+		C9E0D8432DE7DB2B006B398D /* UserAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0D8422DE7DB2B006B398D /* UserAuthViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,7 +130,6 @@
 		BF03C62C2DD78E35005DB158 /* EditFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFieldView.swift; sourceTree = "<group>"; };
 		BF0E25A82DD7CB1300A53745 /* ProfileOwnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOwnerView.swift; sourceTree = "<group>"; };
 		BF0E25AA2DD7DE9400A53745 /* EditEstablishmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEstablishmentView.swift; sourceTree = "<group>"; };
-		BF11258A2DCEC64800A9DBE5 /* UserAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthViewModel.swift; sourceTree = "<group>"; };
 		BF1125962DCFA07000A9DBE5 /* UserProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileService.swift; sourceTree = "<group>"; };
 		BF11259C2DCFA8BB00A9DBE5 /* UserProfileServiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileServiceRepository.swift; sourceTree = "<group>"; };
 		BF11259E2DCFA8E300A9DBE5 /* UserProfileServiceRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileServiceRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -151,12 +144,6 @@
 		BF1471D42DD64B75008C1E09 /* FieldServiceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldServiceUseCase.swift; sourceTree = "<group>"; };
 		BF1471D62DD64DAC008C1E09 /* ResgiterFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResgiterFieldViewModel.swift; sourceTree = "<group>"; };
 		BF1471D82DD650EF008C1E09 /* FieldModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldModels.swift; sourceTree = "<group>"; };
-		BF1D6B472DE631A300ACF5A8 /* UserAuthServiceUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthServiceUseCaseTests.swift; sourceTree = "<group>"; };
-		BF1D6B4B2DE6501C00ACF5A8 /* UserAuthViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthViewModelTests.swift; sourceTree = "<group>"; };
-		BF1D6B4D2DE6779C00ACF5A8 /* EstablishmentServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentServiceTests.swift; sourceTree = "<group>"; };
-		BF1D6B502DE67BE500ACF5A8 /* IDResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = IDResponse.json; sourceTree = "<group>"; };
-		BF2D43E22DE79BAA00FE5FCE /* EstablishmentResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EstablishmentResponse.json; sourceTree = "<group>"; };
-		BF2D43E62DE7CCF700FE5FCE /* GetNearbyEstablishmentRequest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetNearbyEstablishmentRequest.json; sourceTree = "<group>"; };
 		BF46A9792DD4DF71006A5FF3 /* OwnerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerViewModel.swift; sourceTree = "<group>"; };
 		BF5614A72DCE6E8B003C1F66 /* RegisterFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFieldView.swift; sourceTree = "<group>"; };
 		BF784DAE2DDE6BA900B2B2E6 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -242,6 +229,7 @@
 		C9D4CA612DD7E6B200296604 /* EstablishmentFieldsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentFieldsSection.swift; sourceTree = "<group>"; };
 		C9D4CA632DD7E6B700296604 /* EstablishmentMapSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentMapSection.swift; sourceTree = "<group>"; };
 		C9D4CA652DD7FD5F00296604 /* AnimatedAppearRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedAppearRow.swift; sourceTree = "<group>"; };
+		C9E0D8422DE7DB2B006B398D /* UserAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -290,16 +278,6 @@
 				BF0E25A82DD7CB1300A53745 /* ProfileOwnerView.swift */,
 			);
 			path = ProfileOwnerView;
-			sourceTree = "<group>";
-		};
-		BF1D6B4F2DE677A400ACF5A8 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				BF2D43E62DE7CCF700FE5FCE /* GetNearbyEstablishmentRequest.json */,
-				BF2D43E22DE79BAA00FE5FCE /* EstablishmentResponse.json */,
-				BF1D6B502DE67BE500ACF5A8 /* IDResponse.json */,
-			);
-			path = JSON;
 			sourceTree = "<group>";
 		};
 		BF5614AA2DCE705C003C1F66 /* Usecases */ = {
@@ -463,72 +441,6 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-
-		BFA9DC462DE5292F0016AA2C /* FieldFinder-AppTests */ = {
-			isa = PBXGroup;
-			children = (
-				BFA9DC512DE538640016AA2C /* Helpers */,
-				BFA9DC4E2DE52E4A0016AA2C /* Repositories */,
-				BFA9DC4B2DE5294F0016AA2C /* Mocks */,
-				BFA9DC4A2DE529480016AA2C /* Services */,
-				BFA9DC492DE5293D0016AA2C /* UseCases */,
-				BFA9DC482DE529320016AA2C /* ViewModels */,
-			);
-			path = "FieldFinder-AppTests";
-			sourceTree = "<group>";
-		};
-		BFA9DC482DE529320016AA2C /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				BF1D6B4B2DE6501C00ACF5A8 /* UserAuthViewModelTests.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		BFA9DC492DE5293D0016AA2C /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				BF1D6B472DE631A300ACF5A8 /* UserAuthServiceUseCaseTests.swift */,
-			);
-			path = UseCases;
-			sourceTree = "<group>";
-		};
-		BFA9DC4A2DE529480016AA2C /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				BFA9DC542DE541690016AA2C /* UserAuthServiceTests.swift */,
-				BF1D6B4D2DE6779C00ACF5A8 /* EstablishmentServiceTests.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		BFA9DC4B2DE5294F0016AA2C /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				BF1D6B4F2DE677A400ACF5A8 /* JSON */,
-				BFA9DC4C2DE52BDB0016AA2C /* MockAuthService.swift */,
-			);
-			path = Mocks;
-			sourceTree = "<group>";
-		};
-		BFA9DC4E2DE52E4A0016AA2C /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				BFA9DC4F2DE52E6E0016AA2C /* UserAuthServiceRepositoryTests.swift */,
-			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
-		BFA9DC512DE538640016AA2C /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				BFA9DC562DE5439B0016AA2C /* MockData.swift */,
-				BFA9DC522DE5386A0016AA2C /* URLProtocolStub.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-
 		C92221AC2DD3C34300D6BE8B /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -693,7 +605,7 @@
 		C939BC6E2DCCF6AB00B98C16 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				BF11258A2DCEC64800A9DBE5 /* UserAuthViewModel.swift */,
+				C9E0D8422DE7DB2B006B398D /* UserAuthViewModel.swift */,
 				C9B0AD6A2DCD00950043A9A2 /* RegisterUserView.swift */,
 				C939BC842DCCF95800B98C16 /* LoginView.swift */,
 			);
@@ -953,9 +865,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF2D43E32DE79BB400FE5FCE /* EstablishmentResponse.json in Resources */,
-				BF2D43E72DE7CD0400FE5FCE /* GetNearbyEstablishmentRequest.json in Resources */,
-				BF1D6B512DE67BED00ACF5A8 /* IDResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -980,6 +889,7 @@
 				BF1125B52DCFF31500A9DBE5 /* EstablishmentModels.swift in Sources */,
 				C9D4CA642DD7E6B700296604 /* EstablishmentMapSection.swift in Sources */,
 				C939BC752DCCF89300B98C16 /* KeyChainFF.swift in Sources */,
+				C9E0D8432DE7DB2B006B398D /* UserAuthViewModel.swift in Sources */,
 				BF93CBB22DD39E3F002A8627 /* EstablishmentServiceRepositoryProtocol.swift in Sources */,
 				C939BC812DCCF91600B98C16 /* Font-Theme.swift in Sources */,
 				C92FD10C2DD2BB170008E2F9 /* RemoteImageCardView.swift in Sources */,
@@ -1058,12 +968,7 @@
 				C99E4D4B2DE655A800FA04AE /* StoreView.swift in Sources */,
 				BF1471D12DD64A8B008C1E09 /* FieldServiceRepository.swift in Sources */,
 				BF0E25AB2DD7DE9400A53745 /* EditEstablishmentView.swift in Sources */,
-
 				C99E4D482DE64F6300FA04AE /* PlanManager-StoreKit.swift in Sources */,
-				BF11258B2DCEC64B00A9DBE5 /* RegisterUserViewModel.swift in Sources */,
-
-				BF11258B2DCEC64B00A9DBE5 /* UserAuthViewModel.swift in Sources */,
-
 				C939BC5C2DCCF4BE00B98C16 /* FieldFinder_AppApp.swift in Sources */,
 				C92221A92DD3BB4000D6BE8B /* FieldGridItemView.swift in Sources */,
 				BFFB27F22DCD45F100DD8819 /* UserAuthServiceRepositoryProtocol.swift in Sources */,
@@ -1080,16 +985,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
-				BF1D6B482DE631A300ACF5A8 /* UserAuthServiceUseCaseTests.swift in Sources */,
-				BF1D6B4E2DE6779C00ACF5A8 /* EstablishmentServiceTests.swift in Sources */,
-				BFA9DC572DE5439B0016AA2C /* MockData.swift in Sources */,
-				BFA9DC4D2DE52BDB0016AA2C /* MockAuthService.swift in Sources */,
-				BFA9DC502DE52E6E0016AA2C /* UserAuthServiceRepositoryTests.swift in Sources */,
-				BFA9DC552DE541690016AA2C /* UserAuthServiceTests.swift in Sources */,
-				BFA9DC532DE5386F0016AA2C /* URLProtocolStub.swift in Sources */,
-				BF1D6B4C2DE6501C00ACF5A8 /* UserAuthViewModelTests.swift in Sources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

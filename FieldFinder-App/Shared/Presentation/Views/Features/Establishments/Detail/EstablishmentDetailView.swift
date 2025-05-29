@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import StoreKit
 
 struct EstablishmentDetailView: View {
     @Environment(\.dismiss) var dismiss
@@ -50,8 +51,8 @@ struct EstablishmentDetailView: View {
                             }
                         )
                         
-                      
-
+                        
+                        
                         EstablishmentServicesSection(establishment: establecimiento)
                         
                         if !establecimiento.canchas.isEmpty {
@@ -111,8 +112,30 @@ struct EstablishmentDetailView: View {
                 let coordinate = establecimiento.coordinate
                 let region = MKCoordinateRegion(center: coordinate, span: .init(latitudeDelta: 0.005, longitudeDelta: 0.005))
                 cameraPosition = .region(region)
+                
+                // 💾 Incrementar contador de establecimientos visitados
+                var viewedCount = UserDefaults.standard.integer(forKey: "establishmentViewCount")
+                var reviewed = UserDefaults.standard.bool(forKey: "hasRequestedReviewEstablishment")
+
+                if !reviewed {
+                    viewedCount += 1
+                    UserDefaults.standard.set(viewedCount, forKey: "establishmentViewCount")
+
+                    // ✅ Mostrar review solo si ha visto 3 establecimientos
+                    if viewedCount >= 3 {
+                        requestReviewIfAppropriate()
+                        UserDefaults.standard.set(true, forKey: "hasRequestedReviewEstablishment")
+                    }
+                }
             }
         }
+    }
+    @MainActor
+    func requestReviewIfAppropriate() {
+        guard let scene = UIApplication.shared.connectedScenes
+            .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene else { return }
+        
+        AppStore.requestReview(in: scene)
     }
 }
 
