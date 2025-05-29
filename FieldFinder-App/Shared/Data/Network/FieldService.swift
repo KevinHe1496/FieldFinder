@@ -11,6 +11,12 @@ protocol FieldServiceProtocol {
 
 final class FieldService: FieldServiceProtocol {
     
+    private let session: URLSession
+    
+    init(session: URLSession = .shared) {
+        self.session = session
+    }
+    
     func createField(_ fieldModel: FieldRequest) async throws -> String {
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.registerCancha.rawValue)"
         
@@ -28,7 +34,7 @@ final class FieldService: FieldServiceProtocol {
         request.httpBody = try JSONEncoder().encode(fieldModel)
         
         
-        let (data, response) = try await URLSession.shared.data(for: request)
+        let (data, response) = try await session.data(for: request)
         
         // 6. Verificar que la respuesta es válida y fue exitosa
         guard let httpResponse = response as? HTTPURLResponse else {
@@ -85,7 +91,7 @@ final class FieldService: FieldServiceProtocol {
         request.httpBody = body
         
         do {
-            let (data, response) = try await URLSession.shared.data(for: request)
+            let (data, response) = try await session.data(for: request)
             
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
                 let serverMessage = String(data: data, encoding: .utf8) ?? "Sin mensaje del servidor"
@@ -117,7 +123,7 @@ final class FieldService: FieldServiceProtocol {
         
         request.httpBody = try JSONEncoder().encode(fieldModel)
         
-        let (data, response) = try await URLSession.shared.data(for: request)
+        let (data, response) = try await session.data(for: request)
         
         guard let httpResponse = response as? HTTPURLResponse,
               200..<300 ~= httpResponse.statusCode else {
@@ -147,7 +153,7 @@ final class FieldService: FieldServiceProtocol {
         request.setValue("\(HttpHeader.bearer) \(tokenJWT)", forHTTPHeaderField: HttpHeader.authorization)
         
         do {
-            let (_, response) = try await URLSession.shared.data(for: request)
+            let (_, response) = try await session.data(for: request)
             
             guard let httpResponse = response as? HTTPURLResponse,
                   200..<300 ~= httpResponse.statusCode else {
@@ -168,7 +174,7 @@ final class FieldService: FieldServiceProtocol {
         var request = URLRequest(url: url)
         request.httpMethod = HttpMethods.get
         
-        let (data, response) = try await URLSession.shared.data(for: request)
+        let (data, response) = try await session.data(for: request)
         
         // Verifica que la respuesta sea válida y del tipo HTTPURLResponse.
         guard let httpResponse = response as? HTTPURLResponse else {

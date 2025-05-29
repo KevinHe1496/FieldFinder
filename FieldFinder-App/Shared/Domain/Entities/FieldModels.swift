@@ -6,7 +6,6 @@ struct FieldRequest: Codable {
     let precio: Double
     let iluminada: Bool
     let cubierta: Bool
- 
 }
 
 // Response ID
