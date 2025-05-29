@@ -16,8 +16,6 @@ struct PlayerEstablishmentGridItemView: View {
     @State var viewModel: PlayerGetNearbyEstablishmentsViewModel
     @State private var isFavorite: Bool
     @State var viewModelUser = ProfileUserViewModel()
-    
-
 
     init(establishment: EstablishmentResponse, viewModel: PlayerGetNearbyEstablishmentsViewModel) {
 

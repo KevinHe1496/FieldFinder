@@ -1,5 +1,6 @@
 import Foundation
 import Combine
+import StoreKit
 
 @Observable
 final class AppState {
@@ -14,17 +15,27 @@ final class AppState {
     @ObservationIgnored
     var isLogged: Bool = false
     
+    private var storeTask: Task<Void, Never>?
+    
+    /// The StoreKit products we've loaded for the store.
+    var products = [Product]()
+    /// The UserDefaults suite where we're saving user data.
+    let defaults: UserDefaults
+    
+    @ObservationIgnored
     private var loginUseCase: UserAuthServiceUseCaseProtocol
     
-    init(loginUseCase: UserAuthServiceUseCaseProtocol = UserAuthServiceUseCase()) {
+    init(loginUseCase: UserAuthServiceUseCaseProtocol = UserAuthServiceUseCase(), defaults: UserDefaults = .standard) {
         self.loginUseCase = loginUseCase
-        // Temporal
-//        KeyChainFF().deletePK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
+        self.defaults = defaults
+        
         Task {
             await validateToken()
         }
         
-        
+        storeTask = Task {
+            await monitorTransactions()
+        }
     }
     
     @MainActor
@@ -37,7 +48,7 @@ final class AppState {
             return
         }
         
-       
+        
         
         do {
             
@@ -58,6 +69,7 @@ final class AppState {
                 showAlert = true
                 messageAlert = "El email o la contraseña son inválidos."
                 isLoading = false
+                status = .error(error: "¡Ups! Algo salió mal")
                 return
             }
         } catch {
@@ -91,6 +103,32 @@ final class AppState {
         }
     }
     
+    /// Detectar si está suscrito o en prueba gratuita
+    @MainActor
+    func checkSubscriptionStatus() async {
+        for await result in Transaction.currentEntitlements {
+            print("🔁 Verificando estado de suscripción...")
+            if case .verified(let transaction) = result,
+               transaction.productID == Self.unlockPremiumProductID {
+                print("📦 Producto: \(transaction.productID)")
+                print("🔒 Activa: \(transaction.revocationDate == nil)")
+                print("🧪 Free Trial: \(transaction.offer?.type == .introductory)")
+                fullVersionUnlocked = transaction.revocationDate == nil
+                isOnFreeTrial = transaction.offer?.type == .introductory
+                return
+            }
+        }
+        
+        fullVersionUnlocked = false
+        isOnFreeTrial = false
+    }
+    
+    // Función recomendada por Apple (fuera del body)
+    @MainActor
+    func requestReviewIfAppropriate() {
+        guard let scene = UIApplication.shared.connectedScenes
+            .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene else { return }
+        
+        AppStore.requestReview(in: scene)
+    }
 }
-
-

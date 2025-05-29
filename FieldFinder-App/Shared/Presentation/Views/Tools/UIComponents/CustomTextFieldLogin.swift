@@ -16,8 +16,6 @@ struct CustomTextFieldLogin: View {
             .background(colorBackground)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .keyboardType(keyboardType)
-            .textInputAutocapitalization(.never)
-            .autocorrectionDisabled(true)
     }
 }
 

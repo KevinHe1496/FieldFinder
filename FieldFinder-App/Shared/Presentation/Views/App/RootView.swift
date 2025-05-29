@@ -25,7 +25,7 @@ struct RootView: View {
             AppTabBarView()
         case .registerUser:
             RegisterUserView(appState: appState)
-        
+            
         case .loaded:
             if let role = appState.userRole {
                 switch role {
@@ -41,10 +41,10 @@ struct RootView: View {
             
         case .register:
             RegisterEstablishmentView(appState: appState)
-        case .error(error: let errorString):
-            Text("Error \(errorString)")
+        case .error(error: _):
+            ErrorStateView()
         case .ownerView:
-            OwnerView()
+            OwnerView(appState: appState)
         case .registerCancha:
             RegisterFieldView()
         }

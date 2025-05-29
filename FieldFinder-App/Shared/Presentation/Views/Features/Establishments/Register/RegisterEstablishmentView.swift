@@ -14,8 +14,6 @@ struct RegisterEstablishmentView: View {
         _viewModel = State(initialValue: RegisterEstablismentViewModel(appState: appState))
     }
     
-   
-    
     @State private var name = ""
     @State private var info = ""
     @State private var country: String = "Estados Unidos"
@@ -25,7 +23,7 @@ struct RegisterEstablishmentView: View {
     @State private var phone = ""
     @State private var parqueadero = false
     @State private var vestidores = false
-
+    
     
     @State private var bar = false
     @State private var banos = false
@@ -34,7 +32,8 @@ struct RegisterEstablishmentView: View {
     
     @State private var selectedImages: [Data] = []
     @State var showAlert: Bool = false
-
+    @State var showingStore = false
+    
     
     var body: some View {
         NavigationStack {
@@ -50,20 +49,23 @@ struct RegisterEstablishmentView: View {
                     //MARK: - Register Form
                     
                     CustomTextFieldLogin(titleKey: "Nombre", textField: $name, keyboardType: .default, prompt: Text("Nombre"), colorBackground: Color(.secondarySystemBackground))
+                        .autocorrectionDisabled(true)
                     
                     CustomTextFieldLogin(titleKey: "Información", textField: $info, keyboardType: .default, prompt: Text("Información"), colorBackground: Color(.secondarySystemBackground))
+                        
                     
-
                     CustomTextFieldLogin(titleKey: "País", textField: $country, keyboardType: .default, prompt: Text("País"), colorBackground: Color(.secondarySystemBackground))
+                        
                     
                     CustomTextFieldLogin(titleKey: "Ciudad", textField: $city, keyboardType: .default, prompt: Text("Ciudad"), colorBackground: Color(.secondarySystemBackground))
                     
                     CustomTextFieldLogin(titleKey: "Dirección", textField: $address, keyboardType: .default, prompt: Text("Dirección"), colorBackground: Color(.secondarySystemBackground))
+                        .autocorrectionDisabled(true)
                     
                     CustomTextFieldLogin(titleKey: "Codigo Zip", textField: $zipcode, keyboardType: .default, prompt: Text("Codigo Zip"), colorBackground: Color(.secondarySystemBackground))
                     
                     CustomTextFieldLogin(titleKey: "Teléfono", textField: $phone, keyboardType: .phonePad, prompt: Text("Teléfono"), colorBackground: Color(.secondarySystemBackground))
-                        
+                    
                     
                     VStack {
                         
@@ -74,7 +76,7 @@ struct RegisterEstablishmentView: View {
                         Divider()
                         Toggle("Bar", isOn: $bar)
                         
-
+                        
                         Divider()
                         Toggle("Cubierta", isOn: $cubierto)
                         
@@ -84,22 +86,23 @@ struct RegisterEstablishmentView: View {
                         Divider()
                         Toggle("Duchas", isOn: $duchas)
                         
-
+                        
                     }
                     .padding()
                     .background(Color(.secondarySystemBackground))
                     .clipShape(RoundedRectangle(cornerRadius: 8))
                     
-                 
+                    
                     if viewModel.isLoading {
                         ProgressView()
-                                .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Color.primaryColorGreen) 
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.primaryColorGreen)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
                     } else {
                         CustomButtonView(title: "Continuar", color: .primaryColorGreen, textColor: .white) {
+                            
                             Task {
                                 try await viewModel.registerEstablishment(
                                     name: name,
@@ -118,10 +121,14 @@ struct RegisterEstablishmentView: View {
                                 )
                                 showAlert = true
                             }
-                           
+                            
+                        }
+                        .sheet(isPresented: $showingStore) {
+                            StoreView()
+                                .environment(appState)
                         }
                     }
-                   
+                    
                 }
                 .padding()
                 
@@ -151,10 +158,6 @@ struct RegisterEstablishmentView: View {
             }
         }
     }
-    
-    
-    
-    
 }
 
 #Preview {
