@@ -49,15 +49,18 @@ struct RegisterEstablishmentView: View {
                     //MARK: - Register Form
                     
                     CustomTextFieldLogin(titleKey: "Nombre", textField: $name, keyboardType: .default, prompt: Text("Nombre"), colorBackground: Color(.secondarySystemBackground))
+                        .autocorrectionDisabled(true)
                     
                     CustomTextFieldLogin(titleKey: "Información", textField: $info, keyboardType: .default, prompt: Text("Información"), colorBackground: Color(.secondarySystemBackground))
-                    
+                        
                     
                     CustomTextFieldLogin(titleKey: "País", textField: $country, keyboardType: .default, prompt: Text("País"), colorBackground: Color(.secondarySystemBackground))
+                        
                     
                     CustomTextFieldLogin(titleKey: "Ciudad", textField: $city, keyboardType: .default, prompt: Text("Ciudad"), colorBackground: Color(.secondarySystemBackground))
                     
                     CustomTextFieldLogin(titleKey: "Dirección", textField: $address, keyboardType: .default, prompt: Text("Dirección"), colorBackground: Color(.secondarySystemBackground))
+                        .autocorrectionDisabled(true)
                     
                     CustomTextFieldLogin(titleKey: "Codigo Zip", textField: $zipcode, keyboardType: .default, prompt: Text("Codigo Zip"), colorBackground: Color(.secondarySystemBackground))
                     

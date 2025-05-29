@@ -41,8 +41,8 @@ struct RootView: View {
             
         case .register:
             RegisterEstablishmentView(appState: appState)
-        case .error(error: let errorString):
-            Text("Error \(errorString)")
+        case .error(error: _):
+            ErrorStateView()
         case .ownerView:
             OwnerView(appState: appState)
         case .registerCancha:

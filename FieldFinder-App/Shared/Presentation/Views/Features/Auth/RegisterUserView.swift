@@ -51,6 +51,7 @@ struct RegisterUserView: View {
                                 prompt: Text("Nombre"),
                                 colorBackground: .thirdColorWhite
                             )
+                            .autocorrectionDisabled(true)
                             
                             // Email input field
                             CustomTextFieldLogin(
@@ -60,11 +61,13 @@ struct RegisterUserView: View {
                                 prompt: Text("Email"),
                                 colorBackground: .thirdColorWhite
                             )
-                            
+                            .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled(true)
                             
                             // Password input field
                             CustomSecureFieldView(titleKey: "Contraseña", textField: $password, keyboardType: .default, prompt: Text("Contraseña"))
-                            
+                                .textInputAutocapitalization(.never)
+                                .autocorrectionDisabled(true)
                             
                             // Rol
                             HStack {

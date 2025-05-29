@@ -69,6 +69,7 @@ final class AppState {
                 showAlert = true
                 messageAlert = "El email o la contraseña son inválidos."
                 isLoading = false
+                status = .error(error: "¡Ups! Algo salió mal")
                 return
             }
         } catch {

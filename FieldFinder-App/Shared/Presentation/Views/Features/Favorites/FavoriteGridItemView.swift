@@ -35,6 +35,19 @@ struct FavoriteGridItemView: View {
                         ProgressView()
                     }
                 }
+                
+                FavoriteButton(isFavorite: $isFavorite ) { newValue in
+                    Task {
+                        isFavorite = newValue
+                        try await viewModel.toggleFavorite(establishmentId: establishment.id, isFavorite: newValue)
+                        try await viewModel.getFavoritesUser()
+                        await MainActor.run {
+                            isFavorite = viewModel.isFavorite(establishmentId: establishment.id)
+                        }
+                    }
+                    
+                }
+                .padding(12)
             }
 
             VStack(alignment: .leading, spacing: 6) {
@@ -63,4 +76,3 @@ struct FavoriteGridItemView: View {
 
     }
 }
-
