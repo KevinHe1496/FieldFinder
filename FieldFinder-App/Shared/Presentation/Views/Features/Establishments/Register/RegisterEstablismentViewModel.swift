@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-@MainActor
+
 @Observable
 final class RegisterEstablismentViewModel {
     
@@ -19,7 +19,7 @@ final class RegisterEstablismentViewModel {
         self.appState = appState
     }
     
-    
+    @MainActor
     func registerEstablishment(name: String, info: String, address: String, country: String, city: String, zipCode: String, parqueadero: Bool, vestidores: Bool, bar: Bool, banos: Bool, duchas: Bool, phone: String, images: [Data]) async throws {
         
         isLoading = true
@@ -31,7 +31,7 @@ final class RegisterEstablismentViewModel {
         }
         
         guard !images.isEmpty else {
-            alertMessage = "Es obligatorio subir imágenes"
+            alertMessage = "Es obligatorio subir imágenes."
             isLoading = false
             return
         }
@@ -82,6 +82,7 @@ final class RegisterEstablismentViewModel {
         
     }
     
+    @MainActor
     func editEstablishment(establishmentID: String, name: String, info: String, address: String, country: String, city: String, zipCode: String, parqueadero: Bool, vestidores: Bool, bar: Bool, banos: Bool, duchas: Bool, phone: String)  async throws {
         
         do {
@@ -122,7 +123,7 @@ final class RegisterEstablismentViewModel {
             
             alertMessage = "Establecimiento registrado con éxito."
         } catch {
-            alertMessage = "Error al registrar: \(error.localizedDescription)"
+            print("Error al registrar: \(error.localizedDescription)")
             isLoading = false
         }
         
