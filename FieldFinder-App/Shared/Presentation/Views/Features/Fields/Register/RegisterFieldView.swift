@@ -1,18 +1,16 @@
 //
-//  Field.swift
+//  RegisterFieldView.swift
 //  FieldFinder-App
 //
-//  Created by Andy Heredia on 9/5/25.
-//
-
 
 import SwiftUI
 import PhotosUI
 import TipKit
+import StoreKit
 
 struct RegisterFieldView: View {
-    
-    
+    @Environment(AppState.self) var appState
+
     @State private var selectedField: Field = .cesped
     @State private var selectedCapacidad: Capacidad = .cinco
     @State private var precio = ""
@@ -21,16 +19,11 @@ struct RegisterFieldView: View {
     @State private var selectedImages: [Data] = []
 
     let coverTip = CoverImageTip()
-
-    @State private var shouldDismissAfterAlert = false
-
     
+    @State private var shouldDismissAfterAlert = false
     let localCurrency = Locale.current.currency?.identifier ?? "USD"
     
-    
-    
     @Environment(\.dismiss) var dismiss
-    
     @State var viewModel = RegisterFieldViewModel()
     @State var showAlert: Bool = false
 
@@ -39,13 +32,11 @@ struct RegisterFieldView: View {
             Text("REGISTRAR CANCHA")
                 .font(.appTitle)
                 .foregroundStyle(.primaryColorGreen)
+            
             VStack(alignment: .leading, spacing: 16) {
                 
-
                 TipView(coverTip, arrowEdge: .bottom)
-
                 CustomUIImage(selectedImagesData: $selectedImages)
-                
                 
                 VStack {
                     HStack {
@@ -53,22 +44,20 @@ struct RegisterFieldView: View {
                         Spacer()
                         Picker("Selecciona la cancha", selection: $selectedField) {
                             ForEach(Field.allCases) { cancha in
-                                Text(cancha.displayName)
-                                    .tag(cancha)
+                                Text(cancha.displayName).tag(cancha)
                             }
                         }
                         .pickerStyle(.menu)
                     }
                     
                     Divider()
+                    
                     HStack {
                         Text("Capacidad")
-                            .foregroundStyle(.primary)
                         Spacer()
                         Picker("Selecciona modalidad", selection: $selectedCapacidad) {
                             ForEach(Capacidad.allCases) { capacidad in
-                                Text(capacidad.rawValue)
-                                    .tag(capacidad)
+                                Text(capacidad.rawValue).tag(capacidad)
                             }
                         }
                         .pickerStyle(.menu)
@@ -76,7 +65,6 @@ struct RegisterFieldView: View {
                     
                     Divider()
                     Toggle("Iluminada", isOn: $iluminada)
-                    
                     Divider()
                     Toggle("Cubierta", isOn: $cubierta)
                 }
@@ -84,7 +72,7 @@ struct RegisterFieldView: View {
                 .background(Color(.secondarySystemBackground))
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 
-                //MARK: PRECIO
+                // MARK: PRECIO
                 HStack {
                     Text("Precio por hora")
                     Spacer()
@@ -100,18 +88,16 @@ struct RegisterFieldView: View {
                 .background(Color(.secondarySystemBackground))
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 
-                
                 if viewModel.isLoading {
                     ProgressView()
-                            .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.primaryColorGreen)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.primaryColorGreen)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                 } else {
                     CustomButtonView(title: "Registrar", color: .primaryColorGreen, textColor: .white) {
                         Task {
-                            
                             let newModel = FieldRequest(
                                 tipo: selectedField.rawValue,
                                 modalidad: selectedCapacidad.rawValue,
@@ -124,28 +110,21 @@ struct RegisterFieldView: View {
                             
                             showAlert = true
                         }
-                        
                     }
                 }
-                
-                
             }
             .task {
-                // Configure and load your tips at app launch.
                 do {
                     try Tips.configure()
-                }
-                catch {
-                    // Handle TipKit errors
+                } catch {
                     print("Error initializing TipKit \(error.localizedDescription)")
                 }
             }
             .padding()
             .alert("Mensaje", isPresented: $showAlert) {
                 if viewModel.shouldDismissAfterAlert {
-                    Button("OK") { dismiss()}
+                    Button("OK") { dismiss() }
                 }
-                
             } message: {
                 Text(viewModel.alertMessage ?? "")
             }
@@ -155,5 +134,5 @@ struct RegisterFieldView: View {
 
 #Preview {
     RegisterFieldView(viewModel: RegisterFieldViewModel())
-    
+        .environment(AppState())
 }

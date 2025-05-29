@@ -69,6 +69,7 @@ final class AppState {
                 showAlert = true
                 messageAlert = "El email o la contraseña son inválidos."
                 isLoading = false
+                status = .error(error: "¡Ups! Algo salió mal")
                 return
             }
         } catch {
@@ -121,5 +122,13 @@ final class AppState {
         fullVersionUnlocked = false
         isOnFreeTrial = false
     }
-
+    
+    // Función recomendada por Apple (fuera del body)
+    @MainActor
+    func requestReviewIfAppropriate() {
+        guard let scene = UIApplication.shared.connectedScenes
+            .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene else { return }
+        
+        AppStore.requestReview(in: scene)
+    }
 }
