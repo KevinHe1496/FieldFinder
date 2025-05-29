@@ -122,7 +122,7 @@ struct EstablishmentDetailView: View {
                     UserDefaults.standard.set(viewedCount, forKey: "establishmentViewCount")
 
                     // ✅ Mostrar review solo si ha visto 3 establecimientos
-                    if viewedCount >= 3 {
+                    if viewedCount >= 5 {
                         requestReviewIfAppropriate()
                         UserDefaults.standard.set(true, forKey: "hasRequestedReviewEstablishment")
                     }
