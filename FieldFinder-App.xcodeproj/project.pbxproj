@@ -33,6 +33,8 @@
 		BF2D43E72DE7CD0400FE5FCE /* GetNearbyEstablishmentRequest.json in Resources */ = {isa = PBXBuildFile; fileRef = BF2D43E62DE7CCF700FE5FCE /* GetNearbyEstablishmentRequest.json */; };
 		BF46A97A2DD4DF76006A5FF3 /* OwnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46A9792DD4DF71006A5FF3 /* OwnerViewModel.swift */; };
 		BF5614A82DCE6E8B003C1F66 /* RegisterFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5614A72DCE6E8B003C1F66 /* RegisterFieldView.swift */; };
+		BF57D3592DE8A24100CD3B93 /* MockEstablishmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF57D3582DE8A23200CD3B93 /* MockEstablishmentService.swift */; };
+		BF57D35B2DE8A43D00CD3B93 /* EstablishmentServiceRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF57D35A2DE8A43D00CD3B93 /* EstablishmentServiceRepositoryTests.swift */; };
 		BF784DAF2DDE6BB200B2B2E6 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF784DAE2DDE6BA900B2B2E6 /* Enums.swift */; };
 		BF784DB12DDE6CD700B2B2E6 /* UserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF784DB02DDE6CD400B2B2E6 /* UserModels.swift */; };
 		BF93CBB22DD39E3F002A8627 /* EstablishmentServiceRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB12DD39E31002A8627 /* EstablishmentServiceRepositoryProtocol.swift */; };
@@ -160,6 +162,8 @@
 		BF2D43E62DE7CCF700FE5FCE /* GetNearbyEstablishmentRequest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetNearbyEstablishmentRequest.json; sourceTree = "<group>"; };
 		BF46A9792DD4DF71006A5FF3 /* OwnerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerViewModel.swift; sourceTree = "<group>"; };
 		BF5614A72DCE6E8B003C1F66 /* RegisterFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFieldView.swift; sourceTree = "<group>"; };
+		BF57D3582DE8A23200CD3B93 /* MockEstablishmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEstablishmentService.swift; sourceTree = "<group>"; };
+		BF57D35A2DE8A43D00CD3B93 /* EstablishmentServiceRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentServiceRepositoryTests.swift; sourceTree = "<group>"; };
 		BF784DAE2DDE6BA900B2B2E6 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		BF784DB02DDE6CD400B2B2E6 /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModels.swift; sourceTree = "<group>"; };
 		BF93CBB12DD39E31002A8627 /* EstablishmentServiceRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentServiceRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -461,9 +465,9 @@
 		BFA9DC462DE5292F0016AA2C /* FieldFinder-AppTests */ = {
 			isa = PBXGroup;
 			children = (
+				BFA9DC4B2DE5294F0016AA2C /* Mocks */,
 				BFA9DC512DE538640016AA2C /* Helpers */,
 				BFA9DC4E2DE52E4A0016AA2C /* Repositories */,
-				BFA9DC4B2DE5294F0016AA2C /* Mocks */,
 				BFA9DC4A2DE529480016AA2C /* Services */,
 				BFA9DC492DE5293D0016AA2C /* UseCases */,
 				BFA9DC482DE529320016AA2C /* ViewModels */,
@@ -501,6 +505,7 @@
 			children = (
 				BF1D6B4F2DE677A400ACF5A8 /* JSON */,
 				BFA9DC4C2DE52BDB0016AA2C /* MockAuthService.swift */,
+				BF57D3582DE8A23200CD3B93 /* MockEstablishmentService.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -509,6 +514,7 @@
 			isa = PBXGroup;
 			children = (
 				BFA9DC4F2DE52E6E0016AA2C /* UserAuthServiceRepositoryTests.swift */,
+				BF57D35A2DE8A43D00CD3B93 /* EstablishmentServiceRepositoryTests.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -1035,10 +1041,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF1D6B482DE631A300ACF5A8 /* UserAuthServiceUseCaseTests.swift in Sources */,
+				BF57D35B2DE8A43D00CD3B93 /* EstablishmentServiceRepositoryTests.swift in Sources */,
 				BF1D6B4E2DE6779C00ACF5A8 /* EstablishmentServiceTests.swift in Sources */,
 				BFA9DC572DE5439B0016AA2C /* MockData.swift in Sources */,
 				BFA9DC4D2DE52BDB0016AA2C /* MockAuthService.swift in Sources */,
 				BFA9DC502DE52E6E0016AA2C /* UserAuthServiceRepositoryTests.swift in Sources */,
+				BF57D3592DE8A24100CD3B93 /* MockEstablishmentService.swift in Sources */,
 				BFA9DC552DE541690016AA2C /* UserAuthServiceTests.swift in Sources */,
 				BFA9DC532DE5386F0016AA2C /* URLProtocolStub.swift in Sources */,
 				BF1D6B4C2DE6501C00ACF5A8 /* UserAuthViewModelTests.swift in Sources */,
