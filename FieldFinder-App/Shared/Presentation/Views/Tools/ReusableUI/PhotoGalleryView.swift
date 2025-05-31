@@ -9,7 +9,9 @@ import SwiftUI
 struct PhotoGalleryView: View {
     let photoURLs: [URL]
     let height: CGFloat
-
+    
+    @State private var selectedPhoto: PhotoURL? = nil
+    
     var body: some View {
         if !photoURLs.isEmpty {
             TabView {
@@ -25,9 +27,15 @@ struct PhotoGalleryView: View {
                             image
                                 .resizable()
                                 .scaledToFill()
-                                .frame(maxWidth: .infinity)
-                                .frame(height: height)
+                                .frame(maxWidth: .infinity, maxHeight: height)
                                 .clipped()
+                                .contentShape(Rectangle()) // Permite que todo el área responda al toque
+                                .onTapGesture {
+                                    if let index = photoURLs.firstIndex(of: photoURL) {
+                                        selectedPhoto = PhotoURL(url: photoURL, index: index)
+                                    }
+                                }
+
                         case .failure:
                             Image(systemName: "photo")
                                 .resizable()
@@ -43,6 +51,10 @@ struct PhotoGalleryView: View {
             }
             .tabViewStyle(PageTabViewStyle())
             .frame(height: height)
+            .sheet(item: $selectedPhoto) { photo in
+                FullscreenImageView(photoURLs: photoURLs, selectedIndex: photo.index)
+            }
+
         } else {
             VStack {
                 Text("No hay fotos disponibles")
@@ -54,3 +66,10 @@ struct PhotoGalleryView: View {
         }
     }
 }
+
+struct PhotoURL: Identifiable {
+    let id = UUID()
+    let url: URL
+    let index: Int
+}
+
