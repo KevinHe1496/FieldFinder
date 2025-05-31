@@ -26,10 +26,6 @@
 		BF1471D92DD65102008C1E09 /* FieldModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1471D82DD650EF008C1E09 /* FieldModels.swift */; };
 		BF46A97A2DD4DF76006A5FF3 /* OwnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46A9792DD4DF71006A5FF3 /* OwnerViewModel.swift */; };
 		BF5614A82DCE6E8B003C1F66 /* RegisterFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5614A72DCE6E8B003C1F66 /* RegisterFieldView.swift */; };
-		BF57D3592DE8A24100CD3B93 /* MockEstablishmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF57D3582DE8A23200CD3B93 /* MockEstablishmentService.swift */; };
-		BF57D35B2DE8A43D00CD3B93 /* EstablishmentServiceRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF57D35A2DE8A43D00CD3B93 /* EstablishmentServiceRepositoryTests.swift */; };
-		BF57D35D2DE8B33700CD3B93 /* EstablishmentServiceUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF57D35C2DE8B33700CD3B93 /* EstablishmentServiceUseCaseTests.swift */; };
-		BF57D35F2DE8B57100CD3B93 /* RegisterEstablishmentViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF57D35E2DE8B57100CD3B93 /* RegisterEstablishmentViewModelTests.swift */; };
 		BF784DAF2DDE6BB200B2B2E6 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF784DAE2DDE6BA900B2B2E6 /* Enums.swift */; };
 		BF784DB12DDE6CD700B2B2E6 /* UserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF784DB02DDE6CD400B2B2E6 /* UserModels.swift */; };
 		BF93CBB22DD39E3F002A8627 /* EstablishmentServiceRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93CBB12DD39E31002A8627 /* EstablishmentServiceRepositoryProtocol.swift */; };
@@ -64,6 +60,7 @@
 		BFFB28F02DCD5F7C00DD8819 /* FFPersistenceKeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB28EF2DCD5F7C00DD8819 /* FFPersistenceKeyChain.swift */; };
 		BFFB28F42DCD61A200DD8819 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB28F32DCD61A200DD8819 /* RootView.swift */; };
 		C91AAB9D2DE8E22200EFBE0D /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91AAB9C2DE8E22200EFBE0D /* ErrorStateView.swift */; };
+		C91AABA72DE8EAED00EFBE0D /* LocationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91AABA62DE8EAED00EFBE0D /* LocationPickerView.swift */; };
 		C92221A92DD3BB4000D6BE8B /* FieldGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221A82DD3BB4000D6BE8B /* FieldGridItemView.swift */; };
 		C92221AB2DD3C21D00D6BE8B /* FieldDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221AA2DD3C21D00D6BE8B /* FieldDetailView.swift */; };
 		C92221B62DD3C62F00D6BE8B /* FieldDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221B52DD3C62F00D6BE8B /* FieldDetailViewModel.swift */; };
@@ -161,10 +158,6 @@
 		BF1471D82DD650EF008C1E09 /* FieldModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldModels.swift; sourceTree = "<group>"; };
 		BF46A9792DD4DF71006A5FF3 /* OwnerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerViewModel.swift; sourceTree = "<group>"; };
 		BF5614A72DCE6E8B003C1F66 /* RegisterFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFieldView.swift; sourceTree = "<group>"; };
-		BF57D3582DE8A23200CD3B93 /* MockEstablishmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEstablishmentService.swift; sourceTree = "<group>"; };
-		BF57D35A2DE8A43D00CD3B93 /* EstablishmentServiceRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentServiceRepositoryTests.swift; sourceTree = "<group>"; };
-		BF57D35C2DE8B33700CD3B93 /* EstablishmentServiceUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentServiceUseCaseTests.swift; sourceTree = "<group>"; };
-		BF57D35E2DE8B57100CD3B93 /* RegisterEstablishmentViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablishmentViewModelTests.swift; sourceTree = "<group>"; };
 		BF784DAE2DDE6BA900B2B2E6 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		BF784DB02DDE6CD400B2B2E6 /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModels.swift; sourceTree = "<group>"; };
 		BF93CBB12DD39E31002A8627 /* EstablishmentServiceRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentServiceRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -199,6 +192,7 @@
 		BFFB28EF2DCD5F7C00DD8819 /* FFPersistenceKeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FFPersistenceKeyChain.swift; path = "FieldFinder-App/Shared/Domain/Tools/FFPersistenceKeyChain.swift"; sourceTree = SOURCE_ROOT; };
 		BFFB28F32DCD61A200DD8819 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		C91AAB9C2DE8E22200EFBE0D /* ErrorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStateView.swift; sourceTree = "<group>"; };
+		C91AABA62DE8EAED00EFBE0D /* LocationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerView.swift; sourceTree = "<group>"; };
 		C92221A82DD3BB4000D6BE8B /* FieldGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGridItemView.swift; sourceTree = "<group>"; };
 		C92221AA2DD3C21D00D6BE8B /* FieldDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldDetailView.swift; sourceTree = "<group>"; };
 		C92221B52DD3C62F00D6BE8B /* FieldDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldDetailViewModel.swift; sourceTree = "<group>"; };
@@ -460,6 +454,7 @@
 		BFA9DC3B2DE5072D0016AA2C /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				C91AABA62DE8EAED00EFBE0D /* LocationPickerView.swift */,
 				C9B0AD6C2DCD07EB0043A9A2 /* RegisterEstablishmentView.swift */,
 				BF93CBB72DD3A025002A8627 /* RegisterEstablismentViewModel.swift */,
 				BF0E25AA2DD7DE9400A53745 /* EditEstablishmentView.swift */,
@@ -557,6 +552,7 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+
 
 		C92221AC2DD3C34300D6BE8B /* Detail */ = {
 			isa = PBXGroup;
@@ -1009,6 +1005,7 @@
 				BF93CBB42DD39E5A002A8627 /* EstablishmentServiceRepository.swift in Sources */,
 				BF03C62D2DD78E35005DB158 /* EditFieldView.swift in Sources */,
 				C98B8BF72DD530ED004F05A3 /* EditProfileView.swift in Sources */,
+				C91AABA72DE8EAED00EFBE0D /* LocationPickerView.swift in Sources */,
 				C95C5D0C2DD8F7E000A5310C /* CoverImageTip.swift in Sources */,
 				BF1125B52DCFF31500A9DBE5 /* EstablishmentModels.swift in Sources */,
 				C9D4CA642DD7E6B700296604 /* EstablishmentMapSection.swift in Sources */,
