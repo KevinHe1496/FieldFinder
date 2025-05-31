@@ -85,7 +85,7 @@ final class EstablishmentServiceTests: XCTestCase {
         // Act & Assert
         do {
             _ = try await sut.createEstablishment(request)
-            XCTFail()
+            XCTFail("Expected FFError to be thrown, but createEstablishment completed successfully.")
         } catch let error as FFError {
             XCTAssertEqual(error, .errorParsingData)
         } catch {
