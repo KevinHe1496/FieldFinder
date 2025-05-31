@@ -59,10 +59,8 @@ struct ProfileOwnerView: View {
                                     EditEstablishmentView(
                                         name: est.name,
                                         info: est.info,
-                                        country: est.country,
+                                        address2: est.address2,
                                         address: est.address,
-                                        city: est.city,
-                                        zipcode: est.zipCode,
                                         phone: est.phone,
                                         establishmentID: est.id,
                                         parqueadero: est.parquedero,

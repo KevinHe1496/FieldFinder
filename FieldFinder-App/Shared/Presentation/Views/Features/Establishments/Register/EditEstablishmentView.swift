@@ -11,10 +11,8 @@ struct EditEstablishmentView: View {
     
     @State var name: String
     @State var info: String
-    @State var country: String
+    @State var address2: String
     @State var address: String
-    @State var city: String
-    @State var zipcode: String
     @State var phone: String
     @State var establishmentID: String
     
@@ -28,16 +26,27 @@ struct EditEstablishmentView: View {
     @Environment(\.dismiss) var dismiss
     @State private var viewModel: RegisterEstablismentViewModel
      
-    init(name: String, info: String, country: String, address: String, city: String, zipcode: String, phone: String, establishmentID: String, parqueadero: Bool, vestidores: Bool, bar: Bool, banos: Bool, duchas: Bool, appState: AppState) {
+    init(
+        name: String,
+        info: String,
+        address2: String?,
+        address: String,
+        phone: String,
+        establishmentID: String,
+        parqueadero: Bool,
+        vestidores: Bool,
+        bar: Bool,
+        banos: Bool,
+        duchas: Bool,
+        appState: AppState
+    ) {
         
         _viewModel = State(initialValue: RegisterEstablismentViewModel(appState: appState))
         
         self.name = name
         self.info = info
-        self.country = country
+        self.address2 = address2 ?? ""
         self.address = address
-        self.city = city
-        self.zipcode = zipcode
         self.phone = phone
         self.establishmentID = establishmentID
         self.parqueadero = parqueadero
@@ -55,12 +64,10 @@ struct EditEstablishmentView: View {
             Section {
                 TextField("Nombre", text: $name)
                 TextField("información", text: $info)
-                TextField("País", text: $country)
-                TextField("Ciudad", text: $city)
+                TextField("País", text: $address2)
                 TextField("Dirección", text: $address)
-                TextField("Zipcode", text: $zipcode)
                 TextField("Teléfono", text: $phone)
-                
+        
                 Toggle("Parqueadero", isOn: $parqueadero)
                 Toggle("Vestidores", isOn: $vestidores)
                 Toggle("Bar", isOn: $bar)
@@ -80,9 +87,7 @@ struct EditEstablishmentView: View {
                             name: name,
                             info: info,
                             address: address,
-                            country: country,
-                            city: city,
-                            zipCode: zipcode,
+                            address2: address2,
                             parqueadero: parqueadero,
                             vestidores: vestidores,
                             bar: bar,
@@ -112,6 +117,19 @@ struct EditEstablishmentView: View {
 }
 
 #Preview {
-    EditEstablishmentView(name: "", info: "", country: "", address: "", city: "", zipcode: "", phone: "", establishmentID: "", parqueadero: false, vestidores: true, bar: true, banos: true, duchas: true, appState: AppState())
+    EditEstablishmentView(
+        name: "",
+        info: "",
+        address2: "",
+        address: "",
+        phone: "",
+        establishmentID: "",
+        parqueadero: false,
+        vestidores: false,
+        bar: false,
+        banos: false,
+        duchas: false,
+        appState: AppState()
+    )
         .environment(AppState())
 }

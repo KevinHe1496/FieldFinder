@@ -16,7 +16,7 @@ struct RegisterEstablishmentView: View {
     
     @State private var name = ""
     @State private var info = ""
-    @State private var country: String = "Estados Unidos"
+    @State private var address2: String = ""
     @State private var address = "10800 Torre Avenue"
     @State private var city = "Cupertino"
     @State private var zipcode = "95014"
@@ -29,6 +29,7 @@ struct RegisterEstablishmentView: View {
     @State private var banos = false
     @State private var duchas = false
     @State private var cubierto = false
+    @State private var userCoordinates = CLLocationCoordinate2D()
     
     @State private var selectedImages: [Data] = []
     @State var showAlert: Bool = false
@@ -54,18 +55,32 @@ struct RegisterEstablishmentView: View {
                     CustomTextFieldLogin(titleKey: "Información", textField: $info, keyboardType: .default, prompt: Text("Información"), colorBackground: Color(.secondarySystemBackground))
                         
                     
-                    CustomTextFieldLogin(titleKey: "País", textField: $country, keyboardType: .default, prompt: Text("País"), colorBackground: Color(.secondarySystemBackground))
-                        
-                    
-                    CustomTextFieldLogin(titleKey: "Ciudad", textField: $city, keyboardType: .default, prompt: Text("Ciudad"), colorBackground: Color(.secondarySystemBackground))
-                    
                     CustomTextFieldLogin(titleKey: "Dirección", textField: $address, keyboardType: .default, prompt: Text("Dirección"), colorBackground: Color(.secondarySystemBackground))
                         .autocorrectionDisabled(true)
                     
-                    CustomTextFieldLogin(titleKey: "Codigo Zip", textField: $zipcode, keyboardType: .default, prompt: Text("Codigo Zip"), colorBackground: Color(.secondarySystemBackground))
+                    CustomTextFieldLogin(titleKey: "Dirección 2", textField: $address2, keyboardType: .default, prompt: Text("Dirección 2"), colorBackground: Color(.secondarySystemBackground))
                     
                     CustomTextFieldLogin(titleKey: "Teléfono", textField: $phone, keyboardType: .phonePad, prompt: Text("Teléfono"), colorBackground: Color(.secondarySystemBackground))
                     
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Pon la ubicación del establecimiento")
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                            .padding(.horizontal)
+                        
+                        LocationPickerView(coordinates: $userCoordinates)
+                            .frame(height: 400)
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(Color.primary.opacity(0.2), lineWidth: 1)
+                            )
+                            .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
+                    }
+                    .padding()
+                    .background(Color(.secondarySystemBackground))
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+
                     
                     VStack {
                         
@@ -108,16 +123,15 @@ struct RegisterEstablishmentView: View {
                                     name: name,
                                     info: info,
                                     address: address,
-                                    country: country,
-                                    city: city,
-                                    zipCode: zipcode,
+                                    address2: address2,
                                     parqueadero: parqueadero,
                                     vestidores: vestidores,
                                     bar: bar,
                                     banos: banos,
                                     duchas: duchas,
                                     phone: phone,
-                                    images: selectedImages
+                                    images: selectedImages,
+                                    userCoordinates: userCoordinates
                                 )
                                 showAlert = true
                             }
