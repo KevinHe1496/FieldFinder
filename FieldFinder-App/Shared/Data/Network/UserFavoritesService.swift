@@ -14,6 +14,13 @@ protocol UserFavoritesServiceProtocol {
 }
 
 final class UserFavoritesService: UserFavoritesServiceProtocol {
+    
+    private let session: URLSession
+    
+    init(session: URLSession = .shared) {
+        self.session = session
+    }
+    
     func addFavorite(with establishmentId: String) async throws {
         
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.favoriteUser.rawValue)/\(establishmentId)"
@@ -28,7 +35,7 @@ final class UserFavoritesService: UserFavoritesServiceProtocol {
         let jwtToken = KeyChainFF().loadPK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
         request.setValue("\(HttpHeader.bearer) \(jwtToken)", forHTTPHeaderField: HttpHeader.authorization)
         
-        let (_, response) = try await URLSession.shared.data(for: request)
+        let (_, response) = try await session.data(for: request)
         
         // Verifica que la respuesta sea válida y del tipo HTTPURLResponse.
         guard let httpResponse = response as? HTTPURLResponse else {
@@ -54,7 +61,7 @@ final class UserFavoritesService: UserFavoritesServiceProtocol {
         let jwtToken = KeyChainFF().loadPK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
         request.setValue("\(HttpHeader.bearer) \(jwtToken)", forHTTPHeaderField: HttpHeader.authorization)
         
-        let (_, response) = try await URLSession.shared.data(for: request)
+        let (_, response) = try await session.data(for: request)
         
         // Verifica que la respuesta sea válida y del tipo HTTPURLResponse.
         guard let httpResponse = response as? HTTPURLResponse else {
@@ -79,7 +86,7 @@ final class UserFavoritesService: UserFavoritesServiceProtocol {
         let jwtToken = KeyChainFF().loadPK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
         request.setValue("\(HttpHeader.bearer) \(jwtToken)", forHTTPHeaderField: HttpHeader.authorization)
         
-        let (data, response) = try await URLSession.shared.data(for: request)
+        let (data, response) = try await session.data(for: request)
         
         // Verifica que la respuesta sea válida y del tipo HTTPURLResponse.
         guard let httpResponse = response as? HTTPURLResponse else {
