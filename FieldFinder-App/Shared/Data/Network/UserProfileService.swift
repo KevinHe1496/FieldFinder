@@ -1,12 +1,12 @@
 import Foundation
 
-protocol NetworkGetMeProtocol {
+protocol UserProfileServiceProtocol {
     func fetchUser() async throws -> UserProfileResponse
     func updateUser(name: String) async throws -> UserProfileRequest
     func deleteUser() async throws
 }
 
-final class UserProfileService: NetworkGetMeProtocol {
+final class UserProfileService: UserProfileServiceProtocol {
     
     private let session: URLSession
     
