@@ -41,16 +41,15 @@ final class AppState {
     @MainActor
     func login(email: String, password: String) async throws {
         
-        isLoading = true
+        
         guard !email.isEmpty || !password.isEmpty else {
             messageAlert = "Los campos son requeridos."
             showAlert = true
             return
         }
-        
-        
-        
+
         do {
+            isLoading = true
             
             let loginApp = try await loginUseCase.login(email: email, password: password)
             
@@ -73,7 +72,7 @@ final class AppState {
                 return
             }
         } catch {
-            print("Error en el backend o endpoint esta llamada es de AppState")
+            print("Error al iniciar sesión. \(error.localizedDescription)")
         }
         showAlert = false
     }
