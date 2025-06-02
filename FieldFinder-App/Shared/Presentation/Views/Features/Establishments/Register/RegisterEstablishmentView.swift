@@ -39,12 +39,10 @@ struct RegisterEstablishmentView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                
-                
+            
                 VStack(alignment: .leading, spacing: 16) {
                     TipView(coverTip, arrowEdge: .bottom)
                     CustomUIImage(selectedImagesData: $selectedImages)
-                    
                         .padding(.bottom,8)
                     
                     //MARK: - Register Form
