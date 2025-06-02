@@ -41,6 +41,8 @@ struct LoginView: View {
                                 prompt: Text("Email"),
                                 colorBackground: .thirdColorWhite
                             )
+                            .autocorrectionDisabled(true)
+                            .textInputAutocapitalization(.never)
                             
                             // Password input field
                             CustomSecureFieldView(titleKey: "Contraseña", textField: $password, keyboardType: .default, prompt: Text("Contraseña"))
