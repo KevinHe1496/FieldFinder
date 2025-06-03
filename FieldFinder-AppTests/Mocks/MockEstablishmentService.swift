@@ -32,15 +32,14 @@ final class MockEstablishmentService: EstablishmentServiceProtocol {
     }
     
     private func getMockEstablishment() -> EstablishmentResponse {
+        
         return EstablishmentResponse(
             id: "mock123",
             name: "Mock Cancha",
             info: "Cancha de prueba para tests unitarios.",
             address: "Calle Falsa 123",
-            city: "Test City",
             isFavorite: false,
-            zipCode: "00000",
-            country: "Testland",
+            address2: "Carlota Jaramillo",
             phone: "+0000000000",
             userName: "test_user",
             userRol: "tester",
@@ -55,7 +54,7 @@ final class MockEstablishmentService: EstablishmentServiceProtocol {
             ],
             latitude: 0.123456,
             longitude: -0.123456,
-            canchas: [
+            canchas:  [
                 FieldResponse(
                     id: "field001",
                     tipo: "Fútbol",
@@ -70,6 +69,8 @@ final class MockEstablishmentService: EstablishmentServiceProtocol {
                 )
             ]
         )
+        
+       
     }
     
     
