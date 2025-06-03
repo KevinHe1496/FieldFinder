@@ -1,6 +1,6 @@
 import Foundation
 
-@MainActor
+
 @Observable
 final class RegisterFieldViewModel {
     
@@ -16,7 +16,7 @@ final class RegisterFieldViewModel {
         self.useCase = useCase
     }
     
-    
+    @MainActor
     func registerCancha(_ canchaModel: FieldRequest, images: [Data]) async {
         
         isLoading = true
@@ -50,7 +50,7 @@ final class RegisterFieldViewModel {
             
         }
     }
-    
+    @MainActor
     func editCancha(canchaID: String, canchaModel: FieldRequest) async throws {
         do {
             let _ = try await useCase.updateField(fieldID: canchaID, fieldModel: canchaModel)
@@ -60,7 +60,7 @@ final class RegisterFieldViewModel {
         }
         
     }
-    
+    @MainActor
     func deleteCancha(canchaID: String) async throws {
         do {
             let _ = try await useCase.deleteField(fieldID: canchaID)
@@ -68,7 +68,7 @@ final class RegisterFieldViewModel {
             print("Se elimino exitosamente")
         }
     }
-    
+    @MainActor
     func localCurrencySymbol() -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency

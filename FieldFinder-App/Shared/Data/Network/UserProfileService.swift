@@ -1,12 +1,19 @@
 import Foundation
 
-protocol NetworkGetMeProtocol {
+protocol UserProfileServiceProtocol {
     func fetchUser() async throws -> UserProfileResponse
     func updateUser(name: String) async throws -> UserProfileRequest
     func deleteUser() async throws
 }
 
-final class UserProfileService: NetworkGetMeProtocol {
+final class UserProfileService: UserProfileServiceProtocol {
+    
+    private let session: URLSession
+    
+    init(session: URLSession = .shared) {
+        self.session = session
+    }
+    
     func fetchUser() async throws -> UserProfileResponse {
         var userModel = UserProfileResponse(email: "", id: "", rol: "", name: "", establecimiento: [])
         
@@ -23,7 +30,7 @@ final class UserProfileService: NetworkGetMeProtocol {
         request.setValue("\(HttpHeader.bearer) \(jwtToken)", forHTTPHeaderField: HttpHeader.authorization)
         
         do {
-            let (data, response) = try await URLSession.shared.data(for: request)
+            let (data, response) = try await session.data(for: request)
             
             guard let res = response as? HTTPURLResponse, res.statusCode == HttpResponseCodes.SUCCESS else {
                 throw FFError.errorFromApi(statusCode: -1)
@@ -61,7 +68,7 @@ final class UserProfileService: NetworkGetMeProtocol {
         request.setValue("\(HttpHeader.bearer) \(jwtToken)", forHTTPHeaderField: HttpHeader.authorization)
         request.httpBody = jsonData
         
-        let (data, response) = try await URLSession.shared.data(for: request)
+        let (data, response) = try await session.data(for: request)
         
         // Ensure the response is a valid HTTP response
         guard let httpResponse = response as? HTTPURLResponse else {
@@ -96,7 +103,7 @@ final class UserProfileService: NetworkGetMeProtocol {
         request.setValue("\(HttpHeader.bearer) \(jwtToken)", forHTTPHeaderField: HttpHeader.authorization)
         
         do {
-            let (_, response) = try await URLSession.shared.data(for: request)
+            let (_, response) = try await session.data(for: request)
             
             guard let res = response as? HTTPURLResponse, res.statusCode == HttpResponseCodes.SUCCESS else {
                 throw FFError.errorFromApi(statusCode: -1)
