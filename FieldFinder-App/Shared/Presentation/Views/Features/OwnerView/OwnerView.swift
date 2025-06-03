@@ -34,7 +34,7 @@ struct OwnerView: View {
         NavigationStack {
             
             ZStack {
-                Color(.systemGroupedBackground).ignoresSafeArea()
+                Color(.thirdColorWhite).ignoresSafeArea()
                 ScrollView {
                     if viewModel.establishments.establecimiento.first?.canchas.isEmpty ?? true {
                         VStack {

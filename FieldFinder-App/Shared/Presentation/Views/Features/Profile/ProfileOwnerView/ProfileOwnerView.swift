@@ -83,7 +83,7 @@ struct ProfileOwnerView: View {
                                 Text(appVersion)
                                     .foregroundStyle(.gray)
                             }
-                            NavigationLink("Mis Canchas") {
+                            NavigationLink("Mis canchas") {
                                 OwnerView()
                             }
                         }
