@@ -61,4 +61,5 @@ final class UserProfileServiceUseCaseTests: XCTestCase {
         XCTAssertEqual(mockUserProfileService.lastUpdatedUser, "Jesse Heredia", "The updated user's name should be 'Jesse Heredia'")
     }
     
+    
 }

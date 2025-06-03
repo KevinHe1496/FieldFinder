@@ -8,7 +8,7 @@ import Foundation
 
 final class UserFavoritesServiceRepository: UserFavoritesServiceRepositoryProtocol {
 
-    private let network: UserFavoritesServiceProtocol
+    var network: UserFavoritesServiceProtocol
 
     init(network: UserFavoritesServiceProtocol = UserFavoritesService()) {
         self.network = network
