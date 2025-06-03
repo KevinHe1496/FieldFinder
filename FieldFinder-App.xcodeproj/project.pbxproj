@@ -79,6 +79,8 @@
 		BF97190E2DCD1BE600CD0AF8 /* HttpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97190D2DCD1BE600CD0AF8 /* HttpMethods.swift */; };
 		BF9719102DCD1BFD00CD0AF8 /* HttpResponseCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97190F2DCD1BFD00CD0AF8 /* HttpResponseCodes.swift */; };
 		BFA9DC322DE4F9A50016AA2C /* OwnerFieldGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9DC312DE4F9A50016AA2C /* OwnerFieldGridItemView.swift */; };
+
+
 		BFB50ED42DE15C960086F1A5 /* EstablishmentInfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB50ED32DE15C960086F1A5 /* EstablishmentInfoSection.swift */; };
 		BFE2E09A2DD3E68700B0E0BE /* ResizeImagesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2E0992DD3E68000B0E0BE /* ResizeImagesData.swift */; };
 		BFE2E09C2DD401AA00B0E0BE /* CustomUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2E09B2DD401AA00B0E0BE /* CustomUIImage.swift */; };
@@ -91,6 +93,7 @@
 		BFFB28F02DCD5F7C00DD8819 /* FFPersistenceKeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB28EF2DCD5F7C00DD8819 /* FFPersistenceKeyChain.swift */; };
 		BFFB28F42DCD61A200DD8819 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB28F32DCD61A200DD8819 /* RootView.swift */; };
 		C91AAB9D2DE8E22200EFBE0D /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91AAB9C2DE8E22200EFBE0D /* ErrorStateView.swift */; };
+		C91AABA72DE8EAED00EFBE0D /* LocationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91AABA62DE8EAED00EFBE0D /* LocationPickerView.swift */; };
 		C92221A92DD3BB4000D6BE8B /* FieldGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221A82DD3BB4000D6BE8B /* FieldGridItemView.swift */; };
 		C92221AB2DD3C21D00D6BE8B /* FieldDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221AA2DD3C21D00D6BE8B /* FieldDetailView.swift */; };
 		C92221B62DD3C62F00D6BE8B /* FieldDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221B52DD3C62F00D6BE8B /* FieldDetailViewModel.swift */; };
@@ -142,6 +145,7 @@
 		C9C7BAB82DCE8A60007CB3FA /* MapEstablishmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BAB72DCE8A60007CB3FA /* MapEstablishmentsView.swift */; };
 		C9C7BABB2DCE8A9D007CB3FA /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BABA2DCE8A9D007CB3FA /* FavoritesView.swift */; };
 		C9C7BABE2DCE8D71007CB3FA /* ProfileUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7BABD2DCE8D71007CB3FA /* ProfileUserView.swift */; };
+		C9CBEEF22DEB5BDB002048C3 /* FullscreenImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CBEEF12DEB5BDB002048C3 /* FullscreenImageView.swift */; };
 		C9D4CA512DD7E36C00296604 /* FieldInfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CA502DD7E36C00296604 /* FieldInfoSection.swift */; };
 		C9D4CA532DD7E37100296604 /* FieldAttributesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CA522DD7E37100296604 /* FieldAttributesSection.swift */; };
 		C9D4CA602DD7E6AE00296604 /* EstablishmentServicesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CA5F2DD7E6AE00296604 /* EstablishmentServicesSection.swift */; };
@@ -229,10 +233,6 @@
 		BF44DEC52DEF871D003D7824 /* ConstantsAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsAppTests.swift; sourceTree = "<group>"; };
 		BF46A9792DD4DF71006A5FF3 /* OwnerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerViewModel.swift; sourceTree = "<group>"; };
 		BF5614A72DCE6E8B003C1F66 /* RegisterFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFieldView.swift; sourceTree = "<group>"; };
-		BF57D3582DE8A23200CD3B93 /* MockEstablishmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEstablishmentService.swift; sourceTree = "<group>"; };
-		BF57D35A2DE8A43D00CD3B93 /* EstablishmentServiceRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentServiceRepositoryTests.swift; sourceTree = "<group>"; };
-		BF57D35C2DE8B33700CD3B93 /* EstablishmentServiceUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentServiceUseCaseTests.swift; sourceTree = "<group>"; };
-		BF57D35E2DE8B57100CD3B93 /* RegisterEstablishmentViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablishmentViewModelTests.swift; sourceTree = "<group>"; };
 		BF784DAE2DDE6BA900B2B2E6 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		BF784DB02DDE6CD400B2B2E6 /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModels.swift; sourceTree = "<group>"; };
 		BF93CBB12DD39E31002A8627 /* EstablishmentServiceRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentServiceRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -265,6 +265,7 @@
 		BFFB28EF2DCD5F7C00DD8819 /* FFPersistenceKeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FFPersistenceKeyChain.swift; path = "FieldFinder-App/Shared/Domain/Tools/FFPersistenceKeyChain.swift"; sourceTree = SOURCE_ROOT; };
 		BFFB28F32DCD61A200DD8819 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		C91AAB9C2DE8E22200EFBE0D /* ErrorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStateView.swift; sourceTree = "<group>"; };
+		C91AABA62DE8EAED00EFBE0D /* LocationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerView.swift; sourceTree = "<group>"; };
 		C92221A82DD3BB4000D6BE8B /* FieldGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGridItemView.swift; sourceTree = "<group>"; };
 		C92221AA2DD3C21D00D6BE8B /* FieldDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldDetailView.swift; sourceTree = "<group>"; };
 		C92221B52DD3C62F00D6BE8B /* FieldDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldDetailViewModel.swift; sourceTree = "<group>"; };
@@ -319,6 +320,7 @@
 		C9C7BAB72DCE8A60007CB3FA /* MapEstablishmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEstablishmentsView.swift; sourceTree = "<group>"; };
 		C9C7BABA2DCE8A9D007CB3FA /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		C9C7BABD2DCE8D71007CB3FA /* ProfileUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserView.swift; sourceTree = "<group>"; };
+		C9CBEEF12DEB5BDB002048C3 /* FullscreenImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageView.swift; sourceTree = "<group>"; };
 		C9D4CA502DD7E36C00296604 /* FieldInfoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldInfoSection.swift; sourceTree = "<group>"; };
 		C9D4CA522DD7E37100296604 /* FieldAttributesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldAttributesSection.swift; sourceTree = "<group>"; };
 		C9D4CA5F2DD7E6AE00296604 /* EstablishmentServicesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentServicesSection.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 			path = ProfileOwnerView;
 			sourceTree = "<group>";
 		};
+
 		BF44DE682DEF83B6003D7824 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +510,7 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+
 		BF5614AA2DCE705C003C1F66 /* Usecases */ = {
 			isa = PBXGroup;
 			children = (
@@ -643,6 +647,7 @@
 		BFA9DC3B2DE5072D0016AA2C /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				C91AABA62DE8EAED00EFBE0D /* LocationPickerView.swift */,
 				C9B0AD6C2DCD07EB0043A9A2 /* RegisterEstablishmentView.swift */,
 				BF93CBB72DD3A025002A8627 /* RegisterEstablismentViewModel.swift */,
 				BF0E25AA2DD7DE9400A53745 /* EditEstablishmentView.swift */,
@@ -669,6 +674,7 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+
 		BFD4D3BA2DE8F58400EF07DD /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -688,6 +694,7 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+
 		C92221AC2DD3C34300D6BE8B /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -712,6 +719,7 @@
 		C92FD10A2DD2BA830008E2F9 /* ReusableUI */ = {
 			isa = PBXGroup;
 			children = (
+				C9CBEEF12DEB5BDB002048C3 /* FullscreenImageView.swift */,
 				C9D4CA652DD7FD5F00296604 /* AnimatedAppearRow.swift */,
 				C92221B72DD3D84600D6BE8B /* FieldAttributesView.swift */,
 				C92FD10D2DD2BB570008E2F9 /* FavoriteButton.swift */,
@@ -731,7 +739,9 @@
 				C939BC462DCCF38500B98C16 /* FieldFinder-AppUITests */,
 				C99E4D3A2DE6336800FA04AE /* Frameworks */,
 				C939BC2D2DCCF38400B98C16 /* Products */,
+
 				BFD4D3BA2DE8F58400EF07DD /* Recovered References */,
+
 			);
 			sourceTree = "<group>";
 		};
@@ -972,6 +982,21 @@
 			path = ProfileUserView;
 			sourceTree = "<group>";
 		};
+		C9CBEEC12DEB5AF6002048C3 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				BFA9DC562DE5439B0016AA2C /* MockData.swift */,
+				BFB3652C2DE8CF14006EE463 /* FieldServiceTests.swift */,
+				BFA9DC4C2DE52BDB0016AA2C /* MockAuthService.swift */,
+				BFA9DC4F2DE52E6E0016AA2C /* UserAuthServiceRepositoryTests.swift */,
+				BFA9DC542DE541690016AA2C /* UserAuthServiceTests.swift */,
+				BFA9DC522DE5386A0016AA2C /* URLProtocolStub.swift */,
+				BFB365302DE8E0CF006EE463 /* FieldResponse.json */,
+				BFB3652E2DE8DEC5006EE463 /* FieldRequest.json */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		C9D4CA5A2DD7E69500296604 /* EstablishmentComponentsUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -1110,6 +1135,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				BF44DEAD2DEF83B6003D7824 /* EstablishmentResponse.json in Resources */,
 				BF44DEAE2DEF83B6003D7824 /* FavoriteEstablishmentModel.json in Resources */,
 				BF44DEAF2DEF83B6003D7824 /* FieldRequest.json in Resources */,
@@ -1118,6 +1144,7 @@
 				BF44DEB22DEF83B6003D7824 /* IDResponse.json in Resources */,
 				BF44DEB32DEF83B6003D7824 /* UserProfileRequest.json in Resources */,
 				BF44DEB42DEF83B6003D7824 /* UserProfileResponse.json in Resources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1138,6 +1165,7 @@
 				BF93CBB42DD39E5A002A8627 /* EstablishmentServiceRepository.swift in Sources */,
 				BF03C62D2DD78E35005DB158 /* EditFieldView.swift in Sources */,
 				C98B8BF72DD530ED004F05A3 /* EditProfileView.swift in Sources */,
+				C91AABA72DE8EAED00EFBE0D /* LocationPickerView.swift in Sources */,
 				C95C5D0C2DD8F7E000A5310C /* CoverImageTip.swift in Sources */,
 				BF1125B52DCFF31500A9DBE5 /* EstablishmentModels.swift in Sources */,
 				C9D4CA642DD7E6B700296604 /* EstablishmentMapSection.swift in Sources */,
@@ -1192,6 +1220,7 @@
 				C92221BA2DD3DB2000D6BE8B /* UserFavoritesService.swift in Sources */,
 				C92FD1042DD297EC0008E2F9 /* EstablishmentDetailViewModel.swift in Sources */,
 				BF46A97A2DD4DF76006A5FF3 /* OwnerViewModel.swift in Sources */,
+				C9CBEEF22DEB5BDB002048C3 /* FullscreenImageView.swift in Sources */,
 				BFFB27E62DCD3C7600DD8819 /* ConstantsApp.swift in Sources */,
 				BF1125B32DCFF1D400A9DBE5 /* EstablishmentService.swift in Sources */,
 				BF1471D52DD64B81008C1E09 /* FieldServiceUseCase.swift in Sources */,
@@ -1239,6 +1268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				BF44DE922DEF83B6003D7824 /* MockData.swift in Sources */,
 				BF44DE932DEF83B6003D7824 /* URLProtocolStub.swift in Sources */,
 				BF44DE942DEF83B6003D7824 /* MockAuthService.swift in Sources */,
@@ -1272,6 +1302,7 @@
 				BF44DEAA2DEF83B6003D7824 /* UserAuthViewModelTests.swift in Sources */,
 				BF44DEAB2DEF83B6003D7824 /* UserFavoritesServiceViewModelTests.swift in Sources */,
 				BF44DEAC2DEF83B6003D7824 /* UserProfileServiceViewModelTests.swift in Sources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1430,6 +1461,8 @@
 				DEVELOPMENT_TEAM = L5MH9KP95U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Field Finder";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to improve the experience.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to find nearby establishments and improve your experience.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1437,6 +1470,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1461,6 +1495,8 @@
 				DEVELOPMENT_TEAM = L5MH9KP95U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Field Finder";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to improve the experience.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to find nearby establishments and improve your experience.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1468,6 +1504,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

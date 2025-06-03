@@ -3,7 +3,7 @@ import SwiftUI
 struct FavoritesView: View {
     @ObservedObject var viewModel: PlayerGetNearbyEstablishmentsViewModel
     @State private var shownItems: Set<String> = []
-
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -15,39 +15,57 @@ struct FavoritesView: View {
                     LoadingProgressView()
                     
                 case .success(let favoritos):
-                    ScrollView {
-                        VStack(spacing: 20) {
-                            Text("Mis Favoritos")
-                                .font(.title2.bold())
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.horizontal)
-                                .padding(.top)
-
-                            ForEach(favoritos) { establishment in
-                                NavigationLink {
-                                    EstablishmentDetailView(establishmentId: establishment.id)
-                                } label: {
-                                    AnimatedAppearRow(item: establishment, shownItems: $shownItems) {
-                                        FavoriteGridItemView(
-                                            establishment: establishment,
-                                            viewModel: viewModel
-                                        )
-                                        .transition(.opacity.combined(with: .move(edge: .bottom)))
+                    if favoritos.isEmpty {
+                        ContentUnavailableView {
+                            Label("No tienes favoritos", systemImage: "star.slash.fill")
+                                .foregroundStyle(.primaryColorGreen)
+                        } description: {
+                            Text("Aún no has agregado establecimientos a tu lista de favoritos. Empieza a descubrir lugares y guárdalos aquí.")
+                        } actions: {
+                            CustomButtonView(title: "Intentar denuevo", color: .primaryColorGreen, textColor: .white) {
+                                Task {
+                                    do {
+                                        try await viewModel.getFavoritesUser()
                                     }
                                 }
                             }
                         }
-                        .padding(.bottom)
-                        .animation(.easeInOut, value: viewModel.favoritesData)
-                    }
-                    .refreshable {
-                        do{
-                            try await viewModel.getFavoritesUser()
-                        } catch {
-                            print("error: \(error)")
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    } else {
+                        ScrollView {
+                            VStack(spacing: 20) {
+                                Text("Mis Favoritos")
+                                    .font(.title2.bold())
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.horizontal)
+                                    .padding(.top)
+                                
+                                ForEach(favoritos) { establishment in
+                                    NavigationLink {
+                                        EstablishmentDetailView(establishmentId: establishment.id)
+                                    } label: {
+                                        AnimatedAppearRow(item: establishment, shownItems: $shownItems) {
+                                            FavoriteGridItemView(
+                                                establishment: establishment,
+                                                viewModel: viewModel
+                                            )
+                                            .transition(.opacity.combined(with: .move(edge: .bottom)))
+                                        }
+                                    }
+                                }
+                            }
+                            .padding(.bottom)
+                            .animation(.easeInOut, value: viewModel.favoritesData)
                         }
+                        .refreshable {
+                            do{
+                                try await viewModel.getFavoritesUser()
+                            } catch {
+                                print("error: \(error)")
+                            }
+                        }
+                        .scrollIndicators(.hidden)
                     }
-                    .scrollIndicators(.hidden)
                 case .error(let message):
                     VStack {
                         Image(systemName: "exclamationmark.triangle.fill")

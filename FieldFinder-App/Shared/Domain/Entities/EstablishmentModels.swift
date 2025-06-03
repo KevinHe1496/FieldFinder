@@ -11,9 +11,7 @@ struct EstablishmentRequest: Codable {
     let name: String
     let info: String
     let address: String
-    let country: String
-    let city: String
-    let zipCode: String
+    let address2: String?
     let parqueadero: Bool
     let vestidores: Bool
     let bar: Bool
@@ -31,10 +29,8 @@ struct EstablishmentResponse: Codable, Identifiable {
     let name: String
     let info: String
     let address: String
-    let city: String
     let isFavorite: Bool
-    let zipCode: String
-    let country: String
+    let address2: String?
     let phone: String
     let userName: String
     let userRol: String
@@ -58,11 +54,9 @@ struct EstablishmentResponse: Codable, Identifiable {
         id: "12345",
         name: "Cancha Los Libertadores",
         info: "Complejo deportivo con canchas de fútbol 7 y servicios adicionales.",
-        address: "Av. Amazonas y Naciones Unidas",
-        city: "Quito",
+        address: "Av. Amazonas",
         isFavorite: true,
-        zipCode: "170102",
-        country: "Ecuador",
+        address2: "Naciones Unidas",
         phone: "+593987654321",
         userName: "kevin_heredia",
         userRol: "jugador",
