@@ -32,12 +32,10 @@ final class EstablishmentServiceUseCaseTests: XCTestCase {
     func testGivenValidRequest_WhenCreateEstablishment_ThenReturnsEstablishmentId() async throws {
         // Arrange
         let request = EstablishmentRequest(
-            name: "Show Gol",
+            name: "Bocha",
             info: "Cancha sintética de fútbol 7 con iluminación nocturna",
             address: "123 Main St",
-            country: "Ecuador",
-            city: "Quito",
-            zipCode: "170123",
+            address2: "Carlota Jaramillo",
             parqueadero: true,
             vestidores: true,
             bar: true,
@@ -69,12 +67,10 @@ final class EstablishmentServiceUseCaseTests: XCTestCase {
     func testupdateEstablishment_callsServiceWithCorrectModel() async throws {
         // Arrange
         let request = EstablishmentRequest(
-            name: "Show Gol",
+            name: "Bocha",
             info: "Cancha sintética de fútbol 7 con iluminación nocturna",
             address: "123 Main St",
-            country: "Ecuador",
-            city: "Quito",
-            zipCode: "170123",
+            address2: "Carlota Jaramillo",
             parqueadero: true,
             vestidores: true,
             bar: true,
@@ -89,7 +85,7 @@ final class EstablishmentServiceUseCaseTests: XCTestCase {
         
         // Arrange
         XCTAssertTrue(mockEstablishmentService.didCallUpdateEstablishment)
-        XCTAssertEqual(mockEstablishmentService.lastUpdatedEstablishment?.name, "Show Gol")
+        XCTAssertEqual(mockEstablishmentService.lastUpdatedEstablishment?.name, "Bocha")
     }
 
     func testFetchEstablishment_ShouldReturnEstablishment_WhenIDIsValid() async throws {

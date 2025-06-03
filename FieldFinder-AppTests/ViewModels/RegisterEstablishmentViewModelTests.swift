@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import CoreLocation
 
 @testable import FieldFinder_App
 final class RegisterEstablishmentViewModelTests: XCTestCase {
@@ -39,16 +40,15 @@ final class RegisterEstablishmentViewModelTests: XCTestCase {
             name: "",
             info: "",
             address: "",
-            country: "",
-            city: "",
-            zipCode: "",
+            address2: "",
             parqueadero: true,
             vestidores: true,
             bar: true,
             banos: true,
             duchas: true,
             phone: "",
-            images: []
+            images: [],
+            userCoordinates: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
         )
 
         XCTAssertEqual(viewModel.alertMessage, "Todos los campos son obligatorios. Revisa los datos ingresados.")
@@ -60,16 +60,15 @@ final class RegisterEstablishmentViewModelTests: XCTestCase {
             name: "Bocha",
             info: "Canchas naturales",
             address: "Av. Amazonas",
-            country: "Ecuador",
-            city: "Quito",
-            zipCode: "17523",
+            address2: "Carlota Jaramillo",
             parqueadero: true,
             vestidores: true,
             bar: true,
             banos: true,
             duchas: true,
             phone: "0998041792",
-            images: []
+            images: [],
+            userCoordinates: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
         )
         
         XCTAssertEqual(viewModel.alertMessage, "Es obligatorio subir imágenes.")
@@ -84,16 +83,15 @@ final class RegisterEstablishmentViewModelTests: XCTestCase {
             name: "Bocha",
             info: "Canchas naturales",
             address: "Av. Amazonas",
-            country: "Ecuador",
-            city: "Quito",
-            zipCode: "17523",
+            address2: "Carlota Jaramillo",
             parqueadero: true,
             vestidores: true,
             bar: true,
             banos: true,
             duchas: true,
             phone: "0998041792",
-            images: fakeImages
+            images: fakeImages,
+            userCoordinates: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
         )
         
         XCTAssertEqual(viewModel.alertMessage, "Establecimiento registrado con éxito.")
