@@ -27,6 +27,9 @@ struct MyEstablishmentsView: View {
 
     var body: some View {
         NavigationStack {
+            if establishment.isEmpty {
+                ContentUnavailableView("No tienes establecimientos registrados", systemImage: "building.2.crop.circle", description: Text("Empieza a crear un nuevo establecimiento para que tus jugadores lo encuentren fácilmente."))
+            }
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(establishment) { establishment in

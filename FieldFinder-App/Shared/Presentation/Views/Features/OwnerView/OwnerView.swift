@@ -65,27 +65,7 @@ struct OwnerView: View {
                     }
                 }
                 .navigationTitle("Mis Canchas")
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button(action: handleAddFieldTapped) {
-                            Image(systemName: "plus.circle.fill")
-                                .font(.title2) // Tamaño recomendado por Apple
-                                .accessibilityLabel("Agregar cancha")
-                        }
-                        .tint(.primaryColorGreen)
-                    }
-                }
-                NavigationLink(
-                    destination: RegisterFieldView(establecimientoID: ""),
-                    tag: .registerField,
-                    selection: $selectedNavigation
-                ) {
-                    EmptyView()
-                }
-                .hidden()
-                .sheet(isPresented: $showingStore) {
-                    StoreView()
-                }
+
                 .task {
                     await viewModel.getEstablishments()
                     
