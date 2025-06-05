@@ -46,7 +46,12 @@ struct RootView: View {
         case .ownerView:
             OwnerView(appState: appState)
         case .registerCancha:
-            RegisterFieldView()
+            if let estID = appState.selectedEstablishmentID {
+                RegisterFieldView(establecimientoID: estID)
+            } else {
+                Text("No se ha seleccionado establecimiento.")
+            }
+
         }
     }
 }

@@ -16,7 +16,7 @@ struct EditFieldView: View {
     @State var iluminada: Bool
     @State var cubierta: Bool
     @State var canchaID: String
-    
+    @State var establecimientoID: String
     // ViewModel and dissmis
     @State var viewModel = RegisterFieldViewModel()
     @Environment(\.dismiss) var dismiss
@@ -89,7 +89,8 @@ struct EditFieldView: View {
                         modalidad: selectedCapacidad.rawValue,
                         precio: Double(precio) ?? 0,
                         iluminada: iluminada,
-                        cubierta: cubierta
+                        cubierta: cubierta,
+                        establecimientoID: establecimientoID
                     )
                     
                     try await viewModel.editCancha(canchaID: canchaID, canchaModel: newModel)
@@ -111,5 +112,5 @@ struct EditFieldView: View {
 }
 
 #Preview {
-    EditFieldView(selectedField: .cesped, selectedCapacidad: .siete, precio: "12", iluminada: true, cubierta: true, canchaID: "1")
+    EditFieldView(selectedField: .cesped, selectedCapacidad: .siete, precio: "12", iluminada: true, cubierta: true, canchaID: "1", establecimientoID: "1")
 }

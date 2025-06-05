@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct FieldDetailView: View {
     @State private var viewModel = FieldDetailViewModel()
     @State private var viewModelRegisterCancha = RegisterFieldViewModel()
@@ -16,13 +14,14 @@ struct FieldDetailView: View {
 
     @State private var showAlert: Bool = false
     @State private var contentVisible = false
-
+    var establecimientoID: String
     var fieldId: String
     var userRole: UserRole?
 
-    init(fieldId: String, userRole: UserRole? = nil) {
+    init(fieldId: String, userRole: UserRole? = nil, establecimientoID: String) {
         self.fieldId = fieldId
         self.userRole = userRole
+        self.establecimientoID = establecimientoID
     }
 
     var body: some View {
@@ -71,12 +70,19 @@ struct FieldDetailView: View {
                     ToolbarItemGroup(placement: .topBarTrailing) {
                         NavigationLink {
                             EditFieldView(
-                                selectedField: Field(rawValue: cancha.tipo) ?? .cesped,
-                                selectedCapacidad: Capacidad(rawValue: cancha.modalidad) ?? .cinco,
-                                precio: String(cancha.precio),
+                                selectedField: Field(
+                                    rawValue: cancha.tipo
+                                ) ?? .cesped,
+                                selectedCapacidad: Capacidad(
+                                    rawValue: cancha.modalidad
+                                ) ?? .cinco,
+                                precio: String(
+                                    cancha.precio
+                                ),
                                 iluminada: cancha.iluminada,
                                 cubierta: cancha.cubierta,
-                                canchaID: fieldId
+                                canchaID: fieldId,
+                                establecimientoID: establecimientoID
                             )
                         } label: {
                             Image(systemName: "pencil.circle.fill")
@@ -121,5 +127,5 @@ struct FieldDetailView: View {
 
 
 #Preview {
-    FieldDetailView(fieldId: "", userRole: .dueno)
+    FieldDetailView(fieldId: "", userRole: .dueno, establecimientoID: "")
 }

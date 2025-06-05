@@ -64,8 +64,9 @@ struct EditEstablishmentView: View {
             Section {
                 TextField("Nombre", text: $name)
                 TextField("información", text: $info)
-                TextField("País", text: $address2)
-                TextField("Dirección", text: $address)
+                
+                TextField("Calle", text: $address)
+                TextField("Calle 2", text: $address2)
                 TextField("Teléfono", text: $phone)
         
                 Toggle("Parqueadero", isOn: $parqueadero)

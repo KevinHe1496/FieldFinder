@@ -116,7 +116,7 @@ struct EstablishmentSelectedMapDetailView: View {
                     }
                     
                     NavigationLink {
-                        EstablishmentDetailView(establishmentId: establishment.id)
+                        EstablishmentDetailView(establishmentID: establishment.id)
                     } label: {
                         Text("Ver establecimiento")
                             .foregroundStyle(.white)
@@ -174,3 +174,4 @@ struct EstablishmentSelectedMapDetailView: View {
 //#Preview {
 //    EstablishmentSelectedMapDestailView(establishment: .sample)
 //}
+

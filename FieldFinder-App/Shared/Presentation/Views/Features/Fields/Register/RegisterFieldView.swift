@@ -17,9 +17,9 @@ struct RegisterFieldView: View {
     @State private var iluminada = false
     @State private var cubierta = false
     @State private var selectedImages: [Data] = []
-
     let coverTip = CoverImageTip()
-    
+    let establecimientoID: String
+
     @State private var shouldDismissAfterAlert = false
     let localCurrency = Locale.current.currency?.identifier ?? "USD"
     
@@ -103,10 +103,15 @@ struct RegisterFieldView: View {
                                 modalidad: selectedCapacidad.rawValue,
                                 precio: Double(precio) ?? 0,
                                 iluminada: iluminada,
-                                cubierta: cubierta
+                                cubierta: cubierta,
+                                establecimientoID: establecimientoID
                             )
                             
-                            await viewModel.registerCancha(newModel, images: selectedImages)
+                            await viewModel.registerCancha(
+                                newModel,
+                                images: selectedImages,
+                                establishmentID: establecimientoID
+                            )
                             
                             showAlert = true
                         }
@@ -133,6 +138,6 @@ struct RegisterFieldView: View {
 }
 
 #Preview {
-    RegisterFieldView(viewModel: RegisterFieldViewModel())
+    RegisterFieldView(establecimientoID: "", viewModel: RegisterFieldViewModel())
         .environment(AppState())
 }

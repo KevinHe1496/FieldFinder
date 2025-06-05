@@ -12,6 +12,7 @@ struct EstablishmentFieldsSection: View {
     let canchas: [FieldResponse]
     @State private var shownItems: Set<String> = []
     let rows = GridItem(.flexible(minimum: 80))
+    let establecimientoID: String
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -25,7 +26,8 @@ struct EstablishmentFieldsSection: View {
                     LazyHGrid(rows: [rows]) {
                         ForEach(canchas) { cancha in
                             NavigationLink {
-                                FieldDetailView(fieldId: cancha.id)
+                                FieldDetailView(fieldId: cancha.id,
+                                                establecimientoID: establecimientoID)
                             } label: {
                                 AnimatedAppearRow(item: cancha, shownItems: $shownItems) {
                                     FieldGridItemView(field: cancha)
@@ -47,5 +49,5 @@ struct EstablishmentFieldsSection: View {
 }
 
 #Preview {
-    EstablishmentFieldsSection(canchas: [.sample])
+    EstablishmentFieldsSection(canchas: [.sample], establecimientoID: "")
 }

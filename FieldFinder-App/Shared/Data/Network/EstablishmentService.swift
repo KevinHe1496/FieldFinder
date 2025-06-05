@@ -7,6 +7,7 @@ protocol EstablishmentServiceProtocol {
     func updateEstablishment(establishmentID: String, establishmentModel: EstablishmentRequest) async throws
     func fetchEstablishment(with establishmentId: String) async throws -> EstablishmentResponse
     func fetchAllEstablishments(coordinate: CLLocationCoordinate2D) async throws -> [EstablishmentResponse]
+    func deleteEstablishmentById(with establishmentId: String) async throws
 }
 
 final class EstablishmentService: EstablishmentServiceProtocol {
@@ -202,6 +203,29 @@ final class EstablishmentService: EstablishmentServiceProtocol {
             throw FFError.decodingError
         }
         return modelReturn
+    }
+    
+    func deleteEstablishmentById(with establishmentId: String) async throws {
+        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.getEstablishmentById.rawValue)/\(establishmentId)"
+        
+        guard let url = URL(string: urlString) else {
+            throw FFError.badUrl
+        }
+        
+        var request: URLRequest = URLRequest(url: url)
+        request.httpMethod = HttpMethods.delete
+        
+        let tokenJWT = KeyChainFF().loadPK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
+        request.setValue("\(HttpHeader.bearer) \(tokenJWT)", forHTTPHeaderField: HttpHeader.authorization)
+        
+        do {
+            let (_, response) = try await session.data(for: request)
+            
+            guard let httpResponse = response as? HTTPURLResponse,
+                  200..<300 ~= httpResponse.statusCode else {
+                throw FFError.errorFromApi(statusCode: -1)
+            }
+        }
     }
     
 }

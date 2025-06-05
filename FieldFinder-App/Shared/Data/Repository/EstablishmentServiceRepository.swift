@@ -35,4 +35,8 @@ final class EstablishmentServiceRepository: EstablishmentServiceRepositoryProtoc
         try await network.fetchAllEstablishments(coordinate: coordinate)
     }
     
+    func deleteEstablishmentById(with establishmentId: String) async throws {
+        try await network.deleteEstablishmentById(with: establishmentId)
+    }
+    
 }

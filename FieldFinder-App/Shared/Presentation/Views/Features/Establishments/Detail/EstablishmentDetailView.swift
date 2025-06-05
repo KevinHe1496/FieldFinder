@@ -1,17 +1,10 @@
-//
-//  EstablishmentDetailView.swift
-//  FieldFinder-App
-//
-//  Created by Kevin Heredia on 12/5/25.
-//
-
 import SwiftUI
 import MapKit
 import StoreKit
 
 struct EstablishmentDetailView: View {
     @Environment(\.dismiss) var dismiss
-    
+    @Environment(AppState.self) var appState
     var establishmentID: String
     
     let rows = [GridItem(.fixed(200))]
@@ -19,9 +12,12 @@ struct EstablishmentDetailView: View {
     @State private var viewModel = EstablishmentDetailViewModel()
     @State private var cameraPosition: MapCameraPosition = .automatic
     @State private var contentVisible = false
+    @State private var showRegisterField = false
+    @State private var showingStore = false
+    @State private var showDeleteConfirmation = false
     
-    init(establishmentId: String) {
-        self.establishmentID = establishmentId
+    init(establishmentID: String) {
+        self.establishmentID = establishmentID
     }
     
     var body: some View {
@@ -51,12 +47,13 @@ struct EstablishmentDetailView: View {
                             }
                         )
                         
-                        
-                        
                         EstablishmentServicesSection(establishment: establecimiento)
                         
                         if !establecimiento.canchas.isEmpty {
-                            EstablishmentFieldsSection(canchas: establecimiento.canchas)
+                            EstablishmentFieldsSection(
+                                canchas: establecimiento.canchas,
+                                establecimientoID: establecimiento.id
+                            )
                         } else {
                             VStack(alignment: .center, spacing: 16) {
                                 Image(systemName: "sportscourt")
@@ -90,6 +87,15 @@ struct EstablishmentDetailView: View {
                     .padding(.top)
                     .animation(.easeInOut(duration: 0.4), value: contentVisible)
                 }
+                .alert("¿Estás seguro de que quieres eliminar este establecimiento?", isPresented: $showDeleteConfirmation) {
+                    Button("Eliminar", role: .destructive) {
+                        Task {
+                            try await viewModel.deleteEstablishmentById(establishmentId: establecimiento.id)
+                            dismiss()
+                        }
+                    }
+                    Button("Cancelar", role: .cancel) { }
+                }
             case .error(let message):
                 VStack(spacing: 16) {
                     Image(systemName: "exclamationmark.triangle.fill")
@@ -106,6 +112,71 @@ struct EstablishmentDetailView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Establecimiento")
+        .toolbar {
+            if appState.userRole == .dueno,
+               let userID = appState.userID,
+               case .success(let establecimiento) = viewModel.status,
+               establecimiento.ownerID == userID {
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    // Botón moderno: "Agregar cancha"
+                    Button {
+                        if canAddField(for: establecimiento) {
+                            showRegisterField = true
+                        } else {
+                            showingStore = true
+                        }
+                    } label: {
+                        
+                        Image(systemName: "plus.circle.fill")
+                            .font(.caption)
+                            .foregroundColor(.green)
+                            .offset(x: 10, y: -10)
+                        
+                        
+                    }
+                    
+                    // Botón de edición
+                    NavigationLink {
+                        EditEstablishmentView(
+                            name: establecimiento.name,
+                            info: establecimiento.info,
+                            address2: establecimiento.address2,
+                            address: establecimiento.address,
+                            phone: establecimiento.phone,
+                            establishmentID: establecimiento.id,
+                            parqueadero: establecimiento.parquedero,
+                            vestidores: establecimiento.vestidores,
+                            bar: establecimiento.bar,
+                            banos: establecimiento.banos,
+                            duchas: establecimiento.duchas,
+                            appState: appState
+                        )
+                    } label: {
+                        Image(systemName: "pencil.circle.fill")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundStyle(.primaryColorGreen)
+                    }
+                    
+                    // Botón de eliminar
+                    Button {
+                        showDeleteConfirmation = true
+                    } label: {
+                        Image(systemName: "trash.circle.fill")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundStyle(.primaryColorGreen)
+
+                    }
+                }
+            }
+        }
+        .sheet(isPresented: $showRegisterField) {
+            RegisterFieldView(establecimientoID: establishmentID)
+        }
+        .sheet(isPresented: $showingStore) {
+            StoreView()
+        }
         .task {
             try? await viewModel.getEstablishmentDetail(establishmentId: establishmentID)
             if case .success(let establecimiento) = viewModel.status {
@@ -113,15 +184,13 @@ struct EstablishmentDetailView: View {
                 let region = MKCoordinateRegion(center: coordinate, span: .init(latitudeDelta: 0.005, longitudeDelta: 0.005))
                 cameraPosition = .region(region)
                 
-                // 💾 Incrementar contador de establecimientos visitados
                 var viewedCount = UserDefaults.standard.integer(forKey: "establishmentViewCount")
                 let reviewed = UserDefaults.standard.bool(forKey: "hasRequestedReviewEstablishment")
-
+                
                 if !reviewed {
                     viewedCount += 1
                     UserDefaults.standard.set(viewedCount, forKey: "establishmentViewCount")
-
-                    // ✅ Mostrar review solo si ha visto 5 establecimientos
+                    
                     if viewedCount >= 5 {
                         requestReviewIfAppropriate()
                         UserDefaults.standard.set(true, forKey: "hasRequestedReviewEstablishment")
@@ -130,15 +199,28 @@ struct EstablishmentDetailView: View {
             }
         }
     }
+    
     @MainActor
     func requestReviewIfAppropriate() {
         guard let scene = UIApplication.shared.connectedScenes
             .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene else { return }
-        
         AppStore.requestReview(in: scene)
+    }
+    
+    private func canAddField(for establecimiento: EstablishmentResponse) -> Bool {
+        let canchaCount = establecimiento.canchas.count
+        
+        if appState.fullVersionUnlocked {
+            // Plan premium: hasta 4 canchas por establecimiento
+            return canchaCount < 4
+        } else {
+            // Plan free: solo 1 cancha
+            return canchaCount == 0
+        }
     }
 }
 
 #Preview {
-    EstablishmentDetailView(establishmentId: "A4537A2F-8810-4AEF-8D0A-1FFAFEEB7747")
+    EstablishmentDetailView(establishmentID: "A4537A2F-8810-4AEF-8D0A-1FFAFEEB7747")
+        .environment(AppState())
 }

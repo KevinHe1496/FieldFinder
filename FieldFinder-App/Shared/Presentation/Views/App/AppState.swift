@@ -7,10 +7,34 @@ final class AppState {
     // Published
     var status = StatusModel.login
     var tokenJWT: String = ""
-    var userRole: UserRole?
+    
+    var userRole: UserRole? {
+        didSet {
+            // 🔒 Guarda el valor en UserDefaults cuando cambia
+            if let role = userRole {
+                defaults.set(role.rawValue, forKey: "userRole")
+            } else {
+                defaults.removeObject(forKey: "userRole")
+            }
+        }
+    }
+    
+    var userID: String? {
+        didSet {
+            // 🔒 Guarda el valor en UserDefaults cuando cambia
+            if let id = userID {
+                defaults.set(id, forKey: "userID")
+            } else {
+                defaults.removeObject(forKey: "userID")
+            }
+        }
+    }
+    
     var messageAlert: String = ""
     var showAlert: Bool = false
     var isLoading: Bool = false
+    var selectedEstablishmentID: String?
+    
     // No Published
     @ObservationIgnored
     var isLogged: Bool = false
@@ -19,7 +43,6 @@ final class AppState {
     
     /// The StoreKit products we've loaded for the store.
     var products = [Product]()
-    /// The UserDefaults suite where we're saving user data.
     let defaults: UserDefaults
     
     @ObservationIgnored
@@ -28,6 +51,13 @@ final class AppState {
     init(loginUseCase: UserAuthServiceUseCaseProtocol = UserAuthServiceUseCase(), defaults: UserDefaults = .standard) {
         self.loginUseCase = loginUseCase
         self.defaults = defaults
+        
+        // ✅ Recupera userRole y userID al iniciar la app
+        if let savedRole = defaults.string(forKey: "userRole"),
+           let role = UserRole(rawValue: savedRole) {
+            self.userRole = role
+        }
+        self.userID = defaults.string(forKey: "userID")
         
         Task {
             await validateToken()
@@ -40,8 +70,6 @@ final class AppState {
     
     @MainActor
     func login(email: String, password: String) async throws {
-        
-        
         guard !email.isEmpty || !password.isEmpty else {
             messageAlert = "Los campos son requeridos."
             showAlert = true
@@ -50,26 +78,22 @@ final class AppState {
 
         do {
             isLoading = true
-            
             let loginApp = try await loginUseCase.login(email: email, password: password)
             
             if loginApp == true {
-                // Login Success
                 self.status = .loading
                 
                 let user = try await UserProfileServiceUseCase().fetchUser()
+                self.userID = user.id
                 self.userRole = user.userRole
-                
                 
                 self.status = .loaded
                 self.isLoading = false
             } else {
-                // Login Error
                 showAlert = true
                 messageAlert = "El email o la contraseña son inválidos."
                 isLoading = false
                 status = .error(error: "¡Ups! Algo salió mal")
-                return
             }
         } catch {
             print("Error al iniciar sesión. \(error.localizedDescription)")
@@ -77,14 +101,16 @@ final class AppState {
         showAlert = false
     }
     
-    // Close session
     @MainActor
     func closeSessionUser() {
         Task {
             try await loginUseCase.logout()
             self.status = .login
+            
+            // 💥 Limpia los datos guardados al cerrar sesión
+            self.userRole = nil
+            self.userID = nil
         }
-        
     }
     
     @MainActor
@@ -93,8 +119,8 @@ final class AppState {
             if (await loginUseCase.validateToken() == true) {
                 let user = try await UserProfileServiceUseCase().fetchUser()
                 self.userRole = user.userRole
+                self.userID = user.id
                 self.status = .loaded
-                
             } else {
                 self.status = .login
                 NSLog("Login Error")
@@ -122,7 +148,6 @@ final class AppState {
         isOnFreeTrial = false
     }
     
-    // Función recomendada por Apple (fuera del body)
     @MainActor
     func requestReviewIfAppropriate() {
         guard let scene = UIApplication.shared.connectedScenes

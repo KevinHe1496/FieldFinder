@@ -1,7 +1,7 @@
 import Foundation
 
 protocol FieldServiceProtocol {
-    func createField(_ fieldModel: FieldRequest) async throws -> String
+    func createField(_ fieldModel: FieldRequest, establishmentID: String) async throws -> String
     func uploadFieldImages(fieldID: String, images: [Data]) async throws
     func updateField(fieldID: String, fieldModel: FieldRequest) async throws -> FieldRequest
     func deleteField(fieldID: String) async throws
@@ -17,7 +17,7 @@ final class FieldService: FieldServiceProtocol {
         self.session = session
     }
     
-    func createField(_ fieldModel: FieldRequest) async throws -> String {
+    func createField(_ fieldModel: FieldRequest, establishmentID: String) async throws -> String {
         let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.registerCancha.rawValue)"
         
         guard let url = URL(string: urlString) else {

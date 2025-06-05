@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum OwnerNavigationDestination: Hashable {
+enum OwnerNavigationFieldDestination: Hashable {
     case registerField
 }
 
@@ -15,11 +15,10 @@ struct OwnerView: View {
     
     @Environment(AppState.self) var appState
     @State private var shownItems: Set<String> = []
-    
-   
+
     @State private var showingStore = false
-    @State private var selectedNavigation: OwnerNavigationDestination?
-    
+    @State private var selectedNavigation: OwnerNavigationFieldDestination?
+
     let columns = [
         GridItem(.flexible())
     ]
@@ -34,7 +33,7 @@ struct OwnerView: View {
         NavigationStack {
             
             ZStack {
-                Color(.systemGroupedBackground).ignoresSafeArea()
+                Color(.thirdColorWhite).ignoresSafeArea()
                 ScrollView {
                     if viewModel.establishments.establecimiento.first?.canchas.isEmpty ?? true {
                         VStack {
@@ -48,9 +47,10 @@ struct OwnerView: View {
                         
                         LazyVGrid(columns: columns, spacing: 20) {
                             ForEach(viewModel.establishments.establecimiento) { establecimiento in
+                                
                                 ForEach(establecimiento.canchas) { cancha in
                                     NavigationLink {
-                                        FieldDetailView(fieldId: cancha.id, userRole: viewModel.establishments.userRole)
+                                        FieldDetailView(fieldId: cancha.id, userRole: viewModel.establishments.userRole, establecimientoID: establecimiento.id)
                                     } label: {
                                         AnimatedAppearRow(item: cancha, shownItems: $shownItems) {
                                             FieldGridItemView(field: cancha)
@@ -76,7 +76,7 @@ struct OwnerView: View {
                     }
                 }
                 NavigationLink(
-                    destination: RegisterFieldView(),
+                    destination: RegisterFieldView(establecimientoID: ""),
                     tag: .registerField,
                     selection: $selectedNavigation
                 ) {
@@ -102,7 +102,7 @@ struct OwnerView: View {
         }
     }
     private func handleAddFieldTapped() {
-        if viewModel.canAddField() {
+        if viewModel.canAddFieldandEstablishment() {
             selectedNavigation = .registerField
         } else {
             showingStore = true

@@ -9,8 +9,8 @@ final class FieldServiceRepository: FieldServiceRepositoryProtocol {
         self.network = network
     }
     // GET ID
-    func createField(_ fieldModel: FieldRequest) async throws -> String {
-        try await network.createField(fieldModel)
+    func createField(_ fieldModel: FieldRequest, establishmentID: String) async throws -> String {
+        try await network.createField(fieldModel, establishmentID: establishmentID)
     }
     
     // UPLOAD IMAGES
