@@ -79,8 +79,6 @@
 		BF97190E2DCD1BE600CD0AF8 /* HttpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97190D2DCD1BE600CD0AF8 /* HttpMethods.swift */; };
 		BF9719102DCD1BFD00CD0AF8 /* HttpResponseCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97190F2DCD1BFD00CD0AF8 /* HttpResponseCodes.swift */; };
 		BFA9DC322DE4F9A50016AA2C /* OwnerFieldGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9DC312DE4F9A50016AA2C /* OwnerFieldGridItemView.swift */; };
-
-
 		BFB50ED42DE15C960086F1A5 /* EstablishmentInfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB50ED32DE15C960086F1A5 /* EstablishmentInfoSection.swift */; };
 		BFE2E09A2DD3E68700B0E0BE /* ResizeImagesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2E0992DD3E68000B0E0BE /* ResizeImagesData.swift */; };
 		BFE2E09C2DD401AA00B0E0BE /* CustomUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2E09B2DD401AA00B0E0BE /* CustomUIImage.swift */; };
@@ -376,7 +374,6 @@
 			path = ProfileOwnerView;
 			sourceTree = "<group>";
 		};
-
 		BF44DE682DEF83B6003D7824 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -513,7 +510,6 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
-
 		BF5614AA2DCE705C003C1F66 /* Usecases */ = {
 			isa = PBXGroup;
 			children = (
@@ -677,27 +673,21 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-
 		BFD4D3BA2DE8F58400EF07DD /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				BF57D35A2DE8A43D00CD3B93 /* EstablishmentServiceRepositoryTests.swift */,
 				BFA9DC562DE5439B0016AA2C /* MockData.swift */,
 				BFB3652C2DE8CF14006EE463 /* FieldServiceTests.swift */,
 				BFA9DC4C2DE52BDB0016AA2C /* MockAuthService.swift */,
 				BFA9DC4F2DE52E6E0016AA2C /* UserAuthServiceRepositoryTests.swift */,
-				BF57D3582DE8A23200CD3B93 /* MockEstablishmentService.swift */,
 				BFA9DC542DE541690016AA2C /* UserAuthServiceTests.swift */,
 				BFA9DC522DE5386A0016AA2C /* URLProtocolStub.swift */,
-				BF57D35E2DE8B57100CD3B93 /* RegisterEstablishmentViewModelTests.swift */,
-				BF57D35C2DE8B33700CD3B93 /* EstablishmentServiceUseCaseTests.swift */,
 				BFB365302DE8E0CF006EE463 /* FieldResponse.json */,
 				BFB3652E2DE8DEC5006EE463 /* FieldRequest.json */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-
 		C92221AC2DD3C34300D6BE8B /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -742,9 +732,7 @@
 				C939BC462DCCF38500B98C16 /* FieldFinder-AppUITests */,
 				C99E4D3A2DE6336800FA04AE /* Frameworks */,
 				C939BC2D2DCCF38400B98C16 /* Products */,
-
 				BFD4D3BA2DE8F58400EF07DD /* Recovered References */,
-
 			);
 			sourceTree = "<group>";
 		};
@@ -985,21 +973,6 @@
 			path = ProfileUserView;
 			sourceTree = "<group>";
 		};
-		C9CBEEC12DEB5AF6002048C3 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				BFA9DC562DE5439B0016AA2C /* MockData.swift */,
-				BFB3652C2DE8CF14006EE463 /* FieldServiceTests.swift */,
-				BFA9DC4C2DE52BDB0016AA2C /* MockAuthService.swift */,
-				BFA9DC4F2DE52E6E0016AA2C /* UserAuthServiceRepositoryTests.swift */,
-				BFA9DC542DE541690016AA2C /* UserAuthServiceTests.swift */,
-				BFA9DC522DE5386A0016AA2C /* URLProtocolStub.swift */,
-				BFB365302DE8E0CF006EE463 /* FieldResponse.json */,
-				BFB3652E2DE8DEC5006EE463 /* FieldRequest.json */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		C9D4CA5A2DD7E69500296604 /* EstablishmentComponentsUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -1138,7 +1111,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				BF44DEAD2DEF83B6003D7824 /* EstablishmentResponse.json in Resources */,
 				BF44DEAE2DEF83B6003D7824 /* FavoriteEstablishmentModel.json in Resources */,
 				BF44DEAF2DEF83B6003D7824 /* FieldRequest.json in Resources */,
@@ -1147,7 +1119,6 @@
 				BF44DEB22DEF83B6003D7824 /* IDResponse.json in Resources */,
 				BF44DEB32DEF83B6003D7824 /* UserProfileRequest.json in Resources */,
 				BF44DEB42DEF83B6003D7824 /* UserProfileResponse.json in Resources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1272,7 +1243,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				BF44DE922DEF83B6003D7824 /* MockData.swift in Sources */,
 				BF44DE932DEF83B6003D7824 /* URLProtocolStub.swift in Sources */,
 				BF44DE942DEF83B6003D7824 /* MockAuthService.swift in Sources */,
@@ -1306,7 +1276,6 @@
 				BF44DEAA2DEF83B6003D7824 /* UserAuthViewModelTests.swift in Sources */,
 				BF44DEAB2DEF83B6003D7824 /* UserFavoritesServiceViewModelTests.swift in Sources */,
 				BF44DEAC2DEF83B6003D7824 /* UserProfileServiceViewModelTests.swift in Sources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1461,7 +1430,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "FieldFinder-App/FieldFinder-App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = L5MH9KP95U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1479,7 +1448,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ravecodesolutions.fieldfinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1495,7 +1464,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "FieldFinder-App/FieldFinder-App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = L5MH9KP95U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1513,7 +1482,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ravecodesolutions.fieldfinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
