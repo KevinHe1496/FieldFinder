@@ -1,10 +1,3 @@
-//
-//  MyEstablishmentsView.swift
-//  FieldFinder-App
-//
-//  Created by Kevin Heredia on 3/6/25.
-//
-
 import SwiftUI
 
 enum OwnerNavigationEstablishmentDestination: Hashable {
@@ -28,48 +21,71 @@ struct MyEstablishmentsView: View {
     var body: some View {
         NavigationStack {
             if establishment.isEmpty {
-                ContentUnavailableView("No tienes establecimientos registrados", systemImage: "building.2.crop.circle", description: Text("Empieza a crear un nuevo establecimiento para que tus jugadores lo encuentren fácilmente."))
-            }
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(establishment) { establishment in
-                        NavigationLink{
-                            EstablishmentDetailView(establishmentID: establishment.id)
+                VStack(spacing: 16) {
+                    ContentUnavailableView(
+                        "No tienes establecimientos registrados",
+                        systemImage: "building.2.crop.circle",
+                        description: Text("Empieza a crear un nuevo establecimiento para que tus jugadores lo encuentren fácilmente.")
+                    )
+                    if viewModel.canAddFieldandEstablishment() {
+                        Button {
+                            selectedNavigation = .registerEstablishment
                         } label: {
-                            AnimatedAppearRow(item: establishment, shownItems: $shownItems) {
-                                PlayerEstablishmentGridItemView(establishment: establishment)
+                            Label("Agregar Establecimiento", systemImage: "plus")
+                                .font(.headline)
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(.primaryColorGreen)
+                                .foregroundColor(.white)
+                                .clipShape(RoundedRectangle(cornerRadius: 12))
+                        }
+                        .padding(.horizontal)
+                    }
+                }
+                .padding()
+            } else {
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(establishment) { establishment in
+                            NavigationLink {
+                                EstablishmentDetailOwnerView(establishmentID: establishment.id)
+                            } label: {
+                                AnimatedAppearRow(item: establishment, shownItems: $shownItems) {
+                                    PlayerEstablishmentGridItemView(establishment: establishment)
+                                }
                             }
                         }
                     }
                 }
-                
-                NavigationLink(
-                    destination: RegisterEstablishmentView(appState: appState),
-                    tag: .registerEstablishment,
-                    selection: $selectedNavigation
-                ) {
-                    EmptyView()
-                }
-                .hidden()
-                .sheet(isPresented: $showingStore) {
-                    StoreView()
-                }
+            }
+            
+            NavigationLink(
+                destination: RegisterEstablishmentView(appState: appState),
+                tag: .registerEstablishment,
+                selection: $selectedNavigation
+            ) {
+                EmptyView()
+            }
+            .hidden()
+            .sheet(isPresented: $showingStore) {
+                StoreView()
             }
             .navigationTitle("Mis Establecimientos")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: handleAddFieldTapped) {
+                    Button(action: handleAddEstablishmentTapped) {
                         Image(systemName: "plus.circle.fill")
-                            .font(.title2)
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundStyle(.primaryColorGreen)
                             .accessibilityLabel("Agregar Establecimiento")
                     }
-                    .tint(.primaryColorGreen)
                 }
             }
         }
     }
     
-    private func handleAddFieldTapped() {
+    private func handleAddEstablishmentTapped() {
         if viewModel.canAddFieldandEstablishment() {
             selectedNavigation = .registerEstablishment
         } else {
