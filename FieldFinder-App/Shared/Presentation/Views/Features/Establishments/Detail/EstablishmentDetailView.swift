@@ -117,22 +117,29 @@ struct EstablishmentDetailView: View {
                let userID = appState.userID,
                case .success(let establecimiento) = viewModel.status,
                establecimiento.ownerID == userID {
+                
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    // Botón moderno: "Agregar cancha"
-                    Button {
-                        if canAddField(for: establecimiento) {
-                            showRegisterField = true
-                        } else {
-                            showingStore = true
+                    if canAddField(for: establecimiento) {
+                        NavigationLink {
+                            RegisterFieldView(establecimientoID: establecimiento.id)
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .foregroundStyle(.primaryColorGreen)
+                                .accessibilityLabel("Agregar cancha")
                         }
-                    } label: {
-                        
-                        Image(systemName: "plus.circle.fill")
-                            .font(.caption)
-                            .foregroundColor(.green)
-                            .offset(x: 10, y: -10)
-                        
-                        
+                    } else {
+                        // Botón para abrir StoreView si no puede registrar más canchas
+                        Button {
+                            showingStore = true
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .foregroundStyle(.primaryColorGreen)
+                                .accessibilityLabel("Ver planes para agregar más canchas")
+                        }
                     }
                     
                     // Botón de edición
@@ -165,12 +172,14 @@ struct EstablishmentDetailView: View {
                         Image(systemName: "trash.circle.fill")
                             .resizable()
                             .frame(width: 30, height: 30)
-                            .foregroundStyle(.primaryColorGreen)
-
+                            .foregroundStyle(.red)
+                            .accessibilityLabel("Eliminar establecimiento")
                     }
                 }
             }
         }
+
+
         .sheet(isPresented: $showRegisterField) {
             RegisterFieldView(establecimientoID: establishmentID)
         }
