@@ -1,8 +1,15 @@
+//
+//  EstablishmentDetailOwnerView.swift
+//  FieldFinder-App
+//
+//  Created by Kevin Heredia on 5/6/25.
+//
+
 import SwiftUI
 import MapKit
 import StoreKit
 
-struct EstablishmentDetailView: View {
+struct EstablishmentDetailOwnerView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(AppState.self) var appState
     var establishmentID: String
@@ -112,8 +119,79 @@ struct EstablishmentDetailView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Establecimiento")
+        .toolbar {
+            if appState.userRole == .dueno,
+               let userID = appState.userID,
+               case .success(let establecimiento) = viewModel.status,
+               establecimiento.ownerID == userID {
+                
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    if canAddField(for: establecimiento) {
+                        NavigationLink {
+                            RegisterFieldView(establecimientoID: establecimiento.id)
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .foregroundStyle(.primaryColorGreen)
+                                .accessibilityLabel("Agregar cancha")
+                        }
+                    } else {
+                        // Botón para abrir StoreView si no puede registrar más canchas
+                        Button {
+                            showingStore = true
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .foregroundStyle(.primaryColorGreen)
+                                .accessibilityLabel("Ver planes para agregar más canchas")
+                        }
+                    }
+                    
+                    // Botón de edición
+                    NavigationLink {
+                        EditEstablishmentView(
+                            name: establecimiento.name,
+                            info: establecimiento.info,
+                            address2: establecimiento.address2,
+                            address: establecimiento.address,
+                            phone: establecimiento.phone,
+                            establishmentID: establecimiento.id,
+                            parqueadero: establecimiento.parquedero,
+                            vestidores: establecimiento.vestidores,
+                            bar: establecimiento.bar,
+                            banos: establecimiento.banos,
+                            duchas: establecimiento.duchas,
+                            appState: appState
+                        )
+                    } label: {
+                        Image(systemName: "pencil.circle.fill")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundStyle(.primaryColorGreen)
+                    }
+                    
+                    // Botón de eliminar
+                    Button {
+                        showDeleteConfirmation = true
+                    } label: {
+                        Image(systemName: "trash.circle.fill")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundStyle(.red)
+                            .accessibilityLabel("Eliminar establecimiento")
+                    }
+                }
+            }
+        }
+
+
         .sheet(isPresented: $showRegisterField) {
             RegisterFieldView(establecimientoID: establishmentID)
+        }
+        .sheet(isPresented: $showingStore) {
+            StoreView()
         }
         .task {
             try? await viewModel.getEstablishmentDetail(establishmentId: establishmentID)
@@ -143,6 +221,18 @@ struct EstablishmentDetailView: View {
         guard let scene = UIApplication.shared.connectedScenes
             .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene else { return }
         AppStore.requestReview(in: scene)
+    }
+    
+    private func canAddField(for establecimiento: EstablishmentResponse) -> Bool {
+        let canchaCount = establecimiento.canchas.count
+        
+        if appState.fullVersionUnlocked {
+            // Plan premium: hasta 4 canchas por establecimiento
+            return canchaCount < 4
+        } else {
+            // Plan free: solo 1 cancha
+            return canchaCount == 0
+        }
     }
 }
 
