@@ -66,7 +66,7 @@ struct PlayerView: View {
                                 LazyVGrid(columns: columns, spacing: 20) {
                                     ForEach(viewModel.filterEstablishments) { establishment in
                                         NavigationLink {
-                                            EstablishmentDetailView(establishmentId: establishment.id)
+                                            EstablishmentDetailView(establishmentID: establishment.id)
                                         } label: {
                                             AnimatedAppearRow(item: establishment, shownItems: $shownItems, content: {
                                                 PlayerEstablishmentGridItemView(establishment: establishment, viewModel: viewModel)

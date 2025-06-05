@@ -53,19 +53,7 @@ final class RegisterEstablismentViewModel {
         }
         
         do {
-            
-//            let coordinates = try await GeocodingHelper.getCoordinates(
-//                street: address,
-//                zipCode: zipCode,
-//                city: city,
-//                country: country
-//            )
-            
-//            print("Coordenadas obtenidas: Latitud: \(coordinates.latitude), Longitud: \(coordinates.longitude)")
-//            
-//            self.latitude = coordinates.latitude
-//            self.longitude = coordinates.longitude
-//            
+        
             let newModel = EstablishmentRequest(
                 name: name,
                 info: info,

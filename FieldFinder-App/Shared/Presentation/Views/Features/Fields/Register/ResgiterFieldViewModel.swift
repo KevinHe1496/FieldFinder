@@ -4,7 +4,6 @@ import Foundation
 @Observable
 final class RegisterFieldViewModel {
     
-    
     var isLoading = false
     var alertMessage: String?
     var shouldDismissAfterAlert: Bool = false
@@ -16,8 +15,7 @@ final class RegisterFieldViewModel {
         self.useCase = useCase
     }
     
-    
-    func registerCancha(_ canchaModel: FieldRequest, images: [Data]) async {
+    func registerCancha(_ canchaModel: FieldRequest, images: [Data], establishmentID: String) async {
         
         isLoading = true
         
@@ -37,7 +35,7 @@ final class RegisterFieldViewModel {
         
         
         do {
-            let canchaID = try await useCase.createField(canchaModel)
+            let canchaID = try await useCase.createField(canchaModel, establishmentID: "")
             try await useCase.uploadFieldImages(fieldID: canchaID, images: images)
             
             alertMessage = "Cancha registrada con éxito"
@@ -46,8 +44,7 @@ final class RegisterFieldViewModel {
         } catch {
             alertMessage = "Error al registrar la cancha"
             isLoading = false
-           
-            
+
         }
     }
     

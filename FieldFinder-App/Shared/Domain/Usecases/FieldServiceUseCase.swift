@@ -2,7 +2,7 @@ import Foundation
 
 protocol FieldServiceUseCaseProtocol {
     var repo: FieldServiceRepositoryProtocol { get set }
-    func createField(_ fieldModel: FieldRequest) async throws -> String
+    func createField(_ fieldModel: FieldRequest, establishmentID: String) async throws -> String
     func uploadFieldImages(fieldID: String, images: [Data]) async throws
     func updateField(fieldID: String, fieldModel: FieldRequest) async throws -> FieldRequest
     func deleteField(fieldID: String) async throws
@@ -18,8 +18,8 @@ final class FieldServiceUseCase: FieldServiceUseCaseProtocol {
         self.repo = repo
     }
     
-    func createField(_ fieldModel: FieldRequest) async throws -> String {
-        try await repo.createField(fieldModel)
+    func createField(_ fieldModel: FieldRequest, establishmentID: String) async throws -> String {
+        try await repo.createField(fieldModel, establishmentID: establishmentID)
     }
     
     func uploadFieldImages(fieldID: String, images: [Data]) async throws {

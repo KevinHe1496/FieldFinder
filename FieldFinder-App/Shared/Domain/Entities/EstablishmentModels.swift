@@ -27,6 +27,7 @@ struct EstablishmentRequest: Codable {
 struct EstablishmentResponse: Codable, Identifiable {
     let id: String
     let name: String
+    let ownerID: String
     let info: String
     let address: String
     let isFavorite: Bool
@@ -53,6 +54,7 @@ struct EstablishmentResponse: Codable, Identifiable {
     static let sample = EstablishmentResponse(
         id: "12345",
         name: "Cancha Los Libertadores",
+        ownerID: "",
         info: "Complejo deportivo con canchas de fútbol 7 y servicios adicionales.",
         address: "Av. Amazonas",
         isFavorite: true,

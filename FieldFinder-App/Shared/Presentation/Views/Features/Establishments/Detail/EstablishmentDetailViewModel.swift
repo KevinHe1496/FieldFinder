@@ -100,4 +100,9 @@ final class EstablishmentDetailViewModel {
             url: url
         )
     }
+    
+    @MainActor
+    func deleteEstablishmentById(establishmentId: String) async throws {
+        let _ = try await useCase.deleteEstablishmentById(with: establishmentId)
+    }
 }

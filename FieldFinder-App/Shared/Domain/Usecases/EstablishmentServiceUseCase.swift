@@ -8,6 +8,7 @@ protocol EstablishmentServiceUseCaseProtocol {
     func updateEstablishment(establishmentID: String, establishmentModel: EstablishmentRequest) async throws
     func fetchEstablishment(with establishmentId: String) async throws -> EstablishmentResponse
     func fetchAllEstablishments(coordinate: CLLocationCoordinate2D) async throws -> [EstablishmentResponse]
+    func deleteEstablishmentById(with establishmentId: String) async throws
 }
 
 final class EstablishmentServiceUseCase: EstablishmentServiceUseCaseProtocol {
@@ -38,4 +39,7 @@ final class EstablishmentServiceUseCase: EstablishmentServiceUseCaseProtocol {
         try await repo.fetchAllEstablishments(coordinate: coordinate)
     }
     
+    func deleteEstablishmentById(with establishmentId: String) async throws {
+        try await repo.deleteEstablishmentById(with: establishmentId)
+    }
 }

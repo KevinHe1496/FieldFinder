@@ -54,25 +54,36 @@ struct ProfileOwnerView: View {
                         }
                         
                         Section {
-                            if let est = user.establecimiento.first {
-                                NavigationLink("Mi Establecimiento") {
-                                    EditEstablishmentView(
-                                        name: est.name,
-                                        info: est.info,
-                                        address2: est.address2,
-                                        address: est.address,
-                                        phone: est.phone,
-                                        establishmentID: est.id,
-                                        parqueadero: est.parquedero,
-                                        vestidores: est.vestidores,
-                                        bar: est.bar,
-                                        banos: est.banos,
-                                        duchas: est.duchas,
-                                        appState: appState
-                                    )
+                            
+                            
+                                NavigationLink("Mis Establecimientos") {
+                                    MyEstablishmentsView(establishment: user.establecimiento)
                                 }
+                                
+                                
+                            
+//                            if let est = user.establecimiento.first {
+//                                NavigationLink("Mi Establecimiento") {
+//                                    EditEstablishmentView(
+//                                        name: est.name,
+//                                        info: est.info,
+//                                        address2: est.address2,
+//                                        address: est.address,
+//                                        phone: est.phone,
+//                                        establishmentID: est.id,
+//                                        parqueadero: est.parquedero,
+//                                        vestidores: est.vestidores,
+//                                        bar: est.bar,
+//                                        banos: est.banos,
+//                                        duchas: est.duchas,
+//                                        appState: appState
+//                                    )
+//                                }
+//                            }
+                            NavigationLink("Mis canchas") {
+                                OwnerView()
                             }
-
+                            
                             NavigationLink("Condiciones de uso") {
                                 TermsAndConditionsView()
                             }
@@ -83,12 +94,8 @@ struct ProfileOwnerView: View {
                                 Text(appVersion)
                                     .foregroundStyle(.gray)
                             }
-                            NavigationLink("Mis canchas") {
-                                OwnerView()
-                            }
                         }
-                        
-                        
+
                         Section {
                             Button(role: .destructive) {
                                 appState.closeSessionUser()

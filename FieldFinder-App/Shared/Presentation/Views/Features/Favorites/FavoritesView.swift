@@ -21,14 +21,6 @@ struct FavoritesView: View {
                                 .foregroundStyle(.primaryColorGreen)
                         } description: {
                             Text("Aún no has agregado establecimientos a tu lista de favoritos. Empieza a descubrir lugares y guárdalos aquí.")
-                        } actions: {
-                            CustomButtonView(title: "Intentar denuevo", color: .primaryColorGreen, textColor: .white) {
-                                Task {
-                                    do {
-                                        try await viewModel.getFavoritesUser()
-                                    }
-                                }
-                            }
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                     } else {
@@ -42,7 +34,7 @@ struct FavoritesView: View {
                                 
                                 ForEach(favoritos) { establishment in
                                     NavigationLink {
-                                        EstablishmentDetailView(establishmentId: establishment.id)
+                                        EstablishmentDetailView(establishmentID: establishment.id)
                                     } label: {
                                         AnimatedAppearRow(item: establishment, shownItems: $shownItems) {
                                             FavoriteGridItemView(

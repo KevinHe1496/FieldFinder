@@ -20,7 +20,6 @@ final class OwnerViewModel {
         }
     }
     
-    
     func getEstablishments() async {
         do {
             let data = try await useCase.fetchUser()
@@ -31,17 +30,16 @@ final class OwnerViewModel {
         
     }
     
-    func canAddField() -> Bool {
+    func canAddFieldandEstablishment() -> Bool {
         let establishmentCount = establishments.establecimiento.count
         let canchaCount = establishments.establecimiento.flatMap { $0.canchas }.count
         
         if appState.fullVersionUnlocked {
-            // Plan premium: hasta 2 establecimientos y 3 canchas por cada uno
-            return establishmentCount < 3 && canchaCount < 9
+            // Plan premium: hasta 2 establecimientos y 4 canchas por cada uno
+            return establishmentCount <= 2 && canchaCount < (establishmentCount * 4)
         } else {
             // Plan free: solo 1 establecimiento y 1 cancha
             return establishmentCount == 0 || canchaCount == 0
         }
     }
-
 }

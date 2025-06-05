@@ -57,6 +57,7 @@
 		BFFB27F62DCD471600DD8819 /* UserAuthServiceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB27F52DCD471600DD8819 /* UserAuthServiceUseCase.swift */; };
 		BFFB28F02DCD5F7C00DD8819 /* FFPersistenceKeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB28EF2DCD5F7C00DD8819 /* FFPersistenceKeyChain.swift */; };
 		BFFB28F42DCD61A200DD8819 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB28F32DCD61A200DD8819 /* RootView.swift */; };
+		C901755B2DEF78970099E3B4 /* MyEstablishmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C901755A2DEF78970099E3B4 /* MyEstablishmentsView.swift */; };
 		C91AAB9D2DE8E22200EFBE0D /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91AAB9C2DE8E22200EFBE0D /* ErrorStateView.swift */; };
 		C91AABA72DE8EAED00EFBE0D /* LocationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91AABA62DE8EAED00EFBE0D /* LocationPickerView.swift */; };
 		C92221A92DD3BB4000D6BE8B /* FieldGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221A82DD3BB4000D6BE8B /* FieldGridItemView.swift */; };
@@ -188,6 +189,7 @@
 		BFFB27F52DCD471600DD8819 /* UserAuthServiceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserAuthServiceUseCase.swift; path = "FieldFinder-App/Shared/Domain/UserAuthServiceUseCase.swift"; sourceTree = SOURCE_ROOT; };
 		BFFB28EF2DCD5F7C00DD8819 /* FFPersistenceKeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FFPersistenceKeyChain.swift; path = "FieldFinder-App/Shared/Domain/Tools/FFPersistenceKeyChain.swift"; sourceTree = SOURCE_ROOT; };
 		BFFB28F32DCD61A200DD8819 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		C901755A2DEF78970099E3B4 /* MyEstablishmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEstablishmentsView.swift; sourceTree = "<group>"; };
 		C91AAB9C2DE8E22200EFBE0D /* ErrorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStateView.swift; sourceTree = "<group>"; };
 		C91AABA62DE8EAED00EFBE0D /* LocationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerView.swift; sourceTree = "<group>"; };
 		C92221A82DD3BB4000D6BE8B /* FieldGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGridItemView.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				BF0E25A82DD7CB1300A53745 /* ProfileOwnerView.swift */,
+				C901755A2DEF78970099E3B4 /* MyEstablishmentsView.swift */,
 			);
 			path = ProfileOwnerView;
 			sourceTree = "<group>";
@@ -957,6 +960,7 @@
 				BFFB27F42DCD462300DD8819 /* UserAuthServiceRepository.swift in Sources */,
 				BF97190A2DCD199800CD0AF8 /* AppState.swift in Sources */,
 				C9C7BAB82DCE8A60007CB3FA /* MapEstablishmentsView.swift in Sources */,
+				C901755B2DEF78970099E3B4 /* MyEstablishmentsView.swift in Sources */,
 				C9B0AD6B2DCD00950043A9A2 /* RegisterUserView.swift in Sources */,
 				C9554B5B2DDF608300ED501B /* LoadingProgressView.swift in Sources */,
 				BF947F252DDBD6B200A0DFA0 /* DefaultProfile.swift in Sources */,
