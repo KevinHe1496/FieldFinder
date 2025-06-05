@@ -101,7 +101,6 @@ final class PlayerGetNearbyEstablishmentsViewModel: ObservableObject {
     // Carga los establecimientos favoritos del usuario.
     @MainActor
     func getFavoritesUser() async throws {
-
         statusFavorites = .loading
         do {
             let favoritos = try await favoriteUseCase.fetchFavorites()

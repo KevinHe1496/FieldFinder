@@ -43,9 +43,7 @@ final class EstablishmentServiceTests: XCTestCase {
             name: "Bocha",
             info: "Cancha sintética de fútbol 7 con iluminación nocturna",
             address: "123 Main St",
-            country: "Ecuador",
-            city: "Quito",
-            zipCode: "170123",
+            address2: "Carlota Jaramillo",
             parqueadero: true,
             vestidores: true,
             bar: true,
@@ -70,9 +68,7 @@ final class EstablishmentServiceTests: XCTestCase {
             name: "Bocha",
             info: "Cancha sintética de fútbol 7 con iluminación nocturna",
             address: "123 Main St",
-            country: "Ecuador",
-            city: "Quito",
-            zipCode: "170123",
+            address2: "Carlota Jaramillo",
             parqueadero: true,
             vestidores: true,
             bar: true,
@@ -102,9 +98,7 @@ final class EstablishmentServiceTests: XCTestCase {
             name: "Bocha",
             info: "Cancha sintética de fútbol 7 con iluminación nocturna",
             address: "123 Main St",
-            country: "Ecuador",
-            city: "Quito",
-            zipCode: "170123",
+            address2: "Carlota Jaramillo",
             parqueadero: true,
             vestidores: true,
             bar: true,
@@ -182,9 +176,7 @@ final class EstablishmentServiceTests: XCTestCase {
                 name: "Show Gol",
                 info: "Cancha sintética de fútbol 7 con iluminación nocturna",
                 address: "123 Main St",
-                country: "Ecuador",
-                city: "Quito",
-                zipCode: "170123",
+                address2: "Carlota Jaramillo",
                 parqueadero: true,
                 vestidores: true,
                 bar: true,
@@ -209,10 +201,7 @@ final class EstablishmentServiceTests: XCTestCase {
         let request = EstablishmentRequest(
             name: "Show Gol",
             info: "Cancha sintética de fútbol 7 con iluminación nocturna",
-            address: "123 Main St",
-            country: "Ecuador",
-            city: "Quito",
-            zipCode: "170123",
+            address: "123 Main St", address2: "Carlota Jaramillo",
             parqueadero: true,
             vestidores: true,
             bar: true,
@@ -245,10 +234,7 @@ final class EstablishmentServiceTests: XCTestCase {
         XCTAssertEqual(establishment.name, "Cancha Los Libertadores")
         XCTAssertEqual(establishment.info, "Complejo deportivo con canchas de fútbol 7 y servicios adicionales.")
         XCTAssertEqual(establishment.address, "Av. Amazonas y Naciones Unidas")
-        XCTAssertEqual(establishment.city, "Quito")
         XCTAssertTrue(establishment.isFavorite)
-        XCTAssertEqual(establishment.zipCode, "170102")
-        XCTAssertEqual(establishment.country, "Ecuador")
         XCTAssertEqual(establishment.phone, "+593987654321")
         XCTAssertEqual(establishment.userName, "kevin_heredia")
         XCTAssertEqual(establishment.userRol, "dueno")
@@ -290,10 +276,7 @@ final class EstablishmentServiceTests: XCTestCase {
         XCTAssertEqual(establishments.first?.name, "Cancha Los Libertadores")
         XCTAssertEqual(establishments.first?.info, "Complejo deportivo con canchas de fútbol 7 y servicios adicionales.")
         XCTAssertEqual(establishments.first?.address, "Av. Amazonas y Naciones Unidas")
-        XCTAssertEqual(establishments.first?.city, "Quito")
         XCTAssertTrue(((establishments.first?.isFavorite) != nil))
-        XCTAssertEqual(establishments.first?.zipCode, "170102")
-        XCTAssertEqual(establishments.first?.country, "Ecuador")
         XCTAssertEqual(establishments.first?.phone, "+593987654321")
         XCTAssertEqual(establishments.first?.userName, "kevin_heredia")
         XCTAssertEqual(establishments.first?.userRol, "dueno")

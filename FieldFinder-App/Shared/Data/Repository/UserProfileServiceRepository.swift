@@ -2,9 +2,9 @@ import Foundation
 
 final class UserProfileServiceRepository: UserProfileServiceRepositoryProtocol {
     
-    let network: NetworkGetMeProtocol
+    let network: UserProfileServiceProtocol
     
-    init(network: NetworkGetMeProtocol = UserProfileService()) {
+    init(network: UserProfileServiceProtocol = UserProfileService()) {
         self.network = network
     }
     
