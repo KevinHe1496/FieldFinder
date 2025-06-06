@@ -1,21 +1,20 @@
-//
-//  CanchaRowView.swift
-//  FieldFinder-App
-//
-//  Created by Kevin Heredia on 13/5/25.
-//
-
-import SwiftUI
-
 import SwiftUI
 
 struct FieldGridItemView: View {
     let field: FieldResponse
-
+    
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    
+    // Altura adaptativa para la imagen
+    private var adaptiveHeight: CGFloat {
+        horizontalSizeClass == .regular ? 400 : 210
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             ZStack(alignment: .topLeading) {
                 RemoteImageCardView(url: field.photoCanchas.first)
+                    .frame(height: adaptiveHeight)
                     .clipShape(RoundedRectangle(cornerRadius: 16))
                 
                 // Etiqueta en la esquina
@@ -28,12 +27,12 @@ struct FieldGridItemView: View {
                     .clipShape(Capsule())
                     .padding(8)
             }
-
+            
             VStack(alignment: .leading, spacing: 6) {
                 Text(field.modalidad)
                     .font(.headline)
                     .foregroundStyle(.primaryColorGreen)
-
+                
                 HStack(spacing: 4) {
                     Image(systemName: "creditcard.fill")
                         .foregroundColor(.primaryColorGreen)
@@ -51,7 +50,6 @@ struct FieldGridItemView: View {
         .padding(.horizontal)
     }
 }
-
 
 #Preview {
     FieldGridItemView(field: .sample)
