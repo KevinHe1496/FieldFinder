@@ -45,9 +45,10 @@ final class FieldServiceTests: XCTestCase {
             modalidad: "7-7",
             precio: 40,
             iluminada: true,
-            cubierta: true
+            cubierta: true,
+            establecimientoID: "1"
         )
-        let field = try await sut.createField(request)
+        let field = try await sut.createField(request, establishmentID: "1")
         
         // Assert
         XCTAssertNotNil(field, "Expected a valid Field ID to be returned.")
@@ -66,12 +67,13 @@ final class FieldServiceTests: XCTestCase {
             modalidad: "7-7",
             precio: 40,
             iluminada: true,
-            cubierta: true
+            cubierta: true,
+            establecimientoID: "1"
         )
         
         // Act & Assert
         do {
-            _ = try await sut.createField(request)
+            _ = try await sut.createField(request, establishmentID: "1")
             XCTFail("Expected FFError to be thrown, but createField completed successfully.")
         } catch let error as FFError {
             XCTAssertEqual(error, .errorParsingData)
@@ -92,13 +94,14 @@ final class FieldServiceTests: XCTestCase {
             modalidad: "7-7",
             precio: 40,
             iluminada: true,
-            cubierta: true
+            cubierta: true,
+            establecimientoID: "1"
         )
         
         // Act & Assert
         
         do {
-            _ = try await sut.createField(request)
+            _ = try await sut.createField(request, establishmentID: "1")
             XCTFail("Expected FFError to be thrown, but createField completed successfully.")
         } catch let error as FFError {
             XCTAssertEqual(error, .errorFromApi(statusCode: 400))
@@ -159,7 +162,8 @@ final class FieldServiceTests: XCTestCase {
             modalidad: "7-7",
             precio: 40,
             iluminada: true,
-            cubierta: true
+            cubierta: true,
+            establecimientoID: "1"
         )
         
         // Act & Assert
@@ -179,7 +183,8 @@ final class FieldServiceTests: XCTestCase {
             modalidad: "7-7",
             precio: 40,
             iluminada: true,
-            cubierta: true
+            cubierta: true,
+            establecimientoID: "1"
         )
         
         // Act & Assert

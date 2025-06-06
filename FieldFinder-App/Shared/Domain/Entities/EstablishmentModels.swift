@@ -54,7 +54,7 @@ struct EstablishmentResponse: Codable, Identifiable {
     static let sample = EstablishmentResponse(
         id: "12345",
         name: "Cancha Los Libertadores",
-        ownerID: "",
+        ownerID: "1",
         info: "Complejo deportivo con canchas de fútbol 7 y servicios adicionales.",
         address: "Av. Amazonas",
         isFavorite: true,

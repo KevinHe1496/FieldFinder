@@ -41,12 +41,13 @@ final class RegisterFieldViewModelTests: XCTestCase {
             modalidad: "7-7",
             precio: 0,
             iluminada: true,
-            cubierta: true
+            cubierta: true,
+            establecimientoID: "1"
         )
         
         let fakeImages = [Data("image1".utf8), Data("image2".utf8)]
         // Act
-        await viewModel.registerCancha(request, images: fakeImages)
+        await viewModel.registerCancha(request, images: fakeImages, establishmentID: "1")
         // Assert
         XCTAssertEqual(viewModel.alertMessage, "El campo precio es obligatorio")
         XCTAssertFalse(viewModel.isLoading)
@@ -60,10 +61,11 @@ final class RegisterFieldViewModelTests: XCTestCase {
             modalidad: "7-7",
             precio: 40.0,
             iluminada: true,
-            cubierta: true
+            cubierta: true,
+            establecimientoID: "1"
         )
         // Act
-        await viewModel.registerCancha(request, images: [])
+        await viewModel.registerCancha(request, images: [], establishmentID: "1")
         // Assert
         XCTAssertEqual(viewModel.alertMessage, "Es obligatorio subir imágenes")
         XCTAssertFalse(viewModel.isLoading)
@@ -76,11 +78,12 @@ final class RegisterFieldViewModelTests: XCTestCase {
             modalidad: "7-7",
             precio: 40.0,
             iluminada: true,
-            cubierta: true
+            cubierta: true,
+            establecimientoID: "1"
         )
         let fakeImages = [Data("image1".utf8), Data("image2".utf8)]
         // Act
-        await viewModel.registerCancha(request, images: fakeImages)
+        await viewModel.registerCancha(request, images: fakeImages, establishmentID: "1")
         // Assert
         XCTAssertEqual(viewModel.alertMessage, "Cancha registrada con éxito")
         XCTAssertTrue(viewModel.shouldDismissAfterAlert)
@@ -95,7 +98,8 @@ final class RegisterFieldViewModelTests: XCTestCase {
             modalidad: "7-7",
             precio: 40.0,
             iluminada: true,
-            cubierta: true
+            cubierta: true,
+            establecimientoID: "1"
         )
         _ = [Data("image1".utf8), Data("image2".utf8)]
         // Act
