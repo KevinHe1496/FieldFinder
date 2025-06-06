@@ -29,6 +29,7 @@ struct PlayerEstablishmentGridItemView: View {
         VStack(alignment: .leading, spacing: 10) {
             ZStack(alignment: .topTrailing) {
                 RemoteImageCardView(url: establishment.photoEstablishment.first)
+                    .frame(maxWidth: .infinity)
                     .clipShape(RoundedRectangle(cornerRadius: 16))
                     .shadow(radius: 4)
                     
@@ -67,8 +68,9 @@ struct PlayerEstablishmentGridItemView: View {
             }
             
             .padding(.horizontal, 4)
+            
         }
-        
+        .frame(maxWidth: .infinity)
         .onChange(of: viewModel.favoritesData) { _, _ in
             isFavorite = viewModel.isFavorite(establishmentId: establishment.id)
         }
