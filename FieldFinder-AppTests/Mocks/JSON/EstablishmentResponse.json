@@ -1,6 +1,7 @@
 {
   "id": "1",
   "name": "Cancha Los Libertadores",
+  "ownerID": "1",
   "info": "Complejo deportivo con canchas de fútbol 7 y servicios adicionales.",
   "address": "Av. Amazonas y Naciones Unidas",
   "city": "Quito",

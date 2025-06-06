@@ -34,7 +34,7 @@ final class FieldServiceUseCaseTests: XCTestCase {
     
     func test_GivenValidRequest_WhenCreateField_ThenReturnsFieldId() async throws {
         // Act
-        let resultID = try await useCase.createField(mockFieldService.getMockFieldRequest())
+        let resultID = try await useCase.createField(mockFieldService.getMockFieldRequest(), establishmentID: "1")
         // Assert
         XCTAssertEqual(resultID, "mock_field_id")
     }
@@ -56,7 +56,8 @@ final class FieldServiceUseCaseTests: XCTestCase {
             modalidad: "11-11",
             precio: 50.0,
             iluminada: false,
-            cubierta: true
+            cubierta: true,
+            establecimientoID: "1"
         )
         
         // Act

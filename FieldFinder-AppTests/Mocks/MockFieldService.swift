@@ -3,13 +3,14 @@ import Foundation
 @testable import FieldFinder_App
 final class MockFieldService: FieldServiceProtocol {
     
+    
     var didCallUploadImages = false
     var didCallDeleteField = false
     var didCallUpdateField = false
     var lastUploadedImages: [Data] = []
     var lastUpdatedField: FieldRequest?
     
-    func createField(_ fieldModel: FieldRequest) async throws -> String {
+    func createField(_ fieldModel: FieldRequest, establishmentID: String) async throws -> String {
         "mock_field_id"
     }
     
@@ -38,7 +39,8 @@ final class MockFieldService: FieldServiceProtocol {
             modalidad: "7-7",
             precio: 40.0,
             iluminada: true,
-            cubierta: true
+            cubierta: true,
+            establecimientoID: "1"
         )
     }
     

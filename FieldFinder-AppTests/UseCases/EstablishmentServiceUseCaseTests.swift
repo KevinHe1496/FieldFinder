@@ -104,6 +104,11 @@ final class EstablishmentServiceUseCaseTests: XCTestCase {
         XCTAssertEqual(establishmentResponse.first?.name, "Mock Cancha")
         XCTAssertEqual(establishmentResponse.first?.info, "Cancha de prueba para tests unitarios.")
     }
+    
+    func test_DeleteEstablishmentById_ShouldSucceed_WhenIdIsValid() async throws {
+        try await useCase.deleteEstablishmentById(with: "1")
+        XCTAssertTrue(mockEstablishmentService.didCallDeleteEstablishment)
+    }
 
 
 

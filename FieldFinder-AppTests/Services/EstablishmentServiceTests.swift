@@ -232,6 +232,7 @@ final class EstablishmentServiceTests: XCTestCase {
         XCTAssertNotNil(establishment)
         XCTAssertEqual(establishment.id, "1")
         XCTAssertEqual(establishment.name, "Cancha Los Libertadores")
+        XCTAssertEqual(establishment.ownerID, "1")
         XCTAssertEqual(establishment.info, "Complejo deportivo con canchas de fútbol 7 y servicios adicionales.")
         XCTAssertEqual(establishment.address, "Av. Amazonas y Naciones Unidas")
         XCTAssertTrue(establishment.isFavorite)
@@ -301,4 +302,17 @@ final class EstablishmentServiceTests: XCTestCase {
             XCTFail("Unexpected error type: \(error)")
         }
     }
+    
+    func test_DeleteEstablishmentById_ShouldSucceed_WhenIdIsValid() async throws {
+        // Arrange
+        URLProtocolStub.stubStatusCode = 200
+        // Act & Assert
+        do {
+            try await sut.deleteEstablishmentById(with: "1")
+        } catch {
+            XCTFail("Expected delete to succeed, but got error: \(error)")
+        }
+    }
 }
+
+

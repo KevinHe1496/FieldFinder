@@ -4,10 +4,13 @@ import CoreLocation
 @testable import FieldFinder_App
 final class MockEstablishmentService: EstablishmentServiceProtocol {
     
+    
+    
     var didCallUploadImages = false
     var didCallUpdateEstablishment = false
     var lastUploadedImages: [Data] = []
     var lastUpdatedEstablishment: EstablishmentRequest?
+    var didCallDeleteEstablishment = false
     
     func createEstablishment(_ establishmentModel: EstablishmentRequest) async throws -> String {
         return "mock_establishment_id"
@@ -31,11 +34,16 @@ final class MockEstablishmentService: EstablishmentServiceProtocol {
         [getMockEstablishment()]
     }
     
+    func deleteEstablishmentById(with establishmentId: String) async throws {
+        didCallDeleteEstablishment = true
+    }
+    
     private func getMockEstablishment() -> EstablishmentResponse {
         
         return EstablishmentResponse(
             id: "mock123",
             name: "Mock Cancha",
+            ownerID: "2",
             info: "Cancha de prueba para tests unitarios.",
             address: "Calle Falsa 123",
             isFavorite: false,
