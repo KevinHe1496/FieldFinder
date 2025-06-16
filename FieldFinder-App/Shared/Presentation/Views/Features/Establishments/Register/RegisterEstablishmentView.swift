@@ -28,7 +28,6 @@ struct RegisterEstablishmentView: View {
     @State private var bar = false
     @State private var banos = false
     @State private var duchas = false
-    @State private var cubierto = false
     @State private var userCoordinates = CLLocationCoordinate2D()
     
     @State private var selectedImages: [Data] = []
@@ -88,10 +87,6 @@ struct RegisterEstablishmentView: View {
                         
                         Divider()
                         Toggle("Bar", isOn: $bar)
-                        
-                        
-                        Divider()
-                        Toggle("Cubierta", isOn: $cubierto)
                         
                         Divider()
                         Toggle("Baños", isOn: $banos)

@@ -26,23 +26,9 @@ struct PlayerView: View {
                         } description: {
                             Text("Intenta buscar en otra ubicación o actualiza la búsqueda.")
                         } actions: {
-                            CustomButtonView(title: "Intentar denuevo", color: .primaryColorGreen, textColor: .white) {
+                            CustomButtonView(title: "Intentar de nuevo", color: .primaryColorGreen, textColor: .white) {
                                 Task {
-                                    do {
-                                        try await viewModel.loadData()
-                                        try await viewModel.getFavoritesUser()
-                                        
-                                        if !didLoad {
-                                            shownItems = []
-                                            didLoad = true
-                                            
-                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                                for establishment in viewModel.filterEstablishments {
-                                                    shownItems.insert(establishment.id)
-                                                }
-                                            }
-                                        }
-                                    }
+                                    await reloadEstablishments()
                                 }
                             }
                         }
@@ -106,21 +92,7 @@ struct PlayerView: View {
                         
                         CustomButtonView(title: "Intentar denuevo", color: .primaryColorGreen, textColor: .white) {
                             Task {
-                                do {
-                                    try await viewModel.loadData()
-                                    try await viewModel.getFavoritesUser()
-                                    
-                                    if !didLoad {
-                                        shownItems = []
-                                        didLoad = true
-                                        
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                            for establishment in viewModel.filterEstablishments {
-                                                shownItems.insert(establishment.id)
-                                            }
-                                        }
-                                    }
-                                }
+                                await reloadEstablishments()
                             }
                         }
                     }
@@ -131,23 +103,27 @@ struct PlayerView: View {
             .searchable(text: $viewModel.establishmentSearch)
             .onAppear {
                 Task {
-                    do {
-                        try await viewModel.loadData()
-                        try await viewModel.getFavoritesUser()
-                        
-                        if !didLoad {
-                            shownItems = []
-                            didLoad = true
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                for establishment in viewModel.filterEstablishments {
-                                    shownItems.insert(establishment.id)
-                                }
-                            }
-                        }
-                    }
+                    await reloadEstablishments()
                 }
             }
+        }
+    }
+    
+    private func reloadEstablishments() async {
+        do {
+            try await viewModel.loadData()
+            try await viewModel.getFavoritesUser()
+            
+            shownItems = []
+            didLoad = true
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                for establishment in viewModel.filterEstablishments {
+                    shownItems.insert(establishment.id)
+                }
+            }
+        } catch {
+            print("Error al recargar: \(error)")
         }
     }
 }
