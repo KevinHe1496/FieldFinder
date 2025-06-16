@@ -83,7 +83,7 @@ final class PlayerGetNearbyEstablishmentsViewModel: ObservableObject {
             try await fetchEstablishments(near: coordinates)
             updateCamera(to: coordinates) // Centra el mapa en la ubicación del usuario.
         } catch {
-            status = .error("No se pdo cargar los establecimientos ni la ubicación.")
+            status = .error("No se pudo cargar los establecimientos ni la ubicación.")
         }
     }
     
