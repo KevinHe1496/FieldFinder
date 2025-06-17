@@ -31,6 +31,11 @@ final class OwnerViewModel {
     }
     
     func canAddFieldandEstablishment() -> Bool {
+        
+        for est in establishments.establecimiento {
+            print("establecimiento: \(est.name)")
+        }
+        
         let establishmentCount = establishments.establecimiento.count
         let canchaCount = establishments.establecimiento.flatMap { $0.canchas }.count
         
@@ -39,7 +44,7 @@ final class OwnerViewModel {
             return establishmentCount <= 2 && canchaCount < (establishmentCount * 4)
         } else {
             // Plan free: solo 1 establecimiento y 1 cancha
-            return establishmentCount == 0 || canchaCount == 0
+            return establishmentCount == 0 && canchaCount == 0
         }
     }
 }

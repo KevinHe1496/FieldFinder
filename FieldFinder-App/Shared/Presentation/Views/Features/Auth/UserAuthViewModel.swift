@@ -32,6 +32,9 @@ final class UserAuthViewModel {
       
         do {
             let result = try await useCase.registerUser(name: name, email: email, password: password, rol: rol)
+            let user = try await UserProfileServiceUseCase().fetchUser()
+            appState.userID = user.id
+            appState.userRole = user.userRole
             
             if result {
                 if rol == "dueno" {
