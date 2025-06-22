@@ -71,7 +71,7 @@ struct MapEstablishmentsView: View {
                         Image(systemName: "exclamationmark.triangle.fill")
                             .font(.system(size: 48))
                             .foregroundStyle(.primaryColorGreen)
-                        Text("Error al cargar el mapa")
+                        Text(viewModel.showOpenSettings ? "Permiso de ubicación denegado." : "Ha ocurrido un error inesperado.")
                             .font(.headline)
                         Text(message)
                             .multilineTextAlignment(.center)
