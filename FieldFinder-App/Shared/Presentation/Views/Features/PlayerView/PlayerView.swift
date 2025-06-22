@@ -84,15 +84,20 @@ struct PlayerView: View {
                         Image(systemName: "exclamationmark.triangle.fill")
                             .font(.system(size: 48))
                             .foregroundStyle(.primaryColorGreen)
-                        Text("Error al cargar los establecimientos")
+                        Text(viewModel.showOpenSettings ? "Permiso de ubicación denegado." : "Ha ocurrido un error inesperado.")
                             .font(.headline)
                         Text(message)
                             .multilineTextAlignment(.center)
                             .foregroundStyle(.secondary)
                         
-                        CustomButtonView(title: "Intentar denuevo", color: .primaryColorGreen, textColor: .white) {
+                        CustomButtonView(title: "Intentar de nuevo", color: .primaryColorGreen, textColor: .white) {
                             Task {
                                 await reloadEstablishments()
+                            }
+                        }
+                        if viewModel.showOpenSettings {
+                            CustomButtonView(title: "Ir a Ajustes", color: .primaryColorGreen, textColor: .white) {
+                                viewModel.openAppSettings()
                             }
                         }
                     }
