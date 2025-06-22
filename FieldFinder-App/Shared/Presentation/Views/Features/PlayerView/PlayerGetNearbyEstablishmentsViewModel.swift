@@ -37,6 +37,8 @@ final class PlayerGetNearbyEstablishmentsViewModel: ObservableObject {
     // Texto del buscador de establecimientos.
     var establishmentSearch = ""
     
+    var showOpenSettings = false
+    
     // Devuelve los establecimientos filtrados por nombre según lo que escribe el usuario.
     var filterEstablishments: [EstablishmentResponse] {
         guard let all = status.data else { return [] }
@@ -69,7 +71,8 @@ final class PlayerGetNearbyEstablishmentsViewModel: ObservableObject {
         do{
             let establecimientos = try await useCase.fetchAllEstablishments(coordinate: coordinate)
             status = .success(establecimientos)
-        } catch {
+        } catch FFError.locationPermissionDenied {
+            
             status = .error("No se pudo cargar los establecimientos.")
         }
     }
@@ -81,11 +84,15 @@ final class PlayerGetNearbyEstablishmentsViewModel: ObservableObject {
         do {
             let coordinates = try await locationService.requestLocation()
             try await fetchEstablishments(near: coordinates)
-            updateCamera(to: coordinates) // Centra el mapa en la ubicación del usuario.
+            updateCamera(to: coordinates)
+        } catch FFError.locationPermissionDenied {
+            showOpenSettings = true // activar el botón "Ir a Ajustes"
+            status = .error("Necesitamos acceso a tu ubicación para mostrar establecimientos cercanos. Por favor actívalo desde Ajustes.")
         } catch {
             status = .error("No se pudo cargar los establecimientos ni la ubicación.")
         }
     }
+
     
     // Marca o desmarca un establecimiento como favorito.
     @MainActor
@@ -148,4 +155,14 @@ final class PlayerGetNearbyEstablishmentsViewModel: ObservableObject {
             favorite.id == establishmentId
         }
     }
+    
+    
+    func openAppSettings() {
+        if let url = URL(string: UIApplication.openSettingsURLString) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+    }
+
 }

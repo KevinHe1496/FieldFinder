@@ -77,9 +77,14 @@ struct MapEstablishmentsView: View {
                             .multilineTextAlignment(.center)
                             .foregroundStyle(.secondary)
                         
-                        CustomButtonView(title: "Intentar denuevo", color: .primaryColorGreen, textColor: .white) {
+                        CustomButtonView(title: "Intentar de nuevo", color: .primaryColorGreen, textColor: .white) {
                             Task {
                                 try await viewModel.loadData()
+                            }
+                        }
+                        if viewModel.showOpenSettings {
+                            CustomButtonView(title: "Ir a Ajustes", color: .primaryColorGreen, textColor: .white) {
+                                viewModel.openAppSettings()
                             }
                         }
                     }
