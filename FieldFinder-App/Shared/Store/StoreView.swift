@@ -84,7 +84,7 @@ struct StoreView: View {
                             Text("Lo sentimos, hubo un error cargando nuestra tienda.")
                                 .padding(.top, 50)
                             
-                            Button("Intentar denuevo") {
+                            Button("Intentar de nuevo") {
                                 Task {
                                     await load()
                                 }
@@ -96,7 +96,7 @@ struct StoreView: View {
                 }
                 Button("Restaurar compras", action: restore)
                 
-                Button("Cancel") {
+                Button("Cancelar") {
                     dismiss()
                 }
                 .padding(.top, 20)

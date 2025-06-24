@@ -60,4 +60,5 @@ struct LocationPickerView: View {
 
 #Preview {
     LocationPickerView(coordinates: .constant(CLLocationCoordinate2D()))
+        .environment(\.locale, .init(identifier: "en"))
 }

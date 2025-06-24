@@ -48,15 +48,15 @@ final class UserAuthViewModel {
                 }
                 
             } else {
-                appState.status = .error(error: "Incorrect username or password")
+                appState.status = .error(error: "Nombre de usuario o contraseña incorrectos")
            
                 isLoading = false
-                return "Incorrect username or password"
+                return "Nombre de usuario o contraseña incorrectos"
             }
         } catch {
-            appState.status = .error(error: "Something went wrong")
+            appState.status = .error(error: "Algo salió mal")
             isLoading = false
-            return "Something went wrong"
+            return "Algo salió mal"
         }
     }
     

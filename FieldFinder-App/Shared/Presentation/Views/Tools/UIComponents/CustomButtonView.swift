@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CustomButtonView: View {
     
-    var title: String
+    var title: LocalizedStringKey
     var color: Color
     var textColor: Color
     var action: () -> Void

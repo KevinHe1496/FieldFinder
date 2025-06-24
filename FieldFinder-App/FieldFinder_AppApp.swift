@@ -23,7 +23,7 @@ struct FieldFinder_AppApp: App {
             RootView()
                 .environment(appState)
                 .task {
-                    await appState.checkSubscriptionStatus()
+                    await appState.monitorTransactions()
                 }
         }
     }

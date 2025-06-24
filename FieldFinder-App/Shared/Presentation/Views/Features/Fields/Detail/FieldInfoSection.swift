@@ -19,10 +19,21 @@ struct FieldInfoSection: View {
                     .foregroundStyle(.primaryColorGreen)
 
                 Divider()
+                
+                Text(String.localizedStringWithFormat(
+                        NSLocalizedString("field_of_fmt", comment: "Label + type of field"),
+                        fieldData.tipo)
+                )
 
-                Text("Cancha de: \(fieldData.tipo)")
-                Text("Juego de: \(fieldData.modalidad)")
-                Text("Precio: $\(fieldData.precio, specifier: "%.2f") por hora")
+                Text(String.localizedStringWithFormat(
+                        NSLocalizedString("game_of_fmt", comment: "Label + play mode"),
+                        fieldData.modalidad)
+                )
+
+                Text(String.localizedStringWithFormat(
+                        NSLocalizedString("price_per_hour_fmt", comment: "Price per hour"),
+                        fieldData.precio)
+                )
             }
         }
         .padding(20)

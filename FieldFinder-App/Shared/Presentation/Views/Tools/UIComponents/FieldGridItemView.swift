@@ -36,7 +36,7 @@ struct FieldGridItemView: View {
                 HStack(spacing: 4) {
                     Image(systemName: "creditcard.fill")
                         .foregroundColor(.primaryColorGreen)
-                    Text("$\(String(format: "%.2f", field.precio)) por hora")
+                    Text("Precio: \(field.precio, format: .currency(code: "USD")) por hora")
                         .font(.subheadline)
                         .foregroundStyle(.colorBlack)
                 }

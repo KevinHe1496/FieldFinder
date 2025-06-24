@@ -1,0 +1,337 @@
+/*
+ Localizable.strings
+ FieldFinder-App
+ 
+ Created by Kevin Heredia on 24/6/25.
+ 
+ */
+
+/* Tab bar Menu */
+"Mapa" = "Mapa";
+"Inicio" = "Inicio";
+"Perfil" = "Perfil";
+
+/* CustomUIImage */
+"Añadir fotografías:" = "Añadir fotografías:";
+"Seleccionar fotos" = "Seleccionar fotos";
+
+/* PhotoGalleryView */
+"No hay fotos disponibles" = "No hay fotos disponibles";
+
+
+/* FacilitiesIconsView */
+"Parqueo" = "Parqueo";
+"Vestidores" = "Vestidores";
+"Baños" = "Baños";
+"Duchas" = "Duchas";
+"Bar" = "Bar";
+
+/* RemoteImageCardView */
+"No hay fotos disponibles" = "No hay fotos disponibles";
+"No se pudo cargar la foto" = "No se pudo cargar la foto";
+
+/* FieldAttributesView */
+"Iluminada" = "Iluminada";
+"Cubierta" = "Cubierta";
+
+/* ErrorStateView */
+"¡Ups! Algo salió mal" = "¡Ups! Algo salió mal";
+"No pudimos cargar los datos. Intenta de nuevo más tarde." = "No pudimos cargar los datos. Intenta de nuevo más tarde.";
+"Reintentar" = "Reintentar";
+
+/* WelcomeView */
+"BIENVENIDO A FIELD FINDER" = "BIENVENIDO A FIELD FINDER";
+"Explora canchas deportivas cerca de ti. Si quieres guardar tus favoritas o administrar tus propias canchas, regístrate desde el perfil." = "Explora canchas deportivas cerca de ti. Si quieres guardar tus favoritas o administrar tus propias canchas, regístrate desde el perfil.";
+"Continuar" = "Continuar";
+
+
+/* PlayerView */
+"No hay establecimientos cerca de ti" = "No hay establecimientos cerca de ti";
+"Intenta buscar en otra ubicación o actualiza la búsqueda." = "Intenta buscar en otra ubicación o actualiza la búsqueda.";
+"Intentar de nuevo" = "Intentar de nuevo";
+"Todos" = "Todos";
+"Permiso de ubicación denegado." = "Permiso de ubicación denegado.";
+"Ha ocurrido un error inesperado." = "Ha ocurrido un error inesperado.";
+"Ir a Ajustes" = "Ir a Ajustes";
+"Establecimientos" = "Establecimientos";
+
+/* PlayerGetNearbyEstablishmentsViewModel */
+"No se pudo cargar los favoritos." = "No se pudo cargar los favoritos.";
+"No se pudo cargar los establecimientos." = "No se pudo cargar los establecimientos.";
+"Necesitamos acceso a tu ubicación para mostrar establecimientos cercanos. Por favor actívalo desde Ajustes." = "Necesitamos acceso a tu ubicación para mostrar establecimientos cercanos. Por favor actívalo desde Ajustes.";
+"No se pudo cargar los establecimientos ni la ubicación." = "No se pudo cargar los establecimientos ni la ubicación.";
+
+/* OwnerView */
+"No hay canchas registradas" = "No hay canchas registradas";
+"Agrega algunas canchas." = "Agrega algunas canchas.";
+"Mis Canchas" = "Mis Canchas";
+
+/* EstablishmentDetailView */
+"No hay canchas registradas" = "No hay canchas registradas";
+"¿Estás seguro de que quieres eliminar este establecimiento?" = "¿Estás seguro de que quieres eliminar este establecimiento?";
+"Eliminar" = "Eliminar";
+"Cancelar" = "Cancelar";
+"Error al cargar el establecimiento" = "Error al cargar el establecimiento";
+"Establecimiento" = "Establecimiento";
+
+/* EstablishmentDetailViewModel */
+"No se pudo cargar el establecimiento" = "No se pudo cargar el establecimiento";
+"Ubicación" = "Ubicación";
+"¿Llamar al propietario?" = "¿Llamar al propietario?";
+"Esto iniciará una llamada al número del establecimiento." = "Esto iniciará una llamada al número del establecimiento.";
+"¿Abrir en Apple Maps?" = "¿Abrir en Apple Maps?";
+"Esto te llevará a la app Maps para ver la ubicación." = "Esto te llevará a la app Maps para ver la ubicación.";
+
+/* EstablishmentServicesSection */
+"Servicios disponibles" = "Servicios disponibles";
+
+/* EstablishmentFieldsSection */
+"Canchas" = "Canchas";
+
+/* EstablishmentMapSection */
+"Ubicación" = "Ubicación";
+
+/* EstablishmentInfoSection */
+"Llamar" = "Llamar";
+"Abrir" = "Abrir";
+
+/* EditEstablishmentView */
+"Nombre" = "Nombre";
+"información" = "información";
+"Calle" = "Calle";
+"Calle 2" = "Calle 2";
+"Teléfono" = "Teléfono";
+"Parqueadero" = "Parqueadero";
+"Vestidores" = "Vestidores";
+"Bar" = "Bar";
+"Baños" = "Baños";
+"Duchas" = "Duchas";
+"Guardar cambios" = "Guardar cambios";
+"Mensaje" = "Mensaje";
+"Se ha editado exitosamente" = "Se ha editado exitosamente";
+
+/* RegisterEstablismentViewModel */
+"Todos los campos son obligatorios. Revisa los datos ingresados." = "Todos los campos son obligatorios. Revisa los datos ingresados.";
+"Es obligatorio subir imágenes." = "Es obligatorio subir imágenes.";
+"Establecimiento registrado con éxito." = "Establecimiento registrado con éxito.";
+"Establecimiento registrado con éxito." = "Establecimiento registrado con éxito.";
+
+/* RegisterEstablishmentView */
+"Pon la ubicación del establecimiento" = "Pon la ubicación del establecimiento";
+"REGISTRAR PROPIEDAD" = "REGISTRAR PROPIEDAD";
+"OK" = "OK";
+
+/* FieldDetailViewModel */
+"No se pudo cargar la cancha." = "No se pudo cargar la cancha.";
+
+/* FieldDetailView */
+"Error al cargar la cancha" = "Error al cargar la cancha";
+"Detalle de Cancha" = "Detalle de Cancha";
+"Mensaje" = "Mensaje";
+"Eliminar" = "Eliminar";
+"¿Estás seguro de eliminar esta cancha?" = "¿Estás seguro de eliminar esta cancha?";
+
+/* FieldInfoSection */
+
+/* FieldAttributesSection */
+"Características" = "Características";
+
+/* EditFieldView */
+"Cancha" = "Cancha";
+"Selecciona la cancha" = "Selecciona la cancha";
+"Capacidad" = "Capacidad";
+"Selecciona modalidad" = "Selecciona modalidad";
+"Iluminada" = "Iluminada";
+"Cubierta" = "Cubierta";
+"Precio por hora" = "Precio por hora";
+"Guardar" = "Guardar";
+"Editar Cancha" = "Editar Cancha";
+
+/* RegisterFieldView */
+"REGISTRAR CANCHA" = "REGISTRAR CANCHA";
+"Selecciona la cancha" = "Selecciona la cancha";
+"Capacidad" = "Capacidad";
+"Selecciona modalidad" = "Selecciona modalidad";
+"Iluminada" = "Iluminada";
+"Cubierta" = "Cubierta";
+"Precio por hora" = "Precio por hora";
+"Registrar" = "Registrar";
+
+/* RegisterFieldViewModel */
+"El campo precio es obligatorio" = "El campo precio es obligatorio";
+"Es obligatorio subir imágenes" = "Es obligatorio subir imágenes";
+"Cancha registrada con éxito" = "Cancha registrada con éxito";
+"Error al registrar la cancha" = "Error al registrar la cancha";
+"La cancha se ha actualizado correctamente." = "La cancha se ha actualizado correctamente.";
+"Ocurrió un error al actualizar la cancha. Intenta nuevamente." = "Ocurrió un error al actualizar la cancha. Intenta nuevamente.";
+"La cancha se ha eliminado correctamente." = "La cancha se ha eliminado correctamente.";
+
+/* EstablishmentSelectedMapDetailView */
+"Ir a la dirección" = "Ir a la dirección";
+"Ver establecimiento" = "Ver establecimiento";
+"¿Abrir en Apple Maps?" = "¿Abrir en Apple Maps?";
+"Abrir" = "Abrir";
+"Esto abrirá la app Mapas con la ubicación del establecimiento." = "Esto abrirá la app Mapas con la ubicación del establecimiento.";
+
+/* MapEstablishmentsView */
+"Permiso de ubicación denegado." = "Permiso de ubicación denegado.";
+"Ha ocurrido un error inesperado." = "Ha ocurrido un error inesperado.";
+"Intentar de nuevo" = "Intentar de nuevo";
+"Ir a Ajustes" = "Ir a Ajustes";
+"Establecimientos cercanos" = "Establecimientos cercanos";
+"¿Llamar al propietario?" = "¿Llamar al propietario?";
+"Esto iniciará una llamada al número del establecimiento." = "Esto iniciará una llamada al número del establecimiento.";
+"¿Abrir en Apple Maps?" = "¿Abrir en Apple Maps?";
+"Esto abrirá la app Mapas con la ubicación del establecimiento." = "Esto abrirá la app Mapas con la ubicación del establecimiento.";
+
+/* FavoritesView */
+"No tienes favoritos" = "No tienes favoritos";
+"Aún no has agregado establecimientos a tu lista de favoritos. Empieza a descubrir lugares y guárdalos aquí." = "Aún no has agregado establecimientos a tu lista de favoritos. Empieza a descubrir lugares y guárdalos aquí.";
+"Mis Favoritos" = "Mis Favoritos";
+"Error al cargar los establecimientos" = "Error al cargar los establecimientos";
+"Intentar denuevo." = "Intentar denuevo.";
+"Favoritos" = "Favoritos";
+
+/* EstablishmentDetailOwnerView */
+"No hay canchas registradas" = "No hay canchas registradas";
+"¿Estás seguro de que quieres eliminar este establecimiento?" = "¿Estás seguro de que quieres eliminar este establecimiento?";
+"Error al cargar el establecimiento" = "Error al cargar el establecimiento";
+"Establecimiento" = "Establecimiento";
+"Agregar cancha" = "Agregar cancha";
+"Ver planes para agregar más canchas" = "Ver planes para agregar más canchas";
+"Eliminar establecimiento" = "Eliminar establecimiento";
+
+/* MyEstablishmentsView */
+"No tienes establecimientos registrados" = "No tienes establecimientos registrados";
+"Empieza a crear un nuevo establecimiento para que tus jugadores lo encuentren fácilmente." = "Empieza a crear un nuevo establecimiento para que tus jugadores lo encuentren fácilmente.";
+"Agregar Establecimiento" = "Agregar Establecimiento";
+"Mis Establecimientos" = "Mis Establecimientos";
+"Agregar Establecimiento" = "Agregar Establecimiento";
+
+/* ProfileOwnerView */
+"Aún no has registrado tu establecimiento." = "Aún no has registrado tu establecimiento.";
+"Mis establecimientos" = "Mis establecimientos";
+"Mis canchas" = "Mis canchas";
+"Condiciones de uso" = "Condiciones de uso";
+"Versión de al app" = "Versión de al app";
+"Cerrar sesión" = "Cerrar sesión";
+"Borrar cuenta" = "Borrar cuenta";
+"Perfil" = "Perfil";
+"Error al cargar el perfil." = "Error al cargar el perfil.";
+"Borrar mi cuenta" = "Borrar mi cuenta";
+"Estas seguro que quieres eliminar tu cuenta?" = "Estas seguro que quieres eliminar tu cuenta?";
+
+/* ProfileUserView */
+"Editar perfil" = "Editar perfil";
+"Condiciones de uso" = "Condiciones de uso";
+"Versión de la app" = "Versión de la app";
+"Mis favoritos" = "Mis favoritos";
+"Cerrar sesión" = "Cerrar sesión";
+"Error al cargar el perfil." = "Error al cargar el perfil.";
+"Borrar mi cuenta" = "Borrar mi cuenta";
+"¿Estás seguro que quieres eliminar tu cuenta?" = "¿Estás seguro que quieres eliminar tu cuenta?";
+
+/* EditProfileView */
+"Tu nombre" = "Tu nombre";
+"Guardar cambios" = "Guardar cambios";
+"Algo salió mal. Intenta más tarde." = "Algo salió mal. Intenta más tarde.";
+"Editar perfil" = "Editar perfil";
+"Editar mi perfil" = "Editar mi perfil";
+"Nombre de usuario cambiado exitosamente." = "Nombre de usuario cambiado exitosamente.";
+"Error Editar mi perfil" = "Error Editar mi perfil";
+"No se pudo actualizar tu nombre de usuario." = "No se pudo actualizar tu nombre de usuario.";
+
+/* TermsAndConditionsView */
+"Términos y Condiciones de Uso" = "Términos y Condiciones de Uso";
+"Al utilizar la aplicación FieldFinder, aceptas los siguientes términos y condiciones. Te recomendamos leerlos detenidamente." = "Al utilizar la aplicación FieldFinder, aceptas los siguientes términos y condiciones. Te recomendamos leerlos detenidamente.";
+"1. Uso de la aplicación" = "1. Uso de la aplicación";
+"FieldFinder es una plataforma para que los usuarios puedan encontrar establecimientos deportivos (canchas) cercanos, ver detalles como fotos, servicios disponibles, ubicación en el mapa y contactar directamente con los dueños mediante su número telefónico." = "FieldFinder es una plataforma para que los usuarios puedan encontrar establecimientos deportivos (canchas) cercanos, ver detalles como fotos, servicios disponibles, ubicación en el mapa y contactar directamente con los dueños mediante su número telefónico.";
+"2. Cuentas de usuario" = "2. Cuentas de usuario";
+"Los usuarios deben registrarse con información verídica. No está permitido compartir credenciales de acceso ni suplantar a otros usuarios." = "Los usuarios deben registrarse con información verídica. No está permitido compartir credenciales de acceso ni suplantar a otros usuarios.";
+"3. Derechos de los dueños" = "3. Derechos de los dueños";
+"Los dueños de canchas pueden registrar sus establecimientos, añadir información relevante y subir fotografías. Se comprometen a proporcionar información precisa y mantener actualizados los datos publicados." = "Los dueños de canchas pueden registrar sus establecimientos, añadir información relevante y subir fotografías. Se comprometen a proporcionar información precisa y mantener actualizados los datos publicados.";
+"4. Uso adecuado" = "4. Uso adecuado";
+"No se permite el uso de FieldFinder para fines ilegales, fraudulentos o que infrinjan derechos de terceros." = "No se permite el uso de FieldFinder para fines ilegales, fraudulentos o que infrinjan derechos de terceros.";
+"5. Privacidad y seguridad" = "5. Privacidad y seguridad";
+"Respetamos tu privacidad. Los datos que proporciones se utilizarán únicamente para el correcto funcionamiento de la app. No compartiremos tu información personal sin consentimiento." = "Respetamos tu privacidad. Los datos que proporciones se utilizarán únicamente para el correcto funcionamiento de la app. No compartiremos tu información personal sin consentimiento.";
+"6. Disponibilidad del servicio" = "6. Disponibilidad del servicio";
+"Hacemos nuestro mejor esfuerzo por mantener la app disponible, pero no garantizamos acceso ininterrumpido 24/7. Pueden presentarse mantenimientos o fallos técnicos ocasionales." = "Hacemos nuestro mejor esfuerzo por mantener la app disponible, pero no garantizamos acceso ininterrumpido 24/7. Pueden presentarse mantenimientos o fallos técnicos ocasionales.";
+"7. Cambios en los términos" = "7. Cambios en los términos";
+"Nos reservamos el derecho de actualizar estos términos en cualquier momento. Se notificará a los usuarios sobre cambios relevantes dentro de la aplicación." = "Nos reservamos el derecho de actualizar estos términos en cualquier momento. Se notificará a los usuarios sobre cambios relevantes dentro de la aplicación.";
+"Gracias por confiar en FieldFinder." = "Gracias por confiar en FieldFinder.";
+"Condiciones de uso" = "Condiciones de uso";
+
+/* DefaultProfile */
+"dueno" = "dueno";
+"jugador" = "jugador";
+"¿Aún no tienes cuenta?" = "¿Aún no tienes cuenta?";
+"Inicia sesión si ya tienes una cuenta o regístrate como jugador o dueño para guardar tus canchas o administrarlas." = "Inicia sesión si ya tienes una cuenta o regístrate como jugador o dueño para guardar tus canchas o administrarlas.";
+"Iniciar Sesión" = "Iniciar Sesión";
+"Registrarse" = "Registrarse";
+
+/* ProfileUserViewModel */
+"No se pudo cargar el perfil." = "No se pudo cargar el perfil.";
+
+/* LoginView */
+"Email" = "Email";
+"Contraseña" = "Contraseña";
+"Iniciar Sesión" = "Iniciar Sesión";
+"INICIA SESIÓN" = "INICIA SESIÓN";
+"Mensaje" = "Mensaje";
+
+/* RegisterUserView */
+"Selecciona tu rol:" = "Selecciona tu rol:";
+"Selecciona tu rol" = "Selecciona tu rol";
+"Registrar" = "Registrar";
+"CREA TU CUENTA" = "CREA TU CUENTA";
+
+/* UserAuthViewModel */
+"Nombre de usuario o contraseña incorrectos" = "Nombre de usuario o contraseña incorrectos";
+"Algo salió mal" = "Algo salió mal";
+"Todos los campos son requeridos." = "Todos los campos son requeridos.";
+"Ingresa un correo electrónico válido, por ejemplo: usuario@ejemplo.com" = "Ingresa un correo electrónico válido, por ejemplo: usuario@ejemplo.com";
+"La contraseña debe tener al menos 6 caracteres." = "La contraseña debe tener al menos 6 caracteres.";
+
+/* RootView */
+"No se ha seleccionado establecimiento." = "No se ha seleccionado establecimiento.";
+
+/* AppState */
+"Los campos son requeridos." = "Los campos son requeridos.";
+"El email o la contraseña son inválidos." = "El email o la contraseña son inválidos.";
+"¡Ups! Algo salió mal" = "¡Ups! Algo salió mal";
+
+/* CoverImageTip */
+"La primera imagen será la portada" = "La primera imagen será la portada";
+"La primera foto que subas será usada como imagen principal." = "La primera foto que subas será usada como imagen principal.";
+
+/* Enums */
+"Jugador" = "Jugador";
+"Dueño" = "Dueño";
+"Sintético" = "Sintético";
+"Césped" = "Césped";
+"cesped" = "cesped";
+"sintetico" = "sintetico";
+
+/* StoreView */
+"¡Actualiza hoy!" = "¡Actualiza hoy!";
+"Aprovecha al máximo nuestra app" = "Aprovecha al máximo nuestra app";
+"Obteniendo ofertas..." = "Obteniendo ofertas...";
+"Lo sentimos, hubo un error cargando nuestra tienda." = "Lo sentimos, hubo un error cargando nuestra tienda.";
+"Intentar de nuevo" = "Intentar de nuevo";
+"Restaurar compras" = "Restaurar compras";
+"Cancelar" = "Cancelar";
+"In-app Compras estan desabilitadas" = "In-app Compras estan desabilitadas";
+"No puedes comprar el desbloqueo Premium porque las compras dentro de la app están deshabilitadas en este dispositivo. 
+                Por favor, consulta con quien administre tu dispositivo para obtener asistencia." = "No puedes comprar el desbloqueo Premium porque las compras dentro de la app están deshabilitadas en este dispositivo. 
+                Por favor, consulta con quien administre tu dispositivo para obtener asistencia.";
+
+
+/* FieldInfoSection */
+"field_of_fmt"        = "Cancha de: %@";
+"game_of_fmt"         = "Juego de: %@";
+"price_per_hour_fmt"  = "Precio: $%.2f por hora";
+
+
+/* FieldGridItemView */
+"Precio: %@ por hora" = "Price: %@ por hora";
+"Intentar de nuevo" = "Intentar de nuevo";

@@ -41,14 +41,7 @@ struct PlayerView: View {
                                     .font(.title2.bold())
                                     .padding(.horizontal)
                                     .padding(.top)
-                                
-                                if !viewModel.establishmentSearch.isEmpty {
-                                    Text("Mostrando \(viewModel.filterEstablishments.count) resultados")
-                                        .font(.subheadline)
-                                        .foregroundStyle(.gray)
-                                        .padding(.horizontal)
-                                }
-                                
+                                                              
                                 LazyVGrid(columns: columns, spacing: 20) {
                                     ForEach(viewModel.filterEstablishments) { establishment in
                                         NavigationLink {
