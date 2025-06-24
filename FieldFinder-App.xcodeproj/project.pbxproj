@@ -93,6 +93,7 @@
 		C901755B2DEF78970099E3B4 /* MyEstablishmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C901755A2DEF78970099E3B4 /* MyEstablishmentsView.swift */; };
 		C91AAB9D2DE8E22200EFBE0D /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91AAB9C2DE8E22200EFBE0D /* ErrorStateView.swift */; };
 		C91AABA72DE8EAED00EFBE0D /* LocationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91AABA62DE8EAED00EFBE0D /* LocationPickerView.swift */; };
+		C91F26372E0B183B002FD5B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C91F26352E0B183B002FD5B1 /* Localizable.strings */; };
 		C92221A92DD3BB4000D6BE8B /* FieldGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221A82DD3BB4000D6BE8B /* FieldGridItemView.swift */; };
 		C92221AB2DD3C21D00D6BE8B /* FieldDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221AA2DD3C21D00D6BE8B /* FieldDetailView.swift */; };
 		C92221B62DD3C62F00D6BE8B /* FieldDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92221B52DD3C62F00D6BE8B /* FieldDetailViewModel.swift */; };
@@ -267,6 +268,8 @@
 		C901755A2DEF78970099E3B4 /* MyEstablishmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEstablishmentsView.swift; sourceTree = "<group>"; };
 		C91AAB9C2DE8E22200EFBE0D /* ErrorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStateView.swift; sourceTree = "<group>"; };
 		C91AABA62DE8EAED00EFBE0D /* LocationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerView.swift; sourceTree = "<group>"; };
+		C91F26362E0B183B002FD5B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C91F26382E0B1A41002FD5B1 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		C92221A82DD3BB4000D6BE8B /* FieldGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldGridItemView.swift; sourceTree = "<group>"; };
 		C92221AA2DD3C21D00D6BE8B /* FieldDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldDetailView.swift; sourceTree = "<group>"; };
 		C92221B52DD3C62F00D6BE8B /* FieldDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldDetailViewModel.swift; sourceTree = "<group>"; };
@@ -772,6 +775,7 @@
 				C939BC602DCCF4E900B98C16 /* Domain */,
 				C939BC5F2DCCF4D800B98C16 /* Presentation */,
 				C99E4D3E2DE6427B00FA04AE /* LocalStoreKitConfig.storekit */,
+				C91F26352E0B183B002FD5B1 /* Localizable.strings */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1084,6 +1088,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"es-419",
 			);
 			mainGroup = C939BC232DCCF38400B98C16;
 			minimizedProjectReferenceProxies = 1;
@@ -1108,6 +1113,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C939BC5A2DCCF4BE00B98C16 /* Assets.xcassets in Resources */,
+				C91F26372E0B183B002FD5B1 /* Localizable.strings in Resources */,
 				C99E4D3F2DE6427B00FA04AE /* LocalStoreKitConfig.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1307,12 +1313,25 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		C91F26352E0B183B002FD5B1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C91F26362E0B183B002FD5B1 /* en */,
+				C91F26382E0B1A41002FD5B1 /* es-419 */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		C939BC4B2DCCF38500B98C16 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1377,6 +1396,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1436,7 +1456,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "FieldFinder-App/FieldFinder-App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = L5MH9KP95U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1475,7 +1495,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "FieldFinder-App/FieldFinder-App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = L5MH9KP95U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

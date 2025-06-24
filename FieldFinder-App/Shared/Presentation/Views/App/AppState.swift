@@ -128,26 +128,6 @@ final class AppState {
         }
     }
     
-    /// Detectar si está suscrito o en prueba gratuita
-    @MainActor
-    func checkSubscriptionStatus() async {
-        for await result in Transaction.currentEntitlements {
-            print("🔁 Verificando estado de suscripción...")
-            if case .verified(let transaction) = result,
-               transaction.productID == Self.unlockPremiumProductID {
-                print("📦 Producto: \(transaction.productID)")
-                print("🔒 Activa: \(transaction.revocationDate == nil)")
-                print("🧪 Free Trial: \(transaction.offer?.type == .introductory)")
-                fullVersionUnlocked = transaction.revocationDate == nil
-                isOnFreeTrial = transaction.offer?.type == .introductory
-                return
-            }
-        }
-        
-        fullVersionUnlocked = false
-        isOnFreeTrial = false
-    }
-    
     @MainActor
     func requestReviewIfAppropriate() {
         guard let scene = UIApplication.shared.connectedScenes

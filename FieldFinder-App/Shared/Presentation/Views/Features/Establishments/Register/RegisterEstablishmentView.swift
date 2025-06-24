@@ -52,10 +52,10 @@ struct RegisterEstablishmentView: View {
                     CustomTextFieldLogin(titleKey: "Información", textField: $info, keyboardType: .default, prompt: Text("Información"), colorBackground: Color(.secondarySystemBackground))
                         
                     
-                    CustomTextFieldLogin(titleKey: "Dirección", textField: $address, keyboardType: .default, prompt: Text("Dirección"), colorBackground: Color(.secondarySystemBackground))
+                    CustomTextFieldLogin(titleKey: "Calle", textField: $address, keyboardType: .default, prompt: Text("Calle"), colorBackground: Color(.secondarySystemBackground))
                         .autocorrectionDisabled(true)
                     
-                    CustomTextFieldLogin(titleKey: "Dirección 2", textField: $address2, keyboardType: .default, prompt: Text("Dirección 2"), colorBackground: Color(.secondarySystemBackground))
+                    CustomTextFieldLogin(titleKey: "Calle 2", textField: $address2, keyboardType: .default, prompt: Text("Calle 2"), colorBackground: Color(.secondarySystemBackground))
                     
                     CustomTextFieldLogin(titleKey: "Teléfono", textField: $phone, keyboardType: .phonePad, prompt: Text("Teléfono"), colorBackground: Color(.secondarySystemBackground))
                     
@@ -171,5 +171,6 @@ struct RegisterEstablishmentView: View {
     
     RegisterEstablishmentView(appState: AppState())
         .environment(AppState())
+        .environment(\.locale, .init(identifier: "en"))
     
 }

@@ -32,7 +32,7 @@ struct FieldResponse: Codable, Identifiable {
     
     static let sample = FieldResponse(
         id: "cancha001",
-        tipo: "Fútbol 7",
+        tipo: "Césped",
         modalidad: "Partido completo",
         precio: 30,
         cubierta: true,

@@ -30,36 +30,32 @@ extension AppState {
     /// Observa las transacciones activas y futuras; actualiza el estado de suscripción y free trial.
     @MainActor
     func monitorTransactions() async {
-        // Revisa transacciones actuales (al abrir la app)
+        do {
+            // Cargar productos si no están ya cargados
+            try await loadProducts()
+        } catch {
+            print("❌ Error cargando productos: \(error)")
+        }
+
+        // Revisión de suscripciones activas al abrir
         for await entitlement in Transaction.currentEntitlements {
-            if case let .verified(transaction) = entitlement {
-                if transaction.productID == AppState.unlockPremiumProductID {
-                    
-                    // Detecta si la transacción es de un periodo de prueba (introductory)
-                    if transaction.offer?.type == .introductory {
-                        print("🟢 Free Trial activo")
-                        isOnFreeTrial = true
-                    } else {
-                        print("🔵 Suscripción regular activa o sin oferta")
-                        isOnFreeTrial = false
-                    }
+            if case let .verified(transaction) = entitlement,
+               transaction.productID == Self.unlockPremiumProductID {
 
-                    // Marca si la suscripción sigue activa (sin fecha de cancelación)
-                    fullVersionUnlocked = transaction.revocationDate == nil
-
-                    // Finaliza la transacción para que StoreKit no la repita
-                    await transaction.finish()
-                }
+                fullVersionUnlocked = transaction.revocationDate == nil
+                isOnFreeTrial = transaction.offer?.type == .introductory
+                await transaction.finish()
             }
         }
 
-        // Observa nuevas transacciones mientras la app está en uso
+        // Escuchar nuevas transacciones en vivo
         for await update in Transaction.updates {
             if let transaction = try? update.payloadValue {
                 await finalize(transaction)
             }
         }
     }
+
 
     /// Inicia el proceso de compra y finaliza si fue exitosa.
     func purchase(_ product: Product) async throws {

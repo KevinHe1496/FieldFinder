@@ -50,7 +50,7 @@ struct FacilitiesIconsView: View {
                     .foregroundStyle(isAvailable ? .primaryColorGreen : .red)
             }
 
-            Text(label)
+            Text(LocalizedStringKey(label))
                 .font(.caption2)
                 .lineLimit(1)
                 .minimumScaleFactor(0.6)

@@ -36,7 +36,7 @@ struct RootView: View {
                     AppTabBarView()
                 }
             } else {
-                Text("Loading... no sirve nose por que")
+                ErrorStateView()
             }
             
         case .register:

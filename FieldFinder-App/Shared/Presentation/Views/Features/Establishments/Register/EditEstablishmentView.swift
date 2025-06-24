@@ -133,4 +133,5 @@ struct EditEstablishmentView: View {
         appState: AppState()
     )
         .environment(AppState())
+        .environment(\.locale, .init(identifier: "en"))
 }
