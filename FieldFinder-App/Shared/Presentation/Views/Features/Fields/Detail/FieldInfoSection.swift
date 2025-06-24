@@ -20,10 +20,17 @@ struct FieldInfoSection: View {
 
                 Divider()
                 
-                Text(String.localizedStringWithFormat(
-                        NSLocalizedString("field_of_fmt", comment: "Label + type of field"),
-                        fieldData.tipo)
+                Text(
+                    String(                                   // 1️⃣ formamos el String final
+                        format: NSLocalizedString(
+                                    "Cancha de: %@",          // 2️⃣ clave de la etiqueta
+                                    comment: "Label + type"),
+                        NSLocalizedString(                    // 3️⃣ clave del valor dinámico
+                            fieldData.tipo.capitalized,
+                            comment: "Field surface type")
+                    )
                 )
+
 
                 Text(String.localizedStringWithFormat(
                         NSLocalizedString("game_of_fmt", comment: "Label + play mode"),

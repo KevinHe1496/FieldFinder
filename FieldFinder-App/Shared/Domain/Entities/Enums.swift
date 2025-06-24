@@ -72,14 +72,12 @@ enum UserRole: String, CaseIterable, Identifiable {
     var displayName: String {
         switch self {
         case .jugador:
-            return "Jugador"
+            return NSLocalizedString("rol_usuario_jugador", comment: "Rol de jugador")
         case .dueno:
-            return "Dueño"
+            return NSLocalizedString("rol_usuario_dueno", comment: "Rol de dueno")
         }
     }
 }
-
-
 
 enum Field: String, CaseIterable, Identifiable {
     case cesped = "cesped"
@@ -89,8 +87,10 @@ enum Field: String, CaseIterable, Identifiable {
     
     var displayName: String {
         switch self {
-        case .sintetico: return "Sintético"
-        case .cesped: return "Césped"
+        case .sintetico:
+            return NSLocalizedString("surface_synthetic", comment: "Synthetic field surface")
+        case .cesped:
+            return NSLocalizedString("surface_grass", comment: "Grass field surface")
         }
     }
 }

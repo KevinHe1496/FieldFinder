@@ -255,7 +255,7 @@
 
 /* CoverImageTip */
 "La primera imagen será la portada" = "The first image will be the cover";
-"La primera foto que subas..." = "The first uploaded photo will be used as the main image.";
+"La primera foto que subas será usada como imagen principal." = "The first uploaded photo will be used as the main image.";
 
 /* Enums */
 "Jugador" = "Player";
@@ -269,7 +269,7 @@
 "¡Actualiza hoy!" = "Upgrade today!";
 "Aprovecha al máximo nuestra app" = "Make the most of our app";
 "Obteniendo ofertas..." = "Getting offers...";
-"Lo sentimos, hubo un error..." = "Sorry, there was an error loading our store.";
+"Lo sentimos, hubo un error cargando nuestra tienda." = "Sorry, there was an error loading our store.";
 "Restaurar compras" = "Restore purchases";
 "In-app Compras estan desabilitadas" = "In-app purchases are disabled";
 "No puedes comprar el desbloqueo Premium..." = "You can’t purchase Premium unlock because in-app purchases are disabled on this device. Please check with your device administrator.";
@@ -283,5 +283,12 @@
 
 /* FieldGridItemView */
 "Precio: %@ por hora" = "Price: %@ per hour";
+"Fútbol" = "Soccer";
+"surface_synthetic" = "Synthetic";
+"surface_grass"     = "Grass";
 
-
+"Cancha de: %@" = "Field type: %@";
+"Sintético"     = "Synthetic";
+"Césped"        = "Grass";
+"rol_usuario_jugador" = "Player";
+"rol_usuario_dueno" = "Owner";

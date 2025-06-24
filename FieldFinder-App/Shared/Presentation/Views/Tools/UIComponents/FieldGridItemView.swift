@@ -18,7 +18,7 @@ struct FieldGridItemView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 16))
                 
                 // Etiqueta en la esquina
-                Text(field.tipo.capitalized)
+                Text(LocalizedStringKey(field.tipo.capitalized))
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(.white)
                     .padding(.horizontal, 10)

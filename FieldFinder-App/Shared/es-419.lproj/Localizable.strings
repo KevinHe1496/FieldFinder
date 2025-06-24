@@ -335,3 +335,11 @@
 /* FieldGridItemView */
 "Precio: %@ por hora" = "Price: %@ por hora";
 "Intentar de nuevo" = "Intentar de nuevo";
+"Fútbol" = "Fútbol";
+"surface_synthetic" = "Sintético";
+"surface_grass"     = "Césped";
+"Cancha de: %@" = "Cancha de: %@";       
+"Sintético"     = "Sintético";
+"Césped"        = "Césped";
+"rol_usuario_jugador" = "Jugador";
+"rol_usuario_dueno" = "Dueño";
