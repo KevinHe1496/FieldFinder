@@ -19,8 +19,8 @@ final class ExternalLinkManager {
     func prepareToOpen(title: String, message: String, url: URL?) {
         guard let url = url, UIApplication.shared.canOpenURL(url) else { return }
         self.urlToOpen = url
-        self.alertTitle = title
-        self.alertMessage = message
+        self.alertTitle = NSLocalizedString(title, comment: "")
+        self.alertMessage = NSLocalizedString(message, comment: "")
         self.showAlert = true
     }
     
