@@ -140,17 +140,7 @@ struct EstablishmentSelectedMapDetailView: View {
             }
             
         }
-//        .alert("¿Abrir en Apple Maps?", isPresented: $viewModel.showOpenInMapsAlert) {
-//            Button("Abrir", role: .none) {
-//                Task {
-//                    viewModel.openMapsURL()
-//                }
-//            }
-//            Button("Cancelar", role: .cancel) { }
-//        } message: {
-//            Text("Esto abrirá la app Mapas con la ubicación del establecimiento.")
-//        }
-//        
+
         // Alerta Teléfono
         .alert(callManager.alertTitle, isPresented: $callManager.showAlert) {
             Button("Cancelar", role: .cancel) { }
