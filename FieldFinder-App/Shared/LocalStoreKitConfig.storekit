@@ -20,7 +20,9 @@
     "_applicationInternalID" : "6746458682",
     "_developerTeamID" : "L5MH9KP95U",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 772476527.68686199,
+    "_lastSynchronizedDate" : 772562652.95078897,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
     "_storeKitErrors" : [
       {
         "current" : null,
@@ -89,7 +91,7 @@
           "groupNumber" : 1,
           "internalID" : "6746458781",
           "introductoryOffer" : {
-            "internalID" : "2FA38E66",
+            "internalID" : "6A33C71D",
             "numberOfPeriods" : 1,
             "paymentMode" : "free",
             "subscriptionPeriod" : "P6M"
@@ -99,6 +101,11 @@
               "description" : "Publica más canchas/locales con suscripción.",
               "displayName" : "Plan Premium Mensual",
               "locale" : "es_MX"
+            },
+            {
+              "description" : "Publish more fields/venues via subscription.",
+              "displayName" : "Monthly Premium Plan",
+              "locale" : "en_US"
             }
           ],
           "productID" : "com.ravecodesolutions.fieldfinder.monthly",

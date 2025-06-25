@@ -114,7 +114,6 @@
 "Todos los campos son obligatorios. Revisa los datos ingresados." = "Todos los campos son obligatorios. Revisa los datos ingresados.";
 "Es obligatorio subir imágenes." = "Es obligatorio subir imágenes.";
 "Establecimiento registrado con éxito." = "Establecimiento registrado con éxito.";
-"Establecimiento registrado con éxito." = "Establecimiento registrado con éxito.";
 
 /* RegisterEstablishmentView */
 "Pon la ubicación del establecimiento" = "Pon la ubicación del establecimiento";
@@ -173,6 +172,7 @@
 "Abrir" = "Abrir";
 "Esto abrirá la app Mapas con la ubicación del establecimiento." = "Esto abrirá la app Mapas con la ubicación del establecimiento.";
 
+
 /* MapEstablishmentsView */
 "Permiso de ubicación denegado." = "Permiso de ubicación denegado.";
 "Ha ocurrido un error inesperado." = "Ha ocurrido un error inesperado.";
@@ -182,7 +182,7 @@
 "¿Llamar al propietario?" = "¿Llamar al propietario?";
 "Esto iniciará una llamada al número del establecimiento." = "Esto iniciará una llamada al número del establecimiento.";
 "¿Abrir en Apple Maps?" = "¿Abrir en Apple Maps?";
-"Esto abrirá la app Mapas con la ubicación del establecimiento." = "Esto abrirá la app Mapas con la ubicación del establecimiento.";
+
 
 /* FavoritesView */
 "No tienes favoritos" = "No tienes favoritos";
