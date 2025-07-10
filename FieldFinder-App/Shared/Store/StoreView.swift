@@ -127,6 +127,7 @@ struct StoreView: View {
         
         Task { @MainActor in
             try await appState.purchase(product)
+            checkForPurchase()
         }
     }
     
