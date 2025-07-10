@@ -76,3 +76,7 @@ struct FavoriteGridItemView: View {
 
     }
 }
+
+#Preview {
+    FavoriteGridItemView(establishment: FavoriteEstablishmentModel(id: "asd", name: "asd", address: "asd", fotos: ["asd", "asd"]), viewModel: PlayerGetNearbyEstablishmentsViewModel())
+}

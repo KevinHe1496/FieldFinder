@@ -83,3 +83,7 @@ struct TermsAndConditionsView: View {
         .navigationTitle("Condiciones de uso")
     }
 }
+
+#Preview {
+    TermsAndConditionsView()
+}

@@ -35,8 +35,14 @@ struct EstablishmentInfoSection: View {
                     HStack {
                         Image(systemName: "mappin.and.ellipse")
                             .foregroundStyle(.primaryColorGreen)
-                        Text(establishment.address)
-                            .underline()
+                        if establishment.address2 == "" {
+                            Text(establishment.address)
+                                .underline()
+                        } else {
+                            Text("\(establishment.address), \(establishment.address2 ?? "")")
+                                .underline()
+                        }
+                        
                     }
                     .foregroundStyle(.colorBlack)
                 }

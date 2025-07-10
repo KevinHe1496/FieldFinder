@@ -127,6 +127,7 @@
 		C9554B5B2DDF608300ED501B /* LoadingProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9554B5A2DDF608300ED501B /* LoadingProgressView.swift */; };
 		C959A5782DF23AFC0093298B /* EstablishmentDetailOwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C959A5772DF23AFC0093298B /* EstablishmentDetailOwnerView.swift */; };
 		C95C5D0C2DD8F7E000A5310C /* CoverImageTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95C5D0B2DD8F7E000A5310C /* CoverImageTip.swift */; };
+		C96132252E1F2D17003ACFB8 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = C96132242E1F2D17003ACFB8 /* Configuration.storekit */; };
 		C961A2D82DDBBEA600A6BF8D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961A2D72DDBBEA600A6BF8D /* WelcomeView.swift */; };
 		C98B8BED2DD4FEE8004F05A3 /* Establishment-coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98B8BEC2DD4FEE8004F05A3 /* Establishment-coordinate.swift */; };
 		C98B8BEF2DD4FFB3004F05A3 /* MapEstablishmentAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98B8BEE2DD4FFB3004F05A3 /* MapEstablishmentAnnotationView.swift */; };
@@ -135,7 +136,6 @@
 		C98B8BF72DD530ED004F05A3 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98B8BF62DD530ED004F05A3 /* EditProfileView.swift */; };
 		C98B8BF92DD530F7004F05A3 /* TermsAndConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98B8BF82DD530F7004F05A3 /* TermsAndConditionsView.swift */; };
 		C99E4D3C2DE6336800FA04AE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99E4D3B2DE6336800FA04AE /* StoreKit.framework */; };
-		C99E4D3F2DE6427B00FA04AE /* LocalStoreKitConfig.storekit in Resources */ = {isa = PBXBuildFile; fileRef = C99E4D3E2DE6427B00FA04AE /* LocalStoreKitConfig.storekit */; };
 		C99E4D482DE64F6300FA04AE /* PlanManager-StoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99E4D472DE64F6300FA04AE /* PlanManager-StoreKit.swift */; };
 		C99E4D4B2DE655A800FA04AE /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99E4D4A2DE655A800FA04AE /* StoreView.swift */; };
 		C9B0AD6B2DCD00950043A9A2 /* RegisterUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0AD6A2DCD00950043A9A2 /* RegisterUserView.swift */; };
@@ -306,6 +306,7 @@
 		C9554B5A2DDF608300ED501B /* LoadingProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingProgressView.swift; sourceTree = "<group>"; };
 		C959A5772DF23AFC0093298B /* EstablishmentDetailOwnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstablishmentDetailOwnerView.swift; sourceTree = "<group>"; };
 		C95C5D0B2DD8F7E000A5310C /* CoverImageTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverImageTip.swift; sourceTree = "<group>"; };
+		C96132242E1F2D17003ACFB8 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; name = Configuration.storekit; path = Shared/Configuration.storekit; sourceTree = "<group>"; };
 		C961A2D72DDBBEA600A6BF8D /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		C98B8BEC2DD4FEE8004F05A3 /* Establishment-coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Establishment-coordinate.swift"; sourceTree = "<group>"; };
 		C98B8BEE2DD4FFB3004F05A3 /* MapEstablishmentAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEstablishmentAnnotationView.swift; sourceTree = "<group>"; };
@@ -315,7 +316,6 @@
 		C98B8BF82DD530F7004F05A3 /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
 		C99E4D3B2DE6336800FA04AE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C99E4D3D2DE6337100FA04AE /* FieldFinder-App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FieldFinder-App.entitlements"; sourceTree = "<group>"; };
-		C99E4D3E2DE6427B00FA04AE /* LocalStoreKitConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = LocalStoreKitConfig.storekit; sourceTree = "<group>"; };
 		C99E4D472DE64F6300FA04AE /* PlanManager-StoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlanManager-StoreKit.swift"; sourceTree = "<group>"; };
 		C99E4D4A2DE655A800FA04AE /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
 		C9B0AD6A2DCD00950043A9A2 /* RegisterUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserView.swift; sourceTree = "<group>"; };
@@ -760,6 +760,7 @@
 				C99E4D3D2DE6337100FA04AE /* FieldFinder-App.entitlements */,
 				C939BC5D2DCCF4C200B98C16 /* Shared */,
 				C939BC562DCCF4BE00B98C16 /* Assets.xcassets */,
+				C96132242E1F2D17003ACFB8 /* Configuration.storekit */,
 				C939BC582DCCF4BE00B98C16 /* FieldFinder_AppApp.swift */,
 			);
 			path = "FieldFinder-App";
@@ -774,7 +775,6 @@
 				C939BC612DCCF4F000B98C16 /* Data */,
 				C939BC602DCCF4E900B98C16 /* Domain */,
 				C939BC5F2DCCF4D800B98C16 /* Presentation */,
-				C99E4D3E2DE6427B00FA04AE /* LocalStoreKitConfig.storekit */,
 				C91F26352E0B183B002FD5B1 /* Localizable.strings */,
 			);
 			path = Shared;
@@ -1113,8 +1113,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C939BC5A2DCCF4BE00B98C16 /* Assets.xcassets in Resources */,
+				C96132252E1F2D17003ACFB8 /* Configuration.storekit in Resources */,
 				C91F26372E0B183B002FD5B1 /* Localizable.strings in Resources */,
-				C99E4D3F2DE6427B00FA04AE /* LocalStoreKitConfig.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1456,7 +1456,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "FieldFinder-App/FieldFinder-App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = L5MH9KP95U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1495,7 +1495,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "FieldFinder-App/FieldFinder-App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = L5MH9KP95U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
