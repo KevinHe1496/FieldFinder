@@ -9,7 +9,7 @@
       }
     ]
   },
-  "identifier" : "0C793B2B",
+  "identifier" : "7B32B44F",
   "nonRenewingSubscriptions" : [
 
   ],
@@ -20,7 +20,7 @@
     "_applicationInternalID" : "6746458682",
     "_developerTeamID" : "L5MH9KP95U",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 772573369.395105,
+    "_lastSynchronizedDate" : 773796329.65265,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
@@ -89,12 +89,12 @@
           "displayPrice" : "2.99",
           "familyShareable" : false,
           "groupNumber" : 1,
-          "internalID" : "6746458781",
+          "internalID" : "6748417792",
           "introductoryOffer" : {
-            "internalID" : "2AC3C69F",
+            "internalID" : "E9716D5B",
             "numberOfPeriods" : 1,
             "paymentMode" : "free",
-            "subscriptionPeriod" : "P6M"
+            "subscriptionPeriod" : "P3M"
           },
           "localizations" : [
             {
@@ -108,7 +108,7 @@
               "locale" : "en_US"
             }
           ],
-          "productID" : "com.ravecodesolutions.fieldfinder.monthly",
+          "productID" : "com.ravecodesolutions.fieldfinder.monthlyplans",
           "recurringSubscriptionPeriod" : "P1M",
           "referenceName" : "Plan Mensual",
           "subscriptionGroupID" : "21694740",

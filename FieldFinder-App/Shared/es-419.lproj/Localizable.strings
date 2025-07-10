@@ -320,11 +320,16 @@
 "Intentar de nuevo" = "Intentar de nuevo";
 "Restaurar compras" = "Restaurar compras";
 "Cancelar" = "Cancelar";
-"In-app Compras estan desabilitadas" = "In-app Compras estan desabilitadas";
+"Las compras dentro de la app están deshabilitadas" = "Las compras dentro de la app están deshabilitadas";
 "No puedes comprar el desbloqueo Premium porque las compras dentro de la app están deshabilitadas en este dispositivo. 
                 Por favor, consulta con quien administre tu dispositivo para obtener asistencia." = "No puedes comprar el desbloqueo Premium porque las compras dentro de la app están deshabilitadas en este dispositivo. 
                 Por favor, consulta con quien administre tu dispositivo para obtener asistencia.";
-
+"🎯 Suscripción Premium" = "🎯 Suscripción Premium";
+"• Publica múltiples canchas y establecimientos." = "• Publica múltiples canchas y establecimientos.";
+"Duración: 1 mes (renovación automática)" = "Duración: 1 mes (renovación automática)";
+"📃 Política de privacidad" = "📃 Política de privacidad";
+"📄 Términos de uso" = "📄 Términos de uso";
+"store_subscribe_button" = "Suscribirse por %@";
 
 /* FieldInfoSection */
 "field_of_fmt"        = "Cancha de: %@";

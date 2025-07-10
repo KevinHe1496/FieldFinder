@@ -60,10 +60,17 @@ struct PlayerEstablishmentGridItemView: View {
                 HStack(spacing: 6) {
                     Image(systemName: "mappin.and.ellipse")
                         .foregroundStyle(.primaryColorGreen)
-                    Text(establishment.address)
-                        .font(.subheadline)
-                        .foregroundStyle(Color.colorBlack)
-                        .lineLimit(2)
+                    if establishment.address2 == "" {
+                        Text(establishment.address)
+                            .font(.subheadline)
+                            .foregroundStyle(Color.colorBlack)
+                            .lineLimit(2)
+                    } else {
+                        Text("\(establishment.address), \(establishment.address2 ?? "")")
+                            .font(.subheadline)
+                            .foregroundStyle(Color.colorBlack)
+                            .lineLimit(2)
+                    }
                 }
             }
             

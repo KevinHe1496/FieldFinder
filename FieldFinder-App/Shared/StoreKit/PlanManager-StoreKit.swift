@@ -4,7 +4,7 @@ import StoreKit
 extension AppState {
     
     /// ID del producto de suscripción en App Store.
-    static let unlockPremiumProductID = "com.ravecodesolutions.fieldfinder.monthly"
+    static let unlockPremiumProductID = "com.ravecodesolutions.fieldfinder.monthlyplans"
     
     /// Indica si el usuario tiene la versión premium desbloqueada (guardado en UserDefaults).
     var fullVersionUnlocked: Bool {
@@ -79,7 +79,6 @@ extension AppState {
     @MainActor
     func loadProducts() async throws {
         guard products.isEmpty else { return }
-        
         try await Task.sleep(for: .seconds(0.2))
         products = try await Product.products(for: [Self.unlockPremiumProductID])
     }

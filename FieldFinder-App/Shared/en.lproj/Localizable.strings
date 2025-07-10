@@ -224,7 +224,7 @@
 "jugador" = "player";
 "¿Aún no tienes cuenta?" = "Don’t have an account?";
 "Inicia sesión si ya tienes una cuenta o regístrate como jugador o dueño para guardar tus canchas o administrarlas." = "Log in if you already have an account or sign up as a player or owner to save or manage your fields.";
-"Iniciar Sesión" = "Log in";
+"Iniciar Sesión" = "Login";
 "Registrarse" = "Sign up";
 
 /* ProfileUserViewModel */
@@ -233,7 +233,7 @@
 /* LoginView */
 "Email" = "Email";
 "Contraseña" = "Password";
-"INICIA SESIÓN" = "LOG IN";
+"INICIA SESIÓN" = "LOGIN";
 "Mensaje" = "Message";
 
 /* RegisterUserView */
@@ -267,13 +267,24 @@
 "sintetico" = "synthetic";
 
 /* StoreView */
-"¡Actualiza hoy!" = "Upgrade today!";
+"¡Actualiza hoy!" = "Update today!";
 "Aprovecha al máximo nuestra app" = "Make the most of our app";
-"Obteniendo ofertas..." = "Getting offers...";
+"Obteniendo ofertas..." = "Fetching offers...";
 "Lo sentimos, hubo un error cargando nuestra tienda." = "Sorry, there was an error loading our store.";
+"Intentar de nuevo" = "Try again";
 "Restaurar compras" = "Restore purchases";
-"In-app Compras estan desabilitadas" = "In-app purchases are disabled";
-"No puedes comprar el desbloqueo Premium..." = "You can’t purchase Premium unlock because in-app purchases are disabled on this device. Please check with your device administrator.";
+"Cancelar" = "Cancel";
+"Las compras dentro de la app están deshabilitadas" = "In-app purchases are disabled";
+"No puedes comprar el desbloqueo Premium porque las compras dentro de la app están deshabilitadas en este dispositivo. 
+                Por favor, consulta con quien administre tu dispositivo para obtener asistencia." = "You can't purchase the Premium unlock because in-app purchases are disabled on this device. 
+                Please contact your device administrator for assistance.";
+"🎯 Suscripción Premium" = "🎯 Premium Subscription";
+"• Publica múltiples canchas y establecimientos." = "• Post multiple fields and venues.";
+"Duración: 1 mes (renovación automática)" = "Duration: 1 month (auto-renewable)";
+"📃 Política de privacidad" = "📃 Privacy Policy";
+"📄 Términos de uso" = "📄 Terms of Use";
+
+"store_subscribe_button" = "Subscribe for %@";
 
 
 /* FieldInfoSection */

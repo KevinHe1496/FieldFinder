@@ -41,68 +41,64 @@ struct StoreView: View {
                 .background(.blue.gradient)
                 
                 ScrollView {
-                    VStack {
-                        switch loadState {
-                        case .loading:
-                            Text("Obteniendo ofertas...")
+                    VStack(spacing: 20) {
+                        
+                        // ✅ Card con toda la info y compra
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("🎯 Suscripción Premium")
                                 .font(.title2.bold())
-                                .padding(.top, 50)
                             
-                            ProgressView()
-                                .controlSize(.large)
-                        case .loaded:
-                            ForEach(appState.products) { product in
-                                VStack(alignment: .leading) {
-                                    Button {
-                                        purchase(product)
-                                    } label: {
-                                        HStack {
-                                            VStack(alignment: .leading) {
-                                                Text(product.displayName)
-                                                    .font(.title2.bold())
-                                                
-                                                Text(product.description)
-                                            }
-                                            Spacer()
-                                            
-                                            Text(product.displayPrice)
-                                                .font(.title)
-                                                .fontDesign(.rounded)
-                                        }
-                                        .padding(.horizontal, 20)
-                                        .padding(.vertical, 10)
-                                        .frame(maxWidth: .infinity)
-                                        .background(.gray.opacity(0.2), in: .rect(cornerRadius: 20))
-                                        .contentShape(.rect)
+                            Text("• Publica múltiples canchas y establecimientos.")
+                                .font(.subheadline)
+                                
+                            
+                            Text("Duración: 1 mes (renovación automática)")
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
+                            
+                            if let product = appState.products.first {
+                                Button {
+                                    purchase(product)
+                                } label: {
+                                    HStack {
+                                        Spacer()
+                                        Text(String(format: NSLocalizedString("store_subscribe_button", comment: "Botón de suscripción con precio"), product.displayPrice))
+                                            .font(.headline)
+                                            .padding()
+                                        Spacer()
                                     }
-                                    .buttonStyle(.plain)
+                                    .background(.blue)
+                                    .foregroundStyle(.white)
+                                    .clipShape(RoundedRectangle(cornerRadius: 12))
                                 }
+                                .buttonStyle(.plain)
                             }
                             
-
-                        case .error:
-                            Text("Lo sentimos, hubo un error cargando nuestra tienda.")
-                                .padding(.top, 50)
+                            Divider()
                             
-                            Button("Intentar de nuevo") {
-                                Task {
-                                    await load()
-                                }
-                            }
-                            .buttonStyle(.borderedProminent)
+                            Link("📃 Política de privacidad", destination: URL(string: "https://kevinhe1496.github.io/fieldfinder-legal/privacy.html")!)
+                                .foregroundStyle(.blue)
+                            Link("📄 Términos de uso", destination: URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
+                                .foregroundStyle(.blue)
                         }
+                        .padding()
+                        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
+                        
                     }
-                    .padding(20)
+                    .padding()
                 }
+
+
+
                 Button("Restaurar compras", action: restore)
                 
-                Button("Cancelar") {
+                Button("Cancelar", role: .cancel) {
                     dismiss()
                 }
                 .padding(.top, 20)
             }
         }
-        .alert("In-app Compras estan desabilitadas", isPresented: $showingPurchaseError) {
+        .alert("Las compras dentro de la app están deshabilitadas" , isPresented: $showingPurchaseError) {
         } message: {
             Text("""
                 No puedes comprar el desbloqueo Premium porque las compras dentro de la app están deshabilitadas en este dispositivo. 

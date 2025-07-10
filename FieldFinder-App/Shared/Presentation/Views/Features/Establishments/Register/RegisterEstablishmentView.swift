@@ -17,9 +17,7 @@ struct RegisterEstablishmentView: View {
     @State private var name = ""
     @State private var info = ""
     @State private var address2: String = ""
-    @State private var address = "10800 Torre Avenue"
-    @State private var city = "Cupertino"
-    @State private var zipcode = "95014"
+    @State private var address = ""
     @State private var phone = ""
     @State private var parqueadero = false
     @State private var vestidores = false
