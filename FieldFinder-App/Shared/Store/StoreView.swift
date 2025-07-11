@@ -1,8 +1,8 @@
 //
 //  StoreView.swift
-//  FieldFinder-App
+//  TiltFinder
 //
-//  Created by Kevin Heredia on 27/5/25.
+//  Created by Kevin Heredia on [fecha]
 //
 
 import StoreKit
@@ -42,53 +42,69 @@ struct StoreView: View {
                 
                 ScrollView {
                     VStack(spacing: 20) {
-                        
-                        // ✅ Card con toda la info y compra
-                        VStack(alignment: .leading, spacing: 12) {
-                            Text("🎯 Suscripción Premium")
+                        switch loadState {
+                        case .loading:
+                            Text("Obteniendo ofertas...")
                                 .font(.title2.bold())
-                            
-                            Text("• Publica múltiples canchas y establecimientos.")
-                                .font(.subheadline)
-                                
-                            
-                            Text("Duración: 1 mes (renovación automática)")
-                                .font(.footnote)
-                                .foregroundStyle(.secondary)
-                            
-                            if let product = appState.products.first {
-                                Button {
-                                    purchase(product)
-                                } label: {
-                                    HStack {
-                                        Spacer()
-                                        Text(String(format: NSLocalizedString("store_subscribe_button", comment: "Botón de suscripción con precio"), product.displayPrice))
-                                            .font(.headline)
-                                            .padding()
-                                        Spacer()
+                                .padding(.top, 50)
+
+                            ProgressView()
+                                .controlSize(.large)
+
+                        case .loaded:
+                            ForEach(appState.products) { product in
+                                VStack(alignment: .leading, spacing: 12) {
+                                    Text(product.displayName)
+                                        .font(.title2.bold())
+
+                                    Text(product.description)
+                                        .font(.subheadline)
+                                    
+                                    Text("Duración: 1 mes (renovación automática)")
+                                        .font(.footnote)
+                                        .foregroundStyle(.secondary)
+
+                                    Button {
+                                        purchase(product)
+                                    } label: {
+                                        HStack {
+                                            Spacer()
+                                            Text(String(format: NSLocalizedString("store_subscribe_button", comment: "Botón de suscripción con precio"), product.displayPrice))
+                                                .font(.headline)
+                                                .padding()
+                                            Spacer()
+                                        }
+                                        .background(.blue)
+                                        .foregroundStyle(.white)
+                                        .clipShape(RoundedRectangle(cornerRadius: 12))
                                     }
-                                    .background(.blue)
-                                    .foregroundStyle(.white)
-                                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                                    .buttonStyle(.plain)
+
+                                    Divider()
+
+                                    Link("📃 Política de privacidad", destination: URL(string: "https://kevinhe1496.github.io/fieldfinder-legal/privacy.html")!)
+                                        .foregroundStyle(.blue)
+                                    Link("📄 Términos de uso", destination: URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
+                                        .foregroundStyle(.blue)
                                 }
-                                .buttonStyle(.plain)
+                                .padding()
+                                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
                             }
-                            
-                            Divider()
-                            
-                            Link("📃 Política de privacidad", destination: URL(string: "https://kevinhe1496.github.io/fieldfinder-legal/privacy.html")!)
-                                .foregroundStyle(.blue)
-                            Link("📄 Términos de uso", destination: URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
-                                .foregroundStyle(.blue)
+
+                        case .error:
+                            Text("Lo sentimos, hubo un error cargando nuestra tienda.")
+                                .padding(.top, 50)
+
+                            Button("Intentar de nuevo") {
+                                Task {
+                                    await load()
+                                }
+                            }
+                            .buttonStyle(.borderedProminent)
                         }
-                        .padding()
-                        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
-                        
                     }
                     .padding()
                 }
-
-
 
                 Button("Restaurar compras", action: restore)
                 
@@ -105,7 +121,7 @@ struct StoreView: View {
                 Por favor, consulta con quien administre tu dispositivo para obtener asistencia.
                 """)
         }
-        .onChange(of: appState.fullVersionUnlocked) { oldValue, newValue in
+        .onChange(of: appState.fullVersionUnlocked) { _, _ in
             checkForPurchase()
         }
         .task {
