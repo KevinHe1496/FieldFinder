@@ -332,7 +332,8 @@
 "Términos de uso" = "Términos de uso";
 "store_subscribe_button" = "Suscribirse por %@ / mes";
 "Empieza con un mes de prueba gratis." = "Empieza con un mes de prueba gratis.";
-"Con la suscripción Premium podrás agregar y gestionar todas las canchas y establecimientos deportivos que desees, sin límites." = "Con la suscripción Premium podrás agregar y gestionar todas las canchas y establecimientos deportivos que desees, sin límites.";
+"Agrega y gestiona sin límites todas tus canchas y establecimientos." = "Agrega y gestiona sin límites todas tus canchas y establecimientos.";
+"Suscripción mensual con renovación automática." = "Suscripción mensual con renovación automática.";
 
 /* FieldInfoSection */
 "field_of_fmt"        = "Cancha de: %@";
