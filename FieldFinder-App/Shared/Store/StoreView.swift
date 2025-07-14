@@ -57,7 +57,7 @@ struct StoreView: View {
                                     Text(product.displayName)
                                         .font(.title2.bold())
 
-                                    Text("Con la suscripción Premium podrás agregar y gestionar todas las canchas y establecimientos deportivos que desees, sin límites.")
+                                    Text("Agrega y gestiona sin límites todas tus canchas y establecimientos.")
                                         .font(.subheadline)
                                         .multilineTextAlignment(.center)
                                         
@@ -65,6 +65,11 @@ struct StoreView: View {
                                     
                                     Text("Empieza con un mes de prueba gratis.")
                                         .font(.subheadline.bold())
+                                    
+                                    Text("Suscripción mensual con renovación automática.")
+                                        .font(.footnote)
+                                        .foregroundStyle(.gray)
+
 
                                     Button {
                                         purchase(product)
