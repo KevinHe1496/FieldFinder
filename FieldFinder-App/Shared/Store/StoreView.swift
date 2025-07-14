@@ -53,16 +53,18 @@ struct StoreView: View {
 
                         case .loaded:
                             ForEach(appState.products) { product in
-                                VStack(alignment: .leading, spacing: 12) {
+                                VStack(alignment: .center, spacing: 12) {
                                     Text(product.displayName)
                                         .font(.title2.bold())
 
-                                    Text(product.description)
+                                    Text("Con la suscripción Premium podrás agregar y gestionar todas las canchas y establecimientos deportivos que desees, sin límites.")
                                         .font(.subheadline)
+                                        .multilineTextAlignment(.center)
+                                        
+                                    Divider()
                                     
-                                    Text("Duración: 1 mes (renovación automática)")
-                                        .font(.footnote)
-                                        .foregroundStyle(.secondary)
+                                    Text("Empieza con un mes de prueba gratis.")
+                                        .font(.subheadline.bold())
 
                                     Button {
                                         purchase(product)
@@ -82,10 +84,16 @@ struct StoreView: View {
 
                                     Divider()
 
-                                    Link("📃 Política de privacidad", destination: URL(string: "https://kevinhe1496.github.io/fieldfinder-legal/privacy.html")!)
-                                        .foregroundStyle(.blue)
-                                    Link("📄 Términos de uso", destination: URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
-                                        .foregroundStyle(.blue)
+                                    HStack(spacing: 4) {
+                                        Link("Términos de uso", destination: URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
+                                        Text("y")
+                                            .font(.footnote)
+                                            .foregroundStyle(Color.gray)
+                                        Link("Política de privacidad", destination: URL(string: "https://kevinhe1496.github.io/fieldfinder-legal/privacy.html")!)
+                                    }
+                                    .font(.footnote)
+                                    .foregroundStyle(.blue)
+
                                 }
                                 .padding()
                                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))

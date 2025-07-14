@@ -327,9 +327,12 @@
 "🎯 Suscripción Premium" = "🎯 Suscripción Premium";
 "• Publica múltiples canchas y establecimientos." = "• Publica múltiples canchas y establecimientos.";
 "Duración: 1 mes (renovación automática)" = "Duración: 1 mes (renovación automática)";
-"📃 Política de privacidad" = "📃 Política de privacidad";
-"📄 Términos de uso" = "📄 Términos de uso";
-"store_subscribe_button" = "Suscribirse por %@";
+"Política de privacidad" = "Política de privacidad";
+"y" = "y";
+"Términos de uso" = "Términos de uso";
+"store_subscribe_button" = "Suscribirse por %@ / mes";
+"Empieza con un mes de prueba gratis." = "Empieza con un mes de prueba gratis.";
+"Con la suscripción Premium podrás agregar y gestionar todas las canchas y establecimientos deportivos que desees, sin límites." = "Con la suscripción Premium podrás agregar y gestionar todas las canchas y establecimientos deportivos que desees, sin límites.";
 
 /* FieldInfoSection */
 "field_of_fmt"        = "Cancha de: %@";

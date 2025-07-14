@@ -281,10 +281,12 @@
 "🎯 Suscripción Premium" = "🎯 Premium Subscription";
 "• Publica múltiples canchas y establecimientos." = "• Post multiple fields and venues.";
 "Duración: 1 mes (renovación automática)" = "Duration: 1 month (auto-renewable)";
-"📃 Política de privacidad" = "📃 Privacy Policy";
-"📄 Términos de uso" = "📄 Terms of Use";
-
-"store_subscribe_button" = "Subscribe for %@";
+"Política de privacidad" = "Privacy Policy";
+"y" = "and";
+"Términos de uso" = "Terms of Use";
+"Empieza con un mes de prueba gratis." = "Start with a 3-month free trial.";
+"store_subscribe_button" = "Subscribe for %@ / month";
+"Con la suscripción Premium podrás agregar y gestionar todas las canchas y establecimientos deportivos que desees, sin límites." = "With the Premium subscription, you can add and manage as many sports fields and establishments as you want.";
 
 
 /* FieldInfoSection */
