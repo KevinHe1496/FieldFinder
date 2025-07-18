@@ -15,16 +15,16 @@ struct OwnerView: View {
     
     @Environment(AppState.self) var appState
     @State private var shownItems: Set<String> = []
-
+    
     @State private var showingStore = false
     @State private var selectedNavigation: OwnerNavigationFieldDestination?
-
+    
     let columns = [
         GridItem(.flexible())
     ]
     
     @State private var viewModel: OwnerViewModel
-
+    
     init(appState: AppState = AppState()) {
         _viewModel = State(initialValue: OwnerViewModel(appState: appState))
     }
@@ -52,10 +52,7 @@ struct OwnerView: View {
                                     NavigationLink {
                                         FieldDetailView(fieldId: cancha.id, userRole: viewModel.establishments.userRole, establecimientoID: establecimiento.id)
                                     } label: {
-                                        AnimatedAppearRow(item: cancha, shownItems: $shownItems) {
-                                            FieldGridItemView(field: cancha)
-                                        }
-                                        
+                                        FieldGridItemView(field: cancha)
                                     }
                                 }
                             }
@@ -65,7 +62,7 @@ struct OwnerView: View {
                     }
                 }
                 .navigationTitle("Mis Canchas")
-
+                
                 .task {
                     await viewModel.getEstablishments()
                     

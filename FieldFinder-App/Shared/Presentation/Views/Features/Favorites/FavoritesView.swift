@@ -36,13 +36,11 @@ struct FavoritesView: View {
                                     NavigationLink {
                                         EstablishmentDetailView(establishmentID: establishment.id)
                                     } label: {
-                                        AnimatedAppearRow(item: establishment, shownItems: $shownItems) {
-                                            FavoriteGridItemView(
-                                                establishment: establishment,
-                                                viewModel: viewModel
-                                            )
-                                            .transition(.opacity.combined(with: .move(edge: .bottom)))
-                                        }
+                                        FavoriteGridItemView(
+                                            establishment: establishment,
+                                            viewModel: viewModel
+                                        )
+                                        .transition(.opacity.combined(with: .move(edge: .bottom)))
                                     }
                                 }
                             }
