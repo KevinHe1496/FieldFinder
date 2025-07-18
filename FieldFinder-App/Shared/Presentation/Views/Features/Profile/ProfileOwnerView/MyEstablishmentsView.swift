@@ -17,7 +17,7 @@ struct MyEstablishmentsView: View {
         self.establishment = establishment
         _viewModel = State(initialValue: OwnerViewModel(appState: appState))
     }
-
+    
     var body: some View {
         NavigationStack {
             if establishment.isEmpty {
@@ -50,9 +50,7 @@ struct MyEstablishmentsView: View {
                             NavigationLink {
                                 EstablishmentDetailOwnerView(establishmentID: establishment.id)
                             } label: {
-                                AnimatedAppearRow(item: establishment, shownItems: $shownItems) {
-                                    PlayerEstablishmentGridItemView(establishment: establishment)
-                                }
+                                PlayerEstablishmentGridItemView(establishment: establishment)
                             }
                         }
                     }

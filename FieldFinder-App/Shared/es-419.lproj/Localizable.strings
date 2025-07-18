@@ -191,6 +191,7 @@
 "Error al cargar los establecimientos" = "Error al cargar los establecimientos";
 "Intentar denuevo." = "Intentar denuevo.";
 "Favoritos" = "Favoritos";
+"No se pudo cargar los favoritos." = "No se pudo cargar los favoritos.";
 
 /* EstablishmentDetailOwnerView */
 "No hay canchas registradas" = "No hay canchas registradas";

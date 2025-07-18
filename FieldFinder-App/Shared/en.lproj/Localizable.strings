@@ -160,6 +160,7 @@
 "Error al cargar los establecimientos" = "Error loading establishments";
 "Intentar denuevo." = "Try again.";
 "Favoritos" = "Favorites";
+"No se pudo cargar los favoritos." = "Favorites could not be loaded.";
 
 /* EstablishmentDetailOwnerView */
 "Agregar cancha" = "Add field";
