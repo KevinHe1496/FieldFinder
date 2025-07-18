@@ -70,7 +70,7 @@ final class AppState {
     
     @MainActor
     func login(email: String, password: String) async throws {
-        guard !email.isEmpty || !password.isEmpty else {
+        guard !email.isEmpty && !password.isEmpty else {
             messageAlert = "Los campos son requeridos."
             showAlert = true
             return
