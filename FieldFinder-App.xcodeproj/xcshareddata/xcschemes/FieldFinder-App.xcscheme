@@ -75,9 +75,6 @@
             ReferencedContainer = "container:FieldFinder-App.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <StoreKitConfigurationFileReference
-         identifier = "../../FieldFinder-App/Shared/Configuration.storekit">
-      </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
