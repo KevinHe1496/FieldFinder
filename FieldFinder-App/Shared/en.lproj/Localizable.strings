@@ -254,6 +254,7 @@
 /* AppState */
 "Los campos son requeridos." = "Fields are required.";
 "El email o la contraseña son inválidos." = "Invalid email or password.";
+"Hubo un problema con tu usuario o contraseña. Intenta nuevamente." = "There was a problem with your username or password. Please try again.";
 
 /* CoverImageTip */
 "La primera imagen será la portada" = "The first image will be the cover";

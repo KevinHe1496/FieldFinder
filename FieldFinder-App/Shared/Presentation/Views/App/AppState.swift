@@ -71,13 +71,13 @@ final class AppState {
     @MainActor
     func login(email: String, password: String) async throws {
         guard !email.isEmpty && !password.isEmpty else {
-            messageAlert = "Los campos son requeridos."
+            messageAlert = String(localized: "Los campos son requeridos.")
             showAlert = true
             return
         }
 
+        isLoading = true
         do {
-            isLoading = true
             let loginApp = try await loginUseCase.login(email: email, password: password)
             
             if loginApp == true {
@@ -88,18 +88,23 @@ final class AppState {
                 self.userRole = user.userRole
                 
                 self.status = .loaded
-                self.isLoading = false
             } else {
+                messageAlert = String(localized: "El email o la contraseña son inválidos.")
                 showAlert = true
-                messageAlert = "El email o la contraseña son inválidos."
-                isLoading = false
-                status = .error(error: "¡Ups! Algo salió mal")
+                status = .error(error: String(localized:"¡Ups! Algo salió mal"))
             }
         } catch {
-            print("Error al iniciar sesión. \(error.localizedDescription)")
+            isLoading = false
+            messageAlert =  String(localized: "Hubo un problema con tu usuario o contraseña. Intenta nuevamente.")
+            showAlert = true
+            print("Error al iniciar sesión: \(error.localizedDescription)")
+            return
         }
+
+        isLoading = false
         showAlert = false
     }
+
     
     @MainActor
     func closeSessionUser() {
