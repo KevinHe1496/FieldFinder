@@ -69,7 +69,7 @@ struct PlayerEstablishmentGridItemView: View {
                         Text("\(establishment.address), \(establishment.address2 ?? "")")
                             .font(.subheadline)
                             .foregroundStyle(Color.colorBlack)
-                            .lineLimit(2)
+                            .lineLimit(1)
                     }
                 }
             }
