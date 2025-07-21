@@ -22,14 +22,14 @@ final class RegisterFieldViewModel {
         isLoading = true
         
         guard (canchaModel.precio != 0) else {
-            alertMessage = "El campo precio es obligatorio"
+            alertMessage = String(localized: "El campo precio es obligatorio")
             
             isLoading = false
             return
         }
         
         guard !images.isEmpty else {
-            alertMessage = "Es obligatorio subir imágenes"
+            alertMessage = String(localized: "Es obligatorio subir imágenes")
             
             isLoading = false
             return
@@ -40,11 +40,11 @@ final class RegisterFieldViewModel {
             let canchaID = try await useCase.createField(canchaModel, establishmentID: "")
             try await useCase.uploadFieldImages(fieldID: canchaID, images: images)
             
-            alertMessage = "Cancha registrada con éxito"
+            alertMessage = String(localized: "Cancha registrada con éxito")
             shouldDismissAfterAlert = true
             isLoading = false
         } catch {
-            alertMessage = "Error al registrar la cancha"
+            alertMessage = String(localized: "Error al registrar la cancha")
             isLoading = false
 
         }
@@ -53,9 +53,9 @@ final class RegisterFieldViewModel {
     func editCancha(canchaID: String, canchaModel: FieldRequest) async throws {
         do {
             let _ = try await useCase.updateField(fieldID: canchaID, fieldModel: canchaModel)
-            alertMessage = "La cancha se ha actualizado correctamente."
+            alertMessage = String(localized: "La cancha se ha actualizado correctamente.")
         } catch {
-            alertMessage = "Ocurrió un error al actualizar la cancha. Intenta nuevamente."
+            alertMessage = String(localized: "Ocurrió un error al actualizar la cancha. Intenta nuevamente.")
         }
         
     }
@@ -63,7 +63,7 @@ final class RegisterFieldViewModel {
     func deleteCancha(canchaID: String) async throws {
         do {
             let _ = try await useCase.deleteField(fieldID: canchaID)
-            alertMessage = "La cancha se ha eliminado correctamente."
+            alertMessage = String(localized: "La cancha se ha eliminado correctamente.")
             print("Se elimino exitosamente")
         }
     }

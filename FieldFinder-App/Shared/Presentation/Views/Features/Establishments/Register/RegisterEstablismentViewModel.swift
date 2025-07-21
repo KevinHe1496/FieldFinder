@@ -41,13 +41,13 @@ final class RegisterEstablismentViewModel {
         isLoading = true
 
         guard !address.isEmpty, !info.isEmpty, !name.isEmpty, !phone.isEmpty else {
-            self.alertMessage = "Todos los campos son obligatorios. Revisa los datos ingresados."
+            self.alertMessage = String(localized: "Todos los campos son obligatorios. Revisa los datos ingresados.")
             isLoading = false
             return
         }
         
         guard !images.isEmpty else {
-            alertMessage = "Es obligatorio subir imágenes."
+            alertMessage = String(localized: "Es obligatorio subir imágenes.")
             isLoading = false
             return
         }
@@ -74,10 +74,10 @@ final class RegisterEstablismentViewModel {
             userLatitude = userCoordinates.latitude
             userLongitude = userCoordinates.longitude
             
-            alertMessage = "Establecimiento registrado con éxito."
+            alertMessage = String(localized: "Establecimiento registrado con éxito.")
             appState.status = .home
         } catch {
-            alertMessage = "Error al registrar: \(error.localizedDescription)"
+            alertMessage = String(localized: "Error al registrar: \(error.localizedDescription)")
             isLoading = false
         }
     }
@@ -119,7 +119,7 @@ final class RegisterEstablismentViewModel {
             try await useCase.updateEstablishment(establishmentID: establishmentID, establishmentModel: newModel)
             
             
-            alertMessage = "Establecimiento registrado con éxito."
+            alertMessage = String(localized: "Establecimiento registrado con éxito.")
         } catch {
             print("Error al registrar: \(error.localizedDescription)")
             isLoading = false
