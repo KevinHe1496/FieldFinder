@@ -300,6 +300,7 @@
 "Los campos son requeridos." = "Los campos son requeridos.";
 "El email o la contraseña son inválidos." = "El email o la contraseña son inválidos.";
 "¡Ups! Algo salió mal" = "¡Ups! Algo salió mal";
+"Hubo un problema con tu usuario o contraseña. Intenta nuevamente."= "Hubo un problema con tu usuario o contraseña. Intenta nuevamente.";
 
 /* CoverImageTip */
 "La primera imagen será la portada" = "La primera imagen será la portada";
