@@ -82,7 +82,7 @@ struct FavoritesView: View {
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 Task {
-                    try? await viewModel.getFavoritesUser()
+                    try await viewModel.getFavoritesUser()
                 }
             }
         }
