@@ -1,0 +1,45 @@
+🧪 What to Test – Field Finder
+
+1. AUTENTICACIÓN
+- Login con credenciales válidas
+- Mensaje de error con credenciales incorrectas
+- Registro de nuevos usuarios
+- Almacenamiento seguro del token en Keychain
+- Validación de sesión activa con el token
+
+2. MAPA Y GEOLOCALIZACIÓN
+- Permisos de ubicación solicitados correctamente
+- Muestra de ubicación actual del usuario en el mapa
+- Listado de establecimientos cercanos
+- Tocar un pin abre detalles del establecimiento
+
+3. ESTABLECIMIENTOS (DUEÑOS)
+- Agregar nuevo establecimiento con validación de campos
+- Subida de imagen desde galería o cámara
+- Mostrar correctamente la lista de establecimientos del dueño
+- Edición y eliminación de establecimientos
+
+4. SUSCRIPCIONES (StoreKit)
+- Activación de suscripción premium
+- Restricción de funciones si no hay suscripción activa
+- Mostrar beneficios de la suscripción correctamente
+- Modo trial funcional
+
+5. FAVORITOS (JUGADORES)
+- Agregar y quitar canchas de favoritos
+- Mostrar listado de favoritos actualizado
+- Sincronización de favoritos con el backend
+
+6. UI/UX GENERAL
+- Vista adaptativa en iPhone y iPad
+- Mensajes de error amigables al usuario
+- Vistas vacías con mensajes útiles
+- Animaciones o transiciones sin fallos
+
+7. PERSISTENCIA Y RENDIMIENTO
+- Carga offline con datos persistidos (si aplica)
+- Manejo correcto de estados de carga (loading, error, success)
+- Performance fluida en dispositivos antiguos (iPhone 11 en adelante)
+
+💡 Este documento se irá actualizando a medida que se agreguen nuevas funcionalidades o pantallas.
+

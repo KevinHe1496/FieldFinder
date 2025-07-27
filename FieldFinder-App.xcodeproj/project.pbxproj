@@ -286,6 +286,7 @@
 		C90DCA002E3578CE00B16B0B /* 180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 180.png; sourceTree = "<group>"; };
 		C90DCA012E3578CE00B16B0B /* 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024.png; sourceTree = "<group>"; };
 		C90DCA022E3578CE00B16B0B /* Contents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		C90DCA052E35B00800B16B0B /* WhatToTest.en-US.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "WhatToTest.en-US.txt"; sourceTree = "<group>"; };
 		C91AAB9C2DE8E22200EFBE0D /* ErrorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStateView.swift; sourceTree = "<group>"; };
 		C91AABA62DE8EAED00EFBE0D /* LocationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerView.swift; sourceTree = "<group>"; };
 		C91F26362E0B183B002FD5B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -750,6 +751,14 @@
 			path = "AppIcon-Beta.appiconset";
 			sourceTree = "<group>";
 		};
+		C90DCA042E3599DF00B16B0B /* TestFlight */ = {
+			isa = PBXGroup;
+			children = (
+				C90DCA052E35B00800B16B0B /* WhatToTest.en-US.txt */,
+			);
+			path = TestFlight;
+			sourceTree = "<group>";
+		};
 		C92221AC2DD3C34300D6BE8B /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -788,6 +797,7 @@
 		C939BC232DCCF38400B98C16 = {
 			isa = PBXGroup;
 			children = (
+				C90DCA042E3599DF00B16B0B /* TestFlight */,
 				C90DC9ED2E35708C00B16B0B /* ci_scripts */,
 				C939BC592DCCF4BE00B98C16 /* FieldFinder-App */,
 				BF44DE912DEF83B6003D7824 /* FieldFinder-AppTests */,
