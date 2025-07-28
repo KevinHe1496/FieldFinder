@@ -341,6 +341,7 @@
 		C99E4D4A2DE655A800FA04AE /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
 		C9B0AD6A2DCD00950043A9A2 /* RegisterUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserView.swift; sourceTree = "<group>"; };
 		C9B0AD6C2DCD07EB0043A9A2 /* RegisterEstablishmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEstablishmentView.swift; sourceTree = "<group>"; };
+		C9B70DF52E368C8F00EB86C4 /* ci_post_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_xcodebuild.sh; sourceTree = "<group>"; };
 		C9C7BAA62DCE88AD007CB3FA /* AppTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBarView.swift; sourceTree = "<group>"; };
 		C9C7BAB22DCE8A17007CB3FA /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		C9C7BAB42DCE8A29007CB3FA /* OwnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerView.swift; sourceTree = "<group>"; };
@@ -718,6 +719,7 @@
 		C90DC9ED2E35708C00B16B0B /* ci_scripts */ = {
 			isa = PBXGroup;
 			children = (
+				C9B70DF52E368C8F00EB86C4 /* ci_post_xcodebuild.sh */,
 				C90DCA032E3578CE00B16B0B /* AppIcon-Beta.appiconset */,
 				C90DC9EE2E35714D00B16B0B /* ci_pre_xcodebuild.sh */,
 			);
