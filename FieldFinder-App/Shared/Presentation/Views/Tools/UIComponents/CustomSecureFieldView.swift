@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CustomSecureFieldView: View {
     
-    let titleKey: String
+    let titleKey: LocalizedStringKey
     @Binding var textField: String
     var keyboardType: UIKeyboardType
     var prompt: Text

@@ -110,6 +110,8 @@ final class AppState {
     func closeSessionUser() {
         Task {
             try await loginUseCase.logout()
+            self.status = .loading
+            try? await Task.sleep(nanoseconds: 300_000_000) // 0.3 segundos
             self.status = .login
             
             // 💥 Limpia los datos guardados al cerrar sesión
