@@ -49,7 +49,7 @@ final class RegisterFieldViewModelTests: XCTestCase {
         // Act
         await viewModel.registerCancha(request, images: fakeImages, establishmentID: "1")
         // Assert
-        XCTAssertEqual(viewModel.alertMessage, "El campo precio es obligatorio")
+        XCTAssertEqual(viewModel.alertMessage, "The price field is required")
         XCTAssertFalse(viewModel.isLoading)
         
     }
@@ -85,7 +85,7 @@ final class RegisterFieldViewModelTests: XCTestCase {
         // Act
         await viewModel.registerCancha(request, images: fakeImages, establishmentID: "1")
         // Assert
-        XCTAssertEqual(viewModel.alertMessage, "Cancha registrada con éxito")
+        XCTAssertEqual(viewModel.alertMessage, "Field successfully registered")
         XCTAssertTrue(viewModel.shouldDismissAfterAlert)
         XCTAssertFalse(viewModel.isLoading)
     }
@@ -105,14 +105,14 @@ final class RegisterFieldViewModelTests: XCTestCase {
         // Act
         try await viewModel.editCancha(canchaID: "1", canchaModel: request)
         // Assert
-        XCTAssertEqual(viewModel.alertMessage, "La cancha se ha actualizado correctamente.")
+        XCTAssertEqual(viewModel.alertMessage, "The field has been successfully updated.")
     }
     
     func test_DeleteField_ShouldShowMessage_WhenSuccesfull() async throws {
         // Act
         try await viewModel.deleteCancha(canchaID: "1")
         // Assert
-        XCTAssertEqual(viewModel.alertMessage, "La cancha se ha eliminado correctamente.")
+        XCTAssertEqual(viewModel.alertMessage, "The field has been successfully deleted.")
     }
     
 }

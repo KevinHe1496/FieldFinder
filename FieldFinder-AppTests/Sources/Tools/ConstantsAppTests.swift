@@ -11,7 +11,7 @@ import XCTest
 final class ConstantsAppTests: XCTestCase {
     
     func test_ConsApiUrl_ShouldBeCorrect() {
-        XCTAssertEqual(ConstantsApp.CONS_API_URL, "https://fieldfinder-db.onrender.com/api")
+        XCTAssertEqual(ConstantsApp.CONS_API_URL, "https://fieldfinder-db.fly.dev/api")
     }
     
     func test_ConsTokenIdKeychain_ShouldBeCorrect() {
