@@ -37,8 +37,8 @@ final class EnumsTests: XCTestCase {
     // MARK: UserRole Tests
     
     func test_UserRole_DisplayName_ShouldBeCorrect() {
-        XCTAssertEqual(UserRole.jugador.displayName, "Jugador")
-        XCTAssertEqual(UserRole.dueno.displayName, "Dueño")
+        XCTAssertEqual(UserRole.jugador.displayName, "Player")
+        XCTAssertEqual(UserRole.dueno.displayName, "Owner")
     }
     
     func test_UserRole_ID_ShouldMatchRawValue() {
@@ -50,8 +50,8 @@ final class EnumsTests: XCTestCase {
     
     
     func test_Field_DisplayName_ShouldBeCorrect() {
-        XCTAssertEqual(Field.cesped.displayName, "Césped")
-        XCTAssertEqual(Field.sintetico.displayName, "Sintético")
+        XCTAssertEqual(Field.cesped.displayName, "Grass")
+        XCTAssertEqual(Field.sintetico.displayName, "Synthetic")
     }
     
     func test_Field_ID_ShouldMatchRawValue() {

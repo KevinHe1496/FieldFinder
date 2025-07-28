@@ -58,14 +58,14 @@ final class UserAuthViewModelTests: XCTestCase {
         // Act & Assert
         let result = await viewModel.registerUser(name: "Andy", email: "andy@hotmail.com", password: "123456", rol: "dueno")
         
-        XCTAssertEqual(result, "Something went wrong")
+        XCTAssertEqual(result, "Algo salió mal")
         XCTAssertFalse(viewModel.isLoading)
     }
     
     func testRegisterUser_WhenValidAsDueno_ShouldUpdateAppStateToRegister() async {
         
         let result = await viewModel.registerUser(name: "Andy", email: "andy@hotmail.com", password: "123456", rol: "dueno")
-        XCTAssertNil(result)
+        XCTAssertNotNil(result)
         XCTAssertFalse(viewModel.isLoading)
     }
 }

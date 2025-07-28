@@ -51,7 +51,7 @@ final class RegisterEstablishmentViewModelTests: XCTestCase {
             userCoordinates: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
         )
 
-        XCTAssertEqual(viewModel.alertMessage, "Todos los campos son obligatorios. Revisa los datos ingresados.")
+        XCTAssertEqual(viewModel.alertMessage, "All fields are required. Please check the entered data.")
         XCTAssertFalse(viewModel.isLoading)
     }
     
@@ -71,7 +71,7 @@ final class RegisterEstablishmentViewModelTests: XCTestCase {
             userCoordinates: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
         )
         
-        XCTAssertEqual(viewModel.alertMessage, "Es obligatorio subir imágenes.")
+        XCTAssertEqual(viewModel.alertMessage, "Uploading images is required.")
         XCTAssertFalse(viewModel.isLoading)
     }
     
@@ -94,7 +94,7 @@ final class RegisterEstablishmentViewModelTests: XCTestCase {
             userCoordinates: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
         )
         
-        XCTAssertEqual(viewModel.alertMessage, "Establecimiento registrado con éxito.")
+        XCTAssertEqual(viewModel.alertMessage, "Establishment successfully registered.")
     }
     
     
