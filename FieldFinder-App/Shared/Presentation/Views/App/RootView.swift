@@ -20,7 +20,7 @@ struct RootView: View {
                 WelcomeView(hasSeenWelcome: $hasSeenWelcome)
             }
         case .loading:
-            LoadingView()
+            ProgressView()
         case .home:
             AppTabBarView()
         case .registerUser:

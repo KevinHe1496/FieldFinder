@@ -12,11 +12,15 @@ struct MyEstablishmentsView: View {
     @State private var viewModel: OwnerViewModel
     @State private var selectedNavigation: OwnerNavigationEstablishmentDestination?
     let columns = [GridItem(.flexible())]
+    @State private var favoriteStates: [String: Bool] = [:]
+
     
     init(establishment: [EstablishmentResponse], appState: AppState = AppState()) {
         self.establishment = establishment
         _viewModel = State(initialValue: OwnerViewModel(appState: appState))
+        _favoriteStates = State(initialValue: Dictionary(uniqueKeysWithValues: establishment.map { ($0.id, false) }))
     }
+
     
     var body: some View {
         NavigationStack {
@@ -47,10 +51,15 @@ struct MyEstablishmentsView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(establishment) { establishment in
+                            let binding = Binding<Bool>(
+                                get: { favoriteStates[establishment.id] ?? false },
+                                set: { newValue in favoriteStates[establishment.id] = newValue }
+                            )
+                            
                             NavigationLink {
                                 EstablishmentDetailOwnerView(establishmentID: establishment.id)
                             } label: {
-                                PlayerEstablishmentGridItemView(establishment: establishment)
+                                PlayerEstablishmentGridItemView(establishment: establishment, isFavorite: binding)
                             }
                         }
                     }

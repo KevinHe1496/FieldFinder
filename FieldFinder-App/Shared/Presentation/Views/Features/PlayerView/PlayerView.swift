@@ -44,10 +44,22 @@ struct PlayerView: View {
                                 
                                 LazyVGrid(columns: columns, spacing: 20) {
                                     ForEach(viewModel.filterEstablishments) { establishment in
+                                        let isFavoriteBinding = Binding<Bool>(
+                                            get: {
+                                                viewModel.isFavorite(establishmentId: establishment.id)
+                                            },
+                                            set: { newValue in
+                                                Task {
+                                                    try await viewModel.toggleFavorite(establishmentId: establishment.id, isFavorite: newValue)
+                                                    try await viewModel.getFavoritesUser()
+                                                }
+                                            }
+                                        )
+
                                         NavigationLink {
                                             EstablishmentDetailView(establishmentID: establishment.id)
                                         } label: {
-                                            PlayerEstablishmentGridItemView(establishment: establishment, viewModel: viewModel)
+                                            PlayerEstablishmentGridItemView(establishment: establishment, isFavorite: isFavoriteBinding)
                                         }
                                     }
                                 }
