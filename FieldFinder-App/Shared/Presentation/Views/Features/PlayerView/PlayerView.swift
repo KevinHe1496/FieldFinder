@@ -10,7 +10,7 @@ struct PlayerView: View {
     @State private var shownItems: Set<String> = []
     
     let columns = [GridItem(.flexible())]
-    
+
     var body: some View {
         NavigationStack {
             Group {
@@ -44,22 +44,10 @@ struct PlayerView: View {
                                 
                                 LazyVGrid(columns: columns, spacing: 20) {
                                     ForEach(viewModel.filterEstablishments) { establishment in
-                                        let isFavoriteBinding = Binding<Bool>(
-                                            get: {
-                                                viewModel.isFavorite(establishmentId: establishment.id)
-                                            },
-                                            set: { newValue in
-                                                Task {
-                                                    try await viewModel.toggleFavorite(establishmentId: establishment.id, isFavorite: newValue)
-                                                    try await viewModel.getFavoritesUser()
-                                                }
-                                            }
-                                        )
-
                                         NavigationLink {
                                             EstablishmentDetailView(establishmentID: establishment.id)
                                         } label: {
-                                            PlayerEstablishmentGridItemView(establishment: establishment, isFavorite: isFavoriteBinding)
+                                            PlayerEstablishmentGridItemView(establishment: establishment, viewModel: viewModel)
                                         }
                                     }
                                 }
@@ -68,7 +56,7 @@ struct PlayerView: View {
                         }
                         .refreshable {
                             do {
-                                try await viewModel.loadData()
+                                await viewModel.loadData()
                                 try await viewModel.getFavoritesUser()
                                 shownItems = []
                                 for establishment in viewModel.filterEstablishments {
@@ -119,7 +107,7 @@ struct PlayerView: View {
     
     private func reloadEstablishments() async {
         do {
-            try await viewModel.loadData()
+            await viewModel.loadData()
             try await viewModel.getFavoritesUser()
             
             shownItems = []

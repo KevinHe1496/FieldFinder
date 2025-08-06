@@ -11,6 +11,7 @@ protocol UserFavoritesServiceProtocol {
     func addFavorite(with establishmentId: String) async throws
     func removeFavorite(with establishmentId: String) async throws
     func fetchFavorites() async throws -> [FavoriteEstablishmentModel]
+    func setLikeEstablishment(establishmentId: String) async throws -> Bool
 }
 
 final class UserFavoritesService: UserFavoritesServiceProtocol {
@@ -105,5 +106,48 @@ final class UserFavoritesService: UserFavoritesServiceProtocol {
             print("Error: \(error.localizedDescription)")
             throw FFError.dataNoReveiced
         }
+    }
+    
+    func setLikeEstablishment(establishmentId: String) async throws -> Bool {
+        let urlString = "\(ConstantsApp.CONS_API_URL)\(Endpoints.favoriteUser.rawValue)/\(establishmentId)"
+
+        guard let url = URL(string: urlString) else {
+            throw FFError.badUrl
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = HttpMethods.post
+        request.addValue(HttpHeader.content, forHTTPHeaderField: HttpHeader.contentTypeID)
+
+        let jwtToken = KeyChainFF().loadPK(key: ConstantsApp.CONS_TOKEN_ID_KEYCHAIN)
+        request.setValue("\(HttpHeader.bearer) \(jwtToken)", forHTTPHeaderField: HttpHeader.authorization)
+
+        let (_, response) = try await URLSession.shared.data(for: request)
+
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw FFError.invalidResponse
+        }
+
+        switch httpResponse.statusCode {
+        case 201, 204: // éxito: se agregó o eliminó
+            return true
+        default:
+            throw FFError.errorFromApi(statusCode: httpResponse.statusCode)
+        }
+    }
+
+}
+
+
+//ejemplo extension
+extension URLResponse {
+    
+    func getResponseCode() -> Int {
+        if let resp = self as? HTTPURLResponse {
+            return resp.statusCode
+        } else{
+            return 500
+        }
+        
     }
 }

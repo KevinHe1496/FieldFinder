@@ -13,6 +13,7 @@ enum FFError: Error, CustomStringConvertible {
     case noLocationFound
     case decodingError
     case locationPermissionDenied
+    case invalidResponse
     
     var description: String {
         switch self {
@@ -41,6 +42,8 @@ enum FFError: Error, CustomStringConvertible {
             return "Decoding error"
         case .locationPermissionDenied:
             return "Location permission denied"
+        case .invalidResponse:
+            return "Invalid Response"
         }
     }
 }

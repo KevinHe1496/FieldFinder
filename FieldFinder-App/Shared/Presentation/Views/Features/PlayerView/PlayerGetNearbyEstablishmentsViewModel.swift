@@ -14,11 +14,11 @@ import SwiftUI
 @Observable
 final class PlayerGetNearbyEstablishmentsViewModel: ObservableObject {
     
-
+    
     var status: ViewState<[EstablishmentResponse]> = .idle
-
+    
     var statusFavorites: ViewState<[FavoriteEstablishmentModel]> = .idle
-
+    
     
     var locationService = LocationService() // Servicio para obtener la ubicación del usuario.
     
@@ -38,6 +38,18 @@ final class PlayerGetNearbyEstablishmentsViewModel: ObservableObject {
     var establishmentSearch = ""
     
     var showOpenSettings = false
+    
+    var establishmentData = [EstablishmentResponse]()
+    
+    var isFullyLoaded: Bool {
+        switch (status, statusFavorites) {
+        case (.success, .success):
+            return true
+        default:
+            return false
+        }
+    }
+
     
     // Devuelve los establecimientos filtrados por nombre según lo que escribe el usuario.
     var filterEstablishments: [EstablishmentResponse] {
@@ -70,6 +82,7 @@ final class PlayerGetNearbyEstablishmentsViewModel: ObservableObject {
         status = .loading
         do{
             let establecimientos = try await useCase.fetchAllEstablishments(coordinate: coordinate)
+            establishmentData = establecimientos
             status = .success(establecimientos)
         } catch FFError.locationPermissionDenied {
             
@@ -79,20 +92,36 @@ final class PlayerGetNearbyEstablishmentsViewModel: ObservableObject {
     
     // Carga los datos iniciales: obtiene ubicación, establecimientos y centra el mapa.
     @MainActor
-    func loadData() async throws {
+    func loadData() async {
         status = .loading
         do {
             let coordinates = try await locationService.requestLocation()
-            try await fetchEstablishments(near: coordinates)
+            let establecimientos = try await useCase.fetchAllEstablishments(coordinate: coordinates)
+            self.establishmentData = establecimientos
+            self.status = .success(establecimientos)
+
+            // Intentar cargar favoritos, pero sin romper la carga si falla
+            do {
+                let favoritos = try await favoriteUseCase.fetchFavorites()
+                self.favoritesData = favoritos
+                self.statusFavorites = .success(favoritos)
+            } catch {
+                // No está logueado o hubo otro error, limpiamos favoritos
+                self.favoritesData = []
+                self.statusFavorites = .error("No se pudo cargar favoritos.")
+            }
+
             updateCamera(to: coordinates)
+            
         } catch FFError.locationPermissionDenied {
-            showOpenSettings = true // activar el botón "Ir a Ajustes"
+            showOpenSettings = true
             status = .error("Necesitamos acceso a tu ubicación para mostrar establecimientos cercanos. Por favor actívalo desde Ajustes.")
         } catch {
-            status = .error("No se pudo cargar los establecimientos ni la ubicación.")
+            status = .error("No se pudo cargar los establecimientos.")
         }
     }
 
+    
     
     // Marca o desmarca un establecimiento como favorito.
     @MainActor
@@ -116,7 +145,7 @@ final class PlayerGetNearbyEstablishmentsViewModel: ObservableObject {
         } catch {
             statusFavorites = .error("No se pudo cargar los favoritos.")
         }
-
+        
     }
     
     /// Actualiza la posición de la cámara en el mapa.
@@ -164,5 +193,17 @@ final class PlayerGetNearbyEstablishmentsViewModel: ObservableObject {
             }
         }
     }
+    @MainActor
+    func setLikeHero(establishmentId: String) async throws {
+        if try await favoriteUseCase.setLikeEstablishment(establishmentId: establishmentId) {
+            if let index = establishmentData.firstIndex(where: { $0.id == establishmentId }) {
+                establishmentData[index].isFavorite.toggle()
+            }
+            try await getFavoritesUser()
+        } else {
+            NSLog("Error al llamar me gusta")
+        }
+    }
+
 
 }

@@ -79,7 +79,7 @@ struct MapEstablishmentsView: View {
                         
                         CustomButtonView(title: "Intentar de nuevo", color: .primaryColorGreen, textColor: .white) {
                             Task {
-                                try await viewModel.loadData()
+                                await viewModel.loadData()
                             }
                         }
                         if viewModel.showOpenSettings {
@@ -92,7 +92,7 @@ struct MapEstablishmentsView: View {
                 }
             }
             .task {
-                try? await viewModel.loadData()
+                await viewModel.loadData()
             }
             .sheet(item: $viewModel.selectedEstablishment) { establishment in
                 EstablishmentSelectedMapDetailView(
