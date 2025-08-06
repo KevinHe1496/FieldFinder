@@ -10,5 +10,6 @@ protocol UserFavoritesServiceRepositoryProtocol {
     func addFavorite(establishmentId: String) async throws
     func removeFavorite(establishmentId: String) async throws
     func fetchFavorites() async throws -> [FavoriteEstablishmentModel]
+    func setLikeEstablishment(establishmentId: String) async throws -> Bool
 }
 

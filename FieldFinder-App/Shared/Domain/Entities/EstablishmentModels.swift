@@ -30,7 +30,7 @@ struct EstablishmentResponse: Codable, Identifiable {
     let ownerID: String
     let info: String
     let address: String
-    let isFavorite: Bool
+    var isFavorite: Bool
     let address2: String?
     let phone: String
     let userName: String

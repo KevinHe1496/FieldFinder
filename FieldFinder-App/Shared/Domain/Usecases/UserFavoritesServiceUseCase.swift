@@ -10,6 +10,7 @@ protocol UserFavoritesServiceUseCaseProtocol {
     func addFavorite(establishmentId: String) async throws
     func removeFavorite(establishmentId: String) async throws
     func fetchFavorites() async throws -> [FavoriteEstablishmentModel]
+    func setLikeEstablishment(establishmentId: String) async throws -> Bool
 }
 
 final class UserFavoritesServiceUseCase: UserFavoritesServiceUseCaseProtocol {
@@ -29,5 +30,9 @@ final class UserFavoritesServiceUseCase: UserFavoritesServiceUseCaseProtocol {
     
     func fetchFavorites() async throws -> [FavoriteEstablishmentModel] {
         try await repository.fetchFavorites()
+    }
+    
+    func setLikeEstablishment(establishmentId: String) async throws -> Bool {
+        try await repository.setLikeEstablishment(establishmentId: establishmentId)
     }
 }

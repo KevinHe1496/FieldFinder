@@ -59,7 +59,7 @@ struct MyEstablishmentsView: View {
                             NavigationLink {
                                 EstablishmentDetailOwnerView(establishmentID: establishment.id)
                             } label: {
-                                PlayerEstablishmentGridItemView(establishment: establishment, isFavorite: binding)
+                                PlayerEstablishmentGridItemView(establishment: establishment, viewModel: PlayerGetNearbyEstablishmentsViewModel())
                             }
                         }
                     }

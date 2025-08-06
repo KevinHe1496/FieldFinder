@@ -25,4 +25,8 @@ final class UserFavoritesServiceRepository: UserFavoritesServiceRepositoryProtoc
     func fetchFavorites() async throws -> [FavoriteEstablishmentModel] {
         try await network.fetchFavorites()
     }
+    
+    func setLikeEstablishment(establishmentId: String) async throws -> Bool {
+        try await network.setLikeEstablishment(establishmentId: establishmentId)
+    }
 }

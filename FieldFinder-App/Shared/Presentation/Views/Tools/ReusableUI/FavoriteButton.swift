@@ -8,23 +8,20 @@ import SwiftUI
 
 struct FavoriteButton: View {
     @Binding var isFavorite: Bool
-    var onToggle: ((Bool) -> Void)? = nil
+    var onToggle: (() -> Void)? = nil
 
     @State private var animate = false
-    @State private var internalFavorite: Bool = false
 
     var body: some View {
         Button(action: {
-            internalFavorite.toggle()
-            isFavorite = internalFavorite
             animate = true
-            onToggle?(internalFavorite)
+            onToggle?()
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 animate = false
             }
         }) {
-            Image(systemName: internalFavorite ? "heart.fill" : "heart")
+            Image(systemName: isFavorite ? "heart.fill" : "heart")
                 .font(.system(size: 24))
                 .foregroundStyle(.red)
                 .padding(8)
@@ -33,11 +30,6 @@ struct FavoriteButton: View {
                 .scaleEffect(animate ? 1.2 : 1.0)
                 .animation(.spring(response: 0.3, dampingFraction: 0.5), value: animate)
         }
-        .onAppear {
-            internalFavorite = isFavorite
-        }
-        .onChange(of: isFavorite) { newValue, _ in
-            internalFavorite = newValue
-        }
     }
 }
+
