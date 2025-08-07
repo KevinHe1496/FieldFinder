@@ -2,6 +2,10 @@ import Foundation
 
 @testable import FieldFinder_App
 final class MockUserFavoritesService: UserFavoritesServiceProtocol {
+    func setLikeEstablishment(establishmentId: String) async throws -> Bool {
+        true
+    }
+    
     
     var didCallRemoveFavorite = false
     var didCallAddFavorite = false
