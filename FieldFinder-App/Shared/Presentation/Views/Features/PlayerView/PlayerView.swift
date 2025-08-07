@@ -10,7 +10,7 @@ struct PlayerView: View {
     @State private var shownItems: Set<String> = []
     
     let columns = [GridItem(.flexible())]
-
+    
     var body: some View {
         NavigationStack {
             Group {
@@ -97,29 +97,29 @@ struct PlayerView: View {
             }
             .navigationTitle("Establecimientos")
             .searchable(text: $viewModel.establishmentSearch)
-            .onAppear {
-                Task {
-                    await reloadEstablishments()
-                }
+            .task {
+                await reloadEstablishments()
             }
         }
     }
     
+    @MainActor
     private func reloadEstablishments() async {
         do {
             await viewModel.loadData()
-            try await viewModel.getFavoritesUser()
             
+            // Reinicia la vista
             shownItems = []
             didLoad = true
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                for establishment in viewModel.filterEstablishments {
-                    shownItems.insert(establishment.id)
-                }
+            // Carga animada de ítems con pequeño delay para UX
+            try await Task.sleep(nanoseconds: 300_000_000) // 0.3 segundos
+            for establishment in viewModel.filterEstablishments {
+                shownItems.insert(establishment.id)
             }
+            
         } catch {
-            print("Error al recargar: \(error)")
+            print("Error al recargar establecimientos: \(error.localizedDescription)")
         }
     }
 }

@@ -95,22 +95,31 @@ final class PlayerGetNearbyEstablishmentsViewModel: ObservableObject {
     func loadData() async {
         status = .loading
         do {
+            // 1. Pide ubicación
             let coordinates = try await locationService.requestLocation()
+            
+            // 2. Carga los establecimientos
             let establecimientos = try await useCase.fetchAllEstablishments(coordinate: coordinates)
             self.establishmentData = establecimientos
             self.status = .success(establecimientos)
-
-            // Intentar cargar favoritos, pero sin romper la carga si falla
-            do {
-                let favoritos = try await favoriteUseCase.fetchFavorites()
-                self.favoritesData = favoritos
-                self.statusFavorites = .success(favoritos)
-            } catch {
-                // No está logueado o hubo otro error, limpiamos favoritos
-                self.favoritesData = []
-                self.statusFavorites = .error("No se pudo cargar favoritos.")
+            
+            // 3. Carga favoritos SIN interrumpir si falla
+            Task.detached {
+                do {
+                    let favoritos = try await self.favoriteUseCase.fetchFavorites()
+                    await MainActor.run {
+                        self.favoritesData = favoritos
+                        self.statusFavorites = .success(favoritos)
+                    }
+                } catch {
+                    await MainActor.run {
+                        self.favoritesData = []
+                        self.statusFavorites = .error("No se pudo cargar favoritos.")
+                    }
+                }
             }
 
+            // 4. Actualiza la cámara del mapa
             updateCamera(to: coordinates)
             
         } catch FFError.locationPermissionDenied {
@@ -120,6 +129,8 @@ final class PlayerGetNearbyEstablishmentsViewModel: ObservableObject {
             status = .error("No se pudo cargar los establecimientos.")
         }
     }
+
+
 
     
     
