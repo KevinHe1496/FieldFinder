@@ -3,7 +3,7 @@
 #  ci_pre_xcodebuild.sh
 #  FieldFinder-App
 #
-#  Created by Kevin Heredia on 26/7/25.
+#  Created by Kevin Heredia on 26/7/25
 #  
 echo 'Change Beta App Icon'
 
